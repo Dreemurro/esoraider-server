@@ -1,0 +1,25 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+gql = {extras = ["all"], version = "3.0.0a6"}
+requests-oauthlib = "*"
+backoff = "*"
+dataclasses-json = "*"
+loguru = "*"
+blacksheep = "*"
+python-dotenv = "*"
+uvicorn = "*"
+
+[dev-packages]
+autopep8 = "*"
+flake8 = "*"
+wemake-python-styleguide = "*"
+
+[requires]
+python_version = "3.9"
+
+[pipenv]
+allow_prereleases = true
