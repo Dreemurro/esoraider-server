@@ -1,16 +1,15 @@
 import asyncio
-from functools import cache
-
-from gql.transport.exceptions import TransportQueryError
-from api.response import SummaryTableData
-from analysis.report_builder import ReportBuilder
-from api.api import ApiWrapper
 
 from blacksheep.server import Application
-from blacksheep.server.responses import json, not_found, unauthorized
+from blacksheep.server.responses import json, not_found
+from gql.transport.exceptions import TransportQueryError
 
+from analysis.report_builder import ReportBuilder
+from api.api import ApiWrapper
+from api.response import SummaryTableData
+from settings import DEBUG, SHOW_ERROR_DETAILS
 
-app = Application(show_error_details=True, debug=True)
+app = Application(show_error_details=SHOW_ERROR_DETAILS, debug=DEBUG)
 
 app.use_cors(
     allow_methods="*",
@@ -80,7 +79,6 @@ async def get_char(
     )
     r = await report.build()
 
-    # return response
     return json(r)
 
 
