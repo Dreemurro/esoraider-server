@@ -12,6 +12,7 @@ loguru = "*"
 blacksheep = "*"
 python-dotenv = "*"
 uvicorn = "*"
+gunicorn = "*"
 
 [dev-packages]
 autopep8 = "*"
