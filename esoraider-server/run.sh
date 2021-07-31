@@ -1,1 +1,1 @@
-gunicorn -w 4 -k uvicorn.workers.UvicornWorker -b :5000 app:app
+gunicorn --keyfile=./privkey.pem --certfile=./fullchain.pem -w 4 -k uvicorn.workers.UvicornWorker -b :5000 app:app --daemon
