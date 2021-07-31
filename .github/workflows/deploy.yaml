@@ -1,0 +1,24 @@
+name: deploy
+on: [push]
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: SSH into server and deploy
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          port: ${{ secrets.PORT }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.KEY }}
+          passphrase: ${{ secrets.PASSPHRASE }}
+          fingerprint: ${{ secrets.FINGERPRINT }}
+          script: |
+            source ~/.profile
+            cd esoraider-server
+            pkill gunicorn
+            git pull --ff-only
+            pipenv install -d
+            cd esoraider-server
+            pipenv run sh run.sh
