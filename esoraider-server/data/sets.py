@@ -85,3 +85,10 @@ class GEAR_SETS(EsoEnum):
         link='https://eso-hub.com/en/sets/zens-redress',
         icon='https://eso-hub.com/storage/icons/gear_stagzenlgt_helmet_a.png',
     )
+    DIAMONDS_VICTORY = GearSet(
+        name='Diamond\'s Victory',
+        id=584,
+        buffs=[BUFFS.MELEE_SUPREMACY.value, BUFFS.RANGE_SUPREMACY.value],
+        link='https://eso-hub.com/en/sets/diamonds-victory',
+        icon='https://eso-hub.com/storage/icons/gear_breton_light_head_d.png',
+    )

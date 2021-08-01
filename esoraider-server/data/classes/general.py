@@ -124,6 +124,16 @@ class BUFFS(EsoEnum):
         id=61771,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_healer_019.png',
     )
+    RANGE_SUPREMACY = Buff(
+        name='Range Supremacy',
+        id=154571,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_rogue_042.png',
+    )
+    MELEE_SUPREMACY = Buff(
+        name='Melee Supremacy',
+        id=154574,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_rogue_026.png',
+    )
 
 
 class DEBUFFS(EsoEnum):
