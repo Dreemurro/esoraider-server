@@ -190,6 +190,26 @@ class GENERAL_SKILLS(EsoEnum):
         link='https://eso-hub.com/en/skills/weapon/destruction-staff/elemental-blockade',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_destructionstaff_002a.png',
     )
+    UNSTABLE_WALL_OF_FROST_EXPLOSION = Skill(
+        name='Unstable Wall of Frost',
+        id=39072,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_destructionstaff_002a.png',
+    )
+    UNSTABLE_WALL_OF_FROST_DAMAGE = Skill(
+        name='Unstable Wall of Frost',
+        id=39071,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_destructionstaff_002a.png',
+    )
+    UNSTABLE_WALL_OF_FROST = Skill(
+        name='Unstable Wall of Frost',
+        id=39067,
+        link='https://eso-hub.com/en/skills/weapon/destruction-staff/unstable-wall-of-elements',
+        children=[
+            UNSTABLE_WALL_OF_FROST_DAMAGE,
+            UNSTABLE_WALL_OF_FROST_EXPLOSION,
+        ],
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_destructionstaff_002a.png',
+    )
     UNSTABLE_WALL_OF_FIRE_EXPLOSION = Skill(
         name='Unstable Wall of Fire',
         id=39056,
@@ -220,6 +240,9 @@ class GENERAL_SKILLS(EsoEnum):
             UNSTABLE_WALL_OF_FIRE,
             UNSTABLE_WALL_OF_FIRE_DAMAGE,
             UNSTABLE_WALL_OF_FIRE_EXPLOSION,
+            UNSTABLE_WALL_OF_FROST,
+            UNSTABLE_WALL_OF_FROST_DAMAGE,
+            UNSTABLE_WALL_OF_FROST_EXPLOSION,
         ],
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_destructionstaff_002b.png',
     )
