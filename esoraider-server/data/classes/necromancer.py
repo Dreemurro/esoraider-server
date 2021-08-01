@@ -1,8 +1,12 @@
-from data.core import EsoEnum, Skill
+from data.core import EsoEnum, Skill, Buff
 
 
 class NECROMANCER_BUFFS(EsoEnum):
-    pass
+    SKELETAL_ARCANIST = Buff(
+        name='Skeletal Arcanist',
+        id=118726,  # ID matches skill, it's a pet
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_necromancer_003_b.png',
+    )
 
 
 class NECROMANCER_DEBUFFS(EsoEnum):
@@ -38,4 +42,11 @@ class NECROMANCER_SKILLS(EsoEnum):
         link='https://eso-hub.com/en/skills/necromancer/grave-lord/detonating-siphon',
         children=[DETONATING_SIPHON_DAMAGE, DETONATING_SIPHON_EXPLOSION],
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_necromancer_005_b.png',
+    )
+    SKELETAL_ARCANIST = Skill(
+        name='Skeletal Arcanist',
+        id=118726,
+        link='https://eso-hub.com/en/skills/necromancer/grave-lord/skeletal-arcanist',
+        buffs=[NECROMANCER_BUFFS.SKELETAL_ARCANIST.value],
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_necromancer_003_b.png',
     )
