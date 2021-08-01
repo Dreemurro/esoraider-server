@@ -59,6 +59,17 @@ class BUFFS(EsoEnum):
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_major_force.png',
     )
 
+    """
+    MINOR FORCE
+    KNOWN IDS: 
+    - 103708
+    """
+    MINOR_FORCE = Buff(
+        name='Minor Force',
+        id=61746,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_minor_force.png',
+    )
+
     MINOR_COURAGE = Buff(
         name='Minor Courage',
         id=147417,  # Another ID - 121878
@@ -298,3 +309,10 @@ class GENERAL_SKILLS(EsoEnum):
     #     debuffs=[],
     #     link='https://eso-hub.com/en/skills/weapon/restoration-staff/quick-siphon',
     # )
+    CHANNELED_ACCELERATION = Skill(
+        name='Channeled Acceleration',
+        id=103706,
+        buffs=[BUFFS.MINOR_FORCE.value],
+        link='https://eso-hub.com/en/skills/guild/psijic-order/channeled-acceleration',
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_psijic_005_a.png',
+    )
