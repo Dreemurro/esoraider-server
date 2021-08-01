@@ -162,6 +162,11 @@ class DEBUFFS(EsoEnum):
         id=142653,
         icon='https://assets.rpglogs.com/img/eso/abilities/death_recap_shock_melee.png',
     )
+    WAY_OF_MARTIAL_KNOWLEDGE = Debuff(
+        name='Way of Martial Knowledge',
+        id=127070,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_mage_044.png',
+    )
 
 
 class GENERAL_SKILLS(EsoEnum):

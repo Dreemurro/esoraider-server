@@ -70,3 +70,10 @@ class GEAR_SETS(EsoEnum):
         link='https://eso-hub.com/en/sets/powerful-assault',
         icon='https://eso-hub.com/storage/icons/gear_breton_medium_head_d.png',
     )
+    WAY_OF_MARTIAL_KNOWLEDGE = GearSet(
+        name='Way of Martial Knowledge',
+        id=147,
+        debuffs=[DEBUFFS.WAY_OF_MARTIAL_KNOWLEDGE.value],
+        link='https://eso-hub.com/en/sets/way-of-martial-knowledge',
+        icon='https://eso-hub.com/storage/icons/gear_yokudan_light_head_a.png',
+    )
