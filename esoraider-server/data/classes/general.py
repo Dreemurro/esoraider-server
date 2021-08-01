@@ -108,6 +108,11 @@ class BUFFS(EsoEnum):
         id=151033,
         icon='https://assets.rpglogs.com/img/eso/abilities/death_recap_fire_dot_heavy.png',
     )
+    POWERFUL_ASSAULT = Buff(
+        name='Powerful Assault',
+        id=61771,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_healer_019.png',
+    )
 
 
 class DEBUFFS(EsoEnum):
