@@ -59,7 +59,7 @@ class GEAR_SETS(EsoEnum):
     SAXHLEEL_CHAMPION = GearSet(
         name='Saxhleel Champion',
         id=585,
-        buffs=[BUFFS.MAJOR_FORCE.value],
+        buffs=[BUFFS.MAJOR_FORCE_SAXHLEEL_CHAMPION.value],
         link='https://eso-hub.com/en/sets/saxhleel-champion',
         icon='https://eso-hub.com/storage/icons/gear_rockgrove_heavy_head_a.png',
     )

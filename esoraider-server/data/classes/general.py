@@ -42,11 +42,23 @@ class BUFFS(EsoEnum):
         id=61687,  # Another ID - 92503
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_major_sorcery.png',
     )
+
+    """
+    MAJOR FORCE
+    KNOWN IDS: 
+    - 61747 (overall duration?) 
+    """
     MAJOR_FORCE = Buff(
         name='Major Force',
-        id=40225,  # Another ID - 61747
+        id=40225,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_major_force.png',
     )
+    MAJOR_FORCE_SAXHLEEL_CHAMPION = Buff(
+        name='Major Force',
+        id=154830,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_major_force.png',
+    )
+
     MINOR_COURAGE = Buff(
         name='Minor Courage',
         id=147417,  # Another ID - 121878
