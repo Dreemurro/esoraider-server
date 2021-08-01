@@ -63,6 +63,13 @@ class GEAR_SETS(EsoEnum):
         link='https://eso-hub.com/en/sets/saxhleel-champion',
         icon='https://eso-hub.com/storage/icons/gear_rockgrove_heavy_head_a.png',
     )
+    PERFECTED_SAXHLEEL_CHAMPION = GearSet(
+        name='Perfected Saxhleel Champion',
+        id=589,
+        buffs=[BUFFS.MAJOR_FORCE_SAXHLEEL_CHAMPION.value],
+        link='https://eso-hub.com/en/sets/perfected-saxhleel-champion',
+        icon='https://eso-hub.com/storage/icons/gear_rockgrove_heavy_head_a.png',
+    )
     POWERFULL_ASSAULT = GearSet(
         name='Powerful Assault',
         id=180,
