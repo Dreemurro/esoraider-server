@@ -194,6 +194,20 @@ class DEBUFFS(EsoEnum):
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_healer_006.png',
     )
 
+    """
+    From glyphs
+    """
+    CRUSHER = Debuff(
+        name='Crusher',
+        id=17906,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ava_artifact_004.png',
+    )
+    WEAKENING = Debuff(
+        name='Weakening',
+        id=17945,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ava_artifact_005.png',
+    )
+
 
 class GENERAL_SKILLS(EsoEnum):
     BLOCKADE_OF_FROST_DAMAGE = Skill(

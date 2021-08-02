@@ -3,30 +3,35 @@ from typing import List, Set, Union
 
 from loguru import logger
 
-from data.core import Buff, Debuff, GearSet, Skill
 from api.response import Aura, Cast, CastsTableData
+from data.core import Buff, Debuff, GearSet, Glyph, Skill
 
 
+# TODO: Refactor
 class Uptimes:
     def __init__(
         self,
         damage_done_table,
         known_skills,
         known_sets,
+        known_glyphs,
         char_buffs,
         char_debuffs,
     ) -> None:
         self.skills: List[Skill] = None
         self.sets: List[GearSet] = None
+        self.glyphs: List[Glyph] = None
         self._damage_done_table: CastsTableData = damage_done_table
         self._known_skills: Set[Skill] = known_skills
         self._known_sets: List[GearSet] = known_sets
+        self._known_glyphs: List[Glyph] = known_glyphs
         self._char_buffs: List[Aura] = char_buffs
         self._char_debuffs: List[Aura] = char_debuffs
 
     def calculate(self):
         self.skills = self._skills_uptimes()
         self.sets = self._sets_uptimes()
+        self.glyphs = self._glyphs_uptimes()
 
     def _sets_uptimes(self):
         new_sets = []
@@ -42,20 +47,27 @@ class Uptimes:
             new_skills.append(new_skill)
         return new_skills
 
+    def _glyphs_uptimes(self):
+        new_glyphs = []
+        for glyph in self._known_glyphs:
+            new_glyph = self._calculate_item_uptimes(glyph)
+            new_glyphs.append(new_glyph)
+        return new_glyphs
+
     def _calculate_item_uptimes(
         self,
-        skill_or_set: Union[Skill, GearSet],
+        item: Union[Skill, GearSet, Glyph],
     ) -> Union[Skill, GearSet]:
         new_buffs = self._calculate_effects_uptimes(
-            skill_or_set.buffs, self._char_buffs,
+            item.buffs, self._char_buffs,
         )
         new_debuffs = self._calculate_effects_uptimes(
-            skill_or_set.debuffs, self._char_debuffs,
+            item.debuffs, self._char_debuffs,
         )
 
         new_children: List[Skill] = []
-        if isinstance(skill_or_set, Skill) and skill_or_set.children:
-            for child in skill_or_set.children:
+        if isinstance(item, Skill) and item.children:
+            for child in item.children:
                 child_uptime = self._calculate_skill_or_effect_uptime(
                     child,
                     self._damage_done_table.entries,
@@ -64,49 +76,56 @@ class Uptimes:
                     new_children.append(replace(child, uptime=child_uptime))
 
         new_uptime = self._set_parent_uptime(
-            skill_or_set,
+            item,
             new_buffs,
             new_debuffs,
             new_children,
         )
 
-        if isinstance(skill_or_set, Skill):
-            new_skill_or_set = replace(
-                skill_or_set,
+        if isinstance(item, Skill):
+            new_item = replace(
+                item,
                 buffs=new_buffs,
                 debuffs=new_debuffs,
                 children=new_children,
                 uptime=new_uptime,
             )
-        elif isinstance(skill_or_set, GearSet):
-            new_skill_or_set = replace(
-                skill_or_set,
+        elif isinstance(item, GearSet):
+            new_item = replace(
+                item,
+                buffs=new_buffs,
+                debuffs=new_debuffs,
+                uptime=new_uptime,
+            )
+        elif isinstance(item, Glyph):
+            new_item = replace(
+                item,
                 buffs=new_buffs,
                 debuffs=new_debuffs,
                 uptime=new_uptime,
             )
 
-        logger.debug(new_skill_or_set)
-        return new_skill_or_set
+        logger.debug(new_item)
+        return new_item
 
     def _set_parent_uptime(
         self,
-        skill_or_set: Union[Skill, GearSet],
+        parent_item: Union[Skill, GearSet, Glyph],
         buffs: List[Buff],
         debuffs: List[Debuff],
         children: List[Skill] = None,
     ) -> Union[float, None]:
         # If there is exactly one child/buff/debuff of a skill/set being
         # tracked - move calculated uptime to parent skill/set
-        if isinstance(skill_or_set, Skill):
-            uptime = skill_or_set.bumped_uptime(
+        if isinstance(parent_item, Skill):
+            uptime = parent_item.bumped_uptime(
                 buffs, debuffs, children,
             ) or self._calculate_skill_or_effect_uptime(
-                skill_or_set,
+                parent_item,
                 self._damage_done_table.entries,
             )
-        elif isinstance(skill_or_set, GearSet):
-            uptime = skill_or_set.bumped_uptime(buffs, debuffs)
+        elif isinstance(parent_item, (GearSet, Glyph)):
+            uptime = parent_item.bumped_uptime(buffs, debuffs)
 
         return uptime
 

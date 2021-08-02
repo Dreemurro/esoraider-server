@@ -9,8 +9,9 @@ from data.classes.nightblade import NIGHTBLADE_SKILLS
 from data.classes.sorcerer import SORCERER_SKILLS
 from data.classes.templar import TEMPLAR_SKILLS
 from data.classes.warden import WARDEN_SKILLS
-from data.core import Buff, Debuff, EsoEnum, GearSet, Skill
+from data.core import Buff, Debuff, EsoEnum, GearSet, Glyph, Skill
 from data.sets import GEAR_SETS
+from data.glyphs import GLYPHS
 from api.response import SummaryTableData, Talent
 
 
@@ -26,6 +27,7 @@ class TrackedInfo:
 
         self.skills: Set[Skill] = set()
         self.sets: List[GearSet] = []
+        self.glyphs: List[Glyph] = []
         self.buffs: List[Buff] = []
         self.debuffs: List[Debuff] = []
 
@@ -33,6 +35,7 @@ class TrackedInfo:
         self._get_char_skills()
         self._get_known_skills()
         self._get_known_sets()
+        self._get_known_glyphs()
         self._get_known_effects()
 
     def _get_char_skills(self):
@@ -91,15 +94,30 @@ class TrackedInfo:
             logger.debug(known_set)
             self.sets.append(known_set)
 
+    def _get_known_glyphs(self):
+        logger.info('Checking known enchants in char data')
+        char_enchants = {
+            gear.enchant_type
+            for gear in self._summary_table.combatant_info.gear
+        }
+        for enchant in char_enchants:
+            try:
+                known_glyph = GLYPHS(enchant).value
+            except StopIteration:
+                continue
+
+            logger.debug(known_glyph)
+            self.glyphs.append(known_glyph)
+
     def _get_known_effects(self):
         logger.info('Getting buffs & debuffs to track based on skills & sets')
 
-        for skill_or_set in [*self.skills, *self.sets]:
-            if skill_or_set.buffs:
-                self.buffs.extend(skill_or_set.buffs)
-                for buff in skill_or_set.buffs:
+        for tracked_info in [*self.skills, *self.sets, *self.glyphs]:
+            if tracked_info.buffs:
+                self.buffs.extend(tracked_info.buffs)
+                for buff in tracked_info.buffs:
                     logger.debug(buff)
-            if skill_or_set.debuffs:
-                self.debuffs.extend(skill_or_set.debuffs)
-                for debuff in skill_or_set.debuffs:
+            if tracked_info.debuffs:
+                self.debuffs.extend(tracked_info.debuffs)
+                for debuff in tracked_info.debuffs:
                     logger.debug(debuff)

@@ -117,6 +117,32 @@ class GearSet:
         return uptime
 
 
+@dataclass(frozen=True)
+class Glyph:
+    name: str
+    id: int
+    link: str
+    icon: str
+
+    buffs: List[Buff] = None
+    debuffs: List[Debuff] = None
+    uptime: Optional[float] = None
+    advice: Optional[str] = None
+
+    def bumped_uptime(
+        self,
+        buffs: List[Buff],
+        debuffs: List[Debuff],
+    ) -> Optional[float]:
+        if buffs and len(buffs) == 1 and not debuffs:
+            uptime = buffs[0].uptime
+        elif debuffs and len(debuffs) == 1 and not buffs:
+            uptime = debuffs[0].uptime
+        else:
+            uptime = None
+        return uptime
+
+
 class EsoEnum(Enum):
     @classmethod
     def _missing_(cls, value):

@@ -67,6 +67,7 @@ class ReportBuilder:
             self.requested_data.damage_done_table,
             self.tracked_info.skills,
             self.tracked_info.sets,
+            self.tracked_info.glyphs,
             self._char_buffs,
             self._char_debuffs,
         )
@@ -112,6 +113,7 @@ class ReportBuilder:
 
     def _build_report(self):
         logger.info('Calculating uptimes')
+        # TODO: Separate dataclass
         self.report = {
             'char': {
                 'id': self.char_id,
@@ -121,7 +123,9 @@ class ReportBuilder:
             },
             'skills': [],
             'sets': [],
+            'glyphs': [],
         }
 
         self.report['skills'].extend([asdict(s) for s in self.uptimes.skills])
         self.report['sets'].extend([asdict(s) for s in self.uptimes.sets])
+        self.report['glyphs'].extend([asdict(g) for g in self.uptimes.glyphs])
