@@ -82,10 +82,16 @@ async def get_char(
     return json(r)
 
 
+# TODO: Rewrite & probably move to enums
 @app.route('/encounter/<int:encounter>')
 async def get_encounter(encounter, api: ApiWrapper):
     response = await api.query_name(encounter)
-    return response.get('worldData').get('encounter')
+    response = response.get('worldData')
+    response = response.get('encounter')
+
+    if response:
+        return response
+    return json('')
 
 
 async def connect_api(app: Application) -> None:
