@@ -141,3 +141,10 @@ class GEAR_SETS(EsoEnum):
         link='https://eso-hub.com/en/sets/the-morag-tong',
         icon='https://eso-hub.com/storage/icons/gear_breton_medium_head_d.png',
     )
+    TREMORSCALE = GearSet(
+        name='Tremorscale',
+        id=276,
+        debuffs=[DEBUFFS.TREMORSCALE.value],
+        link='https://eso-hub.com/en/sets/tremorscale',
+        icon='https://eso-hub.com/storage/icons/gear_undauntedsuneripper_head_a.png',
+    )

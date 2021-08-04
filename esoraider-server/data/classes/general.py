@@ -229,6 +229,11 @@ class DEBUFFS(EsoEnum):
         id=34384,  # Also has a personal buff with ID = 29112
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_rogue_021.png',
     )
+    TREMORSCALE = Debuff(
+        name='Tremorscale',
+        id=80866,  # Another ID - 80865, lower uptime
+        icon='https://assets.rpglogs.com/img/eso/abilities/gear_undauntedsuneripper_head_a.png',
+    )
 
     """
     From glyphs
