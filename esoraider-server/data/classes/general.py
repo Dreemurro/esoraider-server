@@ -90,8 +90,13 @@ class BUFFS(EsoEnum):
     """
     MAJOR_SLAYER = Buff(
         name='Major Slayer',
-        id=93109,
+        id=93109,  # Probably overall uptime, occurs both with WM and RO
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_major_slayer.png',
+    )
+    MAJOR_SLAYER_ROARING_OPPORTUNIST = Buff(
+        name='Major Slayer',
+        id=137986,
+        icon='https://assets.rpglogs.com/img/eso/abilities/procs_006.png',
     )
 
     """
