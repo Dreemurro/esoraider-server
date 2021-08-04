@@ -193,6 +193,16 @@ class DEBUFFS(EsoEnum):
         id=126597,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_healer_006.png',
     )
+    ROAR_OF_ALKOSH = Debuff(
+        name='Roar of Alkosh',
+        id=76667,
+        icon='https://assets.rpglogs.com/img/eso/abilities/gear_dromathra_medium_head_a.png',
+    )
+    LINE_BREAKER = Debuff(
+        name='Line-Breaker',
+        id=75753,
+        icon='https://assets.rpglogs.com/img/eso/abilities/gear_dromathra_medium_head_a.png',
+    )
 
     """
     From glyphs

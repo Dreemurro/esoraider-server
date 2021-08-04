@@ -99,3 +99,10 @@ class GEAR_SETS(EsoEnum):
         link='https://eso-hub.com/en/sets/diamonds-victory',
         icon='https://eso-hub.com/storage/icons/gear_breton_light_head_d.png',
     )
+    ROAR_OF_ALKOSH = GearSet(
+        name='Roar of Alkosh',
+        id=232,
+        debuffs=[DEBUFFS.ROAR_OF_ALKOSH.value, DEBUFFS.LINE_BREAKER.value],
+        link='https://eso-hub.com/en/sets/roar-of-alkosh',
+        icon='https://eso-hub.com/storage/icons/gear_dromathra_medium_head_a.png',
+    )
