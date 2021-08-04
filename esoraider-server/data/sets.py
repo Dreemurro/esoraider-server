@@ -106,3 +106,10 @@ class GEAR_SETS(EsoEnum):
         link='https://eso-hub.com/en/sets/roar-of-alkosh',
         icon='https://eso-hub.com/storage/icons/gear_dromathra_medium_head_a.png',
     )
+    WAR_MACHINE = GearSet(
+        name='War Machine',
+        id=331,
+        buffs=[BUFFS.MAJOR_SLAYER.value],
+        link='https://eso-hub.com/en/sets/war-machine',
+        icon='https://eso-hub.com/storage/icons/gear_clockwork_medium_head_a.png',
+    )

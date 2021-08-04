@@ -81,10 +81,16 @@ class BUFFS(EsoEnum):
         # Another ID = 109966, source - Active Ability, type - 2, flag - 1
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_mage_045.png',
     )
+
+    """
+    MAJOR SLAYER
+    KNOWN IDS: 
+    - 93120
+    - 93442
+    """
     MAJOR_SLAYER = Buff(
         name='Major Slayer',
-        id=93109,  # Source - Tier Bonus (4pc), type - 2, flag - 1
-        # Another ID - 93120, source - Active Ability, type - 2, flag - 5
+        id=93109,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_major_slayer.png',
     )
 
