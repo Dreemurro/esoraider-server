@@ -148,3 +148,12 @@ class GEAR_SETS(EsoEnum):
         link='https://eso-hub.com/en/sets/tremorscale',
         icon='https://eso-hub.com/storage/icons/gear_undauntedsuneripper_head_a.png',
     )
+    PERFECTED_WRATH_OF_ELEMENTS = GearSet(
+        name='Perfected Wrath of Elements',
+        id=567,
+        # Not activated yet, requires stacks tracking
+        # buffs=[BUFFS.WRATH_OF_ELEMENTS.value],
+        debuffs=[DEBUFFS.WRATH_OF_ELEMENTS.value],
+        link='https://eso-hub.com/en/sets/perfected-wrath-of-elements',
+        icon='https://eso-hub.com/storage/icons/gear_reachv2_staff_a.png',
+    )

@@ -155,6 +155,11 @@ class BUFFS(EsoEnum):
         id=113619,  # Another ID - 113628, lower uptime
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_mage_065.png',
     )
+    WRATH_OF_ELEMENTS = Buff(  # This one has stacks
+        name='Wrath of Elements',
+        id=149413,  # Another ID - 147828, lower uptime
+        icon='https://assets.rpglogs.com/img/eso/abilities/gear_reachv2_staff_a.png',
+    )
 
 
 class DEBUFFS(EsoEnum):
@@ -233,6 +238,11 @@ class DEBUFFS(EsoEnum):
         name='Tremorscale',
         id=80866,  # Another ID - 80865, lower uptime
         icon='https://assets.rpglogs.com/img/eso/abilities/gear_undauntedsuneripper_head_a.png',
+    )
+    WRATH_OF_ELEMENTS = Debuff(
+        name='Wrath of Elements',
+        id=147843,
+        icon='https://assets.rpglogs.com/img/eso/abilities/gear_reachv2_staff_a.png',
     )
 
     """
