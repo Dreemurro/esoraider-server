@@ -120,3 +120,10 @@ class GEAR_SETS(EsoEnum):
         link='https://eso-hub.com/en/sets/perfected-roaring-opportunist',
         icon='https://eso-hub.com/storage/icons/gear_seagiantlgt_helmet.png',
     )
+    PERFECTED_CAUSTIC_ARROW = GearSet(
+        name='Perfected Caustic Arrow',
+        id=531,
+        buffs=[BUFFS.CAUSTIC_ARROW.value],
+        link='https://eso-hub.com/en/sets/perfected-caustic-arrow',
+        icon='https://eso-hub.com/storage/icons/gear_bosmer_bow_e.png',
+    )

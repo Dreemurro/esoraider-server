@@ -145,6 +145,11 @@ class BUFFS(EsoEnum):
         id=154574,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_rogue_026.png',
     )
+    CAUSTIC_ARROW = Buff(
+        name='Caustic Arrow',
+        id=100105,  # Another ID - 99766, lower uptime
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_mage_065.png',
+    )
 
 
 class DEBUFFS(EsoEnum):
