@@ -224,6 +224,11 @@ class DEBUFFS(EsoEnum):
         id=75753,
         icon='https://assets.rpglogs.com/img/eso/abilities/gear_dromathra_medium_head_a.png',
     )
+    THE_MORAG_TONG = Debuff(
+        name='The Morag Tong',
+        id=34384,  # Also has a personal buff with ID = 29112
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_rogue_021.png',
+    )
 
     """
     From glyphs

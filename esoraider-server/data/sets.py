@@ -134,3 +134,10 @@ class GEAR_SETS(EsoEnum):
         link='https://eso-hub.com/en/sets/perfected-virulent-shot',
         icon='https://eso-hub.com/storage/icons/gear_honorguard_bow_a.png',
     )
+    THE_MORAG_TONG = GearSet(
+        name='The Morag Tong',
+        id=50,
+        debuffs=[DEBUFFS.THE_MORAG_TONG.value],
+        link='https://eso-hub.com/en/sets/the-morag-tong',
+        icon='https://eso-hub.com/storage/icons/gear_breton_medium_head_d.png',
+    )
