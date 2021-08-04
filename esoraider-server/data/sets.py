@@ -127,3 +127,10 @@ class GEAR_SETS(EsoEnum):
         link='https://eso-hub.com/en/sets/perfected-caustic-arrow',
         icon='https://eso-hub.com/storage/icons/gear_bosmer_bow_e.png',
     )
+    PERFECTED_VIRULENT_SHOT = GearSet(
+        name='Perfected Virulent Shot',
+        id=426,
+        buffs=[BUFFS.VIRULENT_SHOT.value],
+        link='https://eso-hub.com/en/sets/perfected-virulent-shot',
+        icon='https://eso-hub.com/storage/icons/gear_honorguard_bow_a.png',
+    )

@@ -150,6 +150,11 @@ class BUFFS(EsoEnum):
         id=100105,  # Another ID - 99766, lower uptime
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_mage_065.png',
     )
+    VIRULENT_SHOT = Buff(
+        name='Virulent Shot',
+        id=113619,  # Another ID - 113628, lower uptime
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_mage_065.png',
+    )
 
 
 class DEBUFFS(EsoEnum):
