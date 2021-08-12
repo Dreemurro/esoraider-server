@@ -17,6 +17,11 @@ class DRAGONKNIGHT_DEBUFFS(EsoEnum):
         id=31104,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_dragonknight_004_b.png',
     )
+    BURNING_EMBERS = Debuff(
+        name='Burning Embers',
+        id=44373,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_dragonknight_003_b.png',
+    )
 
 
 class DRAGONKNIGHT_SKILLS(EsoEnum):
@@ -44,4 +49,11 @@ class DRAGONKNIGHT_SKILLS(EsoEnum):
         buffs=[BUFFS.MAJOR_BRUTALITY.value, BUFFS.MAJOR_SORCERY.value],
         link='https://eso-hub.com/en/skills/dragonknight/earthen-heart/igneous-weapons',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_dragonknight_015_a.png',
+    )
+    BURNING_EMBERS = Skill(
+        name='Burning Embers',
+        id=20660,
+        debuffs=[DRAGONKNIGHT_DEBUFFS.BURNING_EMBERS.value],
+        link='https://eso-hub.com/en/skills/dragonknight/ardent-flame/burning-embers',
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_dragonknight_003_b.png',
     )
