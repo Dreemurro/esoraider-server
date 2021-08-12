@@ -200,6 +200,11 @@ class DEBUFFS(EsoEnum):
         id=40385,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_fightersguild_004_a.png',
     )
+    SCALDING_RUNE = Debuff(
+        name='Scalding Rune',
+        id=40468,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_mageguild_001_b.png',
+    )
 
     """
     From sets
@@ -408,4 +413,11 @@ class GENERAL_SKILLS(EsoEnum):
         debuffs=[DEBUFFS.BARBED_TRAP.value],
         link='https://eso-hub.com/en/skills/guild/fighters-guild/barbed-trap',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_fightersguild_004_a.png',
+    )
+    SCALDING_RUNE = Skill(
+        name='Scalding Rune',
+        id=40465,
+        debuffs=[DEBUFFS.SCALDING_RUNE.value],
+        link='https://eso-hub.com/en/skills/guild/mages-guild/scalding-rune',
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_mageguild_001_b.png',
     )
