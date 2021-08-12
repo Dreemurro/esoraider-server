@@ -193,6 +193,15 @@ class DEBUFFS(EsoEnum):
     )
 
     """
+    Elemental status effects
+    """
+    BURNING = Debuff(
+        name='Burning',
+        id=18084,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_mage_062.png',
+    )
+
+    """
     From skills
     """
     BARBED_TRAP = Debuff(

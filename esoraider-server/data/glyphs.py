@@ -17,3 +17,10 @@ class GLYPHS(EsoEnum):
         icon='https://images.uesp.net/9/90/ON-icon-glyph-weapon-Glyph_of_Weakening.png',
         debuffs=[DEBUFFS.WEAKENING.value],
     )
+    FLAME = Glyph(
+        name='Glyph of Flame',
+        id=12,
+        link='https://en.uesp.net/wiki/Online:Glyph_of_Flame',
+        icon='https://images.uesp.net/4/41/ON-icon-glyph-weapon-Glyph_of_Flame.png',
+        debuffs=[DEBUFFS.BURNING.value],
+    )
