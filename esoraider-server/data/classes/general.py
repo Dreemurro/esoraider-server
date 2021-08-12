@@ -63,6 +63,7 @@ class BUFFS(EsoEnum):
     MINOR FORCE
     KNOWN IDS: 
     - 103708
+    - 68632 (probably Barbed Trap)
     """
     MINOR_FORCE = Buff(
         name='Minor Force',
@@ -189,6 +190,15 @@ class DEBUFFS(EsoEnum):
         name='Minor Vulnerability',
         id=79717,  # Another ID - 130168
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_debuff_minor_vulnerability.png',
+    )
+
+    """
+    From skills
+    """
+    BARBED_TRAP = Debuff(
+        name='Barbed Trap',
+        id=40385,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_fightersguild_004_a.png',
     )
 
     """
@@ -390,4 +400,12 @@ class GENERAL_SKILLS(EsoEnum):
         buffs=[BUFFS.MINOR_FORCE.value],
         link='https://eso-hub.com/en/skills/guild/psijic-order/channeled-acceleration',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_psijic_005_a.png',
+    )
+    BARBED_TRAP = Skill(
+        name='Barbed Trap',
+        id=40382,
+        buffs=[BUFFS.MINOR_FORCE.value],
+        debuffs=[DEBUFFS.BARBED_TRAP.value],
+        link='https://eso-hub.com/en/skills/guild/fighters-guild/barbed-trap',
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_fightersguild_004_a.png',
     )
