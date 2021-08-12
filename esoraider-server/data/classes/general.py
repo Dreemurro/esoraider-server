@@ -200,6 +200,11 @@ class DEBUFFS(EsoEnum):
         id=18084,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_mage_062.png',
     )
+    POISONED = Debuff(
+        name='Poisoned',
+        id=21929,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_rogue_030.png',
+    )
 
     """
     From skills

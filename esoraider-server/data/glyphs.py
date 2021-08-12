@@ -24,3 +24,10 @@ class GLYPHS(EsoEnum):
         icon='https://images.uesp.net/4/41/ON-icon-glyph-weapon-Glyph_of_Flame.png',
         debuffs=[DEBUFFS.BURNING.value],
     )
+    POISON = Glyph(
+        name='Glyph of Poison',
+        id=24,
+        link='https://en.uesp.net/wiki/Online:Glyph_of_Poison',
+        icon='https://images.uesp.net/9/90/ON-icon-glyph-weapon-Glyph_of_Poison.png',
+        debuffs=[DEBUFFS.POISONED.value],
+    )
