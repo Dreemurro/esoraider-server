@@ -1,18 +1,17 @@
 from typing import List, Set
 
-from loguru import logger
-
-from data.classes.dragonknight import DRAGONKNIGHT_SKILLS
-from data.classes.general import GENERAL_SKILLS
-from data.classes.necromancer import NECROMANCER_SKILLS
-from data.classes.nightblade import NIGHTBLADE_SKILLS
-from data.classes.sorcerer import SORCERER_SKILLS
-from data.classes.templar import TEMPLAR_SKILLS
-from data.classes.warden import WARDEN_SKILLS
-from data.core import Buff, Debuff, EsoEnum, GearSet, Glyph, Skill
-from data.sets import GEAR_SETS
-from data.glyphs import GLYPHS
 from api.response import SummaryTableData, Talent
+from data.classes.dragonknight.skills import DRAGONKNIGHT_SKILLS
+from data.classes.general import GENERAL_SKILLS
+from data.classes.necromancer.skills import NECROMANCER_SKILLS
+from data.classes.nightblade.skills import NIGHTBLADE_SKILLS
+from data.classes.sorcerer.skills import SORCERER_SKILLS
+from data.classes.templar.skills import TEMPLAR_SKILLS
+from data.classes.warden.skills import WARDEN_SKILLS
+from data.core import Buff, Debuff, EsoEnum, GearSet, Glyph, Skill
+from data.glyphs import GLYPHS
+from data.sets import GEAR_SETS
+from loguru import logger
 
 
 class TrackedInfo:

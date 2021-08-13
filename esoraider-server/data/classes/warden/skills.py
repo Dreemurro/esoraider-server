@@ -2,14 +2,6 @@ from data.classes.general import BUFFS, DEBUFFS
 from data.core import EsoEnum, Skill
 
 
-class WARDEN_BUFFS(EsoEnum):
-    pass
-
-
-class WARDEN_DEBUFFS(EsoEnum):
-    pass
-
-
 class WARDEN_SKILLS(EsoEnum):
     BLUE_BETTY = Skill(
         name='Blue Betty',

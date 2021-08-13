@@ -1,16 +1,5 @@
-from data.core import EsoEnum, Skill, Buff
-
-
-class NECROMANCER_BUFFS(EsoEnum):
-    SKELETAL_ARCANIST = Buff(
-        name='Skeletal Arcanist',
-        id=118726,  # ID matches skill, it's a pet
-        icon='https://assets.rpglogs.com/img/eso/abilities/ability_necromancer_003_b.png',
-    )
-
-
-class NECROMANCER_DEBUFFS(EsoEnum):
-    pass
+from data.core import EsoEnum, Skill
+from data.classes.necromancer.buffs import NECROMANCER_BUFFS
 
 
 class NECROMANCER_SKILLS(EsoEnum):
