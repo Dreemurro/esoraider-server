@@ -1,4 +1,5 @@
 from data.classes.general import BUFFS, DEBUFFS
+from data.classes.warden.debuffs import WARDEN_DEBUFFS
 from data.core import EsoEnum, Skill
 
 
@@ -13,7 +14,10 @@ class WARDEN_SKILLS(EsoEnum):
     FETCHER_INFECTION = Skill(
         name='Fetcher Infection',
         id=86027,
-        debuffs=[DEBUFFS.MINOR_VULNERABILITY.value],
+        debuffs=[
+            DEBUFFS.MINOR_VULNERABILITY.value,
+            WARDEN_DEBUFFS.FETCHER_INFECTION.value,
+        ],
         link='https://eso-hub.com/en/skills/warden/animal-companions/fetcher-infection',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_warden_014_a.png',
     )
