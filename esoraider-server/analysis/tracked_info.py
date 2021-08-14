@@ -120,3 +120,16 @@ class TrackedInfo:
                 self.debuffs.extend(tracked_info.debuffs)
                 for debuff in tracked_info.debuffs:
                     logger.debug(debuff)
+            if isinstance(tracked_info, Skill) and tracked_info.children:
+                for child in tracked_info.children:
+                    self._get_child_effects(child)
+
+    def _get_child_effects(self, child: Skill):
+        if child.buffs:
+            self.buffs.extend(child.buffs)
+            for buff in child.buffs:
+                logger.debug(buff)
+        if child.debuffs:
+            self.debuffs.extend(child.debuffs)
+            for debuff in child.debuffs:
+                logger.debug(debuff)
