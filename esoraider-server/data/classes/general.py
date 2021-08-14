@@ -149,3 +149,11 @@ class GENERAL_SKILLS(EsoEnum):
         link='https://eso-hub.com/en/skills/guild/mages-guild/scalding-rune',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_mageguild_001_b.png',
     )
+    DEGENERATION = Skill(
+        name='Degeneration',
+        id=40457,
+        buffs=[BUFFS.MAJOR_SORCERY.value],
+        debuffs=[DEBUFFS.DEGENERATION.value],
+        link='https://eso-hub.com/en/skills/guild/mages-guild/degeneration',
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_mageguild_004_a.png',
+    )

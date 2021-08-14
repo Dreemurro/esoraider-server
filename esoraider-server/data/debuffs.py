@@ -57,6 +57,11 @@ class DEBUFFS(EsoEnum):
         id=40468,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_mageguild_001_b.png',
     )
+    DEGENERATION = Debuff(
+        name='Degeneration',
+        id=126374,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_mageguild_004_a.png',
+    )
 
     """
     From sets
