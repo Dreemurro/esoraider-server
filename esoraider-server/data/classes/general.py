@@ -157,3 +157,10 @@ class GENERAL_SKILLS(EsoEnum):
         link='https://eso-hub.com/en/skills/guild/mages-guild/degeneration',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_mageguild_004_a.png',
     )
+    STRUCTURED_ENTROPY = Skill(
+        name='Structured Entropy',
+        id=40452,
+        debuffs=[DEBUFFS.STRUCTURED_ENTROPY.value],
+        link='https://eso-hub.com/en/skills/guild/mages-guild/structured-entropy',
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_mageguild_004_b.png',
+    )

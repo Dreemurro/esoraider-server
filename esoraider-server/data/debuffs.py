@@ -62,6 +62,11 @@ class DEBUFFS(EsoEnum):
         id=126374,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_mageguild_004_a.png',
     )
+    STRUCTURED_ENTROPY = Debuff(
+        name='Structured Entropy',
+        id=126371,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_mageguild_004_b.png',
+    )
 
     """
     From sets
