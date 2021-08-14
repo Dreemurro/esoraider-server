@@ -67,11 +67,20 @@ class Uptimes:
 
         new_children: List[Skill] = []
         if isinstance(item, Skill) and item.children:
-            for child in item.children:
-                child_uptime = self._calculate_skill_or_effect_uptime(
-                    child,
-                    self._damage_done_table.entries,
-                )
+            # Not the best solution for child's children calculation
+            child_children = [
+                self._calculate_item_uptimes(child)
+                for child in item.children
+            ]
+            for child in child_children:
+                child_uptime = None
+                if child.uptime:
+                    child_uptime = child.uptime
+                else:
+                    child_uptime = self._calculate_skill_or_effect_uptime(
+                        child,
+                        self._damage_done_table.entries,
+                    )
                 if child_uptime:
                     new_children.append(replace(child, uptime=child_uptime))
 
