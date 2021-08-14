@@ -72,6 +72,11 @@ class DEBUFFS(EsoEnum):
         id=62712,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_destructionstaff_005_b.png',
     )
+    CONSUMING_TRAP = Debuff(
+        name='Consuming Trap',
+        id=126898,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_otherclass_001.png',
+    )
 
     """
     From sets

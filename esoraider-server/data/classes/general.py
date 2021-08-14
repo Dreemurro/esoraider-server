@@ -179,3 +179,10 @@ class GENERAL_SKILLS(EsoEnum):
         ],
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_destructionstaff_005_b.png',
     )
+    CONSUMING_TRAP = Skill(
+        name='Consuming Trap',
+        id=40317,
+        debuffs=[DEBUFFS.CONSUMING_TRAP.value],
+        link='https://eso-hub.com/en/skills/world/soul-magic/consuming-trap',
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_otherclass_001_b.png',
+    )
