@@ -57,7 +57,7 @@ class Uptimes:
     def _calculate_item_uptimes(
         self,
         item: Union[Skill, GearSet, Glyph],
-    ) -> Union[Skill, GearSet]:
+    ) -> Union[Skill, GearSet, Glyph]:
         new_buffs = self._calculate_effects_uptimes(
             item.buffs, self._char_buffs,
         )
@@ -90,14 +90,7 @@ class Uptimes:
                 children=new_children,
                 uptime=new_uptime,
             )
-        elif isinstance(item, GearSet):
-            new_item = replace(
-                item,
-                buffs=new_buffs,
-                debuffs=new_debuffs,
-                uptime=new_uptime,
-            )
-        elif isinstance(item, Glyph):
+        elif isinstance(item, (GearSet, Glyph)):
             new_item = replace(
                 item,
                 buffs=new_buffs,
