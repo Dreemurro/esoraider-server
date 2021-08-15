@@ -1,8 +1,9 @@
 from dataclasses import dataclass
 from enum import Enum
-from typing import List, Optional
+from typing import Dict, List, Optional
 
 
+# TODO: Merge Buff and Debuff into Effect?
 @dataclass(frozen=True)
 class Buff:
     name: str
@@ -12,6 +13,7 @@ class Buff:
     advice: Optional[str] = None
     optimal_uptime: Optional[float] = None
     uptime: Optional[float] = None
+    stack: Optional['Stack'] = None
 
     def calculate_uptime(
         self,
@@ -31,6 +33,7 @@ class Debuff:
     advice: Optional[str] = None
     optimal_uptime: Optional[float] = None
     uptime: Optional[float] = None
+    stack: Optional['Stack'] = None
 
     def calculate_uptime(
         self,
@@ -141,6 +144,19 @@ class Glyph:
         else:
             uptime = None
         return uptime
+
+
+@dataclass(frozen=True)
+class Stack:
+    name: str
+    id: int
+    icon: str
+    max_stacks: int
+    type_: str
+
+    buffs: Optional[List[Buff]] = None
+    debuffs: Optional[List[Debuff]] = None
+    uptimes: Optional[Dict] = None
 
 
 class EsoEnum(Enum):
