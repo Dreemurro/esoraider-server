@@ -1,6 +1,6 @@
 from data.classes.general import BUFFS, DEBUFFS
 from data.core import EsoEnum, GearSet
-from data.stacks import BUFFS_WITH_STACKS
+from data.stacks import BUFFS_WITH_STACKS, DEBUFFS_WITH_STACKS
 
 
 class GEAR_SETS(EsoEnum):
@@ -85,11 +85,10 @@ class GEAR_SETS(EsoEnum):
         link='https://eso-hub.com/en/sets/way-of-martial-knowledge',
         icon='https://eso-hub.com/storage/icons/gear_yokudan_light_head_a.png',
     )
-    # TODO: Track stacks somehow
     ZENS_REDRESS = GearSet(
         name='Z\'en\'s Redress',
         id=455,
-        debuffs=[DEBUFFS.TOUCH_OF_ZEN.value],
+        debuffs=[DEBUFFS_WITH_STACKS.TOUCH_OF_ZEN.value],
         link='https://eso-hub.com/en/sets/zens-redress',
         icon='https://eso-hub.com/storage/icons/gear_stagzenlgt_helmet_a.png',
     )

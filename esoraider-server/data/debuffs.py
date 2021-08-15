@@ -101,11 +101,6 @@ class DEBUFFS(EsoEnum):
         id=127070,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_mage_044.png',
     )
-    TOUCH_OF_ZEN = Debuff(
-        name='Touch of Z\'en',
-        id=126597,
-        icon='https://assets.rpglogs.com/img/eso/abilities/ability_healer_006.png',
-    )
     ROAR_OF_ALKOSH = Debuff(
         name='Roar of Alkosh',
         id=76667,
