@@ -1,11 +1,12 @@
 import asyncio
-from typing import Set
-
-from loguru import logger
+from typing import Dict, List, Set
 
 from analysis.tracked_info import TrackedInfo
 from api.api import ApiWrapper
-from api.response import BuffsTableData, CastsTableData
+from api.response import BuffsTableData, CastsTableData, GraphData
+from data.core import Stack
+from gql.dsl import DSLField
+from loguru import logger
 
 
 class DataRequest:
@@ -32,12 +33,14 @@ class DataRequest:
         self.buffs_table: BuffsTableData = None
         self.debuffs_table: BuffsTableData = None
         self.damage_done_table: CastsTableData = None
+        self.graphs: List[GraphData] = []
 
     async def execute(self):
         buffs = asyncio.create_task(self._request_buffs())
         debuffs = asyncio.create_task(self._request_debuffs())
         damage_done = asyncio.create_task(self._request_damage_done())
-        await asyncio.gather(buffs, debuffs, damage_done)
+        graphs = asyncio.create_task(self._request_graphs())
+        await asyncio.gather(buffs, debuffs, damage_done, graphs)
 
     def _generate_filter(self, ability_ids: Set[int]):
         return 'ability.id IN ({0})'.format(', '.join(map(str, ability_ids)))
@@ -136,8 +139,61 @@ class DataRequest:
         response = response.get('data')
         decoded = CastsTableData.from_dict(response)
 
-        logger.info('Got {} casts'.format(len(decoded.entries)))
+        logger.info('Got {0} casts'.format(len(decoded.entries)))
         for cast in decoded.entries:
             logger.debug(cast)
 
         self.damage_done_table = decoded
+
+    async def _request_graphs(self):
+        if not self._tracked_info.stacks or self.graphs:
+            return
+
+        simple_stacks = [
+            # Excluding 'complex' stacks which rely on buffs / debuffs
+            stack
+            for stack in self._tracked_info.stacks
+            if not stack.buffs and not stack.debuffs
+        ]
+        if not simple_stacks:
+            return
+
+        graphs = await self._partial_graphs(simple_stacks)
+        response = await self._api.query_graph(
+            log=self._log,
+            char_id=self._char_id,
+            start_time=self._start_time,
+            end_time=self._end_time,
+            graphs=graphs,
+        )
+        response = response.get('reportData')
+        response = response.get('report')
+
+        decoded = []
+        for raw_graph in response.values():
+            decoded.append(GraphData.from_dict(raw_graph.get('data')))
+
+        logger.info('Got {0} graphs'.format(len(decoded)))
+        for graph in decoded:
+            logger.debug(graph)
+
+        self.graphs = decoded
+
+    async def _partial_graphs(
+        self, stacks: List[Stack],
+    ) -> Dict[str, DSLField]:
+        stacks_dict = {}
+        for stack in stacks:
+            data_type = 'Buffs' if stack.type_ == 'Buff' else 'Debuffs'
+            hostility = 'Friendlies' if stack.type_ == 'Buff' else 'Enemies'
+            stacks_dict.update(
+                await self._api.partial_query_graph(
+                    char_id=self._char_id,
+                    data_type=data_type,
+                    start_time=self._start_time,
+                    end_time=self._end_time,
+                    ability_id=stack.id,
+                    hostility_type=hostility,
+                ),
+            )
+        return stacks_dict
