@@ -65,6 +65,17 @@ class STACKS(EsoEnum):
         ]
     )
 
+    """
+    Nightblade
+    """
+    MERCILESS_RESOLVE = Stack(
+        name='Merciless Resolve',
+        id=61920,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_nightblade_005_b.png',
+        max_stacks=5,
+        type_='Buff',
+    )
+
 
 class BUFFS_WITH_STACKS(EsoEnum):
     """
@@ -75,6 +86,16 @@ class BUFFS_WITH_STACKS(EsoEnum):
         id=155150,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_rogue_066.png',
         stack=STACKS.HUNTERS_FOCUS.value,
+    )
+
+    """
+    Nightblade
+    """
+    MERCILESS_RESOLVE = Buff(
+        name='Merciless Resolve',
+        id=61919,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_nightblade_005_b.png',
+        stack=STACKS.MERCILESS_RESOLVE.value,
     )
 
 

@@ -1,5 +1,6 @@
 from data.core import EsoEnum, Skill
 from data.classes.nightblade.buffs import NIGHTBLADE_BUFFS
+from data.stacks import BUFFS_WITH_STACKS
 
 
 class NIGHTBLADE_SKILLS(EsoEnum):
@@ -18,7 +19,7 @@ class NIGHTBLADE_SKILLS(EsoEnum):
     MERCILESS_RESOLVE = Skill(
         name='Merciless Resolve',
         id=61919,
-        buffs=[NIGHTBLADE_BUFFS.MERCILESS_RESOLVE.value],
+        buffs=[BUFFS_WITH_STACKS.MERCILESS_RESOLVE.value],
         link='https://eso-hub.com/en/skills/nightblade/assassination/merciless-resolve',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_nightblade_005_b.png',
     )
