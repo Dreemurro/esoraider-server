@@ -1,14 +1,14 @@
 import asyncio
+from typing import Dict
 
 import backoff
 from gql import Client
-from gql.dsl import DSLQuery, DSLSchema, dsl_gql
+from gql.dsl import DSLField, DSLQuery, DSLSchema, dsl_gql
 from gql.transport.aiohttp import AIOHTTPTransport
 from gql.transport.exceptions import TransportClosed, TransportQueryError
 from loguru import logger
 from oauthlib.oauth2 import BackendApplicationClient
 from requests_oauthlib import OAuth2Session
-
 from settings import CLIENT_ID, CLIENT_SECRET
 
 
@@ -260,6 +260,95 @@ class ApiWrapper:
 
         query.select(report_fields)
         return await self.execute(dsl_gql(DSLQuery(query)))
+
+    async def query_graph(
+        self,
+        log: str,
+        char_id: int,
+        ability_id: int = None,
+        fight_id: int = None,
+        start_time: int = None,
+        end_time: int = None,
+        data_type: str = 'Buffs',
+        hostility_type: str = 'Friendlies',
+        graphs: Dict[str, DSLField] = None,
+    ):
+        logger.info('Requesting graph')
+        logger.info('Log = {0}'.format(log))
+        logger.info('Fight ID = {0}'.format(fight_id))
+        logger.info('Char ID = {0}'.format(char_id))
+        logger.info('Start Time = {0}'.format(start_time))
+        logger.info('End Time = {0}'.format(end_time))
+        logger.info('Data Type = {0}'.format(data_type))
+        logger.info('Ability ID = {0}'.format(ability_id))
+        logger.info('Hostility Type = {0}'.format(hostility_type))
+
+        if (start_time is None) and (end_time is None):
+            start_time, end_time = await self._get_fight_times(log, fight_id)
+
+        query = self.ds.Query.reportData
+
+        report = self.ds.ReportData.report(code=log)
+
+        if ability_id and not graphs:
+            if hostility_type == 'Friendlies' and data_type == 'Buffs':
+                graph = self.ds.Report.graph(
+                    startTime=start_time,
+                    endTime=end_time,
+                    dataType=data_type,
+                    sourceID=char_id,
+                    abilityID=ability_id,
+                )
+            elif hostility_type == 'Enemies' and data_type == 'Debuffs':
+                graph = self.ds.Report.graph(
+                    startTime=start_time,
+                    endTime=end_time,
+                    dataType=data_type,
+                    targetID=char_id,
+                    abilityID=ability_id,
+                )
+            report_fields = report.select(graph)
+        elif graphs:
+            report_fields = report.select(**graphs)
+
+        query.select(report_fields)
+        return await self.execute(dsl_gql(DSLQuery(query)))
+
+    async def partial_query_graph(
+        self,
+        char_id: int,
+        data_type: str,
+        ability_id: int,
+        start_time: int,
+        end_time: int,
+        hostility_type: str = 'Friendlies',
+    ):
+        logger.info('Building partial graph request')
+        logger.info('Char ID = {0}'.format(char_id))
+        logger.info('Start Time = {0}'.format(start_time))
+        logger.info('End Time = {0}'.format(end_time))
+        logger.info('Data Type = {0}'.format(data_type))
+        logger.info('Ability ID = {0}'.format(ability_id))
+        logger.info('Hostility Type = {0}'.format(hostility_type))
+
+        if hostility_type == 'Friendlies' and data_type == 'Buffs':
+            graph = self.ds.Report.graph(
+                startTime=start_time,
+                endTime=end_time,
+                dataType=data_type,
+                sourceID=char_id,
+                abilityID=ability_id,
+            )
+        elif hostility_type == 'Enemies' and data_type == 'Debuffs':
+            graph = self.ds.Report.graph(
+                startTime=start_time,
+                endTime=end_time,
+                dataType=data_type,
+                targetID=char_id,
+                abilityID=ability_id,
+            )
+
+        return {'id_{0}'.format(ability_id): graph}
 
     async def _get_fight_times(self, log: str, fight_id: int):
         response = await self.query_fight_times(log, fight_id)

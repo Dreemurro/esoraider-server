@@ -300,3 +300,72 @@ class CastsTableData(DataClassJsonMixin):
     total_time: int
     log_version: int
     game_version: int
+
+
+"""
+    Graph
+"""
+
+
+@dataclass
+class Event(DataClassJsonMixin):
+    dataclass_json_config = config(
+        letter_case=LetterCase.CAMEL,
+        undefined=Undefined.RAISE,
+    )['dataclasses_json']
+
+    timestamp: int
+    type: str
+    source_id: int = field(metadata=config(field_name="sourceID"))
+    source_is_friendly: bool
+    target_id: int = field(metadata=config(field_name="targetID"))
+    target_is_friendly: bool
+    ability: Talent
+    fight: int
+
+    stack: Optional[int] = None
+
+
+@dataclass
+class Series(DataClassJsonMixin):
+    dataclass_json_config = config(
+        letter_case=LetterCase.CAMEL,
+        undefined=Undefined.RAISE,
+    )['dataclasses_json']
+
+    def skip_events(items: List) -> List[Event]:
+        final = []
+        for item in items:
+            if isinstance(item, list):
+                continue
+            if item.get('type') == 'combatantinfo':
+                continue
+            final.append(item)
+        return [Event.from_dict(item) for item in final]
+
+    name: str
+    id: int
+    guid: int
+    type: str
+    data: List[List[int]]  # [0] - time, [1] - stack
+    events: List[Event] = field(
+        metadata=config(
+            # First and last elements are empty lists for some reason
+            # + there is an occasional combatantinfo in there
+            # Skipping such stuff for now
+            decoder=skip_events
+        )
+    )
+
+
+@dataclass
+class GraphData(DataClassJsonMixin):
+    dataclass_json_config = config(
+        letter_case=LetterCase.CAMEL,
+        undefined=Undefined.RAISE,
+    )['dataclasses_json']
+
+    series: List[Series]
+    start_time: int
+    end_time: int
+    use_targets: bool
