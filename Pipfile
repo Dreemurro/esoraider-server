@@ -13,6 +13,7 @@ blacksheep = "*"
 python-dotenv = "*"
 uvicorn = "*"
 gunicorn = "*"
+portion = "*"
 
 [dev-packages]
 autopep8 = "*"
