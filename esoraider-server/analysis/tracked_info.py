@@ -8,7 +8,7 @@ from data.classes.nightblade.skills import NIGHTBLADE_SKILLS
 from data.classes.sorcerer.skills import SORCERER_SKILLS
 from data.classes.templar.skills import TEMPLAR_SKILLS
 from data.classes.warden.skills import WARDEN_SKILLS
-from data.core import Buff, Debuff, EsoEnum, GearSet, Glyph, Skill
+from data.core import Buff, Debuff, EsoEnum, GearSet, Glyph, Skill, Stack
 from data.glyphs import GLYPHS
 from data.sets import GEAR_SETS
 from loguru import logger
@@ -29,6 +29,7 @@ class TrackedInfo:
         self.glyphs: List[Glyph] = []
         self.buffs: List[Buff] = []
         self.debuffs: List[Debuff] = []
+        self.stacks: List[Stack] = []
 
     def extract(self):
         self._get_char_skills()
@@ -36,6 +37,7 @@ class TrackedInfo:
         self._get_known_sets()
         self._get_known_glyphs()
         self._get_known_effects()
+        self._get_known_stacks()
 
     def _get_char_skills(self):
         logger.info('Get char skills from summary table')
@@ -133,3 +135,26 @@ class TrackedInfo:
             self.debuffs.extend(child.debuffs)
             for debuff in child.debuffs:
                 logger.debug(debuff)
+
+    def _get_known_stacks(self):
+        logger.info('Getting stacks to track based on buffs & debuffs')
+
+        stacks = []
+        for tracked_info in [*self.buffs, *self.debuffs]:
+            if tracked_info.stack:
+                stacks.append(tracked_info.stack)
+                logger.debug(tracked_info.stack)
+
+        for stack in stacks:
+            if stack.buffs:
+                logger.info('Found additional buffs required for stack')
+                self.buffs.extend(stack.buffs)
+                for buff in stack.buffs:
+                    logger.debug(buff)
+            if stack.debuffs:
+                logger.info('Found additional debuffs required for stack')
+                self.debuffs.extend(stack.debuffs)
+                for debuff in stack.debuffs:
+                    logger.debug(debuff)
+
+        self.stacks = stacks
