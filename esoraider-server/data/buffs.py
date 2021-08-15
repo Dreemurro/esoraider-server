@@ -131,11 +131,6 @@ class BUFFS(EsoEnum):
         id=100155,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_mage_065.png',
     )
-    HUNTERS_FOCUS = Buff(
-        name='Hunter\'s Focus',
-        id=155150,
-        icon='https://assets.rpglogs.com/img/eso/abilities/ability_rogue_066.png',
-    )
     BEHEMOTHS_AURA = Buff(
         name='Behemoth\'s Aura',
         id=151033,

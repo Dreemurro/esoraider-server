@@ -1,5 +1,6 @@
 from data.classes.general import BUFFS, DEBUFFS
 from data.core import EsoEnum, GearSet
+from data.stacks import BUFFS_WITH_STACKS
 
 
 class GEAR_SETS(EsoEnum):
@@ -13,7 +14,7 @@ class GEAR_SETS(EsoEnum):
     HARPOONERS_WADING_KILT = GearSet(
         name='Harpooner\'s Wading Kilt',
         id=594,
-        buffs=[BUFFS.HUNTERS_FOCUS.value],
+        buffs=[BUFFS_WITH_STACKS.HUNTERS_FOCUS.value],
         link='https://eso-hub.com/en/sets/harpooners-wading-kilt',
         icon='https://eso-hub.com/storage/icons/gear_kothringikilt_a.png',
     )
