@@ -19,7 +19,10 @@ class Buff:
         self,
         total_uptime: int,
         total_time: int,
+        stack: Optional['Stack'] = None,
     ):
+        if stack:
+            return stack.uptimes[self.stack.max_stacks]
         uptime = total_uptime / total_time * 100
         return round(uptime, 2)
 
@@ -39,7 +42,10 @@ class Debuff:
         self,
         total_uptime: int,
         total_time: int,
+        stack: Optional['Stack'] = None,
     ):
+        if stack:
+            return stack.uptimes[self.stack.max_stacks]
         uptime = total_uptime / total_time * 100
         return round(uptime, 2)
 

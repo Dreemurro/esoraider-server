@@ -1,10 +1,10 @@
 from dataclasses import replace
 from typing import List, Set, Union
 
+from analysis.stacks import Stacks
+from api.response import Aura, Cast, CastsTableData, Series
+from data.core import Buff, Debuff, GearSet, Glyph, Skill, Stack
 from loguru import logger
-
-from api.response import Aura, Cast, CastsTableData
-from data.core import Buff, Debuff, GearSet, Glyph, Skill
 
 
 # TODO: Refactor
@@ -15,20 +15,35 @@ class Uptimes:
         known_skills,
         known_sets,
         known_glyphs,
+        known_stacks,
         char_buffs,
         char_debuffs,
+        char_graphs,
     ) -> None:
         self.skills: List[Skill] = None
         self.sets: List[GearSet] = None
         self.glyphs: List[Glyph] = None
+        self._stacks: List[Stack] = None
         self._damage_done_table: CastsTableData = damage_done_table
         self._known_skills: Set[Skill] = known_skills
         self._known_sets: List[GearSet] = known_sets
         self._known_glyphs: List[Glyph] = known_glyphs
+        self._known_stacks: List[Stack] = known_stacks
         self._char_buffs: List[Aura] = char_buffs
         self._char_debuffs: List[Aura] = char_debuffs
+        self._char_graphs: List[Series] = char_graphs
 
     def calculate(self):
+        stacks = Stacks(
+            known_stacks=self._known_stacks,
+            char_graphs=self._char_graphs,
+            char_buffs=self._char_buffs,
+            char_debuffs=self._char_debuffs,
+            total_time=self._damage_done_table.total_time,
+        )
+        stacks.calculate()
+        self._stacks = stacks.data
+
         self.skills = self._skills_uptimes()
         self.sets = self._sets_uptimes()
         self.glyphs = self._glyphs_uptimes()
@@ -142,17 +157,27 @@ class Uptimes:
             return new_items
 
         for effect in effects:
+            stack = None
+            if effect.stack:
+                stack = next(
+                    stack
+                    for stack in self._stacks
+                    if stack.id == effect.stack.id
+                )
+
             uptime = self._calculate_skill_or_effect_uptime(
                 effect,
                 effects_info,
+                stack,
             )
-            new_items.append(replace(effect, uptime=uptime))
+            new_items.append(replace(effect, uptime=uptime, stack=stack))
         return new_items
 
     def _calculate_skill_or_effect_uptime(
         self,
         skill_or_effect: Union[Skill, Buff, Debuff],
         casts_or_auras: Union[List[Cast], List[Aura]],
+        stack: Stack = None,
     ) -> Union[float, None]:
         try:
             extracted = next(filter(
@@ -172,6 +197,7 @@ class Uptimes:
             uptime = skill_or_effect.calculate_uptime(
                 extracted.total_uptime,
                 self._damage_done_table.total_time,
+                stack,
             )
 
         return uptime

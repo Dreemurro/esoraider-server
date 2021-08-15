@@ -1,13 +1,12 @@
-from analysis.data_request import DataRequest
 from dataclasses import asdict
 from typing import Dict, List
 
-from loguru import logger
-
+from analysis.data_request import DataRequest
 from analysis.tracked_info import TrackedInfo
 from analysis.uptimes import Uptimes
 from api.api import ApiWrapper
-from api.response import Aura, SummaryTableData
+from api.response import Aura, Series, SummaryTableData
+from loguru import logger
 
 
 class ReportBuilder:
@@ -40,6 +39,7 @@ class ReportBuilder:
         self._char_name: str = None
         self._char_buffs: List[Aura] = []
         self._char_debuffs: List[Aura] = []
+        self._char_graphs: List[Series] = []
 
         self.report: Dict = None
 
@@ -62,14 +62,17 @@ class ReportBuilder:
 
         self._get_char_buffs()
         self._get_char_debuffs()
+        self._get_char_graphs()
 
         self.uptimes = Uptimes(
             self.requested_data.damage_done_table,
             self.tracked_info.skills,
             self.tracked_info.sets,
             self.tracked_info.glyphs,
+            self.tracked_info.stacks,
             self._char_buffs,
             self._char_debuffs,
+            self._char_graphs,
         )
         self.uptimes.calculate()
 
@@ -110,6 +113,17 @@ class ReportBuilder:
             if debuff.guid in debuff_ids:
                 logger.debug(debuff.name)
                 self._char_debuffs.append(debuff)
+
+    def _get_char_graphs(self):
+        if not self.requested_data.graphs:
+            logger.debug('No graphs were found. The log is probably broken')
+            return
+
+        logger.info('Extracting tracked stacks from graphs')
+        for graph in self.requested_data.graphs:
+            for series in graph.series:
+                if series:
+                    self._char_graphs.append(series)
 
     def _build_report(self):
         logger.info('Calculating uptimes')
