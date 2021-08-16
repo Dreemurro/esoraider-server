@@ -1,5 +1,6 @@
-from data.classes.general import BUFFS, DEBUFFS
+from data.buffs import BUFFS
 from data.core import EsoEnum, GearSet
+from data.debuffs import DEBUFFS
 from data.stacks import BUFFS_WITH_STACKS, DEBUFFS_WITH_STACKS
 
 

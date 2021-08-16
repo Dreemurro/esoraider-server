@@ -1,5 +1,5 @@
-from data.core import EsoEnum, Skill
 from data.classes.nightblade.buffs import NIGHTBLADE_BUFFS
+from data.core import EsoEnum, Skill
 from data.stacks import BUFFS_WITH_STACKS
 
 

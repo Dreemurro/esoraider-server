@@ -1,6 +1,6 @@
+from data.buffs import BUFFS
 from data.core import EsoEnum, Skill
 from data.debuffs import DEBUFFS
-from data.buffs import BUFFS
 
 
 class GENERAL_SKILLS(EsoEnum):

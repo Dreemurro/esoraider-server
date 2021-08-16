@@ -1,4 +1,4 @@
-from data.core import EsoEnum, Buff
+from data.core import Buff, EsoEnum
 
 
 class NECROMANCER_BUFFS(EsoEnum):

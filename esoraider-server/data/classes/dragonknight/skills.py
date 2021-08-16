@@ -1,6 +1,6 @@
 from data.buffs import BUFFS
-from data.core import EsoEnum, Skill
 from data.classes.dragonknight.debuffs import DRAGONKNIGHT_DEBUFFS
+from data.core import EsoEnum, Skill
 
 
 class DRAGONKNIGHT_SKILLS(EsoEnum):

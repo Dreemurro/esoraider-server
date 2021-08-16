@@ -1,5 +1,5 @@
-from data.core import EsoEnum, Glyph
 from data.buffs import BUFFS
+from data.core import EsoEnum, Glyph
 from data.debuffs import DEBUFFS
 
 

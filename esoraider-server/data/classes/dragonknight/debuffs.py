@@ -1,4 +1,4 @@
-from data.core import EsoEnum, Debuff
+from data.core import Debuff, EsoEnum
 
 
 class DRAGONKNIGHT_DEBUFFS(EsoEnum):

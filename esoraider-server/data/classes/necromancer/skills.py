@@ -1,5 +1,5 @@
-from data.core import EsoEnum, Skill
 from data.classes.necromancer.buffs import NECROMANCER_BUFFS
+from data.core import EsoEnum, Skill
 
 
 class NECROMANCER_SKILLS(EsoEnum):
