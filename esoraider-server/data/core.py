@@ -19,10 +19,10 @@ class Buff:
         self,
         total_uptime: int,
         total_time: int,
-        stack: Optional['Stack'] = None,
+        stack: 'Stack' = None,
     ):
-        if stack:
-            return stack.uptimes[self.stack.max_stacks]
+        if stack and stack.uptimes:
+            return stack.uptimes[stack.max_stacks]
         uptime = total_uptime / total_time * 100
         return round(uptime, 2)
 
@@ -42,29 +42,31 @@ class Debuff:
         self,
         total_uptime: int,
         total_time: int,
-        stack: Optional['Stack'] = None,
+        stack: 'Stack' = None,
     ):
-        if stack:
-            return stack.uptimes[self.stack.max_stacks]
+        if stack and stack.uptimes:
+            return stack.uptimes[stack.max_stacks]
         uptime = total_uptime / total_time * 100
         return round(uptime, 2)
 
 
 @dataclass(frozen=True)
 class Skill:
-    def __eq__(self, o: object) -> bool:
-        return self.id == o.id
+    def __eq__(self, other: object) -> bool:
+        if not isinstance(other, Skill):
+            return NotImplemented
+        return self.id == other.id
 
     def __hash__(self) -> int:
         return hash(('name', self.name, 'id', self.id))
 
     name: str
     id: int
+    icon: str
 
-    icon: Optional[str] = None
-    buffs: List[Buff] = None
-    debuffs: List[Debuff] = None
-    link: str = None
+    link: Optional[str] = None
+    buffs: Optional[List[Buff]] = None
+    debuffs: Optional[List[Debuff]] = None
     parent: Optional['Skill'] = None
     children: Optional[List['Skill']] = None
 
@@ -78,9 +80,9 @@ class Skill:
         tick_count: int,
         total_time: int,
     ) -> float:
-        uptime = (hit_count + tick_count) * 1000
-        uptime /= total_time
-        uptime *= 100
+        uptime = (hit_count + tick_count) * 1000.0
+        uptime /= float(total_time)
+        uptime *= 100.0
         return round(uptime, 2)
 
     def bumped_uptime(
@@ -109,8 +111,8 @@ class GearSet:
     uptime: Optional[float] = None
     optimal_uptime: Optional[float] = None
     icon: Optional[str] = None
-    buffs: List[Buff] = None
-    debuffs: List[Debuff] = None
+    buffs: Optional[List[Buff]] = None
+    debuffs: Optional[List[Debuff]] = None
 
     def bumped_uptime(
         self,
@@ -133,8 +135,8 @@ class Glyph:
     link: str
     icon: str
 
-    buffs: List[Buff] = None
-    debuffs: List[Debuff] = None
+    buffs: Optional[List[Buff]] = None
+    debuffs: Optional[List[Debuff]] = None
     uptime: Optional[float] = None
     advice: Optional[str] = None
 
@@ -162,7 +164,7 @@ class Stack:
 
     buffs: Optional[List[Buff]] = None
     debuffs: Optional[List[Debuff]] = None
-    uptimes: Optional[Dict] = None
+    uptimes: Optional[Dict[int, float]] = None
 
 
 class EsoEnum(Enum):
