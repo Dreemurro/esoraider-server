@@ -4,6 +4,16 @@ from data.buffs import BUFFS
 
 
 class GENERAL_SKILLS(EsoEnum):
+    BLOCKADE_OF_FIRE_DAMAGE = Skill(
+        name='Blockade of Fire',
+        id=39012,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_destructionstaff_004_b.png',
+    )
+    BLOCKADE_OF_FIRE = Skill(
+        name='Blockade of Fire',
+        id=62912,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_destructionstaff_004_b.png',
+    )
     BLOCKADE_OF_FROST_DAMAGE = Skill(
         name='Blockade of Frost',
         id=39028,
@@ -20,6 +30,8 @@ class GENERAL_SKILLS(EsoEnum):
         children=[
             BLOCKADE_OF_FROST,
             BLOCKADE_OF_FROST_DAMAGE,
+            BLOCKADE_OF_FIRE,
+            BLOCKADE_OF_FIRE_DAMAGE,
         ],
         link='https://eso-hub.com/en/skills/weapon/destruction-staff/elemental-blockade',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_destructionstaff_002a.png',
