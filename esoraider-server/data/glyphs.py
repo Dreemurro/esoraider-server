@@ -1,5 +1,6 @@
 from data.core import EsoEnum, Glyph
-from data.classes.general import DEBUFFS
+from data.buffs import BUFFS
+from data.debuffs import DEBUFFS
 
 
 class GLYPHS(EsoEnum):
@@ -30,4 +31,11 @@ class GLYPHS(EsoEnum):
         link='https://en.uesp.net/wiki/Online:Glyph_of_Poison',
         icon='https://images.uesp.net/9/90/ON-icon-glyph-weapon-Glyph_of_Poison.png',
         debuffs=[DEBUFFS.POISONED.value],
+    )
+    BERSERKER = Glyph(
+        name='Glyph of Weapon Damage',
+        id=5,
+        link='https://en.uesp.net/wiki/Online:Glyph_of_Weapon_Damage',
+        icon='https://images.uesp.net/d/d4/ON-icon-glyph-weapon-Glyph_of_Weapon_Damage.png',
+        buffs=[BUFFS.BERSERKER.value],
     )

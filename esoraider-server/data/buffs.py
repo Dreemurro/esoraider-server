@@ -166,3 +166,12 @@ class BUFFS(EsoEnum):
         id=149413,  # Another ID - 147828, lower uptime
         icon='https://assets.rpglogs.com/img/eso/abilities/gear_reachv2_staff_a.png',
     )
+
+    """
+    From glyphs
+    """
+    BERSERKER = Buff(
+        name='Berserker',
+        id=21230,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ava_artifact_006.png',
+    )
