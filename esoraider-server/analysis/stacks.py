@@ -67,7 +67,7 @@ class Stacks(object):
         if stack.buffs:
             char_effects = self._char_buffs
             effects_ids = [buff.id for buff in stack.buffs]
-        else:
+        elif stack.debuffs:
             char_effects = self._char_debuffs
             effects_ids = [debuff.id for debuff in stack.debuffs]
 
@@ -99,7 +99,7 @@ class Stacks(object):
     def _calculate_stacks_uptimes(
         self, intervals: Dict[int, Interval],
     ) -> Dict[int, float]:
-        uptimes = {key: 0 for key in intervals.keys()}
+        uptimes = {key: float(0) for key in intervals.keys()}
         for stack, interval in intervals.items():
             uptimes[stack] = _uptime_from_interval(interval, self._total_time)
         return uptimes
@@ -121,11 +121,11 @@ class Stacks(object):
         #      with combined
         # Last step for each stack is to intersect with the main debuff
         # to get final uptime
-        calculated_stacks = {}
+        calculated_stacks: Dict[int, float] = {}
         for n_stacks in range(1, max_stacks + 1):
             # Not enough debuffs for stack calculation
             if n_stacks > len(effects):
-                calculated_stacks[n_stacks] = 0
+                calculated_stacks[n_stacks] = float(0)
                 continue
 
             to_union = len(effects) - n_stacks + 1
@@ -145,9 +145,9 @@ class Stacks(object):
         n_stacks: int,
         to_union: int,
     ) -> Interval:
-        combined = None
+        combined = Interval()
         for to_join in effects[-to_union:]:
-            combined = combined.union(to_join) if combined else to_join
+            combined = combined.union(to_join)
 
         intersected = None
         if n_stacks > 1:
