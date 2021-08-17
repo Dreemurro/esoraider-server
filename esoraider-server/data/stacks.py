@@ -66,6 +66,17 @@ class STACKS(EsoEnum):
     )
 
     """
+    Dragonknight
+    """
+    STAGGER = Stack(
+        name='Stagger',
+        id=134336,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_dragonknight_013_a.png',
+        max_stacks=3,
+        type_='Debuff',
+    )
+
+    """
     Nightblade
     """
     MERCILESS_RESOLVE = Stack(
@@ -108,4 +119,14 @@ class DEBUFFS_WITH_STACKS(EsoEnum):
         id=126597,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_healer_006.png',
         stack=STACKS.TOUCH_OF_ZEN.value,
+    )
+
+    """
+    Dragonknight
+    """
+    STAGGER = Debuff(
+        name='Stagger',
+        id=134336,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_dragonknight_013_a.png',
+        stack=STACKS.STAGGER.value,
     )

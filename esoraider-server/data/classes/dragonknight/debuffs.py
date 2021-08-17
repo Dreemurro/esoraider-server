@@ -2,11 +2,6 @@ from data.core import Debuff, EsoEnum
 
 
 class DRAGONKNIGHT_DEBUFFS(EsoEnum):
-    STAGGER = Debuff(
-        name='Stagger',
-        id=134336,
-        icon='https://assets.rpglogs.com/img/eso/abilities/ability_dragonknight_013_a.png',
-    )
     ENGULFING_FLAMES_DAMAGE = Debuff(
         name='Engulfing Flames',
         id=31104,

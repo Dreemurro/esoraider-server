@@ -1,20 +1,19 @@
 from data.buffs import BUFFS
 from data.classes.dragonknight.debuffs import DRAGONKNIGHT_DEBUFFS
 from data.core import EsoEnum, Skill
+from data.stacks import DEBUFFS_WITH_STACKS
 
 
 class DRAGONKNIGHT_SKILLS(EsoEnum):
-    # TODO: Appears on uptimes list, its not a DoT
-    # TODO: Has multiple IDs - 133027, 134355, 134340
+    # Has multiple IDs - 133027, 134355, 134340
     STONE_GIANT = Skill(
         name='Stone Giant',
         id=31816,
-        debuffs=[DRAGONKNIGHT_DEBUFFS.STAGGER.value],
+        debuffs=[DEBUFFS_WITH_STACKS.STAGGER.value],
         link='https://eso-hub.com/en/skills/dragonknight/earthen-heart/stone-giant',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_dragonknight_013_a.png',
     )
     # TODO: Any way to track percentage of additional damage taken?
-    # TODO: Wrong uptime (probably shows initial hit, not the DoT)
     ENGULFING_FLAMES = Skill(
         name='Engulfing Flames',
         id=20930,
