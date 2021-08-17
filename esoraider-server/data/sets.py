@@ -165,3 +165,11 @@ class GEAR_SETS(EsoEnum):
         link='https://eso-hub.com/en/sets/perfected-wrath-of-elements',
         icon='https://eso-hub.com/storage/icons/gear_reachv2_staff_a.png',
     )
+    # TODO: Shown uptime is on set user only, it's not group wide uptime
+    PERFECTED_VESTMENT_OF_OLORIME = GearSet(
+        name='Perfected Vestment of Olorime',
+        id=395,
+        buffs=[BUFFS.MAJOR_COURAGE_OLORIME.value],
+        link='https://eso-hub.com/en/sets/perfected-vestment-of-olorime',
+        icon='https://eso-hub.com/storage/icons/gear_welkynar_light_head_a.png',
+    )
