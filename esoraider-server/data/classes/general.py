@@ -198,3 +198,13 @@ class GENERAL_SKILLS(EsoEnum):
         link='https://eso-hub.com/en/skills/world/soul-magic/consuming-trap',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_otherclass_001_b.png',
     )
+    COMBAT_PRAYER = Skill(
+        name='Combat Prayer',
+        id=40094,
+        buffs=[
+            BUFFS.MINOR_BERSERK_COMBAT_PRAYER.value,
+            BUFFS.MINOR_RESOLVE_COMBAT_PRAYER.value,
+        ],
+        link='https://eso-hub.com/en/skills/weapon/restoration-staff/combat-prayer',
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_restorationstaff_003_b.png',
+    )

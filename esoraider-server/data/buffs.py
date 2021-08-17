@@ -6,9 +6,19 @@ class BUFFS(EsoEnum):
     """
     Minor / Major
     """
+    """
+    MINOR BERSERK
+    KNOWN IDS 
+    - 80471
+    """
     MINOR_BERSERK = Buff(
         name='Minor Berserk',
-        id=61744,  # Another ID - 80471
+        id=61744,  # Overall uptime?
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_minor_berserk.png'
+    )
+    MINOR_BERSERK_COMBAT_PRAYER = Buff(
+        name='Minor Berserk',
+        id=62636,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_minor_berserk.png'
     )
 
@@ -25,6 +35,17 @@ class BUFFS(EsoEnum):
         name='Major Resolve',
         id=88758,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_major_resolve.png',
+    )
+
+    """
+    MINOR RESOLVE
+    KNOWN IDS 
+    - 61693 (overall uptime?)
+    """
+    MINOR_RESOLVE_COMBAT_PRAYER = Buff(
+        name='Minor Resolve',
+        id=62634,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_minor_resolve.png',
     )
 
     MINOR_HEROISM = Buff(
