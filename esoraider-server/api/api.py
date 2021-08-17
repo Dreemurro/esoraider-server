@@ -335,17 +335,19 @@ class ApiWrapper:
             graph = self.ds.Report.graph(
                 startTime=start_time,
                 endTime=end_time,
+                abilityID=ability_id,
+                hostilityType=hostility_type,
                 dataType=data_type,
                 sourceID=char_id,
-                abilityID=ability_id,
             )
         elif hostility_type == 'Enemies' and data_type == 'Debuffs':
             graph = self.ds.Report.graph(
                 startTime=start_time,
                 endTime=end_time,
+                abilityID=ability_id,
+                hostilityType=hostility_type,
                 dataType=data_type,
                 targetID=char_id,
-                abilityID=ability_id,
             )
 
         return {'id_{0}'.format(ability_id): graph}
