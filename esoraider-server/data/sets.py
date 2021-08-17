@@ -12,6 +12,13 @@ class GEAR_SETS(EsoEnum):
         link='https://eso-hub.com/en/sets/perfected-crushing-wall',
         icon='https://eso-hub.com/storage/icons/gear_dwarvenscavenged_staff_a.png',
     )
+    CRUSHING_WALL = GearSet(
+        name='Crushing Wall',
+        id=373,
+        buffs=[BUFFS.CRUSHING_WALL.value],
+        link='https://eso-hub.com/en/sets/crushing-wall',
+        icon='https://eso-hub.com/storage/icons/gear_dwarvenscavenged_staff_a.png',
+    )
     HARPOONERS_WADING_KILT = GearSet(
         name='Harpooner\'s Wading Kilt',
         id=594,
