@@ -324,6 +324,7 @@ class Event(DataClassJsonMixin):
     fight: int
 
     stack: Optional[int] = None
+    target_instance: Optional[int] = None
 
 
 @dataclass
