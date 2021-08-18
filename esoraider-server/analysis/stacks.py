@@ -22,6 +22,8 @@ def _convert_to_interval(bands: List[Band]) -> Interval:
 
 
 def _uptime_from_interval(interval: Interval, total_time: int) -> float:
+    if interval.empty:
+        return 0.0
     total_uptime = sum([atomic.upper - atomic.lower for atomic in interval])
     return round(total_uptime / total_time * 100, 2)
 
