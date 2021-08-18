@@ -108,7 +108,7 @@ class DataRequest:
         self.debuffs_table = decoded
 
     async def _request_damage_done(self):
-        if not self._tracked_info.skills or self.damage_done_table:
+        if self.damage_done_table:
             return
 
         ids = set()
