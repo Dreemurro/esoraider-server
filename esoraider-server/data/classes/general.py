@@ -235,3 +235,10 @@ class GENERAL_SKILLS(EsoEnum):
         link='https://eso-hub.com/en/skills/weapon/dual-wield/rending-slashes',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_dualwield_001_a.png',
     )
+    POISON_INJECTION = Skill(
+        name='Poison Injection',
+        id=38660,
+        debuffs=[DEBUFFS.POISON_INJECTION.value],
+        link='https://eso-hub.com/en/skills/weapon/bow/poison-injection',
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_bow_002_b.png',
+    )

@@ -87,6 +87,11 @@ class DEBUFFS(EsoEnum):
         id=38841,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_dualwield_001_a.png',
     )
+    POISON_INJECTION = Debuff(
+        name='Poison Injection',
+        id=44549,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_bow_002_b.png',
+    )
 
     """
     From sets
