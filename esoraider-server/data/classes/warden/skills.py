@@ -11,6 +11,13 @@ class WARDEN_SKILLS(EsoEnum):
         link='https://eso-hub.com/en/skills/warden/animal-companions/blue-betty',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_warden_017.png',
     )
+    BULL_NETCH = Skill(
+        name='Bull Netch',
+        id=86058,
+        buffs=[BUFFS.MAJOR_BRUTALITY.value, BUFFS.MAJOR_SORCERY.value],
+        link='https://eso-hub.com/en/skills/warden/animal-companions/bull-netch',
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_warden_017_b.png',
+    )
     FETCHER_INFECTION = Skill(
         name='Fetcher Infection',
         id=86027,
