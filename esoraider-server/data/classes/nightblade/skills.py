@@ -37,4 +37,11 @@ class NIGHTBLADE_SKILLS(EsoEnum):
         link='https://eso-hub.com/en/skills/nightblade/siphoning/siphoning-attacks',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_nightblade_003_b.png',
     )
+    LEECHING_STRIKES = Skill(
+        name='Leeching Strikes',
+        id=36908,
+        buffs=[NIGHTBLADE_BUFFS.LEECHING_STRIKES.value],
+        link='https://eso-hub.com/en/skills/nightblade/siphoning/leeching-strikes',
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_nightblade_003_a.png',
+    )
     # DARK_SHADE = Skill()  # Pet handling is needed

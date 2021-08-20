@@ -7,3 +7,8 @@ class NIGHTBLADE_BUFFS(EsoEnum):
         id=36935,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_nightblade_003_b.png',
     )
+    LEECHING_STRIKES = Buff(
+        name='Leeching Strikes',
+        id=36908,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_nightblade_003_a.png',
+    )
