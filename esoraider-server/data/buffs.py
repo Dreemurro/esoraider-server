@@ -147,6 +147,13 @@ class BUFFS(EsoEnum):
         icon='https://assets.rpglogs.com/img/eso/abilities/procs_006.png',
     )
 
+    # Major Evasion
+    MAJOR_EVASION = Buff(
+        name='Major Evasion',
+        id=61716,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_major_evasion.png',
+    )
+
     """
     From skills
     """

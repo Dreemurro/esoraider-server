@@ -208,3 +208,11 @@ class GENERAL_SKILLS(EsoEnum):
         link='https://eso-hub.com/en/skills/weapon/restoration-staff/combat-prayer',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_restorationstaff_003_b.png',
     )
+    DEADLY_CLOAK = Skill(
+        name='Deadly Cloak',
+        id=38906,
+        # + buff ID = 123653 -> Major Evasion (with Deadly Cloak icon O__o)
+        buffs=[BUFFS.MAJOR_EVASION.value],
+        link='https://eso-hub.com/en/skills/weapon/dual-wield/deadly-cloak',
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_dualwield_004_b.png',
+    )
