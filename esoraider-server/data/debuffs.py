@@ -82,6 +82,11 @@ class DEBUFFS(EsoEnum):
         id=126898,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_otherclass_001.png',
     )
+    RENDING_SLASHES = Debuff(
+        name='Rending Slashes',
+        id=38841,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_dualwield_001_a.png',
+    )
 
     """
     From sets

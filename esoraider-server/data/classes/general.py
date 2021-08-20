@@ -228,3 +228,10 @@ class GENERAL_SKILLS(EsoEnum):
         link='https://eso-hub.com/en/skills/alliance-war/assault/anti-cavalry-caltrops',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_ava_001_a.png',
     )
+    RENDING_SLASHES = Skill(
+        name='Rending Slashes',
+        id=38839,
+        debuffs=[DEBUFFS.RENDING_SLASHES.value],
+        link='https://eso-hub.com/en/skills/weapon/dual-wield/rending-slashes',
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_dualwield_001_a.png',
+    )
