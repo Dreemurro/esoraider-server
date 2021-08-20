@@ -148,6 +148,8 @@ class BUFFS(EsoEnum):
     )
 
     # Major Evasion
+    # Known IDs:
+    # - 84341 (Gossamer?)
     MAJOR_EVASION = Buff(
         name='Major Evasion',
         id=61716,

@@ -187,3 +187,10 @@ class GEAR_SETS(EsoEnum):
         link='https://eso-hub.com/en/sets/perfected-spectral-cloak',
         icon='https://eso-hub.com/storage/icons/gear_honorguard_1hsword_a.png',
     )
+    GOSSAMER = GearSet(
+        name='Gossamer',
+        id=261,
+        buffs=[BUFFS.MAJOR_EVASION.value],
+        link='https://eso-hub.com/en/sets/gossamer',
+        icon='https://eso-hub.com/storage/icons/gear_kothringi_light_head_a.png',
+    )
