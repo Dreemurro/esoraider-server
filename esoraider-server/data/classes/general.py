@@ -216,3 +216,15 @@ class GENERAL_SKILLS(EsoEnum):
         link='https://eso-hub.com/en/skills/weapon/dual-wield/deadly-cloak',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_dualwield_004_b.png',
     )
+    ANTI_CAVALRY_CALTROPS_DAMAGE = Skill(
+        name='Anti-Cavalry Caltrops',
+        id=40267,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_ava_001_a.png',
+    )
+    ANTI_CAVALRY_CALTROPS = Skill(
+        name='Anti-Cavalry Caltrops',
+        id=40255,
+        children=[ANTI_CAVALRY_CALTROPS_DAMAGE],
+        link='https://eso-hub.com/en/skills/alliance-war/assault/anti-cavalry-caltrops',
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_ava_001_a.png',
+    )
