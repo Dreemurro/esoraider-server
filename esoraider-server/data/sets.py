@@ -173,3 +173,17 @@ class GEAR_SETS(EsoEnum):
         link='https://eso-hub.com/en/sets/perfected-vestment-of-olorime',
         icon='https://eso-hub.com/storage/icons/gear_welkynar_light_head_a.png',
     )
+    SPECTRAL_CLOAK = GearSet(
+        name='Spectral Cloak',
+        id=413,
+        buffs=[BUFFS.SPECTRAL_CLOAK.value],
+        link='https://eso-hub.com/en/sets/spectral-cloak',
+        icon='https://eso-hub.com/storage/icons/gear_honorguard_1hsword_a.png',
+    )
+    PERFECTED_SPECTRAL_CLOAK = GearSet(
+        name='Perfected Spectral Cloak',
+        id=425,
+        buffs=[BUFFS.SPECTRAL_CLOAK.value],
+        link='https://eso-hub.com/en/sets/perfected-spectral-cloak',
+        icon='https://eso-hub.com/storage/icons/gear_honorguard_1hsword_a.png',
+    )
