@@ -24,9 +24,14 @@ class DEBUFFS(EsoEnum):
         name='Minor Lifesteal',
         id=0,
     )
+
+    # Minor Vulnerability
+    # Known IDs:
+    # - 130168
+    # - 130173 (Growing Swarm?)
     MINOR_VULNERABILITY = Debuff(
         name='Minor Vulnerability',
-        id=79717,  # Another ID - 130168
+        id=79717,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_debuff_minor_vulnerability.png',
     )
 

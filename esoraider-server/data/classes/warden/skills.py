@@ -21,6 +21,16 @@ class WARDEN_SKILLS(EsoEnum):
         link='https://eso-hub.com/en/skills/warden/animal-companions/fetcher-infection',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_warden_014_a.png',
     )
+    GROWING_SWARM = Skill(
+        name='Growing Swarm',
+        id=86031,
+        debuffs=[
+            DEBUFFS.MINOR_VULNERABILITY.value,
+            WARDEN_DEBUFFS.GROWING_SWARM.value,
+        ],
+        link='https://eso-hub.com/en/skills/warden/animal-companions/growing-swarm',
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_warden_014_b.png',
+    )
     EXPANSIVE_FROST_CLOAK = Skill(
         name='Expansive Frost Cloak',
         id=86126,
