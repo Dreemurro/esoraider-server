@@ -86,6 +86,13 @@ class STACKS(EsoEnum):
         max_stacks=5,
         type_='Buff',
     )
+    RELENTLESS_FOCUS = Stack(
+        name='Relentless Focus',
+        id=61928,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_nightblade_005_a.png',
+        max_stacks=5,
+        type_='Buff',
+    )
 
 
 class BUFFS_WITH_STACKS(EsoEnum):
@@ -107,6 +114,12 @@ class BUFFS_WITH_STACKS(EsoEnum):
         id=61919,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_nightblade_005_b.png',
         stack=STACKS.MERCILESS_RESOLVE.value,
+    )
+    RELENTLESS_FOCUS = Buff(
+        name='Relentless Focus',
+        id=61927,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_nightblade_005_a.png',
+        stack=STACKS.RELENTLESS_FOCUS.value,
     )
 
 

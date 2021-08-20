@@ -23,6 +23,13 @@ class NIGHTBLADE_SKILLS(EsoEnum):
         link='https://eso-hub.com/en/skills/nightblade/assassination/merciless-resolve',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_nightblade_005_b.png',
     )
+    RELENTLESS_FOCUS = Skill(
+        name='Relentless Focus',
+        id=61927,
+        buffs=[BUFFS_WITH_STACKS.RELENTLESS_FOCUS.value],
+        link='https://eso-hub.com/en/skills/nightblade/assassination/relentless-focus',
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_nightblade_005_a.png',
+    )
     SIPHONING_ATTACKS = Skill(
         name='Siphoning Attacks',
         id=36935,
