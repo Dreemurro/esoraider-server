@@ -78,6 +78,13 @@ class STACKS(EsoEnum):
         max_stacks=10,
         type_='Debuff',
     )
+    SIRORIAS_BOON = Stack(
+        name='Siroria\'s Boon',
+        id=110118,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_mage_010.png',
+        max_stacks=10,
+        type_='Buff',
+    )
 
     """
     Dragonknight
@@ -118,6 +125,12 @@ class BUFFS_WITH_STACKS(EsoEnum):
         id=155150,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_rogue_066.png',
         stack=STACKS.HUNTERS_FOCUS.value,
+    )
+    SIRORIAS_BOON = Buff(
+        name='Siroria\'s Boon',
+        id=110118,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_mage_010.png',
+        stack=STACKS.SIRORIAS_BOON.value,
     )
 
     """

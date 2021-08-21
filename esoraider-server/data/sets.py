@@ -208,3 +208,17 @@ class GEAR_SETS(EsoEnum):
         link='https://eso-hub.com/en/sets/perfected-arms-of-relequen',
         icon='https://eso-hub.com/storage/icons/gear_welkynar_medium_head_a.png',
     )
+    MANTLE_OF_SIRORIA = GearSet(
+        name='Mantle of Siroria',
+        id=390,
+        buffs=[BUFFS_WITH_STACKS.SIRORIAS_BOON.value],
+        link='https://eso-hub.com/en/sets/mantle-of-siroria',
+        icon='https://eso-hub.com/storage/icons/gear_welkynar_light_head_a.png',
+    )
+    PERFECTED_MANTLE_OF_SIRORIA = GearSet(
+        name='Perfected Mantle of Siroria',
+        id=394,
+        buffs=[BUFFS_WITH_STACKS.SIRORIAS_BOON.value],
+        link='https://eso-hub.com/en/sets/perfected-mantle-of-siroria',
+        icon='https://eso-hub.com/storage/icons/gear_welkynar_light_head_a.png',
+    )
