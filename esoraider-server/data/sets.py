@@ -194,3 +194,17 @@ class GEAR_SETS(EsoEnum):
         link='https://eso-hub.com/en/sets/gossamer',
         icon='https://eso-hub.com/storage/icons/gear_kothringi_light_head_a.png',
     )
+    ARMS_OF_RELEQUEN = GearSet(
+        name='Arms of Relequen',
+        id=389,
+        debuffs=[DEBUFFS_WITH_STACKS.ARMS_OF_RELEQUEN.value],
+        link='https://eso-hub.com/en/sets/arms-of-relequen',
+        icon='https://eso-hub.com/storage/icons/gear_welkynar_medium_head_a.png',
+    )
+    PERFECTED_ARMS_OF_RELEQUEN = GearSet(
+        name='Perfected Arms of Relequen',
+        id=393,
+        debuffs=[DEBUFFS_WITH_STACKS.IDEAL_ARMS_OF_RELEQUEN.value],
+        link='https://eso-hub.com/en/sets/perfected-arms-of-relequen',
+        icon='https://eso-hub.com/storage/icons/gear_welkynar_medium_head_a.png',
+    )

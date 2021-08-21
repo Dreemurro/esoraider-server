@@ -64,6 +64,20 @@ class STACKS(EsoEnum):
             # TEMPLAR_DEBUFFS Reflective Light
         ]
     )
+    ARMS_OF_RELEQUEN = Stack(
+        name='Arms of Relequen',
+        id=107203,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_warden_003.png',
+        max_stacks=10,
+        type_='Debuff',
+    )
+    IDEAL_ARMS_OF_RELEQUEN = Stack(
+        name='Ideal Arms of Relequen',
+        id=109086,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_warden_003.png',
+        max_stacks=10,
+        type_='Debuff',
+    )
 
     """
     Dragonknight
@@ -132,6 +146,18 @@ class DEBUFFS_WITH_STACKS(EsoEnum):
         id=126597,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_healer_006.png',
         stack=STACKS.TOUCH_OF_ZEN.value,
+    )
+    ARMS_OF_RELEQUEN = Debuff(
+        name='Arms of Relequen',
+        id=107203,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_warden_003.png',
+        stack=STACKS.ARMS_OF_RELEQUEN.value,
+    )
+    IDEAL_ARMS_OF_RELEQUEN = Debuff(
+        name='Ideal Arms of Relequen',
+        id=109086,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_warden_003.png',
+        stack=STACKS.IDEAL_ARMS_OF_RELEQUEN.value,
     )
 
     """
