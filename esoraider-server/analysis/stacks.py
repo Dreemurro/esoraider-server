@@ -55,14 +55,17 @@ class Stacks(object):
             self.data.append(replace(stack, uptimes=uptimes))
 
     def _calculate_uptime_from_graph(self, stack: Stack) -> Dict[int, float]:
-        series = next(
+        series_list = [
             # Graph response doesn't show which ability ID was requested
             # so will have to get it by other means...
-            srs
-            for srs in self._char_graphs
-            if srs.events[0].ability.guid == stack.id
+            series
+            for series in self._char_graphs
+            if series.events[0].ability.guid == stack.id
+        ]
+        intervals = self._calculate_intervals(
+            stack.max_stacks,
+            [series.data for series in series_list],
         )
-        intervals = self._calculate_intervals(stack.max_stacks, series.data)
         return self._calculate_stacks_uptimes(intervals)
 
     def _calculate_uptime_from_effects(self, stack: Stack) -> Dict[int, float]:
@@ -87,16 +90,17 @@ class Stacks(object):
     def _calculate_intervals(
         self,
         max_stacks: int,
-        stacks_data: List[List[int]],
+        stacks_list: List[List[List[int]]],
     ) -> Dict[int, Interval]:
-        intervals_dict = {key: Interval() for key in range(1, max_stacks + 1)}
-        for cur, nxt in _pairwise(stacks_data):
-            interval = closed(cur[0], nxt[0])  # [0] - time, [1] - stack
+        intervals = {key: Interval() for key in range(1, max_stacks + 1)}
+        for stack_data in stacks_list:
+            for cur, nxt in _pairwise(stack_data):
+                interval = closed(cur[0], nxt[0])  # [0] - time, [1] - stack
 
-            # Combine this interval with current stack and stacks below
-            for stack in range(1, cur[1] + 1):
-                intervals_dict[stack] = intervals_dict[stack].union(interval)
-        return intervals_dict
+                # Combine this interval with current stack and stacks below
+                for stack in range(1, cur[1] + 1):
+                    intervals[stack] = intervals[stack].union(interval)
+        return intervals
 
     def _calculate_stacks_uptimes(
         self, intervals: Dict[int, Interval],
