@@ -41,11 +41,11 @@ class STACKS(EsoEnum):
             DEBUFFS.STRUCTURED_ENTROPY.value,
 
             # Bow
-            # Poison Injection
+            DEBUFFS.POISON_INJECTION.value,
 
             # DW
             # Twin Blade and Blunt Bleed
-            # Rending Slashes
+            DEBUFFS.RENDING_SLASHES.value,
 
             # 2H
             # Heavy Weapons Bleed
@@ -59,7 +59,7 @@ class STACKS(EsoEnum):
             DRAGONKNIGHT_DEBUFFS.ENGULFING_FLAMES_DAMAGE.value,
             DRAGONKNIGHT_DEBUFFS.BURNING_EMBERS.value,
             WARDEN_DEBUFFS.FETCHER_INFECTION.value,
-            # WARDEN_DEBUFFS Growing Swarm
+            WARDEN_DEBUFFS.GROWING_SWARM.value,
             TEMPLAR_DEBUFFS.VAMPIRES_BANE.value,
             # TEMPLAR_DEBUFFS Reflective Light
         ]
