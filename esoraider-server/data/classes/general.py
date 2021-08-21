@@ -242,3 +242,15 @@ class GENERAL_SKILLS(EsoEnum):
         link='https://eso-hub.com/en/skills/weapon/bow/poison-injection',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_bow_002_b.png',
     )
+    ARROW_BARRAGE_DAMAGE = Skill(
+        name='Arrow Barrage',
+        id=38696,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_bow_003_b.png',
+    )
+    ARROW_BARRAGE = Skill(
+        name='Arrow Barrage',
+        id=38695,
+        children=[ARROW_BARRAGE_DAMAGE],
+        link='https://eso-hub.com/en/skills/weapon/bow/arrow-barrage',
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_bow_003_b.png',
+    )
