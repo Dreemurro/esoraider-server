@@ -32,6 +32,18 @@ class NECROMANCER_SKILLS(EsoEnum):
         children=[DETONATING_SIPHON_DAMAGE, DETONATING_SIPHON_EXPLOSION],
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_necromancer_005_b.png',
     )
+    MYSTIC_SIPHON_DAMAGE = Skill(
+        name='Mystic Siphon',
+        id=118011,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_necromancer_005_a.png',
+    )
+    MYSTIC_SIPHON = Skill(
+        name='Mystic Siphon',
+        id=118008,
+        link='https://eso-hub.com/en/skills/necromancer/grave-lord/mystic-siphon',
+        children=[MYSTIC_SIPHON_DAMAGE],
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_necromancer_005_a.png',
+    )
     SKELETAL_ARCANIST = Skill(
         name='Skeletal Arcanist',
         id=118726,
