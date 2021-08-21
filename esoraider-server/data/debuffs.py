@@ -35,6 +35,21 @@ class DEBUFFS(EsoEnum):
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_debuff_minor_vulnerability.png',
     )
 
+    # Minor Breach
+    # Known IDs:
+    # - 148803
+    # - 146908
+    MINOR_BREACH = Debuff(
+        name='Minor Breach',
+        id=61742,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_debuff_minor_breach.png',
+    )
+    MINOR_BREACH_POWER_OF_THE_LIGHT = Debuff(
+        name='Minor Breach',
+        id=68588,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_debuff_minor_breach.png',
+    )
+
     """
     Elemental status effects
     """

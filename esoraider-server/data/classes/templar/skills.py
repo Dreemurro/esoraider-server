@@ -1,5 +1,6 @@
 from data.classes.templar.debuffs import TEMPLAR_DEBUFFS
 from data.core import EsoEnum, Skill
+from data.debuffs import DEBUFFS
 
 
 class TEMPLAR_SKILLS(EsoEnum):
@@ -11,4 +12,12 @@ class TEMPLAR_SKILLS(EsoEnum):
         debuffs=[TEMPLAR_DEBUFFS.VAMPIRES_BANE.value],
         link='https://eso-hub.com/en/skills/templar/dawns-wrath/vampires-bane',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_templar_vampire_bane.png',
+    )
+    POWER_OF_THE_LIGHT = Skill(
+        name='Power of the Light',
+        id=21763,
+        # Include PoTL debuff with the same ID?
+        debuffs=[DEBUFFS.MINOR_BREACH_POWER_OF_THE_LIGHT.value],
+        link='https://eso-hub.com/en/skills/templar/dawns-wrath/power-of-the-light',
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_templar_power_of_the_light.png',
     )
