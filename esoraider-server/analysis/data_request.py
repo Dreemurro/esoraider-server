@@ -1,15 +1,19 @@
+"""Data request from ESO Logs API."""
+
 import asyncio
-from typing import Dict, List, Set
+from typing import Dict, List, Optional, Set
 
 from analysis.tracked_info import TrackedInfo
 from api.api import ApiWrapper
 from api.response import BuffsTableData, CastsTableData, GraphData
 from data.core import Stack
-from gql.dsl import DSLField
+from gql.dsl import DSLField  # type: ignore
 from loguru import logger
 
 
-class DataRequest:
+class DataRequest(object):
+    """Generates and executes ESO Logs API queries based on data to track."""
+
     def __init__(
         self,
         api: ApiWrapper,
@@ -17,8 +21,8 @@ class DataRequest:
         fight_id: int,
         start_time: int,
         end_time: int,
-        char_id: int,
         tracked_info: TrackedInfo,
+        char_id: Optional[int] = None,
     ) -> None:
         self._api = api
 
@@ -30,31 +34,37 @@ class DataRequest:
 
         self._tracked_info = tracked_info
 
-        self.buffs_table: BuffsTableData = None
-        self.debuffs_table: BuffsTableData = None
-        self.damage_done_table: CastsTableData = None
+        self.total_time: Optional[int] = None
+        self.buffs_table: Optional[BuffsTableData] = None
+        self.debuffs_table: Optional[BuffsTableData] = None
+        self.damage_done_table: Optional[CastsTableData] = None
         self.graphs: List[GraphData] = []
 
     async def execute(self):
+        """Query generation and execution."""
         buffs = asyncio.create_task(self._request_buffs())
         debuffs = asyncio.create_task(self._request_debuffs())
         damage_done = asyncio.create_task(self._request_damage_done())
         graphs = asyncio.create_task(self._request_graphs())
         await asyncio.gather(buffs, debuffs, damage_done, graphs)
+        self.total_time = (
+            self.buffs_table.total_time
+            or self.debuffs_table.total_time
+            or self.damage_done_table.total_time
+        )
 
     def _generate_filter(self, ability_ids: Set[int]):
         return 'ability.id IN ({0})'.format(', '.join(map(str, ability_ids)))
 
     async def _request_buffs(self):
         if not self._tracked_info.buffs or self.buffs_table:
+            logger.info('Skipping Buffs table request')
             return
 
         buff_ids = {bf.id for bf in self._tracked_info.buffs}
         filter_exp = self._generate_filter(buff_ids)
 
         logger.info('Requesting buffs table from API')
-        logger.debug(filter_exp)
-
         response = await self._api.query_table(
             log=self._log,
             fight_id=self._fight_id,
@@ -68,23 +78,21 @@ class DataRequest:
         response = response.get('report')
         response = response.get('table')
         response = response.get('data')
-        decoded = BuffsTableData.from_dict(response)
+        self.buffs_table = BuffsTableData.from_dict(response)
 
-        for aura in decoded.auras:
-            logger.debug(aura)
-
-        self.buffs_table = decoded
+        logger.info('Got {0} buffs'.format(len(self.buffs_table.auras)))
+        for aura in self.buffs_table.auras:
+            logger.debug('{0} - {1}'.format(aura.name, aura.guid))
 
     async def _request_debuffs(self):
         if not self._tracked_info.debuffs or self.debuffs_table:
+            logger.info('Skipping Debuffs table request')
             return
 
         debuff_ids = {db.id for db in self._tracked_info.debuffs}
         filter_exp = self._generate_filter(debuff_ids)
 
         logger.info('Requesting debuffs table from API')
-        logger.debug(filter_exp)
-
         response = await self._api.query_table(
             log=self._log,
             fight_id=self._fight_id,
@@ -100,15 +108,15 @@ class DataRequest:
         response = response.get('report')
         response = response.get('table')
         response = response.get('data')
-        decoded = BuffsTableData.from_dict(response)
+        self.debuffs_table = BuffsTableData.from_dict(response)
 
-        for aura in decoded.auras:
-            logger.debug(aura)
-
-        self.debuffs_table = decoded
+        logger.info('Got {0} debuffs'.format(len(self.debuffs_table.auras)))
+        for aura in self.debuffs_table.auras:
+            logger.debug('{0} - {1}'.format(aura.name, aura.guid))
 
     async def _request_damage_done(self):
-        if self.damage_done_table:
+        if not self._tracked_info.skills or self.damage_done_table:
+            logger.info('Skipping Damage Done table request')
             return
 
         ids = set()
@@ -118,11 +126,7 @@ class DataRequest:
                 for child in skill.children:
                     ids.add(child.id)
 
-        filter_exp = self._generate_filter(ids)
-
         logger.info('Requesting DamageDone table from API')
-        logger.debug(filter_exp)
-
         response = await self._api.query_table(
             log=self._log,
             fight_id=self._fight_id,
@@ -130,23 +134,24 @@ class DataRequest:
             start_time=self._start_time,
             end_time=self._end_time,
             source_id=self._char_id,
-            filter_exp=filter_exp,
+            filter_exp=self._generate_filter(ids),
         )
 
         response = response.get('reportData')
         response = response.get('report')
         response = response.get('table')
         response = response.get('data')
-        decoded = CastsTableData.from_dict(response)
+        self.damage_done_table = CastsTableData.from_dict(response)
 
-        logger.info('Got {0} casts'.format(len(decoded.entries)))
-        for cast in decoded.entries:
-            logger.debug(cast)
-
-        self.damage_done_table = decoded
+        logger.info(
+            'Got {0} casts'.format(len(self.damage_done_table.entries)),
+        )
+        for cast in self.damage_done_table.entries:
+            logger.debug('{0} - {1}'.format(cast.name, cast.guid))
 
     async def _request_graphs(self):
         if not self._tracked_info.stacks or self.graphs:
+            logger.info('Skipping Graphs request')
             return
 
         simple_stacks = [
@@ -169,15 +174,9 @@ class DataRequest:
         response = response.get('reportData')
         response = response.get('report')
 
-        decoded = []
         for raw_graph in response.values():
-            decoded.append(GraphData.from_dict(raw_graph.get('data')))
-
-        logger.info('Got {0} graphs'.format(len(decoded)))
-        for graph in decoded:
-            logger.debug(graph)
-
-        self.graphs = decoded
+            self.graphs.append(GraphData.from_dict(raw_graph.get('data')))
+        logger.info('Got {0} graphs'.format(len(self.graphs)))
 
     async def _partial_graphs(
         self, stacks: List[Stack],
