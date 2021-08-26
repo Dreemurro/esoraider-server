@@ -87,9 +87,9 @@ class Skill:
 
     def bumped_uptime(
         self,
-        buffs: List[Buff],
-        debuffs: List[Debuff],
-        children: List['Skill'],
+        buffs: Optional[List[Buff]] = None,
+        debuffs: Optional[List[Debuff]] = None,
+        children: Optional[List['Skill']] = None,
     ) -> Optional[float]:
         if children and len(children) == 1:
             uptime = children[0].uptime
@@ -116,8 +116,8 @@ class GearSet:
 
     def bumped_uptime(
         self,
-        buffs: List[Buff],
-        debuffs: List[Debuff],
+        buffs: Optional[List[Buff]] = None,
+        debuffs: Optional[List[Debuff]] = None,
     ) -> Optional[float]:
         if buffs and len(buffs) == 1 and not debuffs:
             uptime = buffs[0].uptime
@@ -142,8 +142,8 @@ class Glyph:
 
     def bumped_uptime(
         self,
-        buffs: List[Buff],
-        debuffs: List[Debuff],
+        buffs: Optional[List[Buff]] = None,
+        debuffs: Optional[List[Debuff]] = None,
     ) -> Optional[float]:
         if buffs and len(buffs) == 1 and not debuffs:
             uptime = buffs[0].uptime
