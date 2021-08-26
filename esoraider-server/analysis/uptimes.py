@@ -42,7 +42,7 @@ class Uptimes:
             total_time=self._damage_done_table.total_time,
         )
         stacks.calculate()
-        self._stacks = stacks.data
+        self._stacks = stacks.calculated
 
         self.skills = self._skills_uptimes()
         self.sets = self._sets_uptimes()

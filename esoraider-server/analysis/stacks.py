@@ -1,10 +1,13 @@
+"""Uptimes calculation of stackable buffs & debuffs."""
+
 from dataclasses import replace
 from itertools import tee
 from typing import Dict, List
 
 from api.response import Aura, Band, Series
 from data.core import Stack
-from portion.interval import Interval, closed
+from loguru import logger
+from portion.interval import Interval, closed  # type: ignore
 
 
 def _pairwise(iterable):
@@ -23,12 +26,14 @@ def _convert_to_interval(bands: List[Band]) -> Interval:
 
 def _uptime_from_interval(interval: Interval, total_time: int) -> float:
     if interval.empty:
-        return 0.0
+        return float(0)
     total_uptime = sum([atomic.upper - atomic.lower for atomic in interval])
     return round(total_uptime / total_time * 100, 2)
 
 
 class Stacks(object):
+    """Uptimes calculation of stackable buffs & debuffs."""
+
     def __init__(
         self,
         known_stacks: List[Stack],
@@ -42,9 +47,11 @@ class Stacks(object):
         self._char_buffs = char_buffs
         self._char_debuffs = char_debuffs
         self._total_time = total_time
-        self.data: List[Stack] = []
+        self.calculated: List[Stack] = []
 
     def calculate(self):
+        """Calculate stacks uptimes."""
+        logger.info('Calculating stacks uptimes')
         for stack in self._known_stacks:
             uptimes = None
             if not stack.buffs and not stack.debuffs:
@@ -52,7 +59,7 @@ class Stacks(object):
             else:
                 uptimes = self._calculate_uptime_from_effects(stack)
 
-            self.data.append(replace(stack, uptimes=uptimes))
+            self.calculated.append(replace(stack, uptimes=uptimes))
 
     def _calculate_uptime_from_graph(self, stack: Stack) -> Dict[int, float]:
         series_list = [
@@ -62,10 +69,7 @@ class Stacks(object):
             for series in self._char_graphs
             if series.events[0].ability.guid == stack.id
         ]
-        intervals = self._calculate_intervals(
-            stack.max_stacks,
-            [series.data for series in series_list],
-        )
+        intervals = self._calculate_intervals(stack.max_stacks, series_list)
         return self._calculate_stacks_uptimes(intervals)
 
     def _calculate_uptime_from_effects(self, stack: Stack) -> Dict[int, float]:
@@ -88,11 +92,10 @@ class Stacks(object):
         )
 
     def _calculate_intervals(
-        self,
-        max_stacks: int,
-        stacks_list: List[List[List[int]]],
+        self, max_stacks: int, series_list: List[Series],
     ) -> Dict[int, Interval]:
         intervals = {key: Interval() for key in range(1, max_stacks + 1)}
+        stacks_list = [series.data for series in series_list]
         for stack_data in stacks_list:
             for cur, nxt in _pairwise(stack_data):
                 interval = closed(cur[0], nxt[0])  # [0] - time, [1] - stack
