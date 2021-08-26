@@ -1,4 +1,6 @@
-from typing import List, Set
+"""Known data extraction."""
+
+from typing import List, Optional, Type
 
 from api.response import SummaryTableData, Talent
 from data.classes.dragonknight.skills import DRAGONKNIGHT_SKILLS
@@ -14,17 +16,47 @@ from data.sets import GEAR_SETS
 from loguru import logger
 
 
-class TrackedInfo:
+# Move to general skills?
+def _get_class_skills(char_class: str) -> Type[EsoEnum]:
+    classes = {
+        'Nightblade': NIGHTBLADE_SKILLS,
+        'DragonKnight': DRAGONKNIGHT_SKILLS,
+        'Warden': WARDEN_SKILLS,
+        'Templar': TEMPLAR_SKILLS,
+        'Necromancer': NECROMANCER_SKILLS,
+        'Sorcerer': SORCERER_SKILLS,
+    }
+
+    try:
+        return classes[char_class]
+    except KeyError:
+        raise KeyError(
+            'Class {0} is not known. Are you from the future?'.format(
+                char_class,
+            ))
+
+
+class TrackedInfo(object):
+    """
+    Extracts known info for further usage during analysis.
+
+    Extracts all the known data, such as:
+    - skills
+    - gear sets
+    - glyphs
+    - buffs/debuffs and related stacks
+    """
+
     def __init__(
         self,
-        summary_table: SummaryTableData,
-        char_class: str,
+        summary_table: Optional[SummaryTableData] = None,
+        char_class: Optional[str] = None,
     ) -> None:
-        self._summary_table: SummaryTableData = summary_table
-        self._char_class: str = char_class
+        self._summary_table = summary_table
+        self._char_class = char_class
         self._char_skills: List[Talent] = []
 
-        self.skills: Set[Skill] = set()
+        self.skills: List[Skill] = []
         self.sets: List[GearSet] = []
         self.glyphs: List[Glyph] = []
         self.buffs: List[Buff] = []
@@ -32,6 +64,7 @@ class TrackedInfo:
         self.stacks: List[Stack] = []
 
     def extract(self):
+        """Extract known skills, sets, glyphs, buffs & debuffs with stacks."""
         self._get_char_skills()
         self._get_known_skills()
         self._get_known_sets()
@@ -47,39 +80,26 @@ class TrackedInfo:
 
         for talent in self._summary_table.combatant_info.talents:
             self._char_skills.append(talent)
-            logger.debug(talent)
+            logger.debug('{0} - {1}'.format(talent.name, talent.guid))
 
     def _get_known_skills(self):
         logger.info('Checking extracted skills in enum of skills to track')
 
         general_skills = GENERAL_SKILLS
-        class_skills = self._get_class_skills()
+        class_skills = _get_class_skills(self._char_class)
 
         for skill in self._char_skills:
-            for skills_enum in [general_skills, class_skills]:
+            for skills_enum in (general_skills, class_skills):
                 try:
                     known_skill: Skill = skills_enum(skill.guid).value
                 except StopIteration:
                     continue
-
-                logger.debug(known_skill)
-                self.skills.add(known_skill)
+                self.skills.append(known_skill)
                 break
 
-    def _get_class_skills(self) -> EsoEnum:
-        classes = {
-            'Nightblade': NIGHTBLADE_SKILLS,
-            'DragonKnight': DRAGONKNIGHT_SKILLS,
-            'Warden': WARDEN_SKILLS,
-            'Templar': TEMPLAR_SKILLS,
-            'Necromancer': NECROMANCER_SKILLS,
-            'Sorcerer': SORCERER_SKILLS,
-        }
-
-        try:
-            return classes[self._char_class]
-        except KeyError:
-            raise Exception('Class is not known. Are you from the future?')
+        logger.info('{0} skills to track'.format(len(self.skills)))
+        for _ in self.skills:
+            logger.debug(_.name)
 
     def _get_known_sets(self):
         logger.info('Checking known sets in char data')
@@ -91,9 +111,11 @@ class TrackedInfo:
                 known_set = GEAR_SETS(gear_set).value
             except StopIteration:
                 continue
-
-            logger.debug(known_set)
             self.sets.append(known_set)
+
+        logger.info('{0} sets to track'.format(len(self.sets)))
+        for _ in self.sets:
+            logger.debug(_.name)
 
     def _get_known_glyphs(self):
         logger.info('Checking known enchants in char data')
@@ -106,55 +128,75 @@ class TrackedInfo:
                 known_glyph = GLYPHS(enchant).value
             except StopIteration:
                 continue
-
-            logger.debug(known_glyph)
             self.glyphs.append(known_glyph)
 
+        logger.info('{0} glyphs to track'.format(len(self.glyphs)))
+        for _ in self.glyphs:
+            logger.debug(_.name)
+
     def _get_known_effects(self):
-        logger.info('Getting buffs & debuffs to track based on skills & sets')
+        logger.info(
+            'Getting buffs & debuffs to track based on skills, sets & glyphs',
+        )
 
-        for tracked_info in [*self.skills, *self.sets, *self.glyphs]:
-            if tracked_info.buffs:
-                self.buffs.extend(tracked_info.buffs)
-                for buff in tracked_info.buffs:
-                    logger.debug(buff)
-            if tracked_info.debuffs:
-                self.debuffs.extend(tracked_info.debuffs)
-                for debuff in tracked_info.debuffs:
-                    logger.debug(debuff)
-            if isinstance(tracked_info, Skill) and tracked_info.children:
-                for child in tracked_info.children:
-                    self._get_child_effects(child)
+        skills_with_children = [
+            skill for skill in self.skills if skill.children
+        ]
+        children = [
+            child
+            for skill in skills_with_children
+            for child in skill.children
+        ]
+        with_buffs = [
+            tracked
+            for tracked in (*self.skills, *self.sets, *self.glyphs, *children)
+            if tracked.buffs
+        ]
+        with_debuffs = [
+            tracked
+            for tracked in (*self.skills, *self.sets, *self.glyphs, *children)
+            if tracked.debuffs
+        ]
 
-    def _get_child_effects(self, child: Skill):
-        if child.buffs:
-            self.buffs.extend(child.buffs)
-            for buff in child.buffs:
-                logger.debug(buff)
-        if child.debuffs:
-            self.debuffs.extend(child.debuffs)
-            for debuff in child.debuffs:
-                logger.debug(debuff)
+        self.buffs.extend([
+            buff
+            for tracked in with_buffs
+            for buff in tracked.buffs
+        ])
+        self.debuffs.extend([
+            debuff
+            for tracked in with_debuffs
+            for debuff in tracked.debuffs
+        ])
+
+        logger.info('{0} buffs to track'.format(len(self.buffs)))
+        for _ in self.buffs:
+            logger.debug(_.name)
+        logger.info('{0} debuffs to track'.format(len(self.debuffs)))
+        for _ in self.debuffs:
+            logger.debug(_.name)
 
     def _get_known_stacks(self):
         logger.info('Getting stacks to track based on buffs & debuffs')
 
-        stacks = []
-        for tracked_info in [*self.buffs, *self.debuffs]:
-            if tracked_info.stack:
-                stacks.append(tracked_info.stack)
-                logger.debug(tracked_info.stack)
+        self.stacks = [
+            effect.stack
+            for effect in (*self.buffs, *self.debuffs)
+            if effect.stack
+        ]
 
-        for stack in stacks:
-            if stack.buffs:
+        for _ in self.stacks:
+            if _.buffs:
                 logger.info('Found additional buffs required for stack')
-                self.buffs.extend(stack.buffs)
-                for buff in stack.buffs:
-                    logger.debug(buff)
-            if stack.debuffs:
+                self.buffs.extend(_.buffs)
+                for buff in _.buffs:
+                    logger.debug(buff.name)
+            if _.debuffs:
                 logger.info('Found additional debuffs required for stack')
-                self.debuffs.extend(stack.debuffs)
-                for debuff in stack.debuffs:
-                    logger.debug(debuff)
+                self.debuffs.extend(_.debuffs)
+                for debuff in _.debuffs:
+                    logger.debug(debuff.name)
 
-        self.stacks = stacks
+        logger.info('{0} stacks to track'.format(len(self.stacks)))
+        for _ in self.stacks:
+            logger.debug(_.name)
