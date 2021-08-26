@@ -65,14 +65,11 @@ class ReportBuilder:
         self._get_char_graphs()
 
         self.uptimes = Uptimes(
-            self.requested_data.damage_done_table,
-            self.tracked_info.skills,
-            self.tracked_info.sets,
-            self.tracked_info.glyphs,
-            self.tracked_info.stacks,
-            self._char_buffs,
-            self._char_debuffs,
-            self._char_graphs,
+            tracked_info=self.tracked_info,
+            requested_info=self.requested_data,
+            char_buffs=self._char_buffs,
+            char_debuffs=self._char_debuffs,
+            char_graphs=self._char_graphs,
         )
         self.uptimes.calculate()
 
