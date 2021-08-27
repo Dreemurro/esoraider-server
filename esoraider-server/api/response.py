@@ -1,11 +1,16 @@
-from typing import Any, List, Optional, Union
 from dataclasses import dataclass, field
-from dataclasses_json import LetterCase, config, dataclass_json, Undefined, DataClassJsonMixin
+from typing import Any, List, Optional
+
+from dataclasses_json import DataClassJsonMixin, LetterCase, Undefined, config
 
 
-@dataclass_json(letter_case=LetterCase.CAMEL, undefined=Undefined.RAISE)
 @dataclass
-class Gear:
+class Gear(DataClassJsonMixin):
+    dataclass_json_config = config(  # type: ignore
+        letter_case=LetterCase.CAMEL,  # type: ignore
+        undefined=Undefined.RAISE,
+    )['dataclasses_json']
+
     id: int
     slot: int
     quality: int
@@ -14,16 +19,20 @@ class Gear:
     trait: int
     enchant_type: int
     enchant_quality: int
-    set_id: int = field(metadata=config(field_name="setID"))
+    set_id: int = field(metadata=config(field_name='setID'))
 
     name: Optional[str] = None
     type: Optional[int] = None
     set_name: Optional[str] = None
 
 
-@dataclass_json(letter_case=LetterCase.CAMEL, undefined=Undefined.RAISE)
 @dataclass
-class Talent:
+class Talent(DataClassJsonMixin):
+    dataclass_json_config = config(  # type: ignore
+        letter_case=LetterCase.CAMEL,  # type: ignore
+        undefined=Undefined.RAISE,
+    )['dataclasses_json']
+
     name: str
     guid: int
     type: int
@@ -31,16 +40,20 @@ class Talent:
     flags: int
 
 
-@dataclass_json(letter_case=LetterCase.CAMEL, undefined=Undefined.RAISE)
 @dataclass
-class CombatantInfo:
+class CombatantInfo(DataClassJsonMixin):
+    dataclass_json_config = config(  # type: ignore
+        letter_case=LetterCase.CAMEL,  # type: ignore
+        undefined=Undefined.RAISE,
+    )['dataclasses_json']
+
     stats: List[Any]
     talents: List[Talent]
     gear: List[Gear]
 
     spec_ids: Optional[List[Any]] = field(
         default=None,
-        metadata=config(field_name="specIDs")
+        metadata=config(field_name='specIDs'),
     )
     artifact: Optional[List[Any]] = None
 
@@ -48,9 +61,13 @@ class CombatantInfo:
         return [t.guid for t in self.talents]
 
 
-@dataclass_json(letter_case=LetterCase.CAMEL, undefined=Undefined.RAISE)
 @dataclass
-class PlayerDetails:
+class PlayerDetails(DataClassJsonMixin):
+    dataclass_json_config = config(  # type: ignore
+        letter_case=LetterCase.CAMEL,  # type: ignore
+        undefined=Undefined.RAISE,
+    )['dataclasses_json']
+
     name: str
     id: int
     guid: int
@@ -65,17 +82,25 @@ class PlayerDetails:
     combatant_info: CombatantInfo
 
 
-@dataclass_json(letter_case=LetterCase.CAMEL, undefined=Undefined.RAISE)
 @dataclass
-class PlayerDetailsBySpec:
+class PlayerDetailsBySpec(DataClassJsonMixin):
+    dataclass_json_config = config(  # type: ignore
+        letter_case=LetterCase.CAMEL,  # type: ignore
+        undefined=Undefined.RAISE,
+    )['dataclasses_json']
+
     dps: Optional[List[PlayerDetails]] = None
     healers: Optional[List[PlayerDetails]] = None
     tanks: Optional[List[PlayerDetails]] = None
 
 
-@dataclass_json(letter_case=LetterCase.CAMEL, undefined=Undefined.RAISE)
 @dataclass
-class DoneByAbility:
+class DoneByAbility(DataClassJsonMixin):
+    dataclass_json_config = config(  # type: ignore
+        letter_case=LetterCase.CAMEL,  # type: ignore
+        undefined=Undefined.RAISE,
+    )['dataclasses_json']
+
     name: str
     guid: int
     type: int
@@ -86,9 +111,13 @@ class DoneByAbility:
     flags: Optional[int] = None
 
 
-@dataclass_json(letter_case=LetterCase.CAMEL, undefined=Undefined.RAISE)
 @dataclass
-class DeathFromAbility:
+class DeathFromAbility(DataClassJsonMixin):
+    dataclass_json_config = config(  # type: ignore
+        letter_case=LetterCase.CAMEL,  # type: ignore
+        undefined=Undefined.RAISE,
+    )['dataclasses_json']
+
     name: str
     guid: int
     type: int
@@ -96,9 +125,13 @@ class DeathFromAbility:
     flags: int
 
 
-@dataclass_json(letter_case=LetterCase.CAMEL, undefined=Undefined.RAISE)
 @dataclass
-class DeathEvent:
+class DeathEvent(DataClassJsonMixin):
+    dataclass_json_config = config(  # type: ignore
+        letter_case=LetterCase.CAMEL,  # type: ignore
+        undefined=Undefined.RAISE,
+    )['dataclasses_json']
+
     name: str
     id: int
     guid: int
@@ -108,9 +141,13 @@ class DeathEvent:
     ability: DeathFromAbility
 
 
-@dataclass_json(letter_case=LetterCase.CAMEL, undefined=Undefined.RAISE)
 @dataclass
-class DoneByChar:
+class DoneByChar(DataClassJsonMixin):
+    dataclass_json_config = config(  # type: ignore
+        letter_case=LetterCase.CAMEL,  # type: ignore
+        undefined=Undefined.RAISE,
+    )['dataclasses_json']
+
     name: str
     guid: int
     type: str
@@ -123,16 +160,24 @@ class DoneByChar:
     flags: Optional[int] = None
 
 
-@dataclass_json(letter_case=LetterCase.CAMEL, undefined=Undefined.RAISE)
 @dataclass
-class Spec:
+class Spec(DataClassJsonMixin):
+    dataclass_json_config = config(  # type: ignore
+        letter_case=LetterCase.CAMEL,  # type: ignore
+        undefined=Undefined.RAISE,
+    )['dataclasses_json']
+
     spec: str
     role: str
 
 
-@dataclass_json(letter_case=LetterCase.CAMEL, undefined=Undefined.RAISE)
 @dataclass
-class Composition:
+class Composition(DataClassJsonMixin):
+    dataclass_json_config = config(  # type: ignore
+        letter_case=LetterCase.CAMEL,  # type: ignore
+        undefined=Undefined.RAISE,
+    )['dataclasses_json']
+
     name: str
     id: int
     guid: int
@@ -147,8 +192,8 @@ class Composition:
 
 @dataclass
 class SummaryTableData(DataClassJsonMixin):
-    dataclass_json_config = config(
-        letter_case=LetterCase.CAMEL,
+    dataclass_json_config = config(  # type: ignore
+        letter_case=LetterCase.CAMEL,  # type: ignore
         undefined=Undefined.RAISE,
     )['dataclasses_json']
 
@@ -171,16 +216,24 @@ class SummaryTableData(DataClassJsonMixin):
 """
 
 
-@dataclass_json(letter_case=LetterCase.CAMEL, undefined=Undefined.RAISE)
 @dataclass
-class Band:
+class Band(DataClassJsonMixin):
+    dataclass_json_config = config(  # type: ignore
+        letter_case=LetterCase.CAMEL,  # type: ignore
+        undefined=Undefined.RAISE,
+    )['dataclasses_json']
+
     start_time: int
     end_time: int
 
 
-@dataclass_json(letter_case=LetterCase.CAMEL, undefined=Undefined.RAISE)
 @dataclass
-class Aura:
+class Aura(DataClassJsonMixin):
+    dataclass_json_config = config(  # type: ignore
+        letter_case=LetterCase.CAMEL,  # type: ignore
+        undefined=Undefined.RAISE,
+    )['dataclasses_json']
+
     name: str
     guid: int
     type: int
@@ -193,8 +246,8 @@ class Aura:
 
 @dataclass
 class BuffsTableData(DataClassJsonMixin):
-    dataclass_json_config = config(
-        letter_case=LetterCase.CAMEL,
+    dataclass_json_config = config(  # type: ignore
+        letter_case=LetterCase.CAMEL,  # type: ignore
         undefined=Undefined.RAISE,
     )['dataclasses_json']
 
@@ -212,9 +265,13 @@ class BuffsTableData(DataClassJsonMixin):
 """
 
 
-@dataclass_json(letter_case=LetterCase.CAMEL, undefined=Undefined.RAISE)
 @dataclass
-class CastActor:
+class CastActor(DataClassJsonMixin):
+    dataclass_json_config = config(  # type: ignore
+        letter_case=LetterCase.CAMEL,  # type: ignore
+        undefined=Undefined.RAISE,
+    )['dataclasses_json']
+
     name: str
     total: int
     type: str
@@ -228,15 +285,19 @@ class CastActor:
     active_time_reduced: Optional[int] = None
     overheal: Optional[int] = None
     abilities: Optional[List['CastActor']] = None
-    damageAbilities: Optional[List['CastActor']] = None
+    damage_abilities: Optional[List['CastActor']] = None
     targets: Optional[List['CastActor']] = None
     talents: Optional[List[Talent]] = None
     gear: Optional[List[Gear]] = None
 
 
-@dataclass_json(letter_case=LetterCase.CAMEL, undefined=Undefined.RAISE)
 @dataclass
-class HitDetails:
+class HitDetails(DataClassJsonMixin):
+    dataclass_json_config = config(  # type: ignore
+        letter_case=LetterCase.CAMEL,  # type: ignore
+        undefined=Undefined.RAISE,
+    )['dataclasses_json']
+
     type: str
     total: int
     count: int
@@ -248,9 +309,13 @@ class HitDetails:
     count_reduced: Optional[int] = None
 
 
-@dataclass_json(letter_case=LetterCase.CAMEL, undefined=Undefined.RAISE)
 @dataclass
-class Cast:
+class Cast(DataClassJsonMixin):
+    dataclass_json_config = config(  # type: ignore
+        letter_case=LetterCase.CAMEL,  # type: ignore
+        undefined=Undefined.RAISE,
+    )['dataclasses_json']
+
     name: str
     guid: int
     type: int
@@ -259,7 +324,7 @@ class Cast:
     hit_count: int
     tick_count: int
     tick_miss_count: int
-    missCount: int
+    miss_count: int
     multistrike_hit_count: int
     multistrike_tick_count: int
     multistrike_miss_count: int
@@ -290,8 +355,8 @@ class Cast:
 
 @dataclass
 class CastsTableData(DataClassJsonMixin):
-    dataclass_json_config = config(
-        letter_case=LetterCase.CAMEL,
+    dataclass_json_config = config(  # type: ignore
+        letter_case=LetterCase.CAMEL,  # type: ignore
         undefined=Undefined.RAISE,
     )['dataclasses_json']
 
@@ -309,16 +374,16 @@ class CastsTableData(DataClassJsonMixin):
 
 @dataclass
 class Event(DataClassJsonMixin):
-    dataclass_json_config = config(
-        letter_case=LetterCase.CAMEL,
+    dataclass_json_config = config(  # type: ignore
+        letter_case=LetterCase.CAMEL,  # type: ignore
         undefined=Undefined.RAISE,
     )['dataclasses_json']
 
     timestamp: int
     type: str
-    source_id: int = field(metadata=config(field_name="sourceID"))
+    source_id: int = field(metadata=config(field_name='sourceID'))
     source_is_friendly: bool
-    target_id: int = field(metadata=config(field_name="targetID"))
+    target_id: int = field(metadata=config(field_name='targetID'))
     target_is_friendly: bool
     ability: Talent
     fight: int
@@ -327,42 +392,42 @@ class Event(DataClassJsonMixin):
     target_instance: Optional[int] = None
 
 
+def skip_events(items: List) -> List[Event]:
+    final = []
+    for item in items:
+        if isinstance(item, list):
+            continue
+        if item.get('type') == 'combatantinfo':
+            continue
+        final.append(item)
+    return [Event.from_dict(item) for item in final]
+
+
 @dataclass
 class Series(DataClassJsonMixin):
-    dataclass_json_config = config(
-        letter_case=LetterCase.CAMEL,
+    dataclass_json_config = config(  # type: ignore
+        letter_case=LetterCase.CAMEL,  # type: ignore
         undefined=Undefined.RAISE,
     )['dataclasses_json']
-
-    def skip_events(items: List) -> List[Event]:
-        final = []
-        for item in items:
-            if isinstance(item, list):
-                continue
-            if item.get('type') == 'combatantinfo':
-                continue
-            final.append(item)
-        return [Event.from_dict(item) for item in final]
 
     name: str
     id: int
     guid: int
     type: str
-    data: List[List[int]]  # [0] - time, [1] - stack
-    events: List[Event] = field(
-        metadata=config(
-            # First and last elements are empty lists for some reason
-            # + there is an occasional combatantinfo in there
-            # Skipping such stuff for now
-            decoder=skip_events
-        )
-    )
+    # 0 - time, 1 - stack
+    data: List[List[int]]  # noqa: WPS110
+    events: List[Event] = field(metadata=config(
+        # First and last elements are empty lists for some reason
+        # + there is an occasional combatantinfo in there
+        # Skipping such stuff for now
+        decoder=skip_events,
+    ))
 
 
 @dataclass
 class GraphData(DataClassJsonMixin):
-    dataclass_json_config = config(
-        letter_case=LetterCase.CAMEL,
+    dataclass_json_config = config(  # type: ignore
+        letter_case=LetterCase.CAMEL,  # type: ignore
         undefined=Undefined.RAISE,
     )['dataclasses_json']
 
