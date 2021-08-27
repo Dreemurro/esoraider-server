@@ -1,15 +1,20 @@
 import asyncio
 from typing import Dict
 
-import backoff
-from gql import Client
-from gql.dsl import DSLField, DSLQuery, DSLSchema, dsl_gql
-from gql.transport.aiohttp import AIOHTTPTransport
-from gql.transport.exceptions import TransportClosed, TransportQueryError
+import backoff  # type: ignore
+from gql import Client  # type: ignore
+from gql.dsl import DSLField, DSLQuery, DSLSchema, dsl_gql  # type: ignore
+from gql.transport.aiohttp import AIOHTTPTransport  # type: ignore
+from gql.transport.exceptions import (  # type: ignore
+    TransportClosed, TransportQueryError,
+)
 from loguru import logger
-from oauthlib.oauth2 import BackendApplicationClient
-from requests_oauthlib import OAuth2Session
+from oauthlib.oauth2 import BackendApplicationClient  # type: ignore
+from requests_oauthlib import OAuth2Session  # type: ignore
 from settings import CLIENT_ID, CLIENT_SECRET
+
+WAIT_FOR = 300
+TIMEOUT = 10.0
 
 
 class ApiWrapper:
@@ -18,7 +23,7 @@ class ApiWrapper:
         self._token = self._auth()
         self._transport = AIOHTTPTransport(
             url='https://www.esologs.com/api/v2/client',
-            headers={'Authorization': 'Bearer {}'.format(self._token)}
+            headers={'Authorization': 'Bearer {0}'.format(self._token)},
         )
         self._client = Client(
             transport=self._transport,
@@ -33,7 +38,7 @@ class ApiWrapper:
         self._connected_event = asyncio.Event()
         self._closed_event = asyncio.Event()
 
-        self.ds = None
+        self.ds: DSLSchema = None
 
     def _auth(self):
         access_token_url = 'https://www.esologs.com/oauth/token'
@@ -47,7 +52,7 @@ class ApiWrapper:
         )
         return token['access_token']
 
-    @backoff.on_exception(backoff.expo, Exception, max_time=300)
+    @backoff.on_exception(backoff.expo, Exception, max_time=WAIT_FOR)
     async def _connection_loop(self):
         while True:
             logger.info('Connecting to API')
@@ -98,14 +103,16 @@ class ApiWrapper:
         else:
             self._connected_event.clear()
             self._connect_task = asyncio.create_task(self._connection_loop())
-            await asyncio.wait_for(self._connected_event.wait(), timeout=10.0)
+            await asyncio.wait_for(
+                self._connected_event.wait(), timeout=TIMEOUT,
+            )
 
     async def close(self):
         logger.info('Disconnecting')
         self._connect_task = None
         self._closed_event.clear()
         self._close_request_event.set()
-        await asyncio.wait_for(self._closed_event.wait(), timeout=10.0)
+        await asyncio.wait_for(self._closed_event.wait(), timeout=TIMEOUT)
 
     @backoff.on_exception(backoff.expo, Exception, max_tries=3)
     async def execute(self, *args, **kwargs):
@@ -121,7 +128,7 @@ class ApiWrapper:
         return answer
 
     async def query_name(self, encounter_id: int):
-        logger.info('Requesting info on encounter = {}'.format(encounter_id))
+        logger.info('Requesting info on encounter = {0}'.format(encounter_id))
         query = self.ds.Query.worldData
 
         encounter = self.ds.WorldData.encounter(id=encounter_id)
@@ -142,7 +149,7 @@ class ApiWrapper:
         return await self.execute(dsl_gql(DSLQuery(query)))
 
     async def query_log(self, log: str):
-        logger.info('Requesting log {}'.format(log))
+        logger.info('Requesting log {0}'.format(log))
         query = self.ds.Query.reportData
 
         report = self.ds.ReportData.report(code=log)
@@ -171,7 +178,7 @@ class ApiWrapper:
         return await self.execute(dsl_gql(DSLQuery(query)))
 
     async def query_fight_times(self, log: str, fight_id: int):
-        logger.info('Requesting fight times of log = {}, fight = {}'.format(
+        logger.info('Requesting fight times of log = {0}, fight = {1}'.format(
             log, fight_id,
         ))
         query = self.ds.Query.reportData
@@ -199,15 +206,15 @@ class ApiWrapper:
         filter_exp: str = None,
     ):
         logger.info('Requesting reportData')
-        logger.info('Log = {}'.format(log))
-        logger.info('Fight ID = {}'.format(fight_id))
-        logger.info('Data Type = {}'.format(data_type))
-        logger.info('Hostility Type = {}'.format(hostility_type))
-        logger.info('Start Time = {}'.format(start_time))
-        logger.info('End Time = {}'.format(end_time))
-        logger.info('Source ID = {}'.format(source_id))
-        logger.info('Target ID = {}'.format(target_id))
-        logger.info('Filter = {}'.format(filter_exp))
+        logger.info('Log = {0}'.format(log))
+        logger.info('Fight ID = {0}'.format(fight_id))
+        logger.info('Data Type = {0}'.format(data_type))
+        logger.info('Hostility Type = {0}'.format(hostility_type))
+        logger.info('Start Time = {0}'.format(start_time))
+        logger.info('End Time = {0}'.format(end_time))
+        logger.info('Source ID = {0}'.format(source_id))
+        logger.info('Target ID = {0}'.format(target_id))
+        logger.info('Filter = {0}'.format(filter_exp))
 
         if (start_time is None) and (end_time is None):
             start_time, end_time = await self._get_fight_times(log, fight_id)
@@ -238,11 +245,11 @@ class ApiWrapper:
         end_time: int = None,
     ):
         logger.info('Requesting char summary table')
-        logger.info('Log = {}'.format(log))
-        logger.info('Fight ID = {}'.format(fight_id))
-        logger.info('Char ID = {}'.format(char_id))
-        logger.info('Start Time = {}'.format(start_time))
-        logger.info('End Time = {}'.format(end_time))
+        logger.info('Log = {0}'.format(log))
+        logger.info('Fight ID = {0}'.format(fight_id))
+        logger.info('Char ID = {0}'.format(char_id))
+        logger.info('Start Time = {0}'.format(start_time))
+        logger.info('End Time = {0}'.format(end_time))
 
         if (start_time is None) and (end_time is None):
             start_time, end_time = await self._get_fight_times(log, fight_id)
