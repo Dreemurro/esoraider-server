@@ -4,30 +4,45 @@ from data.debuffs import DEBUFFS
 
 
 class GENERAL_SKILLS(EsoEnum):
-    BLOCKADE_OF_FIRE_DAMAGE = Skill(
-        name='Blockade of Fire',
-        id=39012,
-        icon='https://assets.rpglogs.com/img/eso/abilities/ability_destructionstaff_004_b.png',
+    BLOCKADE_OF_STORMS_DAMAGE = Skill(
+        name='Blockade of Storms',
+        id=62990,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_destructionstaff_003_b.png',
     )
-    BLOCKADE_OF_FIRE = Skill(
+    BLOCKADE_OF_STORMS = Skill(
+        name='Blockade of Storms',
+        id=39018,
+        children=[BLOCKADE_OF_STORMS_DAMAGE],
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_destructionstaff_003_b.png',
+    )
+    BLOCKADE_OF_FIRE_DAMAGE = Skill(
         name='Blockade of Fire',
         id=62912,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_destructionstaff_004_b.png',
     )
+    BLOCKADE_OF_FIRE = Skill(
+        name='Blockade of Fire',
+        id=39012,
+        children=[BLOCKADE_OF_FIRE_DAMAGE],
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_destructionstaff_004_b.png',
+    )
     BLOCKADE_OF_FROST_DAMAGE = Skill(
         name='Blockade of Frost',
-        id=39028,
+        id=62951,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_destructionstaff_002b.png',
     )
     BLOCKADE_OF_FROST = Skill(
         name='Blockade of Frost',
-        id=62951,
+        id=39028,
+        children=[BLOCKADE_OF_FROST_DAMAGE],
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_destructionstaff_002b.png',
     )
     ELEMENTAL_BLOCKADE = Skill(
         name='Elemental Blockade',
         id=39011,
         children=[
+            BLOCKADE_OF_STORMS,
+            BLOCKADE_OF_STORMS_DAMAGE,
             BLOCKADE_OF_FROST,
             BLOCKADE_OF_FROST_DAMAGE,
             BLOCKADE_OF_FIRE,
