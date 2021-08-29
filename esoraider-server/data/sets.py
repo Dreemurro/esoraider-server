@@ -54,7 +54,7 @@ class GEAR_SETS(EsoEnum):
     SPELL_POWER_CURE = GearSet(
         name='Spell Power Cure',
         id=185,
-        buffs=[BUFFS.MAJOR_COURAGE.value],
+        buffs=[BUFFS.MAJOR_COURAGE_SPELL_POWER_CURE.value],
         link='https://eso-hub.com/en/sets/spell-power-cure',
         icon='https://eso-hub.com/storage/icons/gear_imperialdaedric_light_head_a.png',
     )

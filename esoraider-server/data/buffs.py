@@ -129,19 +129,22 @@ class BUFFS(EsoEnum):
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_minor_courage.png',
     )
 
-    """
-    MAJOR COURAGE
-    KNOWN IDS:
-    - 110020
-    """
+    # Major Courage
+    # Known IDs:
+    # - 110020
     MAJOR_COURAGE = Buff(
+        name='Major Courage',
+        id=109966,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_mage_045.png',
+    )
+    MAJOR_COURAGE_SPELL_POWER_CURE = Buff(
         name='Major Courage',
         id=66902,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_mage_045.png',
     )
     MAJOR_COURAGE_OLORIME = Buff(
         name='Major Courage',
-        id=109966,  # Can also be 110020, uptime is almost identical
+        id=109994,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_major_courage.png',
     )
 
