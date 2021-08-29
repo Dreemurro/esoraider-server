@@ -23,10 +23,15 @@ class BUFFS(EsoEnum):
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_minor_berserk.png'
     )
 
-    """
-    MAJOR RESOLVE
-    KNOWN IDS - 80160, 88758, 61694
-    """
+    # Major Resolve
+    # Known IDs:
+    # - 80160
+    # - 88758
+    MAJOR_RESOLVE = Buff(
+        name='Major Resolve',
+        id=61694,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_major_resolve.png',
+    )
     MAJOR_RESOLVE_BALANCE = Buff(
         name='Major Resolve',
         id=80160,
