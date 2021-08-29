@@ -3,6 +3,7 @@
 from typing import List, Optional, Type
 
 from api.response import SummaryTableData, Talent
+from data.buffs import BUFFS
 from data.classes.dragonknight.skills import DRAGONKNIGHT_SKILLS
 from data.classes.general import GENERAL_SKILLS
 from data.classes.necromancer.skills import NECROMANCER_SKILLS
@@ -14,6 +15,23 @@ from data.core import Buff, Debuff, EsoEnum, GearSet, Glyph, Skill, Stack
 from data.glyphs import GLYPHS
 from data.sets import GEAR_SETS
 from loguru import logger
+
+FIGHT_BUFFS = (
+    BUFFS.MAJOR_COURAGE.value,  # Spell Power Cure, Olorime
+    BUFFS.MAJOR_FORCE.value,  # Saxhleel, Aggressive Horn
+    # BUFFS.MAJOR_PROPHECY.value,  # Potions
+    BUFFS.MAJOR_RESOLVE.value,  # Frost Cloak
+    # BUFFS.MAJOR_SAVAGERY.value,  # Potions
+    BUFFS.MAJOR_SLAYER.value,  # Master Architect, War Machine, Roaring
+    BUFFS.MAJOR_SORCERY.value,  # Potions, Igneous Weapons
+
+    BUFFS.MINOR_BERSERK.value,  # Combat Prayer
+    BUFFS.MINOR_PROPHECY.value,  # Sorc passive
+    BUFFS.MINOR_SAVAGERY.value,  # NB passive
+    BUFFS.MINOR_SORCERY.value,  # Templar passive
+
+    BUFFS.AGGRESSIVE_HORN.value,
+)
 
 
 # Move to general skills?
@@ -65,6 +83,10 @@ class TrackedInfo(object):
 
     def extract(self):
         """Extract known skills, sets, glyphs, buffs & debuffs with stacks."""
+        if not self._summary_table and not self._char_class:
+            self.buffs = list(FIGHT_BUFFS)
+            return
+
         self._get_char_skills()
         self._get_known_skills()
         self._get_known_sets()

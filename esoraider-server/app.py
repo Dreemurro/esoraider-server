@@ -99,6 +99,25 @@ async def get_encounter(encounter, api: ApiWrapper):
     return json('')
 
 
+@app.route('/fight/<str:log>/<int:fight>')
+async def get_fight_effects(
+    log: str,
+    fight: int,
+    start_time: int,
+    end_time: int,
+    api: ApiWrapper,
+):
+    report = ReportBuilder(
+        api=api,
+        log=log,
+        fight_id=fight,
+        start_time=start_time,
+        end_time=end_time,
+    )
+    r = await report.build()
+    return json(r)
+
+
 async def connect_api(app: Application) -> None:
     api = app.service_provider.get(ApiWrapper)
     await api.connect()

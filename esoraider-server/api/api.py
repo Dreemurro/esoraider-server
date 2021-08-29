@@ -323,12 +323,12 @@ class ApiWrapper:
 
     async def partial_query_graph(
         self,
-        char_id: int,
         data_type: str,
         ability_id: int,
         start_time: int,
         end_time: int,
         hostility_type: str = 'Friendlies',
+        char_id: int = None,
     ):
         logger.info('Building partial graph request')
         logger.info('Char ID = {0}'.format(char_id))

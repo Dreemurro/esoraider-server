@@ -19,8 +19,8 @@ class ReportBuilder(object):
         api: ApiWrapper,
         log: str,
         fight_id: int,
-        char_id: int,
-        summary_table: SummaryTableData,
+        summary_table: SummaryTableData = None,
+        char_id: int = None,
         start_time: int = None,
         end_time: int = None,
     ) -> None:
@@ -49,7 +49,8 @@ class ReportBuilder(object):
 
     async def build(self) -> Dict:
         """Execute report building steps."""
-        self._get_char_info()
+        if self.char_id:
+            self._get_char_info()
 
         self._tracked_info = TrackedInfo(
             summary_table=self._summary_table,
@@ -68,9 +69,10 @@ class ReportBuilder(object):
         )
         await self._requested_data.execute()
 
-        self._get_char_buffs()
-        self._get_char_debuffs()
-        self._get_char_graphs()
+        if self.char_id:
+            self._get_char_buffs()
+            self._get_char_debuffs()
+            self._get_char_graphs()
 
         self._uptimes = Uptimes(
             tracked_info=self._tracked_info,
@@ -139,7 +141,7 @@ class ReportBuilder(object):
                 'name': self._char_name,
                 'class': self._char_class,
                 'spec': self._char_spec,
-            },
+            } if self.char_id else {},
             'skills':
                 [asdict(skill) for skill in self._uptimes.skills]
                 if self._uptimes.skills
@@ -152,4 +154,10 @@ class ReportBuilder(object):
                 [asdict(glyph) for glyph in self._uptimes.glyphs]
                 if self._uptimes.glyphs
                 else [],
+            'buffs':
+                [asdict(buff) for buff in self._uptimes.buffs]
+                if not self.char_id and self._uptimes.buffs
+                else [],
+            'debuffs':
+                [],
         }

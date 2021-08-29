@@ -43,6 +43,12 @@ class Uptimes(object):
         """Calculate uptimes based on provided data."""
         logger.info('Calculating uptimes')
 
+        if not self._char_buffs and not self._char_debuffs:
+            self.buffs = self._calculate_effects_uptimes(
+                self._tracked.buffs, self._requested.buffs_table.auras,
+            )
+            return
+
         stacks = Stacks(
             known_stacks=self._tracked.stacks,
             char_graphs=self._char_graphs,
