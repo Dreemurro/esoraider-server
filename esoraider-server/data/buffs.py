@@ -86,6 +86,15 @@ class BUFFS(EsoEnum):
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_major_sorcery.png',
     )
 
+    # Minor Sorcery
+    # Known IDs:
+    # - 62800
+    MINOR_SORCERY = Buff(
+        name='Minor Sorcery',
+        id=61685,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_minor_sorcery.png',
+    )
+
     """
     MAJOR FORCE
     KNOWN IDS: 
