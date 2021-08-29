@@ -61,7 +61,7 @@ class GEAR_SETS(EsoEnum):
     MASTER_ARCHITECT = GearSet(
         name='Master Architect',
         id=332,
-        buffs=[BUFFS.MAJOR_SLAYER.value],
+        buffs=[BUFFS.MAJOR_SLAYER_MASTER_ARCHITECT.value],
         link='https://eso-hub.com/en/sets/master-architect',
         icon='https://eso-hub.com/storage/icons/gear_clockwork_light_head_a.png',
     )

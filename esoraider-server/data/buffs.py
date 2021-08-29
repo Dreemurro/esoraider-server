@@ -159,9 +159,14 @@ class BUFFS(EsoEnum):
         id=93109,  # Probably overall uptime, occurs both with WM and RO
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_major_slayer.png',
     )
+    MAJOR_SLAYER_MASTER_ARCHITECT = Buff(
+        name='Major Slayer',
+        id=93120,
+        icon='https://assets.rpglogs.com/img/eso/abilities/procs_006.png',
+    )
     MAJOR_SLAYER_ROARING_OPPORTUNIST = Buff(
         name='Major Slayer',
-        id=137986,
+        id=135923,
         icon='https://assets.rpglogs.com/img/eso/abilities/procs_006.png',
     )
 
