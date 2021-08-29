@@ -179,6 +179,15 @@ class BUFFS(EsoEnum):
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_major_evasion.png',
     )
 
+    # Minor Prophecy
+    # Known IDs:
+    # - 62320
+    MINOR_PROPHECY = Buff(
+        name='Minor Prophecy',
+        id=61691,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_minor_prophecy.png',
+    )
+
     """
     From skills
     """
