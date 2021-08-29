@@ -2,18 +2,19 @@ from data.core import Buff, EsoEnum
 
 
 class BUFFS(EsoEnum):
-    # type 2 - Damage Buffs?
-    """
-    Minor / Major
-    """
-    """
-    MINOR BERSERK
-    KNOWN IDS 
-    - 80471
-    """
+    #
+    # Minor / Major
+    #
+
+    # Minor Berserk
     MINOR_BERSERK = Buff(
         name='Minor Berserk',
-        id=61744,  # Overall uptime?
+        id=61744,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_minor_berserk.png'
+    )
+    MINOR_BERSERK_CAMOUFLAGED_HUNTER = Buff(
+        name='Minor Berserk',
+        id=80471,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_minor_berserk.png'
     )
     MINOR_BERSERK_COMBAT_PRAYER = Buff(

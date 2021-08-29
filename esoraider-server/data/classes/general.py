@@ -95,7 +95,7 @@ class GENERAL_SKILLS(EsoEnum):
     CAMOUFLAGED_HUNTER = Skill(
         name='Camouflaged Hunter',
         id=40195,
-        buffs=[BUFFS.MINOR_BERSERK.value],
+        buffs=[BUFFS.MINOR_BERSERK_CAMOUFLAGED_HUNTER.value],
         link='https://eso-hub.com/en/skills/guild/fighters-guild/camouflaged-hunter',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_fightersguild_002_b.png',
     )
