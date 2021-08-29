@@ -188,6 +188,15 @@ class BUFFS(EsoEnum):
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_minor_prophecy.png',
     )
 
+    # Minor Savagery
+    # Known IDs:
+    # - 61898
+    MINOR_SAVAGERY = Buff(
+        name='Minor Savagery',
+        id=61666,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_minor_savagery.png',
+    )
+
     """
     From skills
     """
