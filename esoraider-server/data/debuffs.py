@@ -44,6 +44,15 @@ class DEBUFFS(EsoEnum):
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_debuff_minor_maim.png',
     )
 
+    # Minor Brittle
+    # Known IDs:
+    # - 146697 (uptime is identical to 145975)
+    MINOR_BRITTLE = Debuff(
+        name='Minor Brittle',
+        id=145975,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_debuff_minor_brittle.png',
+    )
+
     # Minor Lifesteal
     # Known IDs:
     # - 80020 (Overflowing Altar?)
