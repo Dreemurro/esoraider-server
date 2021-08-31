@@ -12,6 +12,7 @@ from data.classes.sorcerer.skills import SORCERER_SKILLS
 from data.classes.templar.skills import TEMPLAR_SKILLS
 from data.classes.warden.skills import WARDEN_SKILLS
 from data.core import Buff, Debuff, EsoEnum, GearSet, Glyph, Skill, Stack
+from data.debuffs import DEBUFFS
 from data.glyphs import GLYPHS
 from data.sets import GEAR_SETS
 from loguru import logger
@@ -31,6 +32,19 @@ FIGHT_BUFFS = (
     BUFFS.MINOR_SORCERY.value,  # Templar passive
 
     BUFFS.AGGRESSIVE_HORN.value,
+)
+FIGHT_DEBUFFS = (
+    DEBUFFS.MAJOR_BREACH.value,
+    DEBUFFS.MAJOR_VULNERABILITY.value,
+
+    DEBUFFS.MINOR_BREACH.value,
+    DEBUFFS.MINOR_BRITTLE.value,
+    DEBUFFS.MINOR_LIFESTEAL.value,
+    DEBUFFS.MINOR_MAGICKASTEAL.value,
+    DEBUFFS.MINOR_MAIM.value,
+    DEBUFFS.MINOR_VULNERABILITY.value,
+
+    DEBUFFS.CRUSHER.value,
 )
 
 
@@ -85,6 +99,7 @@ class TrackedInfo(object):
         """Extract known skills, sets, glyphs, buffs & debuffs with stacks."""
         if not self._summary_table and not self._char_class:
             self.buffs = list(FIGHT_BUFFS)
+            self.debuffs = list(FIGHT_DEBUFFS)
             return
 
         self._get_char_skills()

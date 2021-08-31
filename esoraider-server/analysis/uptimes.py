@@ -30,6 +30,7 @@ class Uptimes(object):
         self.sets: List[GearSet] = []
         self.glyphs: List[Glyph] = []
         self.buffs: List[Buff] = []
+        self.debuffs: List[Debuff] = []
         self._stacks: List[Stack] = []
 
         self._requested = requested_info
@@ -46,6 +47,9 @@ class Uptimes(object):
         if not self._char_buffs and not self._char_debuffs:
             self.buffs = self._calculate_effects_uptimes(
                 self._tracked.buffs, self._requested.buffs_table.auras,
+            )
+            self.debuffs = self._calculate_effects_uptimes(
+                self._tracked.debuffs, self._requested.debuffs_table.auras,
             )
             return
 

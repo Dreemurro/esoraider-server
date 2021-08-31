@@ -159,5 +159,7 @@ class ReportBuilder(object):
                 if not self.char_id and self._uptimes.buffs
                 else [],
             'debuffs':
-                [],
+                [asdict(debuff) for debuff in self._uptimes.debuffs]
+                if not self.char_id and self._uptimes.debuffs
+                else [],
         }
