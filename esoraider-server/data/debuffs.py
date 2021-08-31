@@ -27,18 +27,21 @@ class DEBUFFS(EsoEnum):
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_debuff_major_vulnerability.png',
     )
 
+    # Minor Maim
     MINOR_MAIM = Debuff(
         name='Minor Maim',
-        id=0,
-    )
-    # Example - 6qyxtA9LNYmhgP7T#fight=3&type=auras&hostility=1&spells=debuffs&target=11
-    MINOR_MAIM_TOTAL = Debuff(
-        name='Minor Maim',
         id=61723,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_debuff_minor_maim.png',
     )
     MINOR_MAIM_HEROIC_SLASH = Debuff(
         name='Minor Maim',
         id=62504,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_debuff_minor_maim.png',
+    )
+    MINOR_MAIM_CHILL = Debuff(
+        name='Minor Maim',
+        id=68368,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_debuff_minor_maim.png',
     )
 
     # Minor Lifesteal
