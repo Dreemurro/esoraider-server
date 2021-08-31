@@ -270,3 +270,22 @@ class BUFFS(EsoEnum):
         id=21230,
         icon='https://assets.rpglogs.com/img/eso/abilities/ava_artifact_006.png',
     )
+
+    #
+    # Misc
+    #
+    EMPOWER = Buff(
+        name='Empower',
+        id=61737,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_major_empower.png',
+    )
+    EMPOWER_MIGHT_OF_THE_GUILD = Buff(
+        name='Empower',
+        id=65541,  # Passive, 50% proc from casting Mages' Guild skill
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_major_empower.png',
+    )
+    EMPOWER_EMPOWERING_GRASP = Buff(
+        name='Empower',
+        id=118366,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_major_empower.png',
+    )
