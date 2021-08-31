@@ -2,10 +2,24 @@ from data.core import Debuff, EsoEnum
 
 
 class DEBUFFS(EsoEnum):
-    """
-    Minor / Major
-    """
-    # TODO: Lots of IDs here, probably source-depended
+    #
+    # Minor / Major
+    #
+
+    # Major Breach
+    # Known IDs:
+    # - 108951 (Deep Fissure?)
+    MAJOR_BREACH = Debuff(
+        name='Major Breach',
+        id=61743,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_debuff_major_breach.png',
+    )
+    MAJOR_BREACH_PIERCE_ARMOR = Debuff(
+        name='Major Breach',
+        id=62485,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_debuff_major_breach.png',
+    )
+
     MINOR_MAIM = Debuff(
         name='Minor Maim',
         id=0,
