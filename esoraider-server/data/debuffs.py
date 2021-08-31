@@ -40,10 +40,14 @@ class DEBUFFS(EsoEnum):
         name='Minor Maim',
         id=62504,
     )
-    # TODO: Lots of IDs here, probably source-depended
+
+    # Minor Lifesteal
+    # Known IDs:
+    # - 80020 (Overflowing Altar?)
     MINOR_LIFESTEAL = Debuff(
         name='Minor Lifesteal',
-        id=0,
+        id=86304,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_minor_lifesteal.png',
     )
 
     # Minor Vulnerability
