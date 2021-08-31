@@ -1,3 +1,4 @@
+from data.buffs import BUFFS
 from data.classes.necromancer.buffs import NECROMANCER_BUFFS
 from data.core import EsoEnum, Skill
 from data.debuffs import DEBUFFS
@@ -65,4 +66,11 @@ class NECROMANCER_SKILLS(EsoEnum):
         link='https://eso-hub.com/en/skills/necromancer/grave-lord/glacial-colossus',
         debuffs=[DEBUFFS.MAJOR_VULNERABILITY.value],
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_necromancer_006_a.png',
+    )
+    EMPOWERING_GRASP = Skill(
+        name='Empowering Grasp',
+        id=118352,
+        link='https://eso-hub.com/en/skills/necromancer/bone-tyrant/empowering-grasp',
+        buffs=[BUFFS.EMPOWER_EMPOWERING_GRASP.value],
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_necromancer_009_a.png',
     )
