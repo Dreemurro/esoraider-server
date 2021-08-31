@@ -1,5 +1,6 @@
 from data.classes.necromancer.buffs import NECROMANCER_BUFFS
 from data.core import EsoEnum, Skill
+from data.debuffs import DEBUFFS
 
 
 class NECROMANCER_SKILLS(EsoEnum):
@@ -50,4 +51,11 @@ class NECROMANCER_SKILLS(EsoEnum):
         link='https://eso-hub.com/en/skills/necromancer/grave-lord/skeletal-arcanist',
         buffs=[NECROMANCER_BUFFS.SKELETAL_ARCANIST.value],
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_necromancer_003_b.png',
+    )
+    PESTILENT_COLOSSUS = Skill(
+        name='Pestilent Colossus',
+        id=122395,
+        link='https://eso-hub.com/en/skills/necromancer/grave-lord/pestilent-colossus',
+        debuffs=[DEBUFFS.MAJOR_VULNERABILITY.value],
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_necromancer_006_b.png',
     )
