@@ -17,6 +17,18 @@ class NECROMANCER_SKILLS(EsoEnum):
         children=[UNNERVING_BONEYARD_DAMAGE],
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_necromancer_004_a.png',
     )
+    AVID_BONEYARD_DAMAGE = Skill(
+        name='Avid Boneyard',
+        id=117854,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_necromancer_004_b.png',
+    )
+    AVID_BONEYARD = Skill(
+        name='Avid Boneyard',
+        id=117850,
+        link='https://eso-hub.com/en/skills/necromancer/grave-lord/avid-boneyard',
+        children=[AVID_BONEYARD_DAMAGE],
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_necromancer_004_b.png',
+    )
     DETONATING_SIPHON_EXPLOSION = Skill(
         name='Detonating Siphon',
         id=123082,
