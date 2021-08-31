@@ -50,6 +50,15 @@ class DEBUFFS(EsoEnum):
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_minor_lifesteal.png',
     )
 
+    # Minor Magickasteal
+    # Known IDs:
+    # - 148798 (Overcharged?)
+    MINOR_MAGICKASTEAL = Debuff(
+        name='Minor Magickasteal',
+        id=88401,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_minor_magickasteal.png',
+    )
+
     # Minor Vulnerability
     # Known IDs:
     # - 130168
