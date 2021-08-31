@@ -20,6 +20,13 @@ class DEBUFFS(EsoEnum):
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_debuff_major_breach.png',
     )
 
+    # Major Vulnerability
+    MAJOR_VULNERABILITY = Debuff(
+        name='Major Vulnerability',
+        id=106754,  # Another ID - 122389, same uptime
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_debuff_major_vulnerability.png',
+    )
+
     MINOR_MAIM = Debuff(
         name='Minor Maim',
         id=0,
