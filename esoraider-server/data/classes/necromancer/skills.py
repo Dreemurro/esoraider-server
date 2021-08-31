@@ -59,3 +59,10 @@ class NECROMANCER_SKILLS(EsoEnum):
         debuffs=[DEBUFFS.MAJOR_VULNERABILITY.value],
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_necromancer_006_b.png',
     )
+    GLACIAL_COLOSSUS = Skill(
+        name='Glacial Colossus',
+        id=122388,
+        link='https://eso-hub.com/en/skills/necromancer/grave-lord/glacial-colossus',
+        debuffs=[DEBUFFS.MAJOR_VULNERABILITY.value],
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_necromancer_006_a.png',
+    )
