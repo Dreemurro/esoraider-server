@@ -258,6 +258,7 @@ class BuffsTableData(DataClassJsonMixin):
     end_time: int
 
     category: Optional[int] = None
+    log_version: Optional[int] = None
 
 
 """
