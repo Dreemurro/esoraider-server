@@ -35,3 +35,20 @@ class DRAGONKNIGHT_SKILLS(EsoEnum):
         link='https://eso-hub.com/en/skills/dragonknight/ardent-flame/burning-embers',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_dragonknight_003_b.png',
     )
+    ERUPTION_INITIAL_DAMAGE = Skill(
+        name='Eruption',
+        id=32714,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_dragonknight_016b.png',
+    )
+    ERUPTION_DAMAGE = Skill(
+        name='Eruption',
+        id=32711,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_dragonknight_016b.png',
+    )
+    ERUPTION = Skill(
+        name='Eruption',
+        id=32710,
+        children=[ERUPTION_INITIAL_DAMAGE, ERUPTION_DAMAGE],
+        link='https://eso-hub.com/en/skills/dragonknight/earthen-heart/eruption',
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_dragonknight_016b.png',
+    )
