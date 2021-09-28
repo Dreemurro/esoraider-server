@@ -123,7 +123,7 @@ class GEAR_SETS(EsoEnum):
     )
     PERFECTED_ROARING_OPPORTUNIST = GearSet(
         name='Perfected Roaring Opportunist',
-        id=346,
+        id=497,
         buffs=[BUFFS.MAJOR_SLAYER_ROARING_OPPORTUNIST.value],
         link='https://eso-hub.com/en/sets/perfected-roaring-opportunist',
         icon='https://eso-hub.com/storage/icons/gear_seagiantlgt_helmet.png',
