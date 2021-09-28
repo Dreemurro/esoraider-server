@@ -19,10 +19,10 @@ class ReportBuilder(object):
         api: ApiWrapper,
         log: str,
         fight_id: int,
-        summary_table: SummaryTableData = None,
-        char_id: int = None,
-        start_time: int = None,
-        end_time: int = None,
+        summary_table: Optional[SummaryTableData] = None,
+        char_id: Optional[int] = None,
+        start_time: Optional[int] = None,
+        end_time: Optional[int] = None,
     ) -> None:
         self._api = api
 

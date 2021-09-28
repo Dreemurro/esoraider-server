@@ -1,21 +1,19 @@
 import asyncio
-
-from blacksheep.server import Application
-from blacksheep.server.responses import json, not_found
-from gql.transport.exceptions import TransportQueryError
+from typing import Optional
 
 from analysis.report_builder import ReportBuilder
 from api.api import ApiWrapper
 from api.response import SummaryTableData
+from blacksheep.server import Application
+from blacksheep.server.responses import json, not_found
+from gql.transport.exceptions import TransportQueryError  # type: ignore
 from settings import DEBUG, SHOW_ERROR_DETAILS
 
 app = Application(show_error_details=SHOW_ERROR_DETAILS, debug=DEBUG)
 
 app.use_cors(
-    allow_methods="*",
-    allow_origins="*",
-    # allow_headers="* Authorization",
-    # max_age=300,
+    allow_methods='*',
+    allow_origins='*',
 )
 
 
@@ -23,8 +21,8 @@ app.use_cors(
 async def get_log(log: str, api: ApiWrapper):
     response = await api.query_log(log)
 
-    if type(response) is TransportQueryError:
-        return not_found('This log is either private or doesn\'t exist')
+    if isinstance(response, TransportQueryError):
+        return not_found("This log is either private or doesn't exist")
 
     return response.get('reportData').get('report')
 
@@ -34,8 +32,8 @@ async def get_fight(
     log: str,
     fight: int,
     api: ApiWrapper,
-    start_time: str = None,
-    end_time: str = None,
+    start_time: Optional[int] = None,
+    end_time: Optional[int] = None,
 ):
     response = await api.query_table(
         log=log,
@@ -46,9 +44,8 @@ async def get_fight(
     response = response.get('reportData')
     response = response.get('report')
     response = response.get('table')
-    response = response.get('data')
 
-    return response
+    return response.get('data')
 
 
 @app.route('/<str:log>/<int:fight>/<int:char>')
@@ -57,8 +54,8 @@ async def get_char(
     fight: int,
     char: int,
     api: ApiWrapper,
-    start_time: str = None,
-    end_time: str = None,
+    start_time: Optional[int] = None,
+    end_time: Optional[int] = None,
 ):
     response = await api.query_char_table(
         log=log,
@@ -82,9 +79,8 @@ async def get_char(
         start_time=start_time,
         end_time=end_time,
     )
-    r = await report.build()
 
-    return json(r)
+    return json(await report.build())
 
 
 # TODO: Rewrite & probably move to enums
@@ -114,8 +110,8 @@ async def get_fight_effects(
         start_time=start_time,
         end_time=end_time,
     )
-    r = await report.build()
-    return json(r)
+
+    return json(await report.build())
 
 
 async def connect_api(app: Application) -> None:
