@@ -56,6 +56,7 @@ async def get_char(
     api: ApiWrapper,
     start_time: Optional[int] = None,
     end_time: Optional[int] = None,
+    target: Optional[int] = None,
 ):
     response = await api.query_char_table(
         log=log,
@@ -66,6 +67,9 @@ async def get_char(
     )
     response = response.get('reportData')
     response = response.get('report')
+
+    encounter_info = response.get('fights').pop()
+
     response = response.get('table')
     response = response.get('data')
 
@@ -78,12 +82,15 @@ async def get_char(
         summary_table=decoded,
         start_time=start_time,
         end_time=end_time,
+        encounter_info=encounter_info,
+        target=target,
     )
 
     return json(await report.build())
 
 
 # TODO: Rewrite & probably move to enums
+# WIP, check `encounters.py`
 @app.route('/encounter/<int:encounter>')
 async def get_encounter(encounter, api: ApiWrapper):
     response = await api.query_name(encounter)

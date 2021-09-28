@@ -1,7 +1,7 @@
 """Data request from ESO Logs API."""
 
 import asyncio
-from typing import Dict, List, Optional, Set
+from typing import Dict, List, Optional, Sequence
 
 from analysis.tracked_info import TrackedInfo
 from api.api import ApiWrapper
@@ -23,6 +23,7 @@ class DataRequest(object):
         end_time: int,
         tracked_info: TrackedInfo,
         char_id: Optional[int] = None,
+        target: Optional[int] = None,
     ) -> None:
         self._api = api
 
@@ -31,6 +32,7 @@ class DataRequest(object):
         self._start_time = start_time
         self._end_time = end_time
         self._char_id = char_id
+        self._target = target
 
         self._tracked_info = tracked_info
 
@@ -53,7 +55,13 @@ class DataRequest(object):
             or self.damage_done_table.total_time
         )
 
-    def _generate_filter(self, ability_ids: Set[int]):
+    def _generate_filter(
+        self, ability_ids: Sequence[int], target: Optional[int] = None,
+    ):
+        if target:
+            return 'ability.id IN ({0}) AND target.id = {1}'.format(
+                ', '.join(map(str, ability_ids)), target,
+            )
         return 'ability.id IN ({0})'.format(', '.join(map(str, ability_ids)))
 
     async def _request_buffs(self):
@@ -62,7 +70,6 @@ class DataRequest(object):
             return
 
         buff_ids = {bf.id for bf in self._tracked_info.buffs}
-        filter_exp = self._generate_filter(buff_ids)
 
         logger.info('Requesting buffs table from API')
         response = await self._api.query_table(
@@ -72,7 +79,7 @@ class DataRequest(object):
             start_time=self._start_time,
             end_time=self._end_time,
             source_id=self._char_id,
-            filter_exp=filter_exp,
+            filter_exp=self._generate_filter(buff_ids),
         )
         response = response.get('reportData')
         response = response.get('report')
@@ -90,7 +97,6 @@ class DataRequest(object):
             return
 
         debuff_ids = {db.id for db in self._tracked_info.debuffs}
-        filter_exp = self._generate_filter(debuff_ids)
 
         logger.info('Requesting debuffs table from API')
         response = await self._api.query_table(
@@ -99,9 +105,8 @@ class DataRequest(object):
             data_type='Debuffs',
             start_time=self._start_time,
             end_time=self._end_time,
-            target_id=self._char_id,
             hostility_type='Enemies',
-            filter_exp=filter_exp,
+            filter_exp=self._generate_filter(debuff_ids, self._target),
         )
 
         response = response.get('reportData')
@@ -134,7 +139,7 @@ class DataRequest(object):
             start_time=self._start_time,
             end_time=self._end_time,
             source_id=self._char_id,
-            filter_exp=self._generate_filter(ids),
+            filter_exp=self._generate_filter(ids, self._target),
         )
 
         response = response.get('reportData')

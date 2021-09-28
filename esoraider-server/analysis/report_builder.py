@@ -23,6 +23,8 @@ class ReportBuilder(object):
         char_id: Optional[int] = None,
         start_time: Optional[int] = None,
         end_time: Optional[int] = None,
+        encounter_info: Optional[Dict[str, int]] = None,
+        target: Optional[int] = None,
     ) -> None:
         self._api = api
 
@@ -32,6 +34,8 @@ class ReportBuilder(object):
         self.end_time = end_time
 
         self._summary_table = summary_table
+        self._encounter_info = encounter_info
+        self._target = target
 
         self._tracked_info: Optional[TrackedInfo] = None
         self._requested_data: Optional[DataRequest] = None
@@ -55,6 +59,7 @@ class ReportBuilder(object):
         self._tracked_info = TrackedInfo(
             summary_table=self._summary_table,
             char_class=self._char_class,
+            encounter_info=self._encounter_info,
         )
         self._tracked_info.extract()
 
@@ -66,6 +71,7 @@ class ReportBuilder(object):
             end_time=self.end_time,
             char_id=self.char_id,
             tracked_info=self._tracked_info,
+            target=self._target,
         )
         await self._requested_data.execute()
 
@@ -161,5 +167,9 @@ class ReportBuilder(object):
             'debuffs':
                 [asdict(debuff) for debuff in self._uptimes.debuffs]
                 if not self.char_id and self._uptimes.debuffs
+                else [],
+            'targets':
+                [asdict(target) for target in self._tracked_info.targets]
+                if self._tracked_info.targets
                 else [],
         }

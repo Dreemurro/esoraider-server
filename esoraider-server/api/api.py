@@ -257,13 +257,17 @@ class ApiWrapper:
         query = self.ds.Query.reportData
 
         report = self.ds.ReportData.report(code=log)
+        fights = self.ds.Report.fights(fightIDs=fight_id).select(
+            self.ds.ReportFight.encounterID,
+            self.ds.ReportFight.difficulty,
+        )
         table = self.ds.Report.table(
             startTime=start_time,
             endTime=end_time,
             dataType='Summary',
             sourceID=char_id,
         )
-        report_fields = report.select(table)
+        report_fields = report.select(table).select(fights)
 
         query.select(report_fields)
         return await self.execute(dsl_gql(DSLQuery(query)))

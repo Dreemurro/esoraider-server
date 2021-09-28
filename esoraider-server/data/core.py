@@ -167,6 +167,28 @@ class Stack:
     uptimes: Optional[Dict[int, float]] = None
 
 
+@dataclass(frozen=True)
+class Target:
+    name: str
+    id: int
+
+
+@dataclass(frozen=True)
+class Difficulty:
+    name: str
+    id: int
+
+
+@dataclass(frozen=True)
+class Encounter:
+    name: str
+    id: int
+
+    targets: Optional[List[Target]] = None
+    difficulties: Optional[List[Difficulty]] = None
+    phases: Optional[int] = None
+
+
 class EsoEnum(Enum):
     @classmethod
     def _missing_(cls, value):

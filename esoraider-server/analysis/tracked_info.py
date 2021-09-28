@@ -1,6 +1,6 @@
 """Known data extraction."""
 
-from typing import List, Optional, Type
+from typing import Dict, List, Optional, Set, Type
 
 from api.response import SummaryTableData, Talent
 from data.buffs import BUFFS
@@ -11,8 +11,11 @@ from data.classes.nightblade.skills import NIGHTBLADE_SKILLS
 from data.classes.sorcerer.skills import SORCERER_SKILLS
 from data.classes.templar.skills import TEMPLAR_SKILLS
 from data.classes.warden.skills import WARDEN_SKILLS
-from data.core import Buff, Debuff, EsoEnum, GearSet, Glyph, Skill, Stack
+from data.core import (
+    Buff, Debuff, EsoEnum, GearSet, Glyph, Skill, Stack, Target,
+)
 from data.debuffs import DEBUFFS
+from data.encounters import Encounters
 from data.glyphs import GLYPHS
 from data.sets import GEAR_SETS
 from loguru import logger
@@ -73,6 +76,7 @@ class TrackedInfo(object):
     Extracts known info for further usage during analysis.
 
     Extracts all the known data, such as:
+    - important targets of a fight
     - skills
     - gear sets
     - glyphs
@@ -83,12 +87,15 @@ class TrackedInfo(object):
         self,
         summary_table: Optional[SummaryTableData] = None,
         char_class: Optional[str] = None,
+        encounter_info: Optional[Dict[str, int]] = None,
     ) -> None:
         self._summary_table = summary_table
+        self._encounter_info = encounter_info
         self._char_class = char_class
         self._char_skills: List[Talent] = []
 
-        self.skills: List[Skill] = []
+        self.targets: List[Target] = []
+        self.skills: Set[Skill] = set()
         self.sets: List[GearSet] = []
         self.glyphs: List[Glyph] = []
         self.buffs: List[Buff] = []
@@ -102,12 +109,27 @@ class TrackedInfo(object):
             self.debuffs = list(FIGHT_DEBUFFS)
             return
 
+        self._get_encounter_targets()
         self._get_char_skills()
         self._get_known_skills()
         self._get_known_sets()
         self._get_known_glyphs()
         self._get_known_effects()
         self._get_known_stacks()
+
+    def _get_encounter_targets(self):
+        logger.info('Get main targets of a fight')
+        id_ = self._encounter_info.get('encounterID')
+
+        try:
+            encounter = Encounters(id_)
+            self.targets = encounter.value.targets
+            for _ in self.targets:
+                logger.debug('{0} - {1}'.format(_.name, _.id))
+        except StopIteration:
+            logger.info(
+                'Targets for encounter = {0} were not found'.format(id_),
+            )
 
     def _get_char_skills(self):
         logger.info('Get char skills from summary table')
@@ -131,7 +153,7 @@ class TrackedInfo(object):
                     known_skill: Skill = skills_enum(skill.guid).value
                 except StopIteration:
                     continue
-                self.skills.append(known_skill)
+                self.skills.add(known_skill)
                 break
 
         logger.info('{0} skills to track'.format(len(self.skills)))
