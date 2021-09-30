@@ -3,6 +3,65 @@ from data.core import Encounter, EsoEnum, Difficulty, Target
 
 class Encounters(EsoEnum):
     #
+    # Cloudrest
+    #
+    SHADE_OF_GALENWE = Encounter(
+        name='Shade of Galenwe',
+        id=24,
+        difficulties=[
+            Difficulty('Normal', 120),
+            Difficulty('Veteran', 121),
+            Difficulty('Veteran +1', 123),
+            Difficulty('Veteran +2', 124),
+            Difficulty('Veteran +3', 125),
+        ],
+    )
+    SHADE_OF_RELEQUEN = Encounter(
+        name='Shade of Relequen',
+        id=25,
+        difficulties=[
+            Difficulty('Normal', 120),
+            Difficulty('Veteran', 121),
+            Difficulty('Veteran +1', 123),
+            Difficulty('Veteran +2', 124),
+            Difficulty('Veteran +3', 125),
+        ],
+    )
+    SHADE_OF_SIRORIA = Encounter(
+        name='Shade of Siroria',
+        id=26,
+        difficulties=[
+            Difficulty('Normal', 120),
+            Difficulty('Veteran', 121),
+            Difficulty('Veteran +1', 123),
+            Difficulty('Veteran +2', 124),
+            Difficulty('Veteran +3', 125),
+        ],
+    )
+    ZMAJA = Encounter(
+        name="Z'Maja",
+        id=27,
+        difficulties=[
+            Difficulty('Normal', 120),
+            Difficulty('Veteran', 121),
+            Difficulty('Veteran +1', 123),
+            Difficulty('Veteran +2', 124),
+            Difficulty('Veteran +3', 125),
+        ],
+        targets=[
+            Target("Z'Maja", (
+                83117,  # Z'Maja
+                83835,  # Shade of Z'Maja
+            )),
+            Target('Minis', (
+                83607,  # Shade of Galenwe
+                83594,  # Shade of Relequen
+                83591,  # Shade of Siroria
+            )),
+        ],
+    )
+
+    #
     # Sunspire
     #
     LOKKESTIIZ = Encounter(
