@@ -53,11 +53,12 @@ class Stacks(object):
         """Calculate stacks uptimes."""
         logger.info('Calculating stacks uptimes')
         for stack in self._known_stacks:
-            uptimes = None
             if not stack.buffs and not stack.debuffs:
                 uptimes = self._calculate_uptime_from_graph(stack)
-            else:
+            elif stack.buffs or stack.debuffs:
                 uptimes = self._calculate_uptime_from_effects(stack)
+            else:
+                uptimes = None
 
             self.calculated.append(replace(stack, uptimes=uptimes))
 
@@ -80,7 +81,19 @@ class Stacks(object):
             char_effects = self._char_debuffs
             effects_ids = [debuff.id for debuff in stack.debuffs]
 
-        main_effect = next(eff for eff in char_effects if eff.guid == stack.id)
+        try:
+            main_effect = next(
+                eff
+                for eff in char_effects
+                if eff.guid == stack.id
+            )
+        except StopIteration:
+            logger.error(
+                "Effect of '{0}' was not found. It's probably because of an "
+                "incomplete set".format(stack.name),
+            )
+            return {0: 0.0}
+
         effects = [eff for eff in char_effects if eff.guid in effects_ids]
 
         ordered = sorted(effects, key=lambda ef: ef.total_uptime, reverse=True)
