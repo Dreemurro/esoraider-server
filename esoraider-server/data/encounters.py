@@ -40,5 +40,12 @@ class Encounters(EsoEnum):
         ],
         targets=[
             Target('Nahviintaas', (88345,)),
+            Target('Adds', (
+                88878,  # Alkosh's Fate
+                88874,  # Alkosh's Will
+                90100,  # Flame Atronach
+                88875,  # Fury of Alkosh
+                88871,  # Ruin of Alkosh
+            )),
         ],
     )
