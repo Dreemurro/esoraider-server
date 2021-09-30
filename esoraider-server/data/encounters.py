@@ -3,6 +3,48 @@ from data.core import Encounter, EsoEnum, Difficulty, Target
 
 class Encounters(EsoEnum):
     #
+    # Asylum Sanctorium
+    #
+    SAINT_LLOTHIS_THE_PIOUS = Encounter(
+        name='Saint Llothis the Pious',
+        id=21,
+        difficulties=[
+            Difficulty('Normal', 120),
+            Difficulty('Veteran', 121),
+            Difficulty('Veteran +1', 123),
+            Difficulty('Veteran +2', 124),
+        ],
+    )
+    SAINT_FELMS_THE_BOLD = Encounter(
+        name='Saint Felms the Bold',
+        id=22,
+        difficulties=[
+            Difficulty('Normal', 120),
+            Difficulty('Veteran', 121),
+            Difficulty('Veteran +1', 123),
+            Difficulty('Veteran +2', 124),
+        ],
+    )
+    SAINT_OLMS_THE_JUST = Encounter(
+        name='Saint Olms the Just',
+        id=23,
+        difficulties=[
+            Difficulty('Normal', 120),
+            Difficulty('Veteran', 121),
+            Difficulty('Veteran +1', 123),
+            Difficulty('Veteran +2', 124),
+        ],
+        targets=[
+            Target('Saint Olms the Just', (78773,)),
+            Target('Minis', (
+                79508,  # Saint Felms the Bold
+                79507,  # Saint Llothis the Pious
+            )),
+            Target('Ordinated Protector', (78861,)),
+        ]
+    )
+
+    #
     # Cloudrest
     #
     SHADE_OF_GALENWE = Encounter(
