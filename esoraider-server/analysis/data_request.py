@@ -1,7 +1,7 @@
 """Data request from ESO Logs API."""
 
 import asyncio
-from typing import Dict, List, Optional, Sequence
+from typing import Dict, List, Optional, Sequence, Tuple
 
 from analysis.tracked_info import TrackedInfo
 from api.api import ApiWrapper
@@ -23,7 +23,7 @@ class DataRequest(object):
         end_time: int,
         tracked_info: TrackedInfo,
         char_id: Optional[int] = None,
-        target: Optional[int] = None,
+        target: Optional[Tuple[int]] = None,
     ) -> None:
         self._api = api
 
@@ -56,11 +56,12 @@ class DataRequest(object):
         )
 
     def _generate_filter(
-        self, ability_ids: Sequence[int], target: Optional[int] = None,
+        self, ability_ids: Sequence[int], targets: Optional[Tuple[int]] = None,
     ):
-        if target:
-            return 'ability.id IN ({0}) AND target.id = {1}'.format(
-                ', '.join(map(str, ability_ids)), target,
+        if targets:
+            return 'ability.id IN ({0}) AND target.id IN ({1})'.format(
+                ', '.join(map(str, ability_ids)),
+                ', '.join(map(str, targets)),
             )
         return 'ability.id IN ({0})'.format(', '.join(map(str, ability_ids)))
 

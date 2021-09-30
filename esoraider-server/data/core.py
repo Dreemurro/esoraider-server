@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 from enum import Enum
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Tuple
 
 
 # TODO: Merge Buff and Debuff into Effect?
@@ -170,7 +170,7 @@ class Stack:
 @dataclass(frozen=True)
 class Target:
     name: str
-    id: int
+    id: Tuple[int]
 
 
 @dataclass(frozen=True)

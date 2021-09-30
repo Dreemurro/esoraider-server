@@ -1,5 +1,5 @@
 import asyncio
-from typing import Optional
+from typing import Optional, Tuple
 
 from analysis.report_builder import ReportBuilder
 from api.api import ApiWrapper
@@ -56,7 +56,7 @@ async def get_char(
     api: ApiWrapper,
     start_time: Optional[int] = None,
     end_time: Optional[int] = None,
-    target: Optional[int] = None,
+    target: Optional[Tuple[int]] = None,
 ):
     response = await api.query_char_table(
         log=log,

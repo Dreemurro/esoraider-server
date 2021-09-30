@@ -14,8 +14,8 @@ class Encounters(EsoEnum):
             Difficulty('Veteran Hard Mode', 122),
         ],
         targets=[
-            Target('Lokkestiiz', 88342),
-            Target('Storm Atronach', 90348),
+            Target('Lokkestiiz', (88342,)),
+            Target('Storm Atronach', (90348,)),
         ],
     )
     YOLNAHKRIIN = Encounter(
@@ -27,7 +27,7 @@ class Encounters(EsoEnum):
             Difficulty('Veteran Hard Mode', 122),
         ],
         targets=[
-            Target('Yolnahkriin', 88341),
+            Target('Yolnahkriin', (88341,)),
         ],
     )
     NAHVIINTAAS = Encounter(
@@ -39,6 +39,6 @@ class Encounters(EsoEnum):
             Difficulty('Veteran Hard Mode', 122),
         ],
         targets=[
-            Target('Nahviintaas', 88345),
+            Target('Nahviintaas', (88345,)),
         ],
     )

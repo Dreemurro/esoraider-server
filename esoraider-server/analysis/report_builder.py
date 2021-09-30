@@ -1,7 +1,7 @@
 """Performance analysis report building."""
 
 from dataclasses import asdict
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Tuple
 
 from analysis.data_request import DataRequest
 from analysis.tracked_info import TrackedInfo
@@ -24,7 +24,7 @@ class ReportBuilder(object):
         start_time: Optional[int] = None,
         end_time: Optional[int] = None,
         encounter_info: Optional[Dict[str, int]] = None,
-        target: Optional[int] = None,
+        target: Optional[Tuple[int]] = None,
     ) -> None:
         self._api = api
 
@@ -172,4 +172,11 @@ class ReportBuilder(object):
                 [asdict(target) for target in self._tracked_info.targets]
                 if self._tracked_info.targets
                 else [],
+            'currentTarget': next(
+                (
+                    target
+                    for target in self._tracked_info.targets
+                    if target.id == self._target
+                ), None,
+            ),
         }
