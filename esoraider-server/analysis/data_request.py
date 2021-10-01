@@ -107,6 +107,7 @@ class DataRequest(object):
             start_time=self._start_time,
             end_time=self._end_time,
             hostility_type='Enemies',
+            target_id=self._char_id,
             filter_exp=self._generate_filter(debuff_ids, self._target),
         )
 
