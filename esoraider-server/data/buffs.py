@@ -95,12 +95,13 @@ class BUFFS(EsoEnum):
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_minor_sorcery.png',
     )
 
-    """
-    MAJOR FORCE
-    KNOWN IDS: 
-    - 61747 (overall duration?) 
-    """
+    # Major Force
     MAJOR_FORCE = Buff(
+        name='Major Force',
+        id=61747,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_major_force.png',
+    )
+    MAJOR_FORCE_AGGRESSIVE_HORN = Buff(
         name='Major Force',
         id=40225,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_major_force.png',

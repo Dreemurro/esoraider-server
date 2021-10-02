@@ -144,7 +144,10 @@ class GENERAL_SKILLS(EsoEnum):
     AGGRESSIVE_HORN = Skill(
         name='Aggressive Horn',
         id=40223,
-        buffs=[BUFFS.AGGRESSIVE_HORN.value, BUFFS.MAJOR_FORCE.value],
+        buffs=[
+            BUFFS.AGGRESSIVE_HORN.value,
+            BUFFS.MAJOR_FORCE_AGGRESSIVE_HORN.value,
+        ],
         link='https://eso-hub.com/en/skills/alliance-war/assault/aggressive-horn',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_ava_003_a.png',
     )
