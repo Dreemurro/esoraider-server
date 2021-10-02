@@ -272,6 +272,11 @@ class BUFFS(EsoEnum):
         id=113617,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_rogue_053.png',
     )
+    DESTRUCTIVE_IMPACT = Buff(
+        name='Destructive Impact',
+        id=140334,  # Another ID - 99774, lower uptime
+        icon='https://eso-hub.com/storage/icons/ability_mage_023.png',
+    )
 
     """
     From glyphs

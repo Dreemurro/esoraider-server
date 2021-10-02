@@ -229,3 +229,10 @@ class GEAR_SETS(EsoEnum):
         link='https://eso-hub.com/en/sets/berserking-warrior',
         icon='https://eso-hub.com/storage/icons/gear_craglorn_heavy_head_a.png',
     )
+    PERFECTED_DESTRUCTIVE_IMPACT = GearSet(
+        name='Perfected Destructive Impact',
+        id=532,
+        buffs=[BUFFS.DESTRUCTIVE_IMPACT.value],
+        link='https://eso-hub.com/en/sets/perfected-destructive-impact',
+        icon='https://eso-hub.com/storage/icons/gear_nord_staff_e.png',
+    )
