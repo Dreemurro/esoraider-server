@@ -150,3 +150,43 @@ class Encounters(EsoEnum):
             )),
         ],
     )
+
+    #
+    # Kyne's Aegis
+    #
+    YANDIR_THE_BUTCHER = Encounter(
+        name='Yandir the Butcher',
+        id=46,
+        difficulties=[
+            Difficulty('Normal', 120),
+            Difficulty('Veteran', 121),
+            Difficulty('Veteran Hard Mode', 122),
+        ],
+        targets=[
+            Target('Yandir the Butcher', (94771,)),
+        ],
+    )
+    CAPTAIN_VROL = Encounter(
+        name='Captain Vrol',
+        id=47,
+        difficulties=[
+            Difficulty('Normal', 120),
+            Difficulty('Veteran', 121),
+            Difficulty('Veteran Hard Mode', 122),
+        ],
+        targets=[
+            Target('Captain Vrol', (94772,)),
+        ],
+    )
+    LORD_FALGRAVN = Encounter(
+        name='Lord Falgravn',
+        id=48,
+        difficulties=[
+            Difficulty('Normal', 120),
+            Difficulty('Veteran', 121),
+            Difficulty('Veteran Hard Mode', 122),
+        ],
+        targets=[
+            Target('Lord Falgravn', (94773,)),
+        ],
+    )
