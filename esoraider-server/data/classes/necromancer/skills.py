@@ -86,3 +86,10 @@ class NECROMANCER_SKILLS(EsoEnum):
         buffs=[BUFFS.EMPOWER_EMPOWERING_GRASP.value],
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_necromancer_009_a.png',
     )
+    BECKONING_ARMOR = Skill(
+        name='Beckoning Armor',
+        id=118237,
+        buffs=[BUFFS.MAJOR_RESOLVE_BECKONING_ARMOR.value],
+        link='https://eso-hub.com/en/skills/necromancer/bone-tyrant/beckoning-armor',
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_necromancer_008_a.png',
+    )

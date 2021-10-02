@@ -47,6 +47,11 @@ class BUFFS(EsoEnum):
         id=88758,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_major_resolve.png',
     )
+    MAJOR_RESOLVE_BECKONING_ARMOR = Buff(
+        name='Major Resolve',
+        id=118239,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_major_resolve.png',
+    )
 
     """
     MINOR RESOLVE
