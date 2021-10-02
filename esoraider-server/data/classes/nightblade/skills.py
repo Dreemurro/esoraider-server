@@ -1,4 +1,5 @@
 from data.classes.nightblade.buffs import NIGHTBLADE_BUFFS
+from data.classes.nightblade.debuffs import NIGHTBLADE_DEBUFFS
 from data.core import EsoEnum, Skill
 from data.stacks import BUFFS_WITH_STACKS
 
@@ -43,5 +44,12 @@ class NIGHTBLADE_SKILLS(EsoEnum):
         buffs=[NIGHTBLADE_BUFFS.LEECHING_STRIKES.value],
         link='https://eso-hub.com/en/skills/nightblade/siphoning/leeching-strikes',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_nightblade_003_a.png',
+    )
+    DEBILITATE = Skill(
+        name='Debilitate',
+        id=36943,
+        debuffs=[NIGHTBLADE_DEBUFFS.DEBILITATE.value],
+        link='https://eso-hub.com/en/skills/nightblade/siphoning/debilitate',
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_nightblade_006_a.png',
     )
     # DARK_SHADE = Skill()  # Pet handling is needed
