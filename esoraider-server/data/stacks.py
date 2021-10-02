@@ -86,6 +86,17 @@ class STACKS(EsoEnum):
         type_='Buff',
     )
 
+    #
+    # General skills
+    #
+    CARVE = Stack(
+        name='Carve',
+        id=38747,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_2handed_002_a.png',
+        max_stacks=3,
+        type_='Debuff',
+    )
+
     """
     Dragonknight
     """
@@ -171,6 +182,16 @@ class DEBUFFS_WITH_STACKS(EsoEnum):
         id=107203,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_warden_003.png',
         stack=STACKS.ARMS_OF_RELEQUEN.value,
+    )
+
+    #
+    # General skills
+    #
+    CARVE = Debuff(
+        name='Carve',
+        id=38747,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_2handed_002_a.png',
+        stack=STACKS.CARVE.value,
     )
 
     """

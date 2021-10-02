@@ -1,6 +1,7 @@
 from data.buffs import BUFFS
 from data.core import EsoEnum, Skill
 from data.debuffs import DEBUFFS
+from data.stacks import DEBUFFS_WITH_STACKS
 
 
 class GENERAL_SKILLS(EsoEnum):
@@ -278,6 +279,13 @@ class GENERAL_SKILLS(EsoEnum):
         children=[ARROW_BARRAGE_DAMAGE],
         link='https://eso-hub.com/en/skills/weapon/bow/arrow-barrage',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_bow_003_b.png',
+    )
+    CARVE = Skill(
+        name='Carve',
+        id=38745,
+        debuffs=[DEBUFFS_WITH_STACKS.CARVE.value],
+        link='https://eso-hub.com/en/skills/weapon/two-handed/carve',
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_2handed_002_a.png',
     )
     STAMPEDE_INITIAL_DAMAGE = Skill(
         name='Stampede',
