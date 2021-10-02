@@ -28,3 +28,20 @@ class TEMPLAR_SKILLS(EsoEnum):
         link='https://eso-hub.com/en/skills/templar/dawns-wrath/purifying-light',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_templar_purifying_light.png',
     )
+    BLAZING_SPEAR_INITIAL_DAMAGE = Skill(
+        name='Blazing Spear',
+        id=26871,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_templarsun_thrust.png',
+    )
+    BLAZING_SPEAR_DAMAGE = Skill(
+        name='Blazing Spear',
+        id=26879,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_templarsun_thrust.png',
+    )
+    BLAZING_SPEAR = Skill(
+        name='Blazing Spear',
+        id=26869,
+        children=[BLAZING_SPEAR_INITIAL_DAMAGE, BLAZING_SPEAR_DAMAGE],
+        link='https://eso-hub.com/en/skills/templar/aedric-spear/blazing-spear',
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_templarsun_thrust.png',
+    )
