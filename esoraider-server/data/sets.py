@@ -204,7 +204,7 @@ class GEAR_SETS(EsoEnum):
     PERFECTED_ARMS_OF_RELEQUEN = GearSet(
         name='Perfected Arms of Relequen',
         id=393,
-        debuffs=[DEBUFFS_WITH_STACKS.IDEAL_ARMS_OF_RELEQUEN.value],
+        debuffs=[DEBUFFS_WITH_STACKS.ARMS_OF_RELEQUEN.value],
         link='https://eso-hub.com/en/sets/perfected-arms-of-relequen',
         icon='https://eso-hub.com/storage/icons/gear_welkynar_medium_head_a.png',
     )
