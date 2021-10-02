@@ -32,6 +32,11 @@ class BUFFS(EsoEnum):
         id=61694,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_major_resolve.png',
     )
+    MAJOR_RESOLVE_CHANNELED_FOCUS = Buff(
+        name='Major Resolve',
+        id=44828,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_major_resolve.png',
+    )
     MAJOR_RESOLVE_BALANCE = Buff(
         name='Major Resolve',
         id=80160,

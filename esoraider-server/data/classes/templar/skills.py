@@ -1,5 +1,6 @@
 from data.classes.templar.debuffs import TEMPLAR_DEBUFFS
 from data.core import EsoEnum, Skill
+from data.buffs import BUFFS
 from data.debuffs import DEBUFFS
 
 
@@ -44,4 +45,11 @@ class TEMPLAR_SKILLS(EsoEnum):
         children=[BLAZING_SPEAR_INITIAL_DAMAGE, BLAZING_SPEAR_DAMAGE],
         link='https://eso-hub.com/en/skills/templar/aedric-spear/blazing-spear',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_templarsun_thrust.png',
+    )
+    CHANNELED_FOCUS = Skill(
+        name='Channeled Focus',
+        id=22240,
+        buffs=[BUFFS.MAJOR_RESOLVE_CHANNELED_FOCUS.value],
+        link='https://eso-hub.com/en/skills/templar/restoring-light/channeled-focus',
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_templar_channeled_focus.png',
     )
