@@ -190,3 +190,43 @@ class Encounters(EsoEnum):
             Target('Lord Falgravn', (94773,)),
         ],
     )
+
+    #
+    # Rockgrove
+    #
+    OAXILTSO = Encounter(
+        name='Oaxiltso',
+        id=49,
+        difficulties=[
+            Difficulty('Normal', 120),
+            Difficulty('Veteran', 121),
+            Difficulty('Veteran Hard Mode', 122),
+        ],
+        targets=[
+            Target('Oaxiltso', (101793,)),
+        ],
+    )
+    FLAME_HERALD_BAHSEI = Encounter(
+        name='Flame-Herald Bahsei',
+        id=50,
+        difficulties=[
+            Difficulty('Normal', 120),
+            Difficulty('Veteran', 121),
+            Difficulty('Veteran Hard Mode', 122),
+        ],
+        targets=[
+            Target('Flame-Herald Bahsei', (101794,)),
+        ],
+    )
+    XALVAKKA = Encounter(
+        name='Xalvakka',
+        id=51,
+        difficulties=[
+            Difficulty('Normal', 120),
+            Difficulty('Veteran', 121),
+            Difficulty('Veteran Hard Mode', 122),
+        ],
+        targets=[
+            Target('Xalvakka', (101797,)),
+        ],
+    )
