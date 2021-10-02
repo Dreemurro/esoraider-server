@@ -194,6 +194,12 @@ class GENERAL_SKILLS(EsoEnum):
         link='https://eso-hub.com/en/skills/guild/mages-guild/structured-entropy',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_mageguild_004_b.png',
     )
+    FLAME_REACH = Skill(
+        name='Flame Reach',
+        id=38944,
+        debuffs=[DEBUFFS.FLAME_REACH.value],
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_destructionstaff_007_b.png',
+    )
     FROST_REACH = Skill(
         name='Frost Reach',
         id=38970,
@@ -205,6 +211,7 @@ class GENERAL_SKILLS(EsoEnum):
         id=38937,
         link='https://eso-hub.com/en/skills/weapon/destruction-staff/destructive-reach',
         children=[
+            FLAME_REACH,
             FROST_REACH,
         ],
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_destructionstaff_005_b.png',

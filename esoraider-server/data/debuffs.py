@@ -133,6 +133,11 @@ class DEBUFFS(EsoEnum):
         id=126371,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_mageguild_004_b.png',
     )
+    FLAME_REACH = Debuff(
+        name='Flame Reach',
+        id=62682,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_destructionstaff_007_b.png',
+    )
     FROST_REACH = Debuff(
         name='Frost Reach',
         id=62712,
