@@ -279,3 +279,20 @@ class GENERAL_SKILLS(EsoEnum):
         link='https://eso-hub.com/en/skills/weapon/bow/arrow-barrage',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_bow_003_b.png',
     )
+    STAMPEDE_INITIAL_DAMAGE = Skill(
+        name='Stampede',
+        id=38792,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_2handed_003_a.png',
+    )
+    STAMPEDE_DAMAGE = Skill(
+        name='Stampede',
+        id=126474,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_2handed_003_a.png',
+    )
+    STAMPEDE = Skill(
+        name='Stampede',
+        id=38788,
+        children=[STAMPEDE_INITIAL_DAMAGE, STAMPEDE_DAMAGE],
+        link='https://eso-hub.com/en/skills/weapon/two-handed/stampede',
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_2handed_003_a.png',
+    )
