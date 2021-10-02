@@ -222,3 +222,10 @@ class GEAR_SETS(EsoEnum):
         link='https://eso-hub.com/en/sets/perfected-mantle-of-siroria',
         icon='https://eso-hub.com/storage/icons/gear_welkynar_light_head_a.png',
     )
+    BERSERKING_WARRIOR = GearSet(
+        name='Berserking Warrior',
+        id=137,
+        buffs=[BUFFS_WITH_STACKS.BERSERKING_WARRIOR.value],
+        link='https://eso-hub.com/en/sets/berserking-warrior',
+        icon='https://eso-hub.com/storage/icons/gear_craglorn_heavy_head_a.png',
+    )

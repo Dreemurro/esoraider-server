@@ -6,9 +6,9 @@ from data.debuffs import DEBUFFS
 
 
 class STACKS(EsoEnum):
-    """
-    Sets
-    """
+    #
+    # Sets
+    #
     HUNTERS_FOCUS = Stack(
         name='Hunter\'s Focus',
         id=155150,
@@ -85,6 +85,13 @@ class STACKS(EsoEnum):
         max_stacks=10,
         type_='Buff',
     )
+    BERSERKING_WARRIOR = Stack(
+        name='Berserking Warrior',
+        id=50978,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_warrior_005.png',
+        max_stacks=10,
+        type_='Buff',
+    )
 
     """
     Dragonknight
@@ -117,9 +124,9 @@ class STACKS(EsoEnum):
 
 
 class BUFFS_WITH_STACKS(EsoEnum):
-    """
-    Sets
-    """
+    #
+    # Sets
+    #
     HUNTERS_FOCUS = Buff(
         name='Hunter\'s Focus',
         id=155150,
@@ -131,6 +138,12 @@ class BUFFS_WITH_STACKS(EsoEnum):
         id=110118,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_mage_010.png',
         stack=STACKS.SIRORIAS_BOON.value,
+    )
+    BERSERKING_WARRIOR = Buff(
+        name='Berserking Warrior',
+        id=50978,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_warrior_005.png',
+        stack=STACKS.BERSERKING_WARRIOR.value,
     )
 
     """
