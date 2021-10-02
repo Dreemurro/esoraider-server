@@ -21,3 +21,10 @@ class TEMPLAR_SKILLS(EsoEnum):
         link='https://eso-hub.com/en/skills/templar/dawns-wrath/power-of-the-light',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_templar_power_of_the_light.png',
     )
+    PURIFYING_LIGHT = Skill(
+        name='Purifying Light',
+        id=21765,
+        debuffs=[TEMPLAR_DEBUFFS.PURIFYING_LIGHT.value],
+        link='https://eso-hub.com/en/skills/templar/dawns-wrath/purifying-light',
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_templar_purifying_light.png',
+    )
