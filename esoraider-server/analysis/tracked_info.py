@@ -123,13 +123,13 @@ class TrackedInfo(object):
 
         try:
             encounter = Encounters(id_)
-            self.targets = encounter.value.targets
-            for _ in self.targets:
-                logger.debug('{0} - {1}'.format(_.name, _.id))
         except StopIteration:
             logger.info(
                 'Targets for encounter = {0} were not found'.format(id_),
             )
+        self.targets = encounter.value.targets
+        for _ in self.targets:
+            logger.debug('{0} - {1}'.format(_.name, _.id))
 
     def _get_char_skills(self):
         logger.info('Get char skills from summary table')
