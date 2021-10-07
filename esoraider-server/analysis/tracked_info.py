@@ -71,6 +71,18 @@ def _get_class_skills(char_class: str) -> Type[EsoEnum]:
             ))
 
 
+class SkillsNotFoundException(Exception):
+    def __init__(self):
+        message = 'Log is broken - character skills were not found'
+        super().__init__(message)
+
+
+class NothingToTrackException(Exception):
+    def __init__(self):
+        message = 'There is nothing to track'
+        super().__init__(message)
+
+
 class TrackedInfo(object):
     """
     Extracts known info for further usage during analysis.
@@ -117,6 +129,19 @@ class TrackedInfo(object):
         self._get_known_effects()
         self._get_known_stacks()
 
+        empty_attrs = (
+            bool(attr)
+            for attr in (
+                self.skills,
+                self.sets,
+                self.glyphs,
+                self.buffs,
+                self.debuffs,
+                self.stacks,
+            ))
+        if not all(empty_attrs):
+            raise NothingToTrackException
+
     def _get_encounter_targets(self):
         logger.info('Get main targets of a fight')
         id_ = self._encounter_info.get('encounterID')
@@ -135,7 +160,7 @@ class TrackedInfo(object):
         logger.info('Get char skills from summary table')
 
         if not self._summary_table.combatant_info.talents:
-            logger.error('Log is broken - character skills were not found')
+            raise SkillsNotFoundException
 
         for talent in self._summary_table.combatant_info.talents:
             self._char_skills.append(talent)

@@ -2,10 +2,13 @@ import asyncio
 from typing import Optional, Tuple
 
 from analysis.report_builder import ReportBuilder
+from analysis.tracked_info import (
+    NothingToTrackException, SkillsNotFoundException,
+)
 from api.api import ApiWrapper
 from api.response import SummaryTableData
 from blacksheep.server import Application
-from blacksheep.server.responses import json, not_found
+from blacksheep.server.responses import bad_request, json, not_found
 from gql.transport.exceptions import TransportQueryError  # type: ignore
 from settings import DEBUG, SHOW_ERROR_DETAILS
 
@@ -86,7 +89,10 @@ async def get_char(
         target=target,
     )
 
-    return json(await report.build())
+    try:
+        return json(await report.build())
+    except (SkillsNotFoundException, NothingToTrackException) as ex:
+        return bad_request(str(ex))
 
 
 # TODO: Rewrite & probably move to enums
