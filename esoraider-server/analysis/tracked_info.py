@@ -139,7 +139,7 @@ class TrackedInfo(object):
                 self.debuffs,
                 self.stacks,
             ))
-        if not all(empty_attrs):
+        if not any(empty_attrs):
             raise NothingToTrackException
 
     def _get_encounter_targets(self):
@@ -152,6 +152,7 @@ class TrackedInfo(object):
             logger.info(
                 'Targets for encounter = {0} were not found'.format(id_),
             )
+            return
         self.targets = encounter.value.targets
         for _ in self.targets:
             logger.debug('{0} - {1}'.format(_.name, _.id))
