@@ -275,6 +275,18 @@ class GENERAL_SKILLS(EsoEnum):
         link='https://eso-hub.com/en/skills/weapon/bow/poison-injection',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_bow_002_b.png',
     )
+    ENDLESS_HAIL_DAMAGE = Skill(
+        name='Endless Hail',
+        id=38690,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_bow_003_a.png',
+    )
+    ENDLESS_HAIL = Skill(
+        name='Endless Hail',
+        id=38689,
+        children=[ENDLESS_HAIL_DAMAGE],
+        link='https://eso-hub.com/en/skills/weapon/bow/endless-hail',
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_bow_003_a.png',
+    )
     ARROW_BARRAGE_DAMAGE = Skill(
         name='Arrow Barrage',
         id=38696,
