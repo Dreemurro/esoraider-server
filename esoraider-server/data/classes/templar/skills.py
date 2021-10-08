@@ -46,6 +46,13 @@ class TEMPLAR_SKILLS(EsoEnum):
         link='https://eso-hub.com/en/skills/templar/aedric-spear/blazing-spear',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_templarsun_thrust.png',
     )
+    RESTORING_FOCUS = Skill(
+        name='Restoring Focus',
+        id=22237,
+        buffs=[BUFFS.MAJOR_RESOLVE_RESTORING_FOCUS.value],
+        link='https://eso-hub.com/en/skills/templar/restoring-light/restoring-focus',
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_templar_uninterrupted_focus.png',
+    )
     CHANNELED_FOCUS = Skill(
         name='Channeled Focus',
         id=22240,
