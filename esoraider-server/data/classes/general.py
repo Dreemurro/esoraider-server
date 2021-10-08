@@ -261,6 +261,13 @@ class GENERAL_SKILLS(EsoEnum):
         link='https://eso-hub.com/en/skills/weapon/dual-wield/rending-slashes',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_dualwield_001_a.png',
     )
+    VENOM_ARROW = Skill(
+        name='Venom Arrow',
+        id=38645,
+        debuffs=[DEBUFFS.VENOM_ARROW.value],
+        link='https://eso-hub.com/en/skills/weapon/bow/venom-arrow',
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_bow_002_a.png',
+    )
     POISON_INJECTION = Skill(
         name='Poison Injection',
         id=38660,
