@@ -391,6 +391,7 @@ class Event(DataClassJsonMixin):
 
     stack: Optional[int] = None
     target_instance: Optional[int] = None
+    absorb: Optional[int] = None
 
 
 def skip_events(items: List) -> List[Event]:
