@@ -3,6 +3,47 @@ from data.core import Encounter, EsoEnum, Difficulty, Target
 
 class Encounters(EsoEnum):
     #
+    # Maw of Lorkhaj
+    #
+    ZHAJHASSA_THE_FORGOTTEN = Encounter(
+        name="Zhaj'hassa The Forgotten",
+        id=13,
+        difficulties=[
+            Difficulty('Normal', 120),
+            Difficulty('Veteran', 121),
+            Difficulty('Veteran Hard Mode', 122),
+        ],
+        targets=[
+            Target("Zhaj'hassa The Forgotten", (60005,)),
+        ],
+    )
+    THE_TWINS = Encounter(
+        name='The Twins',
+        id=14,
+        difficulties=[
+            Difficulty('Normal', 120),
+            Difficulty('Veteran', 121),
+            Difficulty('Veteran Hard Mode', 122),
+        ],
+        targets=[
+            Target('Vashai', (60374,)),
+            Target("S'kinrai", (60375,)),
+        ],
+    )
+    RAKKHAT = Encounter(
+        name='Rakkhat',
+        id=15,
+        difficulties=[
+            Difficulty('Normal', 120),
+            Difficulty('Veteran', 121),
+            Difficulty('Veteran Hard Mode', 122),
+        ],
+        targets=[
+            Target('Rakkhat', (60437,)),
+        ],
+    )
+
+    #
     # Halls of Fabrication
     #
     THE_HUNTER_KILLERS = Encounter(
