@@ -254,6 +254,18 @@ class GENERAL_SKILLS(EsoEnum):
         link='https://eso-hub.com/en/skills/alliance-war/assault/anti-cavalry-caltrops',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_ava_001_a.png',
     )
+    RAZOR_CALTROPS_DAMAGE = Skill(
+        name='Razor Caltrops',
+        id=40252,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_ava_001_b.png',
+    )
+    RAZOR_CALTROPS = Skill(
+        name='Razor Caltrops',
+        id=40242,
+        children=[RAZOR_CALTROPS_DAMAGE],
+        link='https://eso-hub.com/en/skills/alliance-war/assault/razor-caltrops',
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_ava_001_b.png',
+    )
     RENDING_SLASHES = Skill(
         name='Rending Slashes',
         id=38839,
