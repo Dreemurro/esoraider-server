@@ -93,3 +93,10 @@ class NECROMANCER_SKILLS(EsoEnum):
         link='https://eso-hub.com/en/skills/necromancer/bone-tyrant/beckoning-armor',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_necromancer_008_a.png',
     )
+    SUMMONERS_ARMOR = Skill(
+        name="Summoner's Armor",
+        id=118244,
+        buffs=[BUFFS.MAJOR_RESOLVE_SUMMONERS_ARMOR.value],
+        link='https://eso-hub.com/en/skills/necromancer/bone-tyrant/summoners-armor',
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_necromancer_008_b.png',
+    )

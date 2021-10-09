@@ -57,6 +57,11 @@ class BUFFS(EsoEnum):
         id=118239,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_major_resolve.png',
     )
+    MAJOR_RESOLVE_SUMMONERS_ARMOR = Buff(
+        name='Major Resolve',
+        id=118246,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_major_resolve.png',
+    )
 
     """
     MINOR RESOLVE
