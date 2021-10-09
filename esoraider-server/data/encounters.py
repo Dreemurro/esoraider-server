@@ -3,6 +3,78 @@ from data.core import Encounter, EsoEnum, Difficulty, Target
 
 class Encounters(EsoEnum):
     #
+    # Halls of Fabrication
+    #
+    THE_HUNTER_KILLERS = Encounter(
+        name='The Hunter Killers',
+        id=16,
+        difficulties=[
+            Difficulty('Normal', 120),
+            Difficulty('Veteran', 121),
+            Difficulty('Veteran Hard Mode', 122),
+        ],
+        targets=[
+            Target('Hunter-Killer Negatrix', (76597,)),
+            Target('Hunter-Killer Positrox', (76664,)),
+        ],
+    )
+    PINNACLE_FACTOTUM = Encounter(
+        name='Pinnacle Factotum',
+        id=17,
+        difficulties=[
+            Difficulty('Normal', 120),
+            Difficulty('Veteran', 121),
+            Difficulty('Veteran Hard Mode', 122),
+        ],
+        targets=[
+            Target('Pinnacle Factotum', (76660,)),
+        ],
+    )
+    ARCHCUSTODIAN = Encounter(
+        name='Archcustodian',
+        id=18,
+        difficulties=[
+            Difficulty('Normal', 120),
+            Difficulty('Veteran', 121),
+            Difficulty('Veteran Hard Mode', 122),
+        ],
+        targets=[
+            Target('Archcustodian', (76729,)),
+        ],
+    )
+    THE_REFABRICATION_COMMITTEE = Encounter(
+        name='The Refabrication Committee',
+        id=19,
+        difficulties=[
+            Difficulty('Normal', 120),
+            Difficulty('Veteran', 121),
+            Difficulty('Veteran Hard Mode', 122),
+        ],
+        targets=[
+            Target('Reactor', (76766,)),
+            Target('Reclaimer', (77312,)),
+            Target('Reducer', (76768,)),
+        ],
+    )
+    ASSEMBLY_GENERAL = Encounter(
+        name='Assembly General',
+        id=20,
+        difficulties=[
+            Difficulty('Normal', 120),
+            Difficulty('Veteran', 121),
+            Difficulty('Veteran Hard Mode', 122),
+        ],
+        targets=[
+            Target('Assembly General', (76600,)),
+            Target('Adds', (
+                78538,  # Calefactor
+                78537,  # Capacitor
+                77464,  # Tactical Facsimile
+            )),
+        ],
+    )
+
+    #
     # Asylum Sanctorium
     #
     SAINT_LLOTHIS_THE_PIOUS = Encounter(
