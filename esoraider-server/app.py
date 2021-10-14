@@ -5,10 +5,10 @@ from analysis.report_builder import ReportBuilder
 from analysis.tracked_info import (
     NothingToTrackException, SkillsNotFoundException,
 )
-from api.api import ApiWrapper
-from api.response import SummaryTableData
 from blacksheep.server import Application
 from blacksheep.server.responses import bad_request, json, not_found
+from esologs.api import ApiWrapper
+from esologs.responses.report_data.summary import SummaryTableData
 from gql.transport.exceptions import TransportQueryError  # type: ignore
 from settings import DEBUG, SHOW_ERROR_DETAILS
 

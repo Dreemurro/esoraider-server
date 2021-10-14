@@ -2,7 +2,6 @@
 
 from typing import Dict, List, Optional, Set, Type
 
-from api.response import SummaryTableData, Talent
 from data.buffs import BUFFS
 from data.classes.dragonknight.skills import DRAGONKNIGHT_SKILLS
 from data.classes.general import GENERAL_SKILLS
@@ -18,6 +17,8 @@ from data.debuffs import DEBUFFS
 from data.encounters import Encounters
 from data.glyphs import GLYPHS
 from data.sets import GEAR_SETS
+from esologs.responses.common import Talent
+from esologs.responses.report_data.summary import SummaryTableData
 from loguru import logger
 
 FIGHT_BUFFS = (

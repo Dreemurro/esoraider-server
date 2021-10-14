@@ -6,8 +6,10 @@ from typing import Dict, List, Optional, Tuple
 from analysis.data_request import DataRequest
 from analysis.tracked_info import TrackedInfo
 from analysis.uptimes import Uptimes
-from api.api import ApiWrapper
-from api.response import Aura, Series, SummaryTableData
+from esologs.api import ApiWrapper
+from esologs.responses.report_data.effects import Aura
+from esologs.responses.report_data.graph import Series
+from esologs.responses.report_data.summary import SummaryTableData
 from loguru import logger
 
 

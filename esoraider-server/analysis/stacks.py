@@ -4,8 +4,9 @@ from dataclasses import replace
 from itertools import tee
 from typing import Dict, List
 
-from api.response import Aura, Band, Series
 from data.core import Stack
+from esologs.responses.report_data.effects import Aura, Band
+from esologs.responses.report_data.graph import Series
 from loguru import logger
 from portion.interval import Interval, closed  # type: ignore
 

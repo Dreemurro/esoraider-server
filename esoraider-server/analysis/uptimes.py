@@ -6,8 +6,10 @@ from typing import List, Optional, Union, overload
 from analysis.data_request import DataRequest
 from analysis.stacks import Stacks
 from analysis.tracked_info import TrackedInfo
-from api.response import Aura, Cast, Series
 from data.core import Buff, Debuff, GearSet, Glyph, Skill, Stack
+from esologs.responses.report_data.casts import Cast
+from esologs.responses.report_data.effects import Aura
+from esologs.responses.report_data.graph import Series
 from loguru import logger
 
 

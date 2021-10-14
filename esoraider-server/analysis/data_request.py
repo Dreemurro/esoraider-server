@@ -4,9 +4,11 @@ import asyncio
 from typing import Dict, List, Optional, Sequence, Tuple
 
 from analysis.tracked_info import TrackedInfo
-from api.api import ApiWrapper
-from api.response import BuffsTableData, CastsTableData, GraphData
 from data.core import Stack
+from esologs.api import ApiWrapper
+from esologs.responses.report_data.casts import CastsTableData
+from esologs.responses.report_data.effects import EffectsTableData
+from esologs.responses.report_data.graph import GraphData
 from gql.dsl import DSLField  # type: ignore
 from loguru import logger
 
@@ -37,8 +39,8 @@ class DataRequest(object):
         self._tracked_info = tracked_info
 
         self.total_time: Optional[int] = None
-        self.buffs_table: Optional[BuffsTableData] = None
-        self.debuffs_table: Optional[BuffsTableData] = None
+        self.buffs_table: Optional[EffectsTableData] = None
+        self.debuffs_table: Optional[EffectsTableData] = None
         self.damage_done_table: Optional[CastsTableData] = None
         self.graphs: List[GraphData] = []
 
