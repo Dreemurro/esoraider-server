@@ -18,6 +18,7 @@ from data.encounters import Encounters
 from data.glyphs import GLYPHS
 from data.sets import GEAR_SETS
 from esologs.responses.common import Talent
+from esologs.responses.report_data.fight import Fight
 from esologs.responses.report_data.summary import SummaryTableData
 from loguru import logger
 
@@ -100,7 +101,7 @@ class TrackedInfo(object):
         self,
         summary_table: Optional[SummaryTableData] = None,
         char_class: Optional[str] = None,
-        encounter_info: Optional[Dict[str, int]] = None,
+        encounter_info: Optional[Fight] = None,
     ) -> None:
         self._summary_table = summary_table
         self._encounter_info = encounter_info
@@ -145,7 +146,7 @@ class TrackedInfo(object):
 
     def _get_encounter_targets(self):
         logger.info('Get main targets of a fight')
-        id_ = self._encounter_info.get('encounterID')
+        id_ = self._encounter_info.encounter_id
 
         try:
             encounter = Encounters(id_)

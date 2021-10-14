@@ -8,6 +8,7 @@ from analysis.tracked_info import TrackedInfo
 from analysis.uptimes import Uptimes
 from esologs.api import ApiWrapper
 from esologs.responses.report_data.effects import Aura
+from esologs.responses.report_data.fight import Fight
 from esologs.responses.report_data.graph import Series
 from esologs.responses.report_data.summary import SummaryTableData
 from loguru import logger
@@ -25,7 +26,7 @@ class ReportBuilder(object):
         char_id: Optional[int] = None,
         start_time: Optional[int] = None,
         end_time: Optional[int] = None,
-        encounter_info: Optional[Dict[str, int]] = None,
+        encounter_info: Optional[Fight] = None,
         target: Optional[Tuple[int]] = None,
     ) -> None:
         self._api = api

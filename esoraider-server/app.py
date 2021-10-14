@@ -8,7 +8,6 @@ from analysis.tracked_info import (
 from blacksheep.server import Application
 from blacksheep.server.responses import bad_request, json, not_found
 from esologs.api import ApiWrapper
-from esologs.responses.report_data.summary import SummaryTableData
 from gql.transport.exceptions import TransportQueryError  # type: ignore
 from settings import DEBUG, SHOW_ERROR_DETAILS
 
@@ -65,24 +64,16 @@ async def get_char(
         start_time=start_time,
         end_time=end_time,
     )
-    response = response.get('reportData')
-    response = response.get('report')
 
-    encounter_info = response.get('fights').pop()
-
-    response = response.get('table')
-    response = response.get('data')
-
-    decoded = SummaryTableData.from_dict(response)
     report = ReportBuilder(
         api=api,
         log=log,
         fight_id=fight,
         char_id=char,
-        summary_table=decoded,
+        summary_table=response.table.data,
         start_time=start_time,
         end_time=end_time,
-        encounter_info=encounter_info,
+        encounter_info=response.fights[0],
         target=target,
     )
 
