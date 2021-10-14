@@ -75,7 +75,7 @@ class DataRequest(object):
         buff_ids = {bf.id for bf in self._tracked_info.buffs}
 
         logger.info('Requesting buffs table from API')
-        response = await self._api.query_table(
+        self.buffs_table = await self._api.query_table(
             log=self._log,
             fight_id=self._fight_id,
             data_type='Buffs',
@@ -84,11 +84,6 @@ class DataRequest(object):
             source_id=self._char_id,
             filter_exp=self._generate_filter(buff_ids),
         )
-        response = response.get('reportData')
-        response = response.get('report')
-        response = response.get('table')
-        response = response.get('data')
-        self.buffs_table = BuffsTableData.from_dict(response)
 
         logger.info('Got {0} buffs'.format(len(self.buffs_table.auras)))
         for aura in self.buffs_table.auras:
@@ -102,7 +97,7 @@ class DataRequest(object):
         debuff_ids = {db.id for db in self._tracked_info.debuffs}
 
         logger.info('Requesting debuffs table from API')
-        response = await self._api.query_table(
+        self.debuffs_table = await self._api.query_table(
             log=self._log,
             fight_id=self._fight_id,
             data_type='Debuffs',
@@ -112,12 +107,6 @@ class DataRequest(object):
             target_id=self._char_id,
             filter_exp=self._generate_filter(debuff_ids, self._target),
         )
-
-        response = response.get('reportData')
-        response = response.get('report')
-        response = response.get('table')
-        response = response.get('data')
-        self.debuffs_table = BuffsTableData.from_dict(response)
 
         logger.info('Got {0} debuffs'.format(len(self.debuffs_table.auras)))
         for aura in self.debuffs_table.auras:
@@ -136,7 +125,7 @@ class DataRequest(object):
                     ids.add(child.id)
 
         logger.info('Requesting DamageDone table from API')
-        response = await self._api.query_table(
+        self.damage_done_table = await self._api.query_table(
             log=self._log,
             fight_id=self._fight_id,
             data_type='DamageDone',
@@ -145,12 +134,6 @@ class DataRequest(object):
             source_id=self._char_id,
             filter_exp=self._generate_filter(ids, self._target),
         )
-
-        response = response.get('reportData')
-        response = response.get('report')
-        response = response.get('table')
-        response = response.get('data')
-        self.damage_done_table = CastsTableData.from_dict(response)
 
         logger.info(
             'Got {0} casts'.format(len(self.damage_done_table.entries)),

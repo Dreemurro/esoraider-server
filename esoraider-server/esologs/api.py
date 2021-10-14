@@ -1,7 +1,11 @@
 import asyncio
-from typing import Dict
+from typing import Dict, Union
 
 import backoff  # type: ignore
+from esologs.responses.base import BaseResponseData
+from esologs.responses.report_data.casts import CastsTableData
+from esologs.responses.report_data.effects import EffectsTableData
+from esologs.responses.report_data.summary import SummaryTableData
 from gql import Client  # type: ignore
 from gql.dsl import DSLField, DSLQuery, DSLSchema, dsl_gql  # type: ignore
 from gql.transport.aiohttp import AIOHTTPTransport  # type: ignore
@@ -204,7 +208,7 @@ class ApiWrapper:
         source_id: int = None,
         target_id: int = None,
         filter_exp: str = None,
-    ):
+    ) -> Union[SummaryTableData, CastsTableData, EffectsTableData]:
         logger.info('Requesting reportData')
         logger.info('Log = {0}'.format(log))
         logger.info('Fight ID = {0}'.format(fight_id))
@@ -234,7 +238,21 @@ class ApiWrapper:
         report_fields = report.select(table)
 
         query.select(report_fields)
-        return await self.execute(dsl_gql(DSLQuery(query)))
+
+        response = BaseResponseData.from_dict(
+            await self.execute(dsl_gql(DSLQuery(query))),
+        )
+
+        types = {
+            'Summary': SummaryTableData,
+            'DamageDone': CastsTableData,
+            'Casts': CastsTableData,
+            'Buffs': EffectsTableData,
+            'Debuffs': EffectsTableData,
+        }
+        table_data = types[data_type]
+
+        return table_data.from_dict(response.report_data.report.table.data)
 
     async def query_char_table(
         self,

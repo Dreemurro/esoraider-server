@@ -44,11 +44,8 @@ async def get_fight(
         start_time=start_time,
         end_time=end_time,
     )
-    response = response.get('reportData')
-    response = response.get('report')
-    response = response.get('table')
 
-    return response.get('data')
+    return response.to_json()
 
 
 @app.route('/<str:log>/<int:fight>/<int:char>')
