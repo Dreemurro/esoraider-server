@@ -7,6 +7,7 @@ from esologs.responses.report_data.casts import CastsTableData
 from esologs.responses.report_data.effects import EffectsTableData
 from esologs.responses.report_data.report import Report
 from esologs.responses.report_data.summary import SummaryTableData
+from esologs.responses.world_data.encounter import Encounter
 from gql import Client  # type: ignore
 from gql.dsl import DSLField, DSLQuery, DSLSchema, dsl_gql  # type: ignore
 from gql.transport.aiohttp import AIOHTTPTransport  # type: ignore
@@ -132,7 +133,7 @@ class ApiWrapper:
 
         return answer
 
-    async def query_name(self, encounter_id: int):
+    async def query_name(self, encounter_id: int) -> Encounter:
         logger.info('Requesting info on encounter = {0}'.format(encounter_id))
         query = self.ds.Query.worldData
 
@@ -151,7 +152,10 @@ class ApiWrapper:
         )
 
         query.select(encounter_fields)
-        return await self.execute(dsl_gql(DSLQuery(query)))
+
+        return BaseResponseData.from_dict(
+            await self.execute(dsl_gql(DSLQuery(query))),
+        ).world_data.encounter
 
     async def query_log(self, log: str):
         logger.info('Requesting log {0}'.format(log))

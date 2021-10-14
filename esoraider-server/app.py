@@ -88,11 +88,9 @@ async def get_char(
 @app.route('/encounter/<int:encounter>')
 async def get_encounter(encounter, api: ApiWrapper):
     response = await api.query_name(encounter)
-    response = response.get('worldData')
-    response = response.get('encounter')
 
     if response:
-        return response
+        return response.to_json()
     return json('')
 
 
