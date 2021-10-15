@@ -35,9 +35,10 @@ class PlayerDetails(EsoLogsDataClass):
     anonymous: bool
     icon: str
     specs: List[str]
-    min_item_level: int
-    max_item_level: int
     combatant_info: CombatantInfo
+
+    min_item_level: Optional[int] = None
+    max_item_level: Optional[int] = None
 
 
 @dataclass
