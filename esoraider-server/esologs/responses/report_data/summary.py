@@ -1,7 +1,7 @@
 """Summary table (dataType: Summary) response."""
 
 from dataclasses import dataclass, field
-from typing import Any, List, Optional
+from typing import Any, Dict, List, Optional, Union
 
 from dataclasses_json import config
 from esologs.responses.common import Gear, Talent
@@ -24,6 +24,13 @@ class CombatantInfo(EsoLogsDataClass):
         return [t.guid for t in self.talents]
 
 
+def skip_empty_list(item: Union[List, Dict]) -> CombatantInfo:
+    if isinstance(item, list):
+        return {}
+    if isinstance(item, dict):
+        return CombatantInfo.from_dict(item)
+
+
 @dataclass
 class PlayerDetails(EsoLogsDataClass):
     name: str
@@ -35,7 +42,10 @@ class PlayerDetails(EsoLogsDataClass):
     anonymous: bool
     icon: str
     specs: List[str]
-    combatant_info: CombatantInfo
+    combatant_info: CombatantInfo = field(metadata=config(
+        # Skip CombatantInfo parsing if log is broken
+        decoder=skip_empty_list,
+    ))
 
     min_item_level: Optional[int] = None
     max_item_level: Optional[int] = None
