@@ -30,6 +30,11 @@ class GearType(Enum):
 
 
 @unique
+class PoisonType(Enum):
+    POISON = 1
+
+
+@unique
 class WeaponType(Enum):
     AXE = 1
     MACE = 2
