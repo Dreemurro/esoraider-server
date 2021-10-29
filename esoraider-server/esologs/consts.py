@@ -27,3 +27,20 @@ class GearType(Enum):
     MEDIUM_ARMOR = 2
     HEAVY_ARMOR = 3
     JEWELRY = 4
+
+
+@unique
+class WeaponType(Enum):
+    AXE = 1
+    MACE = 2
+    SWORD = 3
+    TWO_HANDED_SWORD = 4
+    TWO_HANDED_AXE = 5
+    TWO_HANDED_HAMMER = 6
+    BOW = 8
+    HEALING_STAFF = 9
+    DAGGER = 11
+    FIRE_STAFF = 12
+    FROST_STAFF = 13
+    SHIELD = 14
+    LIGHTNING_STAFF = 15
