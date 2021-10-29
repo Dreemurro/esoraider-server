@@ -1,4 +1,4 @@
-from enum import IntEnum, unique
+from enum import Enum, IntEnum, unique
 
 
 @unique
@@ -19,3 +19,11 @@ class GearSlot(IntEnum):
     OFF_HAND_BACKUP = 13
     MAIN_POISON = 14
     BACKUP_POISON = 15
+
+
+@unique
+class GearType(Enum):
+    LIGHT_ARMOR = 1
+    MEDIUM_ARMOR = 2
+    HEAVY_ARMOR = 3
+    JEWELRY = 4
