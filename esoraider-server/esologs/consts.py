@@ -1,4 +1,4 @@
-from enum import Enum, IntEnum, unique
+from enum import Enum, IntEnum, auto, unique
 
 
 @unique
@@ -49,3 +49,35 @@ class WeaponType(Enum):
     FROST_STAFF = 13
     SHIELD = 14
     LIGHTNING_STAFF = 15
+
+    @classmethod
+    def wield_type(cls, first: 'WeaponType', second: 'WeaponType' = None):
+        if second:
+            if second == cls.SHIELD:
+                return WieldType.ONE_HAND_AND_SHIELD
+            else:
+                return WieldType.DUAL_WIELD
+
+        wield = {
+            cls.FIRE_STAFF: WieldType.DESTRUCTION_STAFF,
+            cls.FROST_STAFF: WieldType.DESTRUCTION_STAFF,
+            cls.LIGHTNING_STAFF: WieldType.DESTRUCTION_STAFF,
+            cls.HEALING_STAFF: WieldType.RESTORATION_STAFF,
+            cls.BOW: WieldType.BOW,
+            cls.TWO_HANDED_AXE: WieldType.TWO_HANDED,
+            cls.TWO_HANDED_SWORD: WieldType.TWO_HANDED,
+            cls.TWO_HANDED_HAMMER: WieldType.TWO_HANDED,
+        }
+        return wield.get(first, WieldType.INCOMPLETE)
+
+
+@unique
+class WieldType(Enum):
+    BOW = auto()
+    DESTRUCTION_STAFF = auto()
+    DUAL_WIELD = auto()
+    ONE_HAND_AND_SHIELD = auto()
+    RESTORATION_STAFF = auto()
+    TWO_HANDED = auto()
+
+    INCOMPLETE = auto()
