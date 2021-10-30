@@ -38,3 +38,24 @@ class Passives(EsoEnum):
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_sorcerer_038.png',
         link='https://eso-hub.com/en/skills/armor/light-armor/prodigy',
     )
+    # |--------------|
+    # | Medium Armor | (excluding Improved Sneak)
+    # |--------------|
+    DEXTERITY = Buff(  # Potentially bugged - only tracked on log's owner
+        name='Dexterity',
+        id=45564,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_armor_008.png',
+        link='https://eso-hub.com/en/skills/armor/medium-armor/dexterity',
+    )
+    WIND_WALKER = Buff(
+        name='Wind Walker',
+        id=45565,  # Another ID - 29687
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_armor_011.png',
+        link='https://eso-hub.com/en/skills/armor/medium-armor/wind-walker',
+    )
+    AGILITY = Buff(  # Potentially bugged - only tracked on log's owner
+        name='Agility',
+        id=45572,  # Another ID - 29686
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_armor_010.png',
+        link='https://eso-hub.com/en/skills/armor/medium-armor/agility',
+    )
