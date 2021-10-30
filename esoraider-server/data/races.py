@@ -95,3 +95,23 @@ class RacialPassives(EsoEnum):
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_armor_006.png',
         link='https://eso-hub.com/en/skills/racial/khajiit-skills/feline-ambush',
     )
+
+    # Nord (excluding Reveler)
+    RESIST_FROST = Buff(
+        name='Resist Frost',
+        id=45304,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_sorcerer_012.png',
+        link='https://eso-hub.com/en/skills/racial/nord-skills/resist-frost',
+    )
+    STALWART = Buff(
+        name='Stalwart',
+        id=45298,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_sorcerer_018.png',
+        link='https://eso-hub.com/en/skills/racial/nord-skills/stalwart',
+    )
+    RUGGED = Buff(
+        name='Rugged',
+        id=45306,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_dragonknight_020.png',
+        link='https://eso-hub.com/en/skills/racial/nord-skills/rugged',
+    )
