@@ -75,3 +75,23 @@ class RacialPassives(EsoEnum):
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_dragonknight_028.png',
         link='https://eso-hub.com/en/skills/racial/imperial-skills/red-diamond',
     )
+
+    # Khajiit (excluding Cutpurse)
+    ROBUSTNESS = Buff(
+        name='Robustness',
+        id=70390,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_sorcerer_018.png',
+        link='https://eso-hub.com/en/skills/racial/khajiit-skills/robustness',
+    )
+    LUNAR_BLESSINGS = Buff(
+        name='Lunar Blessings',
+        id=117848,
+        icon='https://assets.rpglogs.com/img/eso/abilities/passive_khajiit_01.png',
+        link='https://eso-hub.com/en/skills/racial/khajiit-skills/lunar-blessings',
+    )
+    FELINE_AMBUSH = Buff(
+        name='Feline Ambush',
+        id=45301,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_armor_006.png',
+        link='https://eso-hub.com/en/skills/racial/khajiit-skills/feline-ambush',
+    )
