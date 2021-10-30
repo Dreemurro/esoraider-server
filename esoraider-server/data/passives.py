@@ -123,3 +123,22 @@ class Passives(EsoEnum):
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_weapon_006.png',
         link='https://eso-hub.com/en/skills/weapon/destruction-staff/destruction-expert',
     )
+
+    # |-----------------------------------------------------------------------|
+    # | Guild                                                                 |
+    # |-----------------------------------------------------------------------|
+    # |-----------|
+    # | Undaunted |
+    # |-----------|
+    UNDAUNTED_COMMAND = Buff(
+        name='Undaunted Command',
+        id=55676,  # Another ID - 55584
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_templar_003.png',
+        link='https://eso-hub.com/en/skills/guild/undaunted/undaunted-command',
+    )
+    UNDAUNTED_METTLE = Buff(
+        name='Undaunted Mettle',
+        id=55386,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_armor_014.png',
+        link='https://eso-hub.com/en/skills/guild/undaunted/undaunted-mettle',
+    )
