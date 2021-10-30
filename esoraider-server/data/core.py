@@ -14,6 +14,7 @@ class Buff:
     optimal_uptime: Optional[float] = None
     uptime: Optional[float] = None
     stack: Optional['Stack'] = None
+    link: Optional[str] = None
 
     def calculate_uptime(
         self,
@@ -37,6 +38,7 @@ class Debuff:
     optimal_uptime: Optional[float] = None
     uptime: Optional[float] = None
     stack: Optional['Stack'] = None
+    link: Optional[str] = None
 
     def calculate_uptime(
         self,
