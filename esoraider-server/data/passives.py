@@ -92,3 +92,34 @@ class Passives(EsoEnum):
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_armor_015.png',
         link='https://eso-hub.com/en/skills/armor/heavy-armor/rapid-mending',
     )
+
+    # |-----------------------------------------------------------------------|
+    # | Weapon                                                                |
+    # |-----------------------------------------------------------------------|
+    # |-------------------|
+    # | Destruction Staff |
+    # |-------------------|
+    TRI_FOCUS = Buff(
+        name='Tri Focus',
+        id=45500,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_weapon_001.png',
+        link='https://eso-hub.com/en/skills/weapon/destruction-staff/tri-focus',
+    )
+    PENETRATING_MAGIC = Buff(
+        name='Penetrating Magic',
+        id=45509,  # Additional IDs - 69773, 30948
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_weapon_008.png',
+        link='https://eso-hub.com/en/skills/weapon/destruction-staff/penetrating-magic',
+    )
+    ANCIENT_KNOWLEDGE = Buff(
+        name='Ancient Knowledge',
+        id=45513,  # Another ID - 30959
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_weapon_003.png',
+        link='https://eso-hub.com/en/skills/weapon/destruction-staff/ancient-knowledge',
+    )
+    DESTRUCTION_EXPERT = Buff(
+        name='Destruction Expert',
+        id=45514,  # Another ID - 30965
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_weapon_006.png',
+        link='https://eso-hub.com/en/skills/weapon/destruction-staff/destruction-expert',
+    )
