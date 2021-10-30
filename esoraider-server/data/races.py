@@ -115,3 +115,17 @@ class RacialPassives(EsoEnum):
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_dragonknight_020.png',
         link='https://eso-hub.com/en/skills/racial/nord-skills/rugged',
     )
+
+    # Orc (excluding Craftsman)
+    BRAWNY = Buff(
+        name='Brawny',
+        id=45309,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_dragonknight_020.png',
+        link='https://eso-hub.com/en/skills/racial/orc-skills/brawny',
+    )
+    UNFLINCHING_RAGE = Buff(
+        name='Unflinching Rage',
+        id=84672,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_sorcerer_018.png',
+        link='https://eso-hub.com/en/skills/racial/orc-skills/unflinching-rage',
+    )
