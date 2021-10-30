@@ -35,3 +35,23 @@ class RacialPassives(EsoEnum):
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_sorcerer_010.png',
         link='https://eso-hub.com/en/skills/racial/dark-elf-skills/ruination',
     )
+
+    # High Elf (excluding Highborn)
+    SPELL_RECHARGE = Buff(
+        name='Spell Recharge',
+        id=45274,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_sorcerer_063.png',
+        link='https://eso-hub.com/en/skills/racial/high-elf-skills/spell-recharge',
+    )
+    SYRABANES_BOON = Buff(  # Potentially bugged - only tracked on log's owner
+        name="Syrabane's Boon",
+        id=117970,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_armor_004.png',
+        link='https://eso-hub.com/en/skills/racial/high-elf-skills/elemental-talent',
+    )
+    ELEMENTAL_TALENT = Buff(
+        name='Elemental Talent',
+        id=45276,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_armor_005.png',
+        link='https://eso-hub.com/en/skills/racial/high-elf-skills/elemental-talent',
+    )
