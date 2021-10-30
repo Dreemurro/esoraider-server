@@ -20,6 +20,26 @@ class GearSlot(IntEnum):
     MAIN_POISON = 14
     BACKUP_POISON = 15
 
+    @classmethod
+    def is_armor(cls, x: 'GearSlot') -> bool:
+        return cls.HEAD <= x <= cls.RING_2
+
+    @classmethod
+    def is_weapon(cls, x: 'GearSlot') -> bool:
+        return cls.MAIN_HAND <= x <= cls.OFF_HAND_BACKUP
+
+    @classmethod
+    def is_frontbar_weapon(cls, x: 'GearSlot') -> bool:
+        return cls.MAIN_HAND <= x <= cls.OFF_HAND
+
+    @classmethod
+    def is_backbar_weapon(cls, x: 'GearSlot') -> bool:
+        return cls.MAIN_HAND_BACKUP <= x <= cls.OFF_HAND_BACKUP
+
+    @classmethod
+    def is_poison(cls, x: 'GearSlot') -> bool:
+        return cls.MAIN_POISON <= x <= cls.BACKUP_POISON
+
 
 @unique
 class GearType(Enum):
