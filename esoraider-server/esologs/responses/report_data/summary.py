@@ -4,15 +4,36 @@ from dataclasses import dataclass, field
 from typing import Any, Dict, List, Optional, Union
 
 from dataclasses_json import config
+from esologs.consts import GearSlot, GearType, PoisonType, WeaponType
 from esologs.responses.common import Gear, Talent
 from esologs.responses.core import EsoLogsDataClass
+
+
+def gear_decoder(raw_gear_list: List[Dict]) -> List[Gear]:
+    gear_list = []
+    for gear in raw_gear_list:
+        new_gear = Gear.from_dict(gear)
+
+        if not new_gear.type:
+            gear_list.append(new_gear)
+            continue
+
+        if GearSlot.is_armor(new_gear.slot):
+            new_gear.type = GearType(new_gear.type)
+        elif GearSlot.is_weapon(new_gear.slot):
+            new_gear.type = WeaponType(new_gear.type)
+        elif GearSlot.is_poison(new_gear.slot):
+            new_gear.type = PoisonType(new_gear.type)
+        gear_list.append(new_gear)
+
+    return gear_list
 
 
 @dataclass
 class CombatantInfo(EsoLogsDataClass):
     stats: List[Any]
     talents: List[Talent]
-    gear: List[Gear]
+    gear: List[Gear] = field(metadata=config(decoder=gear_decoder))
 
     spec_ids: Optional[List[Any]] = field(
         default=None,

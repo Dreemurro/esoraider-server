@@ -1,7 +1,8 @@
 from dataclasses import dataclass, field
-from typing import Optional
+from typing import Optional, Union
 
 from dataclasses_json import config
+from esologs.consts import GearSlot, GearType, PoisonType, WeaponType
 from esologs.responses.core import EsoLogsDataClass
 
 
@@ -17,7 +18,6 @@ class Talent(EsoLogsDataClass):
 @dataclass
 class Gear(EsoLogsDataClass):
     id: int
-    slot: int
     quality: int
     icon: str
     champion_points: int
@@ -26,6 +26,7 @@ class Gear(EsoLogsDataClass):
     enchant_quality: int
     set_id: int = field(metadata=config(field_name='setID'))
 
+    slot: Optional[GearSlot] = None
     name: Optional[str] = None
-    type: Optional[int] = None
+    type: Union[GearType, WeaponType, PoisonType, None] = None
     set_name: Optional[str] = None
