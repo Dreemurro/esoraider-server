@@ -59,3 +59,36 @@ class Passives(EsoEnum):
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_armor_010.png',
         link='https://eso-hub.com/en/skills/armor/medium-armor/agility',
     )
+    # |-------------|
+    # | Heavy Armor | (COMPLETELY BUGGED AS OF NOW)
+    # |-------------|
+    RESOLVE = Buff(  # Potentially bugged - only tracked on log's owner
+        name='Resolve',
+        id=45533,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_dragonknight_020.png',
+        link='https://eso-hub.com/en/skills/armor/heavy-armor/resolve',
+    )
+    CONSTITUTION = Buff(  # Potentially bugged - only tracked on log's owner
+        name='Constitution',
+        id=45526,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_armor_014.png',
+        link='https://eso-hub.com/en/skills/armor/heavy-armor/constitution',
+    )
+    JUGGERNAUT = Buff(  # Potentially bugged - only tracked on log's owner
+        name='Juggernaut',
+        id=45546,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_armor_012.png',
+        link='https://eso-hub.com/en/skills/armor/heavy-armor/juggernaut',
+    )
+    REVITALIZE = Buff(  # Potentially bugged - only tracked on log's owner
+        name='Revitalize',
+        id=45528,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_armor_013.png',
+        link='https://eso-hub.com/en/skills/armor/heavy-armor/revitalize',
+    )
+    RAPID_MENDING = Buff(  # Potentially bugged - only tracked on log's owner
+        name='Rapid Mending',
+        id=45529,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_armor_015.png',
+        link='https://eso-hub.com/en/skills/armor/heavy-armor/rapid-mending',
+    )
