@@ -2,8 +2,9 @@ from dataclasses import dataclass, field
 from typing import List, Optional
 
 from dataclasses_json import config
-from esologs.responses.common import Talent
+from esologs.responses.common import Gear, Talent
 from esologs.responses.core import EsoLogsDataClass
+from esologs.responses.report_data.effects import Aura
 
 
 @dataclass
@@ -11,15 +12,22 @@ class Event(EsoLogsDataClass):
     timestamp: int
     type: str
     source_id: int = field(metadata=config(field_name='sourceID'))
-    source_is_friendly: bool
-    target_id: int = field(metadata=config(field_name='targetID'))
-    target_is_friendly: bool
-    ability: Talent
-    fight: int
+
+    source_is_friendly: Optional[bool] = None
+    target_id: Optional[int] = field(
+        default=None,
+        metadata=config(field_name='targetID'),
+    )
+    target_is_friendly: Optional[bool] = None
+    ability: Optional[Talent] = None
+    fight: Optional[int] = None
 
     stack: Optional[int] = None
     target_instance: Optional[int] = None
     absorb: Optional[int] = None
+
+    gear: Optional[List[Gear]] = None
+    auras: Optional[List[Aura]] = None
 
 
 def skip_events(items: List) -> List[Event]:

@@ -15,13 +15,19 @@ class Band(EsoLogsDataClass):
 @dataclass
 class Aura(EsoLogsDataClass):
     name: str
-    guid: int
-    type: int
-    ability_icon: str
-    flags: int
-    total_uptime: int
-    total_uses: int
-    bands: List[Band]
+
+    guid: Optional[int] = None
+    type: Optional[int] = None
+    ability_icon: Optional[str] = None
+    flags: Optional[int] = None
+    total_uptime: Optional[int] = None
+    total_uses: Optional[int] = None
+    bands: Optional[List[Band]] = None
+
+    source: Optional[int] = None
+    ability: Optional[int] = None
+    stacks: Optional[int] = None
+    icon: Optional[str] = None
 
 
 @dataclass

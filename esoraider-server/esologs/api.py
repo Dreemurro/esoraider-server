@@ -1,10 +1,11 @@
 import asyncio
-from typing import Dict, Union
+from typing import Dict, List, Union
 
 import backoff  # type: ignore
 from esologs.responses.base import BaseResponseData
 from esologs.responses.report_data.casts import CastsTableData
 from esologs.responses.report_data.effects import EffectsTableData
+from esologs.responses.report_data.graph import Event
 from esologs.responses.report_data.report import Report
 from esologs.responses.report_data.summary import SummaryTableData
 from esologs.responses.world_data.encounter import Encounter
@@ -300,6 +301,50 @@ class ApiWrapper:
         response.table.data = SummaryTableData.from_dict(response.table.data)
 
         return response
+
+    async def query_events(
+        self,
+        log: str,
+        char_id: int,
+        start_time: int,
+        end_time: int,
+        data_type: str = 'CombatantInfo',
+    ) -> List[Event]:
+        logger.info('Requesting events')
+        logger.info('Log = {0}'.format(log))
+        logger.info('Char ID = {0}'.format(char_id))
+        logger.info('Start Time = {0}'.format(start_time))
+        logger.info('End Time = {0}'.format(end_time))
+        logger.info('Data Type = {0}'.format(data_type))
+
+        query = self.ds.Query.reportData
+
+        report = self.ds.ReportData.report(code=log)
+        events = self.ds.Report.events(
+            # ********************** GQL forbidden magic **********************
+            # GQL will turn numbers into scientific notation, which means
+            # number '6951757' will turn into '6.95176e+06'. As you can see,
+            # last digit got rounded which will potentially skip needed events.
+            # So we will substract one second (1000) from start_time
+            # just to avoid this loss
+            startTime=start_time - 1000,
+            endTime=end_time,
+            sourceID=char_id,
+            dataType=data_type,
+        ).select(self.ds.ReportEventPaginator.data)
+
+        report_fields = report.select(events)
+
+        query.select(report_fields)
+
+        response = BaseResponseData.from_dict(
+            await self.execute(dsl_gql(DSLQuery(query))),
+        )
+
+        return [
+            Event.from_dict(event)
+            for event in response.report_data.report.events.data
+        ]
 
     async def query_graph(
         self,
