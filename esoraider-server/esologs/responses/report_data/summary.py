@@ -4,7 +4,13 @@ from dataclasses import dataclass, field
 from typing import Any, Dict, List, Optional, Union
 
 from dataclasses_json import config
-from esologs.consts import GearSlot, GearType, PoisonType, WeaponType
+from esologs.consts import (
+    CharClass,
+    GearSlot,
+    GearType,
+    PoisonType,
+    WeaponType,
+)
 from esologs.responses.common import Gear, Talent
 from esologs.responses.core import EsoLogsDataClass
 
@@ -57,7 +63,7 @@ class PlayerDetails(EsoLogsDataClass):
     name: str
     id: int
     guid: int
-    type: str
+    type: CharClass
     server: str
     display_name: str
     anonymous: bool
@@ -136,7 +142,7 @@ class Composition(EsoLogsDataClass):
     name: str
     id: int
     guid: int
-    type: str
+    type: CharClass
     specs: List[Spec]
 
 

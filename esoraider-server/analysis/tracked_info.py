@@ -17,6 +17,7 @@ from data.debuffs import DEBUFFS
 from data.encounters import Encounters
 from data.glyphs import GLYPHS
 from data.sets import GEAR_SETS
+from esologs.consts import CharClass
 from esologs.responses.common import Talent
 from esologs.responses.report_data.fight import Fight
 from esologs.responses.report_data.summary import SummaryTableData
@@ -100,7 +101,7 @@ class TrackedInfo(object):
     def __init__(
         self,
         summary_table: Optional[SummaryTableData] = None,
-        char_class: Optional[str] = None,
+        char_class: Optional[CharClass] = None,
         encounter_info: Optional[Fight] = None,
     ) -> None:
         self._summary_table = summary_table
@@ -173,7 +174,7 @@ class TrackedInfo(object):
         logger.info('Checking extracted skills in enum of skills to track')
 
         general_skills = GENERAL_SKILLS
-        class_skills = _get_class_skills(self._char_class)
+        class_skills = _get_class_skills(self._char_class.value)
 
         for skill in self._char_skills:
             for skills_enum in (general_skills, class_skills):

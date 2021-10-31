@@ -7,6 +7,7 @@ from analysis.data_request import DataRequest
 from analysis.tracked_info import TrackedInfo
 from analysis.uptimes import Uptimes
 from esologs.api import ApiWrapper
+from esologs.consts import CharClass
 from esologs.responses.report_data.effects import Aura
 from esologs.responses.report_data.fight import Fight
 from esologs.responses.report_data.graph import Series
@@ -45,7 +46,7 @@ class ReportBuilder(object):
         self._uptimes: Optional[Uptimes] = None
 
         self.char_id = char_id
-        self._char_class: Optional[str] = None
+        self._char_class: Optional[CharClass] = None
         self._char_spec: Optional[str] = None
         self._char_name: Optional[str] = None
         self._char_buffs: List[Aura] = []
@@ -105,7 +106,8 @@ class ReportBuilder(object):
         self._char_class = combatant[0].type
         self._char_spec = combatant[0].specs[0].spec
         self._char_name = combatant[0].name
-        logger.debug('{0} - {1}'.format(self._char_class, self._char_spec))
+        logger.debug('Class: {0}'.format(self._char_class.value))
+        logger.debug('Spec: {0}'.format(self._char_spec))
 
     def _get_char_buffs(self):
         if not self._tracked_info.buffs:
