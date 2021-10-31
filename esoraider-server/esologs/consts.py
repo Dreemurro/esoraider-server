@@ -2,6 +2,16 @@ from enum import Enum, IntEnum, auto, unique
 
 
 @unique
+class CharClass(Enum):
+    DRAGONKNIGHT = 'DragonKnight'
+    NIGHTBLADE = 'Nightblade'
+    SORCERER = 'Sorcerer'
+    TEMPLAR = 'Templar'
+    WARDEN = 'Warden'
+    NECROMANCER = 'Necromancer'
+
+
+@unique
 class GearSlot(IntEnum):
     HEAD = 0
     CHEST = 1
