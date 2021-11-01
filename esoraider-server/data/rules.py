@@ -1,6 +1,7 @@
 from data.core import Rule, EsoEnum
 from data.races import RacialPassives
 from data.passives import Passives
+from data.classes.necromancer.passives import NECROMANCER_PASSIVES
 
 
 class Rules(EsoEnum):
@@ -105,5 +106,26 @@ class Rules(EsoEnum):
             Passives.PENETRATING_MAGIC.value,
             Passives.ANCIENT_KNOWLEDGE.value,
             Passives.DESTRUCTION_EXPERT.value,
+        ]
+    )
+
+    # |-----------------------------------------------------------------------|
+    # | Class passives check                                                  |
+    # |-----------------------------------------------------------------------|
+    NECROMANCER = Rule(
+        name='Necromancer passives',
+        icon='https://eso-hub.com/storage/icons/class/gamepad/gp_class_necromancer.png',
+        buffs=[
+            NECROMANCER_PASSIVES.DEATH_GLEANING.value,
+            NECROMANCER_PASSIVES.HEALTH_AVARICE.value,
+            NECROMANCER_PASSIVES.LAST_GASP.value,
+            # Reusasble Parts is not in combatant info, skipping for now
+            # NECROMANCER_PASSIVES.REUSABLE_PARTS.value,
+            NECROMANCER_PASSIVES.DISMEMBER.value,
+            NECROMANCER_PASSIVES.RAPID_ROT.value,
+            NECROMANCER_PASSIVES.CURATIVE_CURSE.value,
+            NECROMANCER_PASSIVES.NEAR_DEATH_EXPERIENCE.value,
+            NECROMANCER_PASSIVES.CORPSE_CONSUMPTION.value,
+            NECROMANCER_PASSIVES.UNDEAD_CONFEDERATE.value,
         ]
     )
