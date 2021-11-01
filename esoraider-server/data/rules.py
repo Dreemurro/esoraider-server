@@ -129,3 +129,15 @@ class Rules(EsoEnum):
             NECROMANCER_PASSIVES.UNDEAD_CONFEDERATE.value,
         ]
     )
+
+    # |-----------------------------------------------------------------------|
+    # | Guild passives check                                                  |
+    # |-----------------------------------------------------------------------|
+    UNDAUNTED = Rule(
+        name='Undaunted passives',
+        icon='https://eso-hub.com/storage/icons/ability_undaunted_001.webp',
+        buffs=[
+            Passives.UNDAUNTED_COMMAND.value,
+            Passives.UNDAUNTED_METTLE.value,
+        ]
+    )
