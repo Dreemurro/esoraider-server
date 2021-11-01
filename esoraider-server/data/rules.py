@@ -93,3 +93,17 @@ class Rules(EsoEnum):
             # Passives.AGILITY.value,
         ]
     )
+
+    # |-----------------------------------------------------------------------|
+    # | Weapon passives check                                                 |
+    # |-----------------------------------------------------------------------|
+    DESTRUCTION_STAFF = Rule(
+        name='Destruction staff passives',
+        icon='https://eso-hub.com/storage/icons/ability_destructionstaff_012.webp',
+        buffs=[
+            Passives.TRI_FOCUS.value,
+            Passives.PENETRATING_MAGIC.value,
+            Passives.ANCIENT_KNOWLEDGE.value,
+            Passives.DESTRUCTION_EXPERT.value,
+        ]
+    )
