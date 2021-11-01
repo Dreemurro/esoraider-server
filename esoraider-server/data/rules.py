@@ -1,5 +1,6 @@
 from data.core import Rule, EsoEnum
 from data.races import RacialPassives
+from data.passives import Passives
 
 
 class Rules(EsoEnum):
@@ -65,4 +66,30 @@ class Rules(EsoEnum):
             RacialPassives.BRAWNY.value,
             RacialPassives.UNFLINCHING_RAGE.value,
         ],
+    )
+
+    # |-----------------------------------------------------------------------|
+    # | Armor passives check                                                  |
+    # |-----------------------------------------------------------------------|
+    LIGHT_ARMOR = Rule(
+        name='Light armor passives',
+        icon='https://eso-hub.com/storage/icons/ability_armor_003.webp',
+        buffs=[
+            Passives.CONCENTRATION.value,
+            Passives.GRACE.value,
+            Passives.EVOCATION.value,
+            # Next 2 are bugged
+            # Passives.SPELL_WARDING.value,
+            # Passives.PRODIGY.value,
+        ]
+    )
+    MEDIUM_ARMOR = Rule(
+        name='Medium armor passives',
+        icon='https://eso-hub.com/storage/icons/ability_armor_002.webp',
+        buffs=[
+            Passives.WIND_WALKER.value,
+            # Next 2 are bugged
+            # Passives.DEXTERITY.value,
+            # Passives.AGILITY.value,
+        ]
     )
