@@ -191,6 +191,14 @@ class Encounter:
     phases: Optional[int] = None
 
 
+@dataclass(frozen=True)
+class Rule:
+    name: str
+    icon: str
+
+    buffs: Optional[List[Buff]] = None
+
+
 class EsoEnum(Enum):
     @classmethod
     def _missing_(cls, value):
