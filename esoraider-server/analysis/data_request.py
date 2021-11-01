@@ -5,9 +5,10 @@ from typing import Dict, List, Optional, Sequence, Tuple
 
 from analysis.tracked_info import TrackedInfo
 from data.core import Stack
+from data.passives import Passives
 from esologs.api import ApiWrapper
 from esologs.responses.report_data.casts import CastsTableData
-from esologs.responses.report_data.effects import EffectsTableData
+from esologs.responses.report_data.effects import Aura, EffectsTableData
 from esologs.responses.report_data.graph import GraphData
 from gql.dsl import DSLField  # type: ignore
 from loguru import logger
@@ -43,6 +44,7 @@ class DataRequest(object):
         self.debuffs_table: Optional[EffectsTableData] = None
         self.damage_done_table: Optional[CastsTableData] = None
         self.graphs: List[GraphData] = []
+        self.passives: List[Aura] = []
 
     async def execute(self):
         """Query generation and execution."""
@@ -50,7 +52,8 @@ class DataRequest(object):
         debuffs = asyncio.create_task(self._request_debuffs())
         damage_done = asyncio.create_task(self._request_damage_done())
         graphs = asyncio.create_task(self._request_graphs())
-        await asyncio.gather(buffs, debuffs, damage_done, graphs)
+        passives = asyncio.create_task(self._request_passives())
+        await asyncio.gather(buffs, debuffs, damage_done, graphs, passives)
         self.total_time = (
             self.buffs_table.total_time
             or self.debuffs_table.total_time
@@ -188,3 +191,44 @@ class DataRequest(object):
                 ),
             )
         return stacks_dict
+
+    async def _request_passives(self):
+        if not self._tracked_info.skills or self.passives:
+            logger.info('Skipping passives request')
+            return
+
+        logger.info('Requesting Events list with passives from API')
+        events = await self._api.query_events(
+            log=self._log,
+            char_id=self._char_id,
+            start_time=self._start_time,
+            end_time=self._end_time,
+        )
+
+        logger.info('Requesting Buffs table with passives from API')
+        weapon_passive_ids = [
+            passive.id for passive in (
+                # Next passives are not included in combatant info from events
+                # TODO: Add a special flag to buff dataclass?
+                Passives.TRI_FOCUS.value,
+                Passives.PENETRATING_MAGIC.value,
+                Passives.ANCIENT_KNOWLEDGE.value,
+                Passives.DESTRUCTION_EXPERT.value,
+            )
+        ]
+        buffs = await self._api.query_table(
+            log=self._log,
+            fight_id=self._fight_id,
+            data_type='Buffs',
+            start_time=self._start_time,
+            end_time=self._end_time,
+            source_id=self._char_id,
+            filter_exp=self._generate_filter(weapon_passive_ids),
+        )
+
+        self.passives.extend(
+            [aura for event in events for aura in event.auras]
+        )
+        self.passives.extend([aura for aura in buffs.auras])
+
+        logger.info('Got {0} passives'.format(len(self.passives)))

@@ -3,6 +3,7 @@
 from dataclasses import asdict
 from typing import Dict, List, Optional, Tuple
 
+from analysis.checklist_builder import ChecklistBuilder
 from analysis.data_request import DataRequest
 from analysis.tracked_info import TrackedInfo
 from analysis.uptimes import Uptimes
@@ -44,6 +45,7 @@ class ReportBuilder(object):
         self._tracked_info: Optional[TrackedInfo] = None
         self._requested_data: Optional[DataRequest] = None
         self._uptimes: Optional[Uptimes] = None
+        self._checklist: Optional[ChecklistBuilder] = None
 
         self.char_id = char_id
         self._char_class: Optional[CharClass] = None
@@ -92,6 +94,18 @@ class ReportBuilder(object):
             char_graphs=self._char_graphs,
         )
         self._uptimes.calculate()
+
+        if (
+            self._requested_data.passives
+            and self._summary_table.combatant_info.gear
+        ):
+            self._checklist = ChecklistBuilder(
+                spec=self._char_spec,
+                class_=self._char_class,
+                gear=self._summary_table.combatant_info.gear,
+                passives=self._requested_data.passives,
+            )
+            self._checklist.build()
 
         self._build_report()
 
@@ -184,4 +198,8 @@ class ReportBuilder(object):
                     if target.id == self._target
                 ), None,
             ),
+            'checklist':
+                self._checklist.checklist
+                if self._checklist
+                else None,
         }
