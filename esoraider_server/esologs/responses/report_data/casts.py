@@ -3,8 +3,8 @@
 from dataclasses import dataclass
 from typing import Any, List, Optional
 
-from esologs.responses.common import Gear, Talent
-from esologs.responses.core import EsoLogsDataClass
+from esoraider_server.esologs.responses.common import Gear, Talent
+from esoraider_server.esologs.responses.core import EsoLogsDataClass
 
 
 @dataclass

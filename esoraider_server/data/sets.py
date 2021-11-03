@@ -1,7 +1,7 @@
-from data.buffs import BUFFS
-from data.core import EsoEnum, GearSet
-from data.debuffs import DEBUFFS
-from data.stacks import BUFFS_WITH_STACKS, DEBUFFS_WITH_STACKS
+from esoraider_server.data.buffs import BUFFS
+from esoraider_server.data.core import EsoEnum, GearSet
+from esoraider_server.data.debuffs import DEBUFFS
+from esoraider_server.data.stacks import BUFFS_WITH_STACKS, DEBUFFS_WITH_STACKS
 
 
 class GEAR_SETS(EsoEnum):

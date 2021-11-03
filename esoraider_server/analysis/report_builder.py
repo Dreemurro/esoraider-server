@@ -3,17 +3,20 @@
 from dataclasses import asdict
 from typing import Dict, List, Optional, Tuple
 
-from analysis.checklist_builder import ChecklistBuilder
-from analysis.data_request import DataRequest
-from analysis.tracked_info import TrackedInfo
-from analysis.uptimes import Uptimes
-from esologs.api import ApiWrapper
-from esologs.consts import CharClass
-from esologs.responses.report_data.effects import Aura
-from esologs.responses.report_data.fight import Fight
-from esologs.responses.report_data.graph import Series
-from esologs.responses.report_data.summary import SummaryTableData
 from loguru import logger
+
+from esoraider_server.analysis.checklist_builder import ChecklistBuilder
+from esoraider_server.analysis.data_request import DataRequest
+from esoraider_server.analysis.tracked_info import TrackedInfo
+from esoraider_server.analysis.uptimes import Uptimes
+from esoraider_server.esologs.api import ApiWrapper
+from esoraider_server.esologs.consts import CharClass
+from esoraider_server.esologs.responses.report_data.effects import Aura
+from esoraider_server.esologs.responses.report_data.fight import Fight
+from esoraider_server.esologs.responses.report_data.graph import Series
+from esoraider_server.esologs.responses.report_data.summary import (
+    SummaryTableData,
+)
 
 
 class ReportBuilder(object):

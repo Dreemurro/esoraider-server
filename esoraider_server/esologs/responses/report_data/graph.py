@@ -2,9 +2,10 @@ from dataclasses import dataclass, field
 from typing import List, Optional
 
 from dataclasses_json import config
-from esologs.responses.common import Gear, Talent
-from esologs.responses.core import EsoLogsDataClass
-from esologs.responses.report_data.effects import Aura
+
+from esoraider_server.esologs.responses.common import Gear, Talent
+from esoraider_server.esologs.responses.core import EsoLogsDataClass
+from esoraider_server.esologs.responses.report_data.effects import Aura
 
 
 @dataclass

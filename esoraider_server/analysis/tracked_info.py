@@ -2,26 +2,38 @@
 
 from typing import Dict, List, Optional, Set, Type
 
-from data.buffs import BUFFS
-from data.classes.dragonknight.skills import DRAGONKNIGHT_SKILLS
-from data.classes.general import GENERAL_SKILLS
-from data.classes.necromancer.skills import NECROMANCER_SKILLS
-from data.classes.nightblade.skills import NIGHTBLADE_SKILLS
-from data.classes.sorcerer.skills import SORCERER_SKILLS
-from data.classes.templar.skills import TEMPLAR_SKILLS
-from data.classes.warden.skills import WARDEN_SKILLS
-from data.core import (
-    Buff, Debuff, EsoEnum, GearSet, Glyph, Skill, Stack, Target,
-)
-from data.debuffs import DEBUFFS
-from data.encounters import Encounters
-from data.glyphs import GLYPHS
-from data.sets import GEAR_SETS
-from esologs.consts import CharClass
-from esologs.responses.common import Talent
-from esologs.responses.report_data.fight import Fight
-from esologs.responses.report_data.summary import SummaryTableData
 from loguru import logger
+
+from esoraider_server.data.buffs import BUFFS
+from esoraider_server.data.classes.dragonknight.skills import (
+    DRAGONKNIGHT_SKILLS,
+)
+from esoraider_server.data.classes.general import GENERAL_SKILLS
+from esoraider_server.data.classes.necromancer.skills import NECROMANCER_SKILLS
+from esoraider_server.data.classes.nightblade.skills import NIGHTBLADE_SKILLS
+from esoraider_server.data.classes.sorcerer.skills import SORCERER_SKILLS
+from esoraider_server.data.classes.templar.skills import TEMPLAR_SKILLS
+from esoraider_server.data.classes.warden.skills import WARDEN_SKILLS
+from esoraider_server.data.core import (
+    Buff,
+    Debuff,
+    EsoEnum,
+    GearSet,
+    Glyph,
+    Skill,
+    Stack,
+    Target,
+)
+from esoraider_server.data.debuffs import DEBUFFS
+from esoraider_server.data.encounters import Encounters
+from esoraider_server.data.glyphs import GLYPHS
+from esoraider_server.data.sets import GEAR_SETS
+from esoraider_server.esologs.consts import CharClass
+from esoraider_server.esologs.responses.common import Talent
+from esoraider_server.esologs.responses.report_data.fight import Fight
+from esoraider_server.esologs.responses.report_data.summary import (
+    SummaryTableData,
+)
 
 FIGHT_BUFFS = (
     BUFFS.MAJOR_COURAGE.value,  # Spell Power Cure, Olorime

@@ -1,6 +1,6 @@
-from data.classes.general import BUFFS, DEBUFFS
-from data.classes.warden.debuffs import WARDEN_DEBUFFS
-from data.core import EsoEnum, Skill
+from esoraider_server.data.classes.general import BUFFS, DEBUFFS
+from esoraider_server.data.classes.warden.debuffs import WARDEN_DEBUFFS
+from esoraider_server.data.core import EsoEnum, Skill
 
 
 class WARDEN_SKILLS(EsoEnum):

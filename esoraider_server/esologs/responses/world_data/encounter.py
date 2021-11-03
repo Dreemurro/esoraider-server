@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 from typing import List, Optional
 
-from esologs.responses.core import EsoLogsDataClass
+from esoraider_server.esologs.responses.core import EsoLogsDataClass
 
 
 @dataclass

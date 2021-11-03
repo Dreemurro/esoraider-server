@@ -3,10 +3,16 @@
 from dataclasses import asdict
 from typing import List, Set
 
-from data.rules import Rules
-from esologs.consts import CharClass, GearSlot, GearType, WeaponType, WieldType
-from esologs.responses.common import Gear
-from esologs.responses.report_data.effects import Aura
+from esoraider_server.data.rules import Rules
+from esoraider_server.esologs.consts import (
+    CharClass,
+    GearSlot,
+    GearType,
+    WeaponType,
+    WieldType,
+)
+from esoraider_server.esologs.responses.common import Gear
+from esoraider_server.esologs.responses.report_data.effects import Aura
 
 
 class ChecklistBuilder(object):

@@ -1,11 +1,16 @@
 from dataclasses import dataclass
 from typing import List, Optional, Union
 
-from esologs.responses.core import EsoLogsDataClass
-from esologs.responses.report_data.casts import CastsTableData
-from esologs.responses.report_data.effects import EffectsTableData
-from esologs.responses.report_data.fight import Fight
-from esologs.responses.report_data.graph import Event, GraphData
+from esoraider_server.esologs.responses.core import EsoLogsDataClass
+from esoraider_server.esologs.responses.report_data.casts import CastsTableData
+from esoraider_server.esologs.responses.report_data.effects import (
+    EffectsTableData,
+)
+from esoraider_server.esologs.responses.report_data.fight import Fight
+from esoraider_server.esologs.responses.report_data.graph import (
+    Event,
+    GraphData,
+)
 
 
 @dataclass

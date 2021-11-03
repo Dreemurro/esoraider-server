@@ -1,6 +1,6 @@
-from data.buffs import BUFFS
-from data.core import EsoEnum, Glyph
-from data.debuffs import DEBUFFS
+from esoraider_server.data.buffs import BUFFS
+from esoraider_server.data.core import EsoEnum, Glyph
+from esoraider_server.data.debuffs import DEBUFFS
 
 
 class GLYPHS(EsoEnum):

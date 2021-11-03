@@ -3,9 +3,9 @@
 from dataclasses import dataclass
 from typing import Optional
 
-from esologs.responses.core import EsoLogsDataClass
-from esologs.responses.report_data.report import Report
-from esologs.responses.world_data.encounter import Encounter
+from esoraider_server.esologs.responses.core import EsoLogsDataClass
+from esoraider_server.esologs.responses.report_data.report import Report
+from esoraider_server.esologs.responses.world_data.encounter import Encounter
 
 
 @dataclass

@@ -4,15 +4,16 @@ from dataclasses import dataclass, field
 from typing import Any, Dict, List, Optional, Union
 
 from dataclasses_json import config
-from esologs.consts import (
+
+from esoraider_server.esologs.consts import (
     CharClass,
     GearSlot,
     GearType,
     PoisonType,
     WeaponType,
 )
-from esologs.responses.common import Gear, Talent
-from esologs.responses.core import EsoLogsDataClass
+from esoraider_server.esologs.responses.common import Gear, Talent
+from esoraider_server.esologs.responses.core import EsoLogsDataClass
 
 
 def gear_decoder(raw_gear_list: List[Dict]) -> List[Gear]:

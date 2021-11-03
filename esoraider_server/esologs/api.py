@@ -2,23 +2,29 @@ import asyncio
 from typing import Dict, List, Union
 
 import backoff  # type: ignore
-from esologs.responses.base import BaseResponseData
-from esologs.responses.report_data.casts import CastsTableData
-from esologs.responses.report_data.effects import EffectsTableData
-from esologs.responses.report_data.graph import Event
-from esologs.responses.report_data.report import Report
-from esologs.responses.report_data.summary import SummaryTableData
-from esologs.responses.world_data.encounter import Encounter
 from gql import Client  # type: ignore
 from gql.dsl import DSLField, DSLQuery, DSLSchema, dsl_gql  # type: ignore
 from gql.transport.aiohttp import AIOHTTPTransport  # type: ignore
 from gql.transport.exceptions import (  # type: ignore
-    TransportClosed, TransportQueryError,
+    TransportClosed,
+    TransportQueryError,
 )
 from loguru import logger
 from oauthlib.oauth2 import BackendApplicationClient  # type: ignore
 from requests_oauthlib import OAuth2Session  # type: ignore
-from settings import CLIENT_ID, CLIENT_SECRET
+
+from esoraider_server.esologs.responses.base import BaseResponseData
+from esoraider_server.esologs.responses.report_data.casts import CastsTableData
+from esoraider_server.esologs.responses.report_data.effects import (
+    EffectsTableData,
+)
+from esoraider_server.esologs.responses.report_data.graph import Event
+from esoraider_server.esologs.responses.report_data.report import Report
+from esoraider_server.esologs.responses.report_data.summary import (
+    SummaryTableData,
+)
+from esoraider_server.esologs.responses.world_data.encounter import Encounter
+from esoraider_server.settings import CLIENT_ID, CLIENT_SECRET
 
 WAIT_FOR = 300
 TIMEOUT = 10.0

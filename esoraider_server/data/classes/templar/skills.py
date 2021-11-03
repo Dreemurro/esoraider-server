@@ -1,7 +1,7 @@
-from data.classes.templar.debuffs import TEMPLAR_DEBUFFS
-from data.core import EsoEnum, Skill
-from data.buffs import BUFFS
-from data.debuffs import DEBUFFS
+from esoraider_server.data.buffs import BUFFS
+from esoraider_server.data.classes.templar.debuffs import TEMPLAR_DEBUFFS
+from esoraider_server.data.core import EsoEnum, Skill
+from esoraider_server.data.debuffs import DEBUFFS
 
 
 class TEMPLAR_SKILLS(EsoEnum):

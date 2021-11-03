@@ -1,7 +1,9 @@
-from data.core import Rule, EsoEnum
-from data.races import RacialPassives
-from data.passives import Passives
-from data.classes.necromancer.passives import NECROMANCER_PASSIVES
+from esoraider_server.data.classes.necromancer.passives import (
+    NECROMANCER_PASSIVES,
+)
+from esoraider_server.data.core import EsoEnum, Rule
+from esoraider_server.data.passives import Passives
+from esoraider_server.data.races import RacialPassives
 
 
 class Rules(EsoEnum):

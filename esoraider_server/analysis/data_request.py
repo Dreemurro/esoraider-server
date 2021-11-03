@@ -3,15 +3,19 @@
 import asyncio
 from typing import Dict, List, Optional, Sequence, Tuple
 
-from analysis.tracked_info import TrackedInfo
-from data.core import Stack
-from data.passives import Passives
-from esologs.api import ApiWrapper
-from esologs.responses.report_data.casts import CastsTableData
-from esologs.responses.report_data.effects import Aura, EffectsTableData
-from esologs.responses.report_data.graph import GraphData
 from gql.dsl import DSLField  # type: ignore
 from loguru import logger
+
+from esoraider_server.analysis.tracked_info import TrackedInfo
+from esoraider_server.data.core import Stack
+from esoraider_server.data.passives import Passives
+from esoraider_server.esologs.api import ApiWrapper
+from esoraider_server.esologs.responses.report_data.casts import CastsTableData
+from esoraider_server.esologs.responses.report_data.effects import (
+    Aura,
+    EffectsTableData,
+)
+from esoraider_server.esologs.responses.report_data.graph import GraphData
 
 
 class DataRequest(object):

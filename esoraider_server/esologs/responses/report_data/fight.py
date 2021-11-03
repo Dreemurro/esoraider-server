@@ -1,7 +1,8 @@
 from dataclasses import dataclass, field
 
 from dataclasses_json import config
-from esologs.responses.core import EsoLogsDataClass
+
+from esoraider_server.esologs.responses.core import EsoLogsDataClass
 
 
 @dataclass

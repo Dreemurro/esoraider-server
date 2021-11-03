@@ -1,4 +1,4 @@
-from data.core import Debuff, EsoEnum
+from esoraider_server.data.core import Debuff, EsoEnum
 
 
 class WARDEN_DEBUFFS(EsoEnum):

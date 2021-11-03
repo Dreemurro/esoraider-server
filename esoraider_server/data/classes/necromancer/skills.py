@@ -1,7 +1,7 @@
-from data.buffs import BUFFS
-from data.classes.necromancer.buffs import NECROMANCER_BUFFS
-from data.core import EsoEnum, Skill
-from data.debuffs import DEBUFFS
+from esoraider_server.data.buffs import BUFFS
+from esoraider_server.data.classes.necromancer.buffs import NECROMANCER_BUFFS
+from esoraider_server.data.core import EsoEnum, Skill
+from esoraider_server.data.debuffs import DEBUFFS
 
 
 class NECROMANCER_SKILLS(EsoEnum):

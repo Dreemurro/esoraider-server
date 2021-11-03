@@ -1,5 +1,5 @@
-from data.classes.sorcerer.debuffs import SORCERER_DEBUFFS
-from data.core import EsoEnum, Skill
+from esoraider_server.data.classes.sorcerer.debuffs import SORCERER_DEBUFFS
+from esoraider_server.data.core import EsoEnum, Skill
 
 
 class SORCERER_SKILLS(EsoEnum):

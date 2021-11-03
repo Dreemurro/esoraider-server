@@ -1,7 +1,9 @@
-from data.buffs import BUFFS
-from data.classes.dragonknight.debuffs import DRAGONKNIGHT_DEBUFFS
-from data.core import EsoEnum, Skill
-from data.stacks import DEBUFFS_WITH_STACKS
+from esoraider_server.data.buffs import BUFFS
+from esoraider_server.data.classes.dragonknight.debuffs import (
+    DRAGONKNIGHT_DEBUFFS,
+)
+from esoraider_server.data.core import EsoEnum, Skill
+from esoraider_server.data.stacks import DEBUFFS_WITH_STACKS
 
 
 class DRAGONKNIGHT_SKILLS(EsoEnum):

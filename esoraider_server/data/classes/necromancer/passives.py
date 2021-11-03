@@ -1,4 +1,4 @@
-from data.core import Buff, EsoEnum
+from esoraider_server.data.core import Buff, EsoEnum
 
 
 class NECROMANCER_PASSIVES(EsoEnum):

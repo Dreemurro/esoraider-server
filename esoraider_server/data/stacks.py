@@ -1,8 +1,10 @@
-from data.classes.dragonknight.debuffs import DRAGONKNIGHT_DEBUFFS
-from data.classes.templar.debuffs import TEMPLAR_DEBUFFS
-from data.classes.warden.debuffs import WARDEN_DEBUFFS
-from data.core import Buff, Debuff, EsoEnum, Stack
-from data.debuffs import DEBUFFS
+from esoraider_server.data.classes.dragonknight.debuffs import (
+    DRAGONKNIGHT_DEBUFFS,
+)
+from esoraider_server.data.classes.templar.debuffs import TEMPLAR_DEBUFFS
+from esoraider_server.data.classes.warden.debuffs import WARDEN_DEBUFFS
+from esoraider_server.data.core import Buff, Debuff, EsoEnum, Stack
+from esoraider_server.data.debuffs import DEBUFFS
 
 
 class STACKS(EsoEnum):

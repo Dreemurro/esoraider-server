@@ -3,14 +3,22 @@
 from dataclasses import replace
 from typing import List, Optional, Union, overload
 
-from analysis.data_request import DataRequest
-from analysis.stacks import Stacks
-from analysis.tracked_info import TrackedInfo
-from data.core import Buff, Debuff, GearSet, Glyph, Skill, Stack
-from esologs.responses.report_data.casts import Cast
-from esologs.responses.report_data.effects import Aura
-from esologs.responses.report_data.graph import Series
 from loguru import logger
+
+from esoraider_server.analysis.data_request import DataRequest
+from esoraider_server.analysis.stacks import Stacks
+from esoraider_server.analysis.tracked_info import TrackedInfo
+from esoraider_server.data.core import (
+    Buff,
+    Debuff,
+    GearSet,
+    Glyph,
+    Skill,
+    Stack,
+)
+from esoraider_server.esologs.responses.report_data.casts import Cast
+from esoraider_server.esologs.responses.report_data.effects import Aura
+from esoraider_server.esologs.responses.report_data.graph import Series
 
 
 class Uptimes(object):

@@ -4,11 +4,12 @@ from dataclasses import replace
 from itertools import tee
 from typing import Dict, List
 
-from data.core import Stack
-from esologs.responses.report_data.effects import Aura, Band
-from esologs.responses.report_data.graph import Series
 from loguru import logger
 from portion.interval import Interval, closed  # type: ignore
+
+from esoraider_server.data.core import Stack
+from esoraider_server.esologs.responses.report_data.effects import Aura, Band
+from esoraider_server.esologs.responses.report_data.graph import Series
 
 
 def _pairwise(iterable):

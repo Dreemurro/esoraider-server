@@ -1,4 +1,4 @@
-from data.core import Encounter, EsoEnum, Difficulty, Target
+from esoraider_server.data.core import Difficulty, Encounter, EsoEnum, Target
 
 
 class Encounters(EsoEnum):

@@ -1,7 +1,7 @@
-from data.classes.nightblade.buffs import NIGHTBLADE_BUFFS
-from data.classes.nightblade.debuffs import NIGHTBLADE_DEBUFFS
-from data.core import EsoEnum, Skill
-from data.stacks import BUFFS_WITH_STACKS
+from esoraider_server.data.classes.nightblade.buffs import NIGHTBLADE_BUFFS
+from esoraider_server.data.classes.nightblade.debuffs import NIGHTBLADE_DEBUFFS
+from esoraider_server.data.core import EsoEnum, Skill
+from esoraider_server.data.stacks import BUFFS_WITH_STACKS
 
 
 class NIGHTBLADE_SKILLS(EsoEnum):
