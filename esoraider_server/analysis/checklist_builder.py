@@ -116,7 +116,7 @@ class ChecklistBuilder(object):
 
     def _add_class_rules(self):
         class_rules = {
-            # CharClass.DRAGONKNIGHT: None,
+            CharClass.DRAGONKNIGHT: Rules.DRAGONKNIGHT,
             CharClass.NECROMANCER: Rules.NECROMANCER,
             # CharClass.NIGHTBLADE: None,
             # CharClass.SORCERER: None,

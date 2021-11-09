@@ -1,3 +1,6 @@
+from esoraider_server.data.classes.dragonknight.passives import (
+    DRAGONKNIGHT_PASSIVES,
+)
 from esoraider_server.data.classes.necromancer.passives import (
     NECROMANCER_PASSIVES,
 )
@@ -138,6 +141,23 @@ class Rules(EsoEnum):
             NECROMANCER_PASSIVES.NEAR_DEATH_EXPERIENCE.value,
             NECROMANCER_PASSIVES.CORPSE_CONSUMPTION.value,
             NECROMANCER_PASSIVES.UNDEAD_CONFEDERATE.value,
+        ]
+    )
+    DRAGONKNIGHT = Rule(
+        name='Dragonknight passives',
+        icon='https://eso-hub.com/storage/icons/class/gamepad/gp_class_dragonknight.png',
+        buffs=[
+            DRAGONKNIGHT_PASSIVES.COMBUSTION.value,
+            DRAGONKNIGHT_PASSIVES.WARMTH.value,
+            # Next 2 are bugged
+            # DRAGONKNIGHT_PASSIVES.SEARING_HEAT.value,
+            # DRAGONKNIGHT_PASSIVES.WORLD_IN_RUIN.value,
+            DRAGONKNIGHT_PASSIVES.IRON_SKIN.value,
+            DRAGONKNIGHT_PASSIVES.ELDER_DRAGON.value,
+            # Next one is bugged
+            # DRAGONKNIGHT_PASSIVES.SCALED_ARMOR.value,
+            DRAGONKNIGHT_PASSIVES.ETERNAL_MOUNTAIN.value,
+            DRAGONKNIGHT_PASSIVES.BATTLE_ROAR.value,
         ]
     )
 
