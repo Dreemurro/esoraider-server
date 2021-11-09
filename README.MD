@@ -63,8 +63,7 @@ $ pipenv install -d
 The `.env` file should be inside source folder, where `app.py` is located
 
 ```bash
-$ cd esoraider-server
-$ touch .env
+$ touch esoraider_server/.env
 ```
 
 Get your `CLIENT_ID` and `CLIENT_SECRET` from [ESO Logs API](https://www.esologs.com/api/clients/) by creating a new client
@@ -92,7 +91,7 @@ $ sh debug.sh
 or
 
 ```bash
-$ uvicorn app:app --port 5000 --reload
+$ uvicorn esoraider_server.app:app --port 5000 --reload
 ```
 
 ## TODO
