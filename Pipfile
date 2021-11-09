@@ -16,9 +16,13 @@ gunicorn = "*"
 portion = "*"
 
 [dev-packages]
-autopep8 = "*"
+autopep8 = "==1.5.7"
 flake8 = "*"
 wemake-python-styleguide = "*"
+mypy = "*"
+nitpick = "*"
+pytest = "*"
+pytest-asyncio = "*"
 
 [requires]
 python_version = "3.9"
