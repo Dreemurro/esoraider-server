@@ -20,5 +20,4 @@ jobs:
             pkill gunicorn
             git pull --ff-only
             pipenv install -d
-            cd esoraider-server
             pipenv run sh run.sh

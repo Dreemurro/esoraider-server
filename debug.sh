@@ -1,1 +1,1 @@
-uvicorn app:app --port 5000 --reload
+uvicorn esoraider_server.app:app --port 5000 --reload
