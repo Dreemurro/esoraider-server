@@ -243,3 +243,10 @@ class GEAR_SETS(EsoEnum):
         link='https://eso-hub.com/en/sets/perfected-destructive-impact',
         icon='https://eso-hub.com/storage/icons/gear_nord_staff_e.png',
     )
+    SPAULDER_OF_RUIN = GearSet(
+        name='Spaulder of Ruin',
+        id=627,
+        buffs=[BUFFS_WITH_STACKS.PRICE_OF_PRIDE.value],
+        link='https://eso-hub.com/en/sets/spaulder-of-ruin',
+        icon='https://eso-hub.com/storage/icons/gear_razorhorndaedric_shoulder_a.png',
+    )

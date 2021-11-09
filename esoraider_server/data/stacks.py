@@ -87,6 +87,13 @@ class STACKS(EsoEnum):
         max_stacks=10,
         type_='Buff',
     )
+    PRICE_OF_PRIDE = Stack(
+        name='Price of Pride',
+        id=163404,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_mage_065.png',
+        max_stacks=6,
+        type_='Buff',
+    )
 
     #
     # General skills
@@ -150,6 +157,12 @@ class BUFFS_WITH_STACKS(EsoEnum):
         id=50978,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_warrior_005.png',
         stack=STACKS.BERSERKING_WARRIOR.value,
+    )
+    PRICE_OF_PRIDE = Buff(
+        name='Price of Pride',
+        id=163404,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_mage_065.png',
+        stack=STACKS.PRICE_OF_PRIDE.value,
     )
 
     """
