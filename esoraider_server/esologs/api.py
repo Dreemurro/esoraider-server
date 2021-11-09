@@ -1,5 +1,5 @@
 import asyncio
-from typing import Dict, List, Union
+from typing import Dict, List, Optional, Union
 
 import backoff  # type: ignore
 from gql import Client  # type: ignore
@@ -45,11 +45,11 @@ class ApiWrapper:
         self._session = None
         self._connect_task = None
 
-        self._close_request_event = asyncio.Event()
-        self._reconnect_request_event = asyncio.Event()
+        self._close_request_event: Optional[asyncio.Event] = None
+        self._reconnect_request_event: Optional[asyncio.Event] = None
 
-        self._connected_event = asyncio.Event()
-        self._closed_event = asyncio.Event()
+        self._connected_event: Optional[asyncio.Event] = None
+        self._closed_event: Optional[asyncio.Event] = None
 
         self.ds: DSLSchema = None
 
@@ -110,6 +110,12 @@ class ApiWrapper:
         self._closed_event.set()
 
     async def connect(self):
+        self._close_request_event = asyncio.Event()
+        self._reconnect_request_event = asyncio.Event()
+
+        self._connected_event = asyncio.Event()
+        self._closed_event = asyncio.Event()
+
         logger.info('Opening connection')
         if self._connect_task:
             logger.info('Already connected')
