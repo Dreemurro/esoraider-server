@@ -70,6 +70,15 @@ class Rules(EsoEnum):
             RacialPassives.UNFLINCHING_RAGE.value,
         ],
     )
+    REDGUARD = Rule(
+        name='Redguard passives',
+        icon='https://images.uesp.net/9/9d/ON-icon-Redguard.png',
+        buffs=[
+            RacialPassives.MARTIAL_TRAINING.value,
+            RacialPassives.CONDITIONING.value,
+            RacialPassives.ADRENALINE_RUSH.value,
+        ],
+    )
 
     # |-----------------------------------------------------------------------|
     # | Armor passives check                                                  |

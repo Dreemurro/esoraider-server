@@ -129,3 +129,23 @@ class RacialPassives(EsoEnum):
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_sorcerer_018.png',
         link='https://eso-hub.com/en/skills/racial/orc-skills/unflinching-rage',
     )
+
+    # Redguard (excluding Wayfarer)
+    MARTIAL_TRAINING = Buff(
+        name='Martial Training',
+        id=45278,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_templar_002.png',
+        link='https://eso-hub.com/en/skills/racial/redguard-skills/martial-training',
+    )
+    CONDITIONING = Buff(
+        name='Conditioning',
+        id=117754,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_dragonknight_021.png',
+        link='https://eso-hub.com/en/skills/racial/redguard-skills/conditioning',
+    )
+    ADRENALINE_RUSH = Buff(
+        name='Adrenaline Rush',
+        id=45315,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_armor_012.png',
+        link='https://eso-hub.com/en/skills/racial/redguard-skills/adrenaline-rush',
+    )

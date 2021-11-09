@@ -72,7 +72,7 @@ class ChecklistBuilder(object):
             Rules.KHAJIIT,
             Rules.NORD,
             Rules.ORC,
-            # Rules.REDGUARD,
+            Rules.REDGUARD,
             # Rules.WOOD_ELF,
         )
 
