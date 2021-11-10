@@ -4,6 +4,9 @@ from esoraider_server.data.classes.dragonknight.passives import (
 from esoraider_server.data.classes.necromancer.passives import (
     NECROMANCER_PASSIVES,
 )
+from esoraider_server.data.classes.nightblade.passives import (
+    NIGHTBLADE_PASSIVES,
+)
 from esoraider_server.data.classes.warden.passives import WARDEN_PASSIVES
 from esoraider_server.data.core import EsoEnum, Rule
 from esoraider_server.data.passives import Passives
@@ -175,6 +178,22 @@ class Rules(EsoEnum):
             WARDEN_PASSIVES.MATURATION.value,
             WARDEN_PASSIVES.ICY_AURA.value,
             WARDEN_PASSIVES.PIERCING_COLD.value,
+        ]
+    )
+    NIGHTBLADE = Rule(
+        name='Nightblade passives',
+        icon='https://eso-hub.com/storage/icons/class/gamepad/gp_class_nightblade.png',
+        buffs=[
+            NIGHTBLADE_PASSIVES.MASTER_ASSASSIN.value,
+            NIGHTBLADE_PASSIVES.EXECUTIONER.value,
+            NIGHTBLADE_PASSIVES.PRESSURE_POINTS.value,
+            NIGHTBLADE_PASSIVES.HEMORRHAGE.value,
+            NIGHTBLADE_PASSIVES.REFRESHING_SHADOWS.value,
+            NIGHTBLADE_PASSIVES.SHADOW_BARRIER.value,
+            NIGHTBLADE_PASSIVES.DARK_VIGOR.value,
+            NIGHTBLADE_PASSIVES.DARK_VEIL.value,
+            NIGHTBLADE_PASSIVES.CATALYST.value,
+            NIGHTBLADE_PASSIVES.SOUL_SIPHONER.value,
         ]
     )
 

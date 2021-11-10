@@ -118,7 +118,7 @@ class ChecklistBuilder(object):
         class_rules = {
             CharClass.DRAGONKNIGHT: Rules.DRAGONKNIGHT,
             CharClass.NECROMANCER: Rules.NECROMANCER,
-            # CharClass.NIGHTBLADE: None,
+            CharClass.NIGHTBLADE: Rules.NIGHTBLADE,
             # CharClass.SORCERER: None,
             # CharClass.TEMPLAR: None,
             CharClass.WARDEN: Rules.WARDEN,
