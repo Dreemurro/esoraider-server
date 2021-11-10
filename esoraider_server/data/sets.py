@@ -250,3 +250,13 @@ class GEAR_SETS(EsoEnum):
         link='https://eso-hub.com/en/sets/spaulder-of-ruin',
         icon='https://eso-hub.com/storage/icons/gear_razorhorndaedric_shoulder_a.png',
     )
+    KINRAS_WRATH = GearSet(
+        name="Kinras's Wrath",
+        id=570,
+        buffs=[  # Also has stacking buff Burning Heart (150750)
+            BUFFS.KINRAS_WRATH.value,
+            BUFFS.MAJOR_BERSERK_KINRAS_WRATH.value,
+        ],
+        link='https://eso-hub.com/en/sets/kinrass-wrath',
+        icon='https://eso-hub.com/storage/icons/gear_blackdrakevilla_med_head_a.png',
+    )

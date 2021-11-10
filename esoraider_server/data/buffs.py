@@ -6,6 +6,18 @@ class BUFFS(EsoEnum):
     # Minor / Major
     #
 
+    # Major Berserk
+    MAJOR_BERSERK = Buff(
+        name='Major Berserk',
+        id=61745,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_major_berserk.png'
+    )
+    MAJOR_BERSERK_KINRAS_WRATH = Buff(
+        name='Major Berserk',
+        id=150757,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_major_berserk.png'
+    )
+
     # Minor Berserk
     MINOR_BERSERK = Buff(
         name='Minor Berserk',
@@ -20,6 +32,11 @@ class BUFFS(EsoEnum):
     MINOR_BERSERK_COMBAT_PRAYER = Buff(
         name='Minor Berserk',
         id=62636,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_minor_berserk.png'
+    )
+    MINOR_BERSERK_KINRAS_WRATH = Buff(
+        name='Minor Berserk',
+        id=150782,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_minor_berserk.png'
     )
 
@@ -231,9 +248,9 @@ class BUFFS(EsoEnum):
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_ava_003_a.png',
     )
 
-    """
-    From sets
-    """
+    #
+    # From sets
+    #
     CRUSHING_WALL = Buff(
         name='Crushing Wall',
         id=100155,
@@ -286,6 +303,11 @@ class BUFFS(EsoEnum):
         name='Destructive Impact',
         id=140334,  # Another ID - 99774, lower uptime
         icon='https://eso-hub.com/storage/icons/ability_mage_023.png',
+    )
+    KINRAS_WRATH = Buff(
+        name="Kinras's Wrath",
+        id=150780,  # Another ID - 150749 (having set equipped)
+        icon='https://eso-hub.com/storage/icons/ability_mage_065.png',
     )
 
     """
