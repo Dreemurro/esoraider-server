@@ -146,7 +146,7 @@ class Rules(EsoEnum):
     )
     DRAGONKNIGHT = Rule(
         name='Dragonknight passives',
-        icon='https://eso-hub.com/storage/icons/class/gamepad/gp_class_warden.png',
+        icon='https://eso-hub.com/storage/icons/class/gamepad/gp_class_dragonknight.png',
         buffs=[
             DRAGONKNIGHT_PASSIVES.COMBUSTION.value,
             DRAGONKNIGHT_PASSIVES.WARMTH.value,
