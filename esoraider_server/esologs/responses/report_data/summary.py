@@ -69,7 +69,6 @@ class PlayerDetails(EsoLogsDataClass):
     display_name: str
     anonymous: bool
     icon: str
-    specs: List[str]
     combatant_info: CombatantInfo = field(metadata=config(
         # Skip CombatantInfo parsing if log is broken
         decoder=skip_empty_list,
@@ -77,6 +76,7 @@ class PlayerDetails(EsoLogsDataClass):
 
     min_item_level: Optional[int] = None
     max_item_level: Optional[int] = None
+    specs: Optional[List[str]] = None
 
 
 @dataclass
