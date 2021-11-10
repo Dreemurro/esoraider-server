@@ -4,6 +4,7 @@ from esoraider_server.data.classes.dragonknight.passives import (
 from esoraider_server.data.classes.necromancer.passives import (
     NECROMANCER_PASSIVES,
 )
+from esoraider_server.data.classes.warden.passives import WARDEN_PASSIVES
 from esoraider_server.data.core import EsoEnum, Rule
 from esoraider_server.data.passives import Passives
 from esoraider_server.data.races import RacialPassives
@@ -145,7 +146,7 @@ class Rules(EsoEnum):
     )
     DRAGONKNIGHT = Rule(
         name='Dragonknight passives',
-        icon='https://eso-hub.com/storage/icons/class/gamepad/gp_class_dragonknight.png',
+        icon='https://eso-hub.com/storage/icons/class/gamepad/gp_class_warden.png',
         buffs=[
             DRAGONKNIGHT_PASSIVES.COMBUSTION.value,
             DRAGONKNIGHT_PASSIVES.WARMTH.value,
@@ -158,6 +159,22 @@ class Rules(EsoEnum):
             # DRAGONKNIGHT_PASSIVES.SCALED_ARMOR.value,
             DRAGONKNIGHT_PASSIVES.ETERNAL_MOUNTAIN.value,
             DRAGONKNIGHT_PASSIVES.BATTLE_ROAR.value,
+        ]
+    )
+    WARDEN = Rule(
+        name='Warden passives',
+        icon='https://eso-hub.com/storage/icons/class/gamepad/gp_class_warden.png',
+        buffs=[
+            WARDEN_PASSIVES.BOND_WITH_NATURE.value,
+            WARDEN_PASSIVES.SAVAGE_BEAST.value,
+            WARDEN_PASSIVES.FLOURISH.value,
+            WARDEN_PASSIVES.ADVANCED_SPECIES.value,
+            WARDEN_PASSIVES.ACCELERATED_GROWTH.value,
+            WARDEN_PASSIVES.NATURES_GIFT.value,
+            WARDEN_PASSIVES.EMERALD_MOSS.value,
+            WARDEN_PASSIVES.MATURATION.value,
+            WARDEN_PASSIVES.ICY_AURA.value,
+            WARDEN_PASSIVES.PIERCING_COLD.value,
         ]
     )
 

@@ -121,7 +121,7 @@ class ChecklistBuilder(object):
             # CharClass.NIGHTBLADE: None,
             # CharClass.SORCERER: None,
             # CharClass.TEMPLAR: None,
-            # CharClass.WARDEN: None,
+            CharClass.WARDEN: Rules.WARDEN,
         }
         rule = class_rules.get(self._class, None)
         if rule:
