@@ -7,6 +7,7 @@ from esoraider_server.data.classes.necromancer.passives import (
 from esoraider_server.data.classes.nightblade.passives import (
     NIGHTBLADE_PASSIVES,
 )
+from esoraider_server.data.classes.sorcerer.passives import SORCERER_PASSIVES
 from esoraider_server.data.classes.warden.passives import WARDEN_PASSIVES
 from esoraider_server.data.core import EsoEnum, Rule
 from esoraider_server.data.passives import Passives
@@ -194,6 +195,19 @@ class Rules(EsoEnum):
             NIGHTBLADE_PASSIVES.DARK_VEIL.value,
             NIGHTBLADE_PASSIVES.CATALYST.value,
             NIGHTBLADE_PASSIVES.SOUL_SIPHONER.value,
+        ]
+    )
+    SORCERER = Rule(
+        name='Sorcerer passives',
+        icon='https://eso-hub.com/storage/icons/class/gamepad/gp_class_sorcerer.png',
+        buffs=[
+            SORCERER_PASSIVES.REBATE.value,
+            SORCERER_PASSIVES.EXPERT_SUMMONER.value,
+            SORCERER_PASSIVES.BLOOD_MAGIC.value,
+            # Only activates on block, skipping for now
+            # SORCERER_PASSIVES.PERSISTENCE.value,
+            SORCERER_PASSIVES.EXPLOITATION.value,
+            SORCERER_PASSIVES.ENERGIZED.value,
         ]
     )
 
