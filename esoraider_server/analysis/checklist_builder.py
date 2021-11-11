@@ -120,7 +120,7 @@ class ChecklistBuilder(object):
             CharClass.NECROMANCER: Rules.NECROMANCER,
             CharClass.NIGHTBLADE: Rules.NIGHTBLADE,
             CharClass.SORCERER: Rules.SORCERER,
-            # CharClass.TEMPLAR: None,
+            CharClass.TEMPLAR: Rules.TEMPLAR,
             CharClass.WARDEN: Rules.WARDEN,
         }
         rule = class_rules.get(self._class, None)

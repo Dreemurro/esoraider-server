@@ -8,6 +8,7 @@ from esoraider_server.data.classes.nightblade.passives import (
     NIGHTBLADE_PASSIVES,
 )
 from esoraider_server.data.classes.sorcerer.passives import SORCERER_PASSIVES
+from esoraider_server.data.classes.templar.passives import TEMPLAR_PASSIVES
 from esoraider_server.data.classes.warden.passives import WARDEN_PASSIVES
 from esoraider_server.data.core import EsoEnum, Rule
 from esoraider_server.data.passives import Passives
@@ -208,6 +209,20 @@ class Rules(EsoEnum):
             # SORCERER_PASSIVES.PERSISTENCE.value,
             SORCERER_PASSIVES.EXPLOITATION.value,
             SORCERER_PASSIVES.ENERGIZED.value,
+        ]
+    )
+    TEMPLAR = Rule(
+        name='Templar passives',
+        icon='https://eso-hub.com/storage/icons/class/gamepad/gp_class_templar.png',
+        buffs=[
+            TEMPLAR_PASSIVES.PIERCING_SPEAR.value,
+            TEMPLAR_PASSIVES.SPEAR_WALL.value,
+            TEMPLAR_PASSIVES.BURNING_LIGHT.value,
+            TEMPLAR_PASSIVES.ILLUMINATE.value,
+            TEMPLAR_PASSIVES.RESTORING_SPIRIT.value,
+            TEMPLAR_PASSIVES.SACRED_GROUND.value,
+            TEMPLAR_PASSIVES.LIGHT_WEAVER.value,
+            TEMPLAR_PASSIVES.MASTER_RITUALIST.value,
         ]
     )
 
