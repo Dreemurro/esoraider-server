@@ -123,6 +123,27 @@ class Passives(EsoEnum):
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_weapon_006.png',
         link='https://eso-hub.com/en/skills/weapon/destruction-staff/destruction-expert',
     )
+    # |------------|
+    # | Dual Wield | (COMPLETELY BUGGED AS OF NOW)
+    # |------------|
+    DUAL_WIELD_EXPERT = Buff(  # Potentially bugged - only tracked on log's owner
+        name='Dual Wield Expert',
+        id=45477,  # Additional ID - 30873
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_weapon_013.png',
+        link='https://eso-hub.com/en/skills/weapon/dual-wield/dual-wield-expert',
+    )
+    CONTROLLED_FURY = Buff(  # Potentially bugged - only tracked on log's owner
+        name='Controlled Fury',
+        id=45478,  # Additional ID - 30872
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_weapon_018.png',
+        link='https://eso-hub.com/en/skills/weapon/dual-wield/controlled-fury',
+    )
+    TWIN_BLADE_AND_BLUNT = Buff(  # Potentially bugged - only tracked on log's owner
+        name='Twin Blade and Blunt',
+        id=45482,  # Additional ID - 30893
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_weapon_016.png',
+        link='https://eso-hub.com/en/skills/weapon/dual-wield/twin-blade-and-blunt',
+    )
 
     # |-----------------------------------------------------------------------|
     # | Guild                                                                 |
