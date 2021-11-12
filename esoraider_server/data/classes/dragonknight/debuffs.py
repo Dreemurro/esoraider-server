@@ -17,3 +17,8 @@ class DRAGONKNIGHT_DEBUFFS(EsoEnum):
         id=44373,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_dragonknight_003_b.png',
     )
+    VENOMOUS_CLAW = Debuff(
+        name='Venomous Claw',
+        id=44369,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_dragonknight_003_a.png',
+    )

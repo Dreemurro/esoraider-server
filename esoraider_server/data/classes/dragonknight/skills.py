@@ -44,6 +44,13 @@ class DRAGONKNIGHT_SKILLS(EsoEnum):
         link='https://eso-hub.com/en/skills/dragonknight/ardent-flame/burning-embers',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_dragonknight_003_b.png',
     )
+    VENOMOUS_CLAW = Skill(
+        name='Venomous Claw',
+        id=20668,
+        debuffs=[DRAGONKNIGHT_DEBUFFS.VENOMOUS_CLAW.value],
+        link='https://eso-hub.com/en/skills/dragonknight/ardent-flame/venomous-claw',
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_dragonknight_003_a.png',
+    )
     ERUPTION_INITIAL_DAMAGE = Skill(
         name='Eruption',
         id=32714,
