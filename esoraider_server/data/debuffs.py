@@ -164,9 +164,9 @@ class DEBUFFS(EsoEnum):
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_bow_002_b.png',
     )
 
-    """
-    From sets
-    """
+    #
+    # From sets
+    #
     FROST_WEAKNESS = Debuff(
         name='Frost Weakness',
         id=142652,
@@ -211,6 +211,11 @@ class DEBUFFS(EsoEnum):
         name='Wrath of Elements',
         id=147843,
         icon='https://assets.rpglogs.com/img/eso/abilities/gear_reachv2_staff_a.png',
+    )
+    CRIMSON_OATHS_RIVE = Debuff(
+        name="Crimson Oath's Rive",
+        id=159288,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_debuff_minor_fracture.png',
     )
 
     """

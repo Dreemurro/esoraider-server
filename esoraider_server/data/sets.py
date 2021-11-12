@@ -267,3 +267,10 @@ class GEAR_SETS(EsoEnum):
         link='https://eso-hub.com/en/sets/perfected-force-overflow',
         icon='https://eso-hub.com/storage/icons/gear_reachv2_staff_a.png',
     )
+    CRIMSON_OATHS_RIVE = GearSet(
+        name="Crimson Oath's Rive",
+        id=602,
+        debuffs=[DEBUFFS.CRIMSON_OATHS_RIVE.value],
+        link='https://eso-hub.com/en/sets/crimson-oaths-rive',
+        icon='https://eso-hub.com/storage/icons/gear_blackironhvy_head_a.webp',
+    )
