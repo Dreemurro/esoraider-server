@@ -169,3 +169,23 @@ class RacialPassives(EsoEnum):
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_armor_012.png',
         link='https://eso-hub.com/en/skills/racial/redguard-skills/adrenaline-rush',
     )
+
+    # Wood Elf (excluding Acrobat)
+    HUNTERS_EYE = Buff(
+        name="Hunter's Eye",
+        id=45296,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_armor_011.png',
+        link='https://eso-hub.com/en/skills/racial/wood-elf-skills/hunters-eye',
+    )
+    YFFRES_ENDURANCE = Buff(
+        name="Y'ffre's Endurance",
+        id=64281,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_templar_002.png',
+        link='https://eso-hub.com/en/skills/racial/wood-elf-skills/yffres-endurance',
+    )
+    RESIST_AFFLICTION = Buff(
+        name='Resist Affliction',
+        id=45319,
+        icon='https://assets.rpglogs.com/img/eso/abilities/passive_templar_021.png',
+        link='https://eso-hub.com/en/skills/racial/wood-elf-skills/resist-affliction',
+    )

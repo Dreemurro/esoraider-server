@@ -97,6 +97,15 @@ class Rules(EsoEnum):
             RacialPassives.ADRENALINE_RUSH.value,
         ],
     )
+    WOOD_ELF = Rule(
+        name='Wood Elf passives',
+        icon='https://images.uesp.net/d/d2/ON-icon-Bosmer.png',
+        buffs=[
+            RacialPassives.HUNTERS_EYE.value,
+            RacialPassives.YFFRES_ENDURANCE.value,
+            RacialPassives.RESIST_AFFLICTION.value,
+        ],
+    )
 
     # |-----------------------------------------------------------------------|
     # | Armor passives check                                                  |

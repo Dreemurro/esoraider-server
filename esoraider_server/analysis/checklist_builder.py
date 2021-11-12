@@ -73,7 +73,7 @@ class ChecklistBuilder(object):
             Rules.NORD,
             Rules.ORC,
             Rules.REDGUARD,
-            # Rules.WOOD_ELF,
+            Rules.WOOD_ELF,
         )
 
         ids = {pas.ability for pas in self._passives}
