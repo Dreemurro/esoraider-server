@@ -260,3 +260,10 @@ class GEAR_SETS(EsoEnum):
         link='https://eso-hub.com/en/sets/kinrass-wrath',
         icon='https://eso-hub.com/storage/icons/gear_blackdrakevilla_med_head_a.png',
     )
+    PERFECTED_FORCE_OVERFLOW = GearSet(
+        name='Perfected Force Overflow',
+        id=568,
+        buffs=[BUFFS.FORCE_OVERFLOW.value],
+        link='https://eso-hub.com/en/sets/perfected-force-overflow',
+        icon='https://eso-hub.com/storage/icons/gear_reachv2_staff_a.png',
+    )

@@ -309,6 +309,11 @@ class BUFFS(EsoEnum):
         id=150780,  # Another ID - 150749 (having set equipped)
         icon='https://eso-hub.com/storage/icons/ability_mage_065.png',
     )
+    FORCE_OVERFLOW = Buff(
+        name='Force Overflow',
+        id=147875,  # Another ID - 147871 (having set equipped)
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_mage_065.png',
+    )
 
     """
     From glyphs
