@@ -58,6 +58,13 @@ class NECROMANCER_SKILLS(EsoEnum):
         children=[MYSTIC_SIPHON_DAMAGE],
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_necromancer_005_a.png',
     )
+    SKELETAL_ARCHER = Skill(
+        name='Skeletal Archer',
+        id=118680,
+        link='https://eso-hub.com/en/skills/necromancer/grave-lord/skeletal-archer',
+        buffs=[NECROMANCER_BUFFS.SKELETAL_ARCHER.value],
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_necromancer_003_a.png',
+    )
     SKELETAL_ARCANIST = Skill(
         name='Skeletal Arcanist',
         id=118726,
