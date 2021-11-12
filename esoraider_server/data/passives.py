@@ -96,6 +96,15 @@ class Passives(EsoEnum):
     # |-----------------------------------------------------------------------|
     # | Weapon                                                                |
     # |-----------------------------------------------------------------------|
+    # |-----|
+    # | Bow |
+    # |-----|
+    HAWK_EYE = Buff(
+        name='Hawk Eye',
+        id=45497,  # Additional IDs - 78855, 30936
+        icon='https://assets.rpglogs.com/img/eso/abilities/passive_armor_002.png',
+        link='https://eso-hub.com/en/skills/weapon/bow/hawk-eye',
+    )
     # |-------------------|
     # | Destruction Staff |
     # |-------------------|

@@ -136,6 +136,13 @@ class Rules(EsoEnum):
     # |-----------------------------------------------------------------------|
     # | Weapon passives check                                                 |
     # |-----------------------------------------------------------------------|
+    BOW = Rule(
+        name='Bow passives',
+        icon='https://eso-hub.com/storage/icons/ability_bow_001.webp',
+        buffs=[
+            Passives.HAWK_EYE.value,
+        ]
+    )
     DESTRUCTION_STAFF = Rule(
         name='Destruction staff passives',
         icon='https://eso-hub.com/storage/icons/ability_destructionstaff_012.webp',

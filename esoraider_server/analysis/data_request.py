@@ -220,6 +220,7 @@ class DataRequest(object):
                 Passives.DESTRUCTION_EXPERT.value,
                 Passives.FORCEFUL.value,
                 Passives.FOLLOW_UP.value,
+                Passives.HAWK_EYE.value,
             )
         ]
         buffs = await self._api.query_table(

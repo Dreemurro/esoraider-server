@@ -96,7 +96,7 @@ class ChecklistBuilder(object):
 
     def _add_weapon_rules(self):
         weapon_rules = {
-            # WieldType.BOW: None,
+            WieldType.BOW: Rules.BOW,
             WieldType.DESTRUCTION_STAFF: Rules.DESTRUCTION_STAFF,
             # WieldType.DUAL_WIELD: None,
             # WieldType.ONE_HAND_AND_SHIELD: None,
