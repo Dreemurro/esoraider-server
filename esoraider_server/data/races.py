@@ -2,6 +2,26 @@ from esoraider_server.data.core import Buff, EsoEnum
 
 
 class RacialPassives(EsoEnum):
+    # Argonian (excluding Amphibian)
+    LIFE_MENDER = Buff(
+        name='Life Mender',
+        id=45258,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_templar_014.png',
+        link='https://eso-hub.com/en/skills/racial/argonian-skills/life-mender',
+    )
+    ARGONIAN_RESISTANCE = Buff(
+        name='Argonian Resistance',
+        id=45255,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_templar_022.png',
+        link='https://eso-hub.com/en/skills/racial/argonian-skills/argonian-resistance',
+    )
+    RESOURCEFUL = Buff(
+        name='Resourceful',
+        id=45247,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_templar_009.png',
+        link='https://eso-hub.com/en/skills/racial/argonian-skills/resourceful',
+    )
+
     # Breton (excluding Opportunist & Gift of Magnus)
     MAGICKA_MASTERY = Buff(
         name='Magicka Mastery',

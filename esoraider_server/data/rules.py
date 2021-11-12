@@ -19,6 +19,15 @@ class Rules(EsoEnum):
     # |-----------------------------------------------------------------------|
     # | Racial passives check                                                 |
     # |-----------------------------------------------------------------------|
+    ARGONIAN = Rule(
+        name='Argonian passives',
+        icon='https://images.uesp.net/f/f9/ON-icon-Argonian.png',
+        buffs=[
+            RacialPassives.LIFE_MENDER.value,
+            RacialPassives.ARGONIAN_RESISTANCE.value,
+            RacialPassives.RESOURCEFUL.value,
+        ],
+    )
     BRETON = Rule(
         name='Breton passives',
         icon='https://images.uesp.net/9/94/ON-icon-Breton.png',

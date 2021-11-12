@@ -64,7 +64,7 @@ class ChecklistBuilder(object):
 
     def _add_race_rules(self):
         race_rules = (
-            # Rules.ARGONIAN,
+            Rules.ARGONIAN,
             Rules.BRETON,
             Rules.DARK_ELF,
             Rules.HIGH_ELF,
