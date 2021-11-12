@@ -218,6 +218,8 @@ class DataRequest(object):
                 Passives.PENETRATING_MAGIC.value,
                 Passives.ANCIENT_KNOWLEDGE.value,
                 Passives.DESTRUCTION_EXPERT.value,
+                Passives.FORCEFUL.value,
+                Passives.FOLLOW_UP.value,
             )
         ]
         buffs = await self._api.query_table(

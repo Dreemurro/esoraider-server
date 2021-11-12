@@ -144,6 +144,21 @@ class Passives(EsoEnum):
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_weapon_016.png',
         link='https://eso-hub.com/en/skills/weapon/dual-wield/twin-blade-and-blunt',
     )
+    # |------------|
+    # | Two Handed |
+    # |------------|
+    FORCEFUL = Buff(
+        name='Forceful',
+        id=45444,  # Additional ID - 29387
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_weapon_027.png',
+        link='https://eso-hub.com/en/skills/weapon/two-handed/forceful',
+    )
+    FOLLOW_UP = Buff(
+        name='Follow Up',
+        id=45446,  # Additional ID - 29389
+        icon='https://assets.rpglogs.com/img/eso/abilities/passive_dragonknight_016.png',
+        link='https://eso-hub.com/en/skills/weapon/two-handed/follow-up',
+    )
 
     # |-----------------------------------------------------------------------|
     # | Guild                                                                 |

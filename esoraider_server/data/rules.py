@@ -146,6 +146,14 @@ class Rules(EsoEnum):
             Passives.DESTRUCTION_EXPERT.value,
         ]
     )
+    TWO_HANDED = Rule(
+        name='Two Handed passives',
+        icon='https://eso-hub.com/storage/icons/ability_2handed_006.webp',
+        buffs=[
+            Passives.FORCEFUL.value,
+            Passives.FOLLOW_UP.value,
+        ]
+    )
 
     # |-----------------------------------------------------------------------|
     # | Class passives check                                                  |

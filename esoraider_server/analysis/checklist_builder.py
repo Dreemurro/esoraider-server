@@ -101,7 +101,7 @@ class ChecklistBuilder(object):
             # WieldType.DUAL_WIELD: None,
             # WieldType.ONE_HAND_AND_SHIELD: None,
             # WieldType.RESTORATION_STAFF: None,
-            # WieldType.TWO_HANDED: None,
+            WieldType.TWO_HANDED: Rules.TWO_HANDED,
         }
 
         bars = (
