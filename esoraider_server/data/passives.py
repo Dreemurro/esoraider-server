@@ -148,6 +148,21 @@ class Passives(EsoEnum):
     # |-----------------------------------------------------------------------|
     # | Guild                                                                 |
     # |-----------------------------------------------------------------------|
+    # |----------------|
+    # | Fighters Guild |
+    # |----------------|
+    SLAYER = Buff(
+        name='Slayer',
+        id=45596,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_dragonknight_025.png',
+        link='https://eso-hub.com/en/skills/guild/fighters-guild/slayer',
+    )
+    SKILLED_TRACKER = Buff(  # Potentially bugged - only tracked on log's owner
+        name='Skilled Tracker',
+        id=40393,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_armor_007.png',
+        link='https://eso-hub.com/en/skills/guild/fighters-guild/skilled-tracker',
+    )
     # |-------------|
     # | Mages Guild |
     # |-------------|
