@@ -96,6 +96,13 @@ class STACKS(EsoEnum):
         max_stacks=6,
         type_='Buff',
     )
+    THUNDEROUS_VOLLEY = Stack(
+        name='Thunderous Volley',
+        id=99853,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_mage_065.png',
+        max_stacks=8,
+        type_='Buff',
+    )
 
     #
     # General skills
@@ -165,6 +172,12 @@ class BUFFS_WITH_STACKS(EsoEnum):
         id=163404,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_mage_065.png',
         stack=STACKS.PRICE_OF_PRIDE.value,
+    )
+    THUNDEROUS_VOLLEY = Buff(
+        name='Thunderous Volley',
+        id=99853,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_mage_065.png',
+        stack=STACKS.THUNDEROUS_VOLLEY.value,
     )
 
     """

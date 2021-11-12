@@ -274,3 +274,10 @@ class GEAR_SETS(EsoEnum):
         link='https://eso-hub.com/en/sets/crimson-oaths-rive',
         icon='https://eso-hub.com/storage/icons/gear_blackironhvy_head_a.webp',
     )
+    THUNDEROUS_VOLLEY = GearSet(
+        name='Thunderous Volley',
+        id=372,
+        buffs=[BUFFS_WITH_STACKS.THUNDEROUS_VOLLEY.value],
+        link='https://eso-hub.com/en/sets/thunderous-volley',
+        icon='https://eso-hub.com/storage/icons/gear_dwarvenscavenged_bow_a.webp',
+    )
