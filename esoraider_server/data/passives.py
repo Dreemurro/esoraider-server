@@ -148,6 +148,21 @@ class Passives(EsoEnum):
     # |-----------------------------------------------------------------------|
     # | Guild                                                                 |
     # |-----------------------------------------------------------------------|
+    # |-------------|
+    # | Mages Guild |
+    # |-------------|
+    MAGICKA_CONTROLLER = Buff(
+        name='Magicka Controller',
+        id=45603,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_sorcerer_044.png',
+        link='https://eso-hub.com/en/skills/guild/mages-guild/magicka-controller',
+    )
+    MIGHT_OF_THE_GUILD = Buff(
+        name='Might of the Guild',
+        id=45607,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_sorcerer_038.png',
+        link='https://eso-hub.com/en/skills/guild/mages-guild/might-of-the-guild',
+    )
     # |-----------|
     # | Undaunted |
     # |-----------|
