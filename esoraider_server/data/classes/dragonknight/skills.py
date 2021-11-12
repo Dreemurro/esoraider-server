@@ -23,6 +23,13 @@ class DRAGONKNIGHT_SKILLS(EsoEnum):
         link='https://eso-hub.com/en/skills/dragonknight/ardent-flame/engulfing-flames',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_dragonknight_004_b.png',
     )
+    NOXIOUS_BREATH = Skill(
+        name='Noxious Breath',
+        id=20944,
+        debuffs=[DRAGONKNIGHT_DEBUFFS.NOXIOUS_BREATH.value],
+        link='https://eso-hub.com/en/skills/dragonknight/ardent-flame/noxious-breath',
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_dragonknight_004_a.png',
+    )
     IGNEOUS_WEAPONS = Skill(
         name='Igneous Weapons',
         id=31874,
