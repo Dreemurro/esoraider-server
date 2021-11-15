@@ -111,3 +111,19 @@ class WieldType(Enum):
     TWO_HANDED = auto()
 
     INCOMPLETE = auto()
+
+
+@unique
+class DataType(Enum):
+    SUMMARY = 'Summary'
+    DAMAGE_DONE = 'DamageDone'
+    CASTS = 'Casts'
+    BUFFS = 'Buffs'
+    DEBUFFS = 'Debuffs'
+    RESOURCES = 'Resources'
+
+
+@unique
+class HostilityType(Enum):
+    FRIENDLIES = 'Friendlies'
+    ENEMIES = 'Enemies'
