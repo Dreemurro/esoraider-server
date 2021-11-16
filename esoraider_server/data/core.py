@@ -97,6 +97,8 @@ class Skill:
     ) -> Optional[float]:
         if children and len(children) == 1:
             uptime = children[0].uptime
+        elif self.uptime:
+            uptime = self.uptime
         elif buffs and len(buffs) == 1 and not debuffs:
             uptime = buffs[0].uptime
         elif debuffs and len(debuffs) == 1 and not buffs:
