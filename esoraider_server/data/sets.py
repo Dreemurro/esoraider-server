@@ -281,6 +281,13 @@ class GEAR_SETS(EsoEnum):
         link='https://eso-hub.com/en/sets/thunderous-volley',
         icon='https://eso-hub.com/storage/icons/gear_dwarvenscavenged_bow_a.webp',
     )
+    BAHSEIS_MANIA = GearSet(
+        name="Bahsei's Mania",
+        id=587,
+        buffs=[BUFFS_WITH_STACKS.BAHSEIS_MANIA.value],
+        link='https://eso-hub.com/en/sets/bahseis-mania',
+        icon='https://eso-hub.com/storage/icons/gear_rockgrove_lgt_head_a.webp',
+    )
     PERFECTED_BAHSEIS_MANIA = GearSet(
         name="Perfected Bahsei's Mania",
         id=591,
