@@ -168,7 +168,7 @@ class GENERAL_SKILLS(EsoEnum):
     BARBED_TRAP = Skill(
         name='Barbed Trap',
         id=40382,
-        buffs=[BUFFS.MINOR_FORCE.value],
+        buffs=[BUFFS.MINOR_FORCE_BARBED_TRAP.value],
         debuffs=[DEBUFFS.BARBED_TRAP.value],
         link='https://eso-hub.com/en/skills/guild/fighters-guild/barbed-trap',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_fightersguild_004_a.png',

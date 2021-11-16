@@ -149,15 +149,18 @@ class BUFFS(EsoEnum):
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_major_force.png',
     )
 
-    """
-    MINOR FORCE
-    KNOWN IDS: 
-    - 103708
-    - 68632 (probably Barbed Trap)
-    """
+    # Minor Force
+    # Known IDs:
+    # - 103708
+    # - 85611 (Medusa set)
     MINOR_FORCE = Buff(
         name='Minor Force',
         id=61746,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_minor_force.png',
+    )
+    MINOR_FORCE_BARBED_TRAP = Buff(
+        name='Minor Force',
+        id=68632,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_minor_force.png',
     )
 
