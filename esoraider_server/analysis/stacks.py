@@ -39,7 +39,7 @@ class Stacks(object):
     def __init__(
         self,
         known_stacks: List[Stack],
-        char_graphs: List[Series],
+        char_graphs: Dict[int, List[Series]],
         char_buffs: List[Aura],
         char_debuffs: List[Aura],
         total_time: int,
@@ -65,14 +65,11 @@ class Stacks(object):
             self.calculated.append(replace(stack, uptimes=uptimes))
 
     def _calculate_uptime_from_graph(self, stack: Stack) -> Dict[int, float]:
-        series_list = [
-            # Graph response doesn't show which ability ID was requested
-            # so will have to get it by other means...
-            series
-            for series in self._char_graphs
-            if series.events[0].ability.guid == stack.id
-        ]
-        intervals = self._calculate_intervals(stack.max_stacks, series_list)
+        series_list = self._char_graphs[stack.id]
+
+        intervals = self._calculate_intervals(
+            stack.max_stacks, series_list, stack.modifier,
+        )
         return self._calculate_stacks_uptimes(intervals)
 
     def _calculate_uptime_from_effects(self, stack: Stack) -> Dict[int, float]:

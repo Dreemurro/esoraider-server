@@ -10,6 +10,7 @@ from esoraider_server.analysis.tracked_info import TrackedInfo
 from esoraider_server.data.core import Stack
 from esoraider_server.data.passives import Passives
 from esoraider_server.esologs.api import ApiWrapper
+from esoraider_server.esologs.consts import DataType, HostilityType
 from esoraider_server.esologs.responses.report_data.casts import CastsTableData
 from esoraider_server.esologs.responses.report_data.effects import (
     Aura,
@@ -47,7 +48,7 @@ class DataRequest(object):
         self.buffs_table: Optional[EffectsTableData] = None
         self.debuffs_table: Optional[EffectsTableData] = None
         self.damage_done_table: Optional[CastsTableData] = None
-        self.graphs: List[GraphData] = []
+        self.graphs: Dict[int, GraphData] = {}
         self.passives: List[Aura] = []
 
     async def execute(self):
@@ -162,19 +163,14 @@ class DataRequest(object):
         if not simple_stacks:
             return
 
-        graphs = await self._partial_graphs(simple_stacks)
-        response = await self._api.query_graph(
+        self.graphs = await self._api.query_graph(
             log=self._log,
             char_id=self._char_id,
             start_time=self._start_time,
             end_time=self._end_time,
-            graphs=graphs,
+            graphs=await self._partial_graphs(simple_stacks),
         )
-        response = response.get('reportData')
-        response = response.get('report')
 
-        for raw_graph in response.values():
-            self.graphs.append(GraphData.from_dict(raw_graph.get('data')))
         logger.info('Got {0} graphs'.format(len(self.graphs)))
 
     async def _partial_graphs(
@@ -182,16 +178,16 @@ class DataRequest(object):
     ) -> Dict[str, DSLField]:
         stacks_dict = {}
         for stack in stacks:
-            data_type = 'Buffs' if stack.type_ == 'Buff' else 'Debuffs'
-            hostility = 'Friendlies' if stack.type_ == 'Buff' else 'Enemies'
+            data_type = DataType.DEBUFFS if stack.type_ == 'Debuff' else None
+            hostility = HostilityType.ENEMIES if stack.type_ == 'Debuff' else None
             stacks_dict.update(
                 await self._api.partial_query_graph(
                     char_id=self._char_id,
-                    data_type=data_type,
+                    data_type=data_type or DataType.BUFFS,
                     start_time=self._start_time,
                     end_time=self._end_time,
                     ability_id=stack.id,
-                    hostility_type=hostility,
+                    hostility_type=hostility or HostilityType.FRIENDLIES,
                 ),
             )
         return stacks_dict

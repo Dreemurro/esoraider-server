@@ -1,7 +1,7 @@
 """Uptimes calculation."""
 
 from dataclasses import replace
-from typing import List, Optional, Union, overload
+from typing import Dict, List, Optional, Union, overload
 
 from loguru import logger
 
@@ -34,7 +34,7 @@ class Uptimes(object):
         requested_info: DataRequest,
         char_buffs: List[Aura],
         char_debuffs: List[Aura],
-        char_graphs: List[Series],
+        char_graphs: Dict[int, List[Series]],
     ) -> None:
         self.skills: List[Skill] = []
         self.sets: List[GearSet] = []

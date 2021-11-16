@@ -13,12 +13,16 @@ from loguru import logger
 from oauthlib.oauth2 import BackendApplicationClient  # type: ignore
 from requests_oauthlib import OAuth2Session  # type: ignore
 
+from esoraider_server.esologs.consts import DataType, HostilityType
 from esoraider_server.esologs.responses.base import BaseResponseData
 from esoraider_server.esologs.responses.report_data.casts import CastsTableData
 from esoraider_server.esologs.responses.report_data.effects import (
     EffectsTableData,
 )
-from esoraider_server.esologs.responses.report_data.graph import Event
+from esoraider_server.esologs.responses.report_data.graph import (
+    Event,
+    GraphData,
+)
 from esoraider_server.esologs.responses.report_data.report import Report
 from esoraider_server.esologs.responses.report_data.summary import (
     SummaryTableData,
@@ -366,10 +370,10 @@ class ApiWrapper:
         fight_id: int = None,
         start_time: int = None,
         end_time: int = None,
-        data_type: str = 'Buffs',
-        hostility_type: str = 'Friendlies',
+        data_type: DataType = DataType.BUFFS,
+        hostility_type: HostilityType = HostilityType.FRIENDLIES,
         graphs: Dict[str, DSLField] = None,
-    ):
+    ) -> Dict[int, GraphData]:
         logger.info('Requesting graph')
         logger.info('Log = {0}'.format(log))
         logger.info('Fight ID = {0}'.format(fight_id))
@@ -388,38 +392,38 @@ class ApiWrapper:
         report = self.ds.ReportData.report(code=log)
 
         if ability_id and not graphs:
-            if hostility_type == 'Friendlies' and data_type == 'Buffs':
-                graph = self.ds.Report.graph(
-                    startTime=start_time,
-                    endTime=end_time,
-                    dataType=data_type,
-                    sourceID=char_id,
-                    abilityID=ability_id,
-                )
-            elif hostility_type == 'Enemies' and data_type == 'Debuffs':
-                graph = self.ds.Report.graph(
-                    startTime=start_time,
-                    endTime=end_time,
-                    dataType=data_type,
-                    targetID=char_id,
-                    abilityID=ability_id,
-                )
-            report_fields = report.select(graph)
+            graph = await self.partial_query_graph(
+                data_type=data_type,
+                ability_id=ability_id,
+                start_time=start_time,
+                end_time=end_time,
+                hostility_type=hostility_type,
+                char_id=char_id,
+            )
+            report_fields = report.select(**graph)
         elif graphs:
             report_fields = report.select(**graphs)
 
         query.select(report_fields)
-        return await self.execute(dsl_gql(DSLQuery(query)))
+
+        response = await self.execute(dsl_gql(DSLQuery(query)))
+        response = response.get('reportData')
+        response = response.get('report')
+
+        return {
+            int(id_.split('_')[1]): GraphData.from_dict(graph.get('data'))
+            for id_, graph in response.items()
+        }
 
     async def partial_query_graph(
         self,
-        data_type: str,
+        data_type: DataType,
         ability_id: int,
         start_time: int,
         end_time: int,
-        hostility_type: str = 'Friendlies',
-        char_id: int = None,
-    ):
+        hostility_type: HostilityType = HostilityType.FRIENDLIES,
+        char_id: Optional[int] = None,
+    ) -> Dict[str, DSLField]:
         logger.info('Building partial graph request')
         logger.info('Char ID = {0}'.format(char_id))
         logger.info('Start Time = {0}'.format(start_time))
@@ -428,26 +432,20 @@ class ApiWrapper:
         logger.info('Ability ID = {0}'.format(ability_id))
         logger.info('Hostility Type = {0}'.format(hostility_type))
 
-        if hostility_type == 'Friendlies' and data_type == 'Buffs':
-            graph = self.ds.Report.graph(
-                startTime=start_time,
-                endTime=end_time,
-                abilityID=ability_id,
-                hostilityType=hostility_type,
-                dataType=data_type,
-                sourceID=char_id,
-            )
-        elif hostility_type == 'Enemies' and data_type == 'Debuffs':
-            graph = self.ds.Report.graph(
-                startTime=start_time,
-                endTime=end_time,
-                abilityID=ability_id,
-                hostilityType=hostility_type,
-                dataType=data_type,
-                targetID=char_id,
-            )
+        source_id = char_id if hostility_type == HostilityType.FRIENDLIES else None
+        target_id = char_id if hostility_type == HostilityType.ENEMIES else None
 
-        return {'id_{0}'.format(ability_id): graph}
+        return {
+            'id_{0}'.format(ability_id): self.ds.Report.graph(
+                startTime=start_time,
+                endTime=end_time,
+                abilityID=ability_id,
+                hostilityType=hostility_type.value,
+                dataType=data_type.value,
+                sourceID=source_id,
+                targetID=target_id,
+            ),
+        }
 
     async def _get_fight_times(self, log: str, fight_id: int):
         response = await self.query_fight_times(log, fight_id)

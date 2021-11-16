@@ -56,7 +56,7 @@ class ReportBuilder(object):
         self._char_name: Optional[str] = None
         self._char_buffs: List[Aura] = []
         self._char_debuffs: List[Aura] = []
-        self._char_graphs: List[Series] = []
+        self._char_graphs: Dict[int, List[Series]] = {}
 
         self.report: Dict = {}
 
@@ -156,10 +156,12 @@ class ReportBuilder(object):
             return
 
         logger.info('Extracting tracked stacks from graphs')
-        for graph in self._requested_data.graphs:
+        for id_, graph in self._requested_data.graphs.items():
+            if id_ not in self._char_graphs.keys():
+                self._char_graphs[id_] = []
             for series in graph.series:
                 if series:
-                    self._char_graphs.append(series)
+                    self._char_graphs[id_].append(series)
 
     def _build_report(self):
         # TODO: Separate dataclass
