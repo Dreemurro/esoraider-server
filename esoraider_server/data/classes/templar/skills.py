@@ -1,4 +1,5 @@
 from esoraider_server.data.buffs import BUFFS
+from esoraider_server.data.classes.templar.buffs import TEMPLAR_BUFFS
 from esoraider_server.data.classes.templar.debuffs import TEMPLAR_DEBUFFS
 from esoraider_server.data.core import EsoEnum, Skill
 from esoraider_server.data.debuffs import DEBUFFS
@@ -59,4 +60,21 @@ class TEMPLAR_SKILLS(EsoEnum):
         buffs=[BUFFS.MAJOR_RESOLVE_CHANNELED_FOCUS.value],
         link='https://eso-hub.com/en/skills/templar/restoring-light/channeled-focus',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_templar_channeled_focus.png',
+    )
+    SOLAR_BARRAGE_DAMAGE = Skill(
+        name='Solar Barrage',
+        id=100218,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_templar_solar_power.png',
+    )
+    SOLAR_BARRAGE = Skill(
+        name='Solar Barrage',
+        id=22095,
+        tick=2,
+        children=[SOLAR_BARRAGE_DAMAGE],
+        buffs=[
+            TEMPLAR_BUFFS.SOLAR_BARRAGE.value,
+            BUFFS.EMPOWER_SOLAR_BARRAGE.value,
+        ],
+        link='https://eso-hub.com/en/skills/templar/dawns-wrath/solar-barrage',
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_templar_solar_power.png',
     )

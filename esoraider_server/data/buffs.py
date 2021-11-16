@@ -372,3 +372,8 @@ class BUFFS(EsoEnum):
         id=118366,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_major_empower.png',
     )
+    EMPOWER_SOLAR_BARRAGE = Buff(
+        name='Empower',
+        id=109420,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_major_empower.png',
+    )
