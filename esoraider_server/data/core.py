@@ -1,5 +1,6 @@
 from dataclasses import dataclass
 from enum import Enum
+from typing import Callable, Dict, List, Optional, Tuple
 
 from esoraider_server.esologs.consts import DataType
 
@@ -167,6 +168,7 @@ class Stack:
 
     buffs: Optional[List[Buff]] = None
     debuffs: Optional[List[Debuff]] = None
+    modifier: Optional[Callable[[int], int]] = None
     uptimes: Optional[Dict[int, float]] = None
 
 

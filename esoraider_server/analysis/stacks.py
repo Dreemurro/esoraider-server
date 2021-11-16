@@ -2,7 +2,7 @@
 
 from dataclasses import replace
 from itertools import tee
-from typing import Dict, List
+from typing import Callable, Dict, List, Optional
 
 from loguru import logger
 from portion.interval import Interval, closed  # type: ignore
@@ -104,7 +104,10 @@ class Stacks(object):
         )
 
     def _calculate_intervals(
-        self, max_stacks: int, series_list: List[Series],
+        self,
+        max_stacks: int,
+        series_list: List[Series],
+        modifier: Optional[Callable[[int], int]] = None,
     ) -> Dict[int, Interval]:
         intervals = {key: Interval() for key in range(1, max_stacks + 1)}
         stacks_list = [series.data for series in series_list]
@@ -113,7 +116,8 @@ class Stacks(object):
                 interval = closed(cur[0], nxt[0])  # [0] - time, [1] - stack
 
                 # Combine this interval with current stack and stacks below
-                for stack in range(1, cur[1] + 1):
+                stack_n = modifier(cur[1]) if modifier else cur[1]
+                for stack in range(1, stack_n + 1):
                     intervals[stack] = intervals[stack].union(interval)
         return intervals
 

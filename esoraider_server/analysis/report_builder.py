@@ -165,6 +165,9 @@ class ReportBuilder(object):
 
     def _build_report(self):
         # TODO: Separate dataclass
+        def skip_functions(x):
+            return {k: v for (k, v) in x if not callable(v)}
+
         self.report = {
             'char': {
                 'id': self.char_id,
@@ -176,10 +179,10 @@ class ReportBuilder(object):
                 [asdict(skill) for skill in self._uptimes.skills]
                 if self._uptimes.skills
                 else [],
-            'sets':
-                [asdict(gear_set) for gear_set in self._uptimes.sets]
-                if self._uptimes.sets
-                else [],
+            'sets': [
+                asdict(gear_set, dict_factory=skip_functions)
+                for gear_set in self._uptimes.sets
+            ] if self._uptimes.sets else [],
             'glyphs':
                 [asdict(glyph) for glyph in self._uptimes.glyphs]
                 if self._uptimes.glyphs
