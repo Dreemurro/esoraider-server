@@ -79,6 +79,11 @@ class BUFFS(EsoEnum):
         id=118246,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_major_resolve.png',
     )
+    MAJOR_RESOLVE_HARDENED_ARMOR = Buff(
+        name='Major Resolve',
+        id=61827,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_major_resolve.png',
+    )
 
     """
     MINOR RESOLVE

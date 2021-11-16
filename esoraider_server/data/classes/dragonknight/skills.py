@@ -1,4 +1,5 @@
 from esoraider_server.data.buffs import BUFFS
+from esoraider_server.data.classes.dragonknight.buffs import DRAGONKNIGHT_BUFFS
 from esoraider_server.data.classes.dragonknight.debuffs import (
     DRAGONKNIGHT_DEBUFFS,
 )
@@ -84,4 +85,14 @@ class DRAGONKNIGHT_SKILLS(EsoEnum):
         children=[FLAMES_OF_OBLIVION_DAMAGE],
         link='https://eso-hub.com/en/skills/dragonknight/ardent-flame/flames-of-oblivion',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_dragonknight_002_a.png',
+    )
+    HARDENED_ARMOR = Skill(
+        name='Hardened Armor',
+        id=20328,  # Additional ID - 31808, probably 6 sec shield
+        buffs=[
+            DRAGONKNIGHT_BUFFS.HARDENED_ARMOR.value,
+            BUFFS.MAJOR_RESOLVE_HARDENED_ARMOR.value,
+        ],
+        link='https://eso-hub.com/en/skills/dragonknight/draconic-power/hardened-armor',
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_dragonknight_007_b.png',
     )
