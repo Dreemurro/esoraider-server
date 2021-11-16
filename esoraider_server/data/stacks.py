@@ -5,6 +5,7 @@ from esoraider_server.data.classes.templar.debuffs import TEMPLAR_DEBUFFS
 from esoraider_server.data.classes.warden.debuffs import WARDEN_DEBUFFS
 from esoraider_server.data.core import Buff, Debuff, EsoEnum, Stack
 from esoraider_server.data.debuffs import DEBUFFS
+from esoraider_server.esologs.consts import DataType
 
 
 class STACKS(EsoEnum):
@@ -16,14 +17,14 @@ class STACKS(EsoEnum):
         id=155150,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_rogue_066.png',
         max_stacks=10,
-        type_='Buff',
+        type_=DataType.BUFFS,
     )
     TOUCH_OF_ZEN = Stack(
         name='Touch of Z\'en',
         id=126597,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_healer_006.png',
         max_stacks=5,
-        type_='Debuff',
+        type_=DataType.DEBUFFS,
         debuffs=[
             # This list is initially based on a work of Pandamime & Seaunicorn
             # Enchants
@@ -73,35 +74,35 @@ class STACKS(EsoEnum):
         id=107203,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_warden_003.png',
         max_stacks=10,
-        type_='Debuff',
+        type_=DataType.DEBUFFS,
     )
     SIRORIAS_BOON = Stack(
         name='Siroria\'s Boon',
         id=110118,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_mage_010.png',
         max_stacks=10,
-        type_='Buff',
+        type_=DataType.BUFFS,
     )
     BERSERKING_WARRIOR = Stack(
         name='Berserking Warrior',
         id=50978,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_warrior_005.png',
         max_stacks=10,
-        type_='Buff',
+        type_=DataType.BUFFS,
     )
     PRICE_OF_PRIDE = Stack(
         name='Price of Pride',
         id=163404,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_mage_065.png',
         max_stacks=6,
-        type_='Buff',
+        type_=DataType.BUFFS,
     )
     THUNDEROUS_VOLLEY = Stack(
         name='Thunderous Volley',
         id=99853,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_mage_065.png',
         max_stacks=8,
-        type_='Buff',
+        type_=DataType.BUFFS,
     )
 
     #
@@ -112,7 +113,7 @@ class STACKS(EsoEnum):
         id=38747,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_2handed_002_a.png',
         max_stacks=3,
-        type_='Debuff',
+        type_=DataType.DEBUFFS,
     )
 
     """
@@ -123,7 +124,7 @@ class STACKS(EsoEnum):
         id=134336,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_dragonknight_013_a.png',
         max_stacks=3,
-        type_='Debuff',
+        type_=DataType.DEBUFFS,
     )
 
     """
@@ -134,14 +135,14 @@ class STACKS(EsoEnum):
         id=61920,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_nightblade_005_b.png',
         max_stacks=5,
-        type_='Buff',
+        type_=DataType.BUFFS,
     )
     RELENTLESS_FOCUS = Stack(
         name='Relentless Focus',
         id=61928,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_nightblade_005_a.png',
         max_stacks=5,
-        type_='Buff',
+        type_=DataType.BUFFS,
     )
 
 

@@ -10,7 +10,7 @@ from esoraider_server.analysis.tracked_info import TrackedInfo
 from esoraider_server.data.core import Stack
 from esoraider_server.data.passives import Passives
 from esoraider_server.esologs.api import ApiWrapper
-from esoraider_server.esologs.consts import DataType, HostilityType
+from esoraider_server.esologs.consts import HostilityType
 from esoraider_server.esologs.responses.report_data.casts import CastsTableData
 from esoraider_server.esologs.responses.report_data.effects import (
     Aura,
@@ -178,12 +178,11 @@ class DataRequest(object):
     ) -> Dict[str, DSLField]:
         stacks_dict = {}
         for stack in stacks:
-            data_type = DataType.DEBUFFS if stack.type_ == 'Debuff' else None
             hostility = HostilityType.ENEMIES if stack.type_ == 'Debuff' else None
             stacks_dict.update(
                 await self._api.partial_query_graph(
                     char_id=self._char_id,
-                    data_type=data_type or DataType.BUFFS,
+                    data_type=stack.type_,
                     start_time=self._start_time,
                     end_time=self._end_time,
                     ability_id=stack.id,

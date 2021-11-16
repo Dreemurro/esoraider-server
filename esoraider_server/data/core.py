@@ -1,6 +1,7 @@
 from dataclasses import dataclass
 from enum import Enum
-from typing import Dict, List, Optional, Tuple
+
+from esoraider_server.esologs.consts import DataType
 
 
 # TODO: Merge Buff and Debuff into Effect?
@@ -162,7 +163,7 @@ class Stack:
     id: int
     icon: str
     max_stacks: int
-    type_: str
+    type_: DataType
 
     buffs: Optional[List[Buff]] = None
     debuffs: Optional[List[Debuff]] = None
