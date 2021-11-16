@@ -104,6 +104,14 @@ class STACKS(EsoEnum):
         max_stacks=8,
         type_=DataType.BUFFS,
     )
+    BAHSEIS_MANIA = Stack(
+        name="Bahsei's Mania",
+        id=100,  # Resource ID of magicka
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_mage_065.png',
+        max_stacks=15,
+        type_=DataType.RESOURCES,
+        modifier=lambda x: round((100 - x) * 0.15),
+    )
 
     #
     # General skills
@@ -179,6 +187,12 @@ class BUFFS_WITH_STACKS(EsoEnum):
         id=99853,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_mage_065.png',
         stack=STACKS.THUNDEROUS_VOLLEY.value,
+    )
+    BAHSEIS_MANIA = Buff(
+        name="Bahsei's Mania",
+        id=100,  # Resource ID of magicka
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_mage_065.png',
+        stack=STACKS.BAHSEIS_MANIA.value,
     )
 
     """
