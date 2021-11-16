@@ -295,3 +295,10 @@ class GEAR_SETS(EsoEnum):
         link='https://eso-hub.com/en/sets/perfected-bahseis-mania',
         icon='https://eso-hub.com/storage/icons/gear_rockgrove_lgt_head_a.webp',
     )
+    DRAKES_RUSH = GearSet(
+        name="Drake's Rush",
+        id=571,
+        buffs=[BUFFS.MAJOR_HEROISM_DRAKES_RUSH.value],
+        link='https://eso-hub.com/en/sets/drakes-rush',
+        icon='https://eso-hub.com/storage/icons/gear_blackdv_hvy_head_a.webp',
+    )

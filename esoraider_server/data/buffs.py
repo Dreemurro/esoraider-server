@@ -91,6 +91,19 @@ class BUFFS(EsoEnum):
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_minor_resolve.png',
     )
 
+    # Major Heroism
+    MAJOR_HEROISM = Buff(
+        name='Major Heroism',
+        id=61709,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_major_heroism.png',
+    )
+    MAJOR_HEROISM_DRAKES_RUSH = Buff(
+        name='Major Heroism',
+        id=150974,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_major_heroism.png',
+    )
+
+    # Minor Heroism
     MINOR_HEROISM = Buff(
         name='Minor Heroism',
         id=62505,  # Another ID - 61708
