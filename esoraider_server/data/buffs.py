@@ -217,6 +217,22 @@ class BUFFS(EsoEnum):
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_major_evasion.png',
     )
 
+    # Major Prophecy
+    # Known IDs:
+    # - 64570 (potion?)
+    # - 77945 (inner light?)
+    # - 137006 (alliance potion?)
+    MAJOR_PROPHECY = Buff(
+        name='Major Prophecy',
+        id=61689,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_major_prophecy.png',
+    )
+    MAJOR_PROPHECY_FLAMES_OF_OBLIVION = Buff(
+        name='Major Prophecy',
+        id=76420,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_major_prophecy.png',
+    )
+
     # Minor Prophecy
     # Known IDs:
     # - 62320
@@ -224,6 +240,20 @@ class BUFFS(EsoEnum):
         name='Minor Prophecy',
         id=61691,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_minor_prophecy.png',
+    )
+
+    # Major Savagery
+    # Known IDs:
+    # - 61898
+    MAJOR_SAVAGERY = Buff(
+        name='Major Savagery',
+        id=61667,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_major_savagery.png',
+    )
+    MAJOR_SAVAGERY_FLAMES_OF_OBLIVION = Buff(
+        name='Major Savagery',
+        id=76426,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_major_savagery.png',
     )
 
     # Minor Savagery

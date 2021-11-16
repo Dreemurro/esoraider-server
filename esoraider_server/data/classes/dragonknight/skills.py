@@ -68,3 +68,20 @@ class DRAGONKNIGHT_SKILLS(EsoEnum):
         link='https://eso-hub.com/en/skills/dragonknight/earthen-heart/eruption',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_dragonknight_016b.png',
     )
+    FLAMES_OF_OBLIVION_DAMAGE = Skill(
+        name='Flames of Oblivion',
+        id=61945,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_dragonknight_002_a.png',
+    )
+    FLAMES_OF_OBLIVION = Skill(
+        name='Flames of Oblivion',
+        id=32853,
+        tick=5,
+        buffs=[
+            BUFFS.MAJOR_PROPHECY_FLAMES_OF_OBLIVION.value,
+            BUFFS.MAJOR_SAVAGERY_FLAMES_OF_OBLIVION.value,
+        ],
+        children=[FLAMES_OF_OBLIVION_DAMAGE],
+        link='https://eso-hub.com/en/skills/dragonknight/ardent-flame/flames-of-oblivion',
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_dragonknight_002_a.png',
+    )
