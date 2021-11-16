@@ -30,6 +30,12 @@ class Event(EsoLogsDataClass):
     gear: Optional[List[Gear]] = None
     auras: Optional[List[Aura]] = None
 
+    resource_change: Optional[int] = None
+    resource_change_type: Optional[int] = None
+    other_resource_change: Optional[int] = None
+    max_resource_amount: Optional[int] = None
+    waste: Optional[int] = None
+
 
 def skip_events(items: List) -> List[Event]:
     final = []
@@ -57,10 +63,14 @@ class Series(EsoLogsDataClass):
         decoder=skip_events,
     ))
 
+    current_values: Optional[List[int]] = None
+    max_values: Optional[List[int]] = None
+
 
 @dataclass
 class GraphData(EsoLogsDataClass):
     series: List[Series]
-    start_time: int
-    end_time: int
-    use_targets: bool
+
+    start_time: Optional[int] = None
+    end_time: Optional[int] = None
+    use_targets: Optional[bool] = None
