@@ -74,6 +74,7 @@ class Skill:
     parent: Optional['Skill'] = None
     children: Optional[List['Skill']] = None
 
+    tick: int = 1
     advice: Optional[str] = None
     optimal_uptime: Optional[float] = None
     uptime: Optional[float] = None
@@ -84,7 +85,7 @@ class Skill:
         tick_count: int,
         total_time: int,
     ) -> float:
-        uptime = (hit_count + tick_count) * 1000.0
+        uptime = (hit_count + tick_count) * self.tick * 1000.0
         uptime /= float(total_time)
         uptime *= 100.0
         return round(uptime, 2)
