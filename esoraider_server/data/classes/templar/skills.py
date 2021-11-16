@@ -78,3 +78,16 @@ class TEMPLAR_SKILLS(EsoEnum):
         link='https://eso-hub.com/en/skills/templar/dawns-wrath/solar-barrage',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_templar_solar_power.png',
     )
+    RITUAL_OF_RETRIBUTION_DAMAGE = Skill(
+        name='Ritual of Retribution',
+        id=80172,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_templar_cleansing_ritual.png',
+    )
+    RITUAL_OF_RETRIBUTION = Skill(
+        name='Ritual of Retribution',
+        id=22259,
+        tick=2,
+        children=[RITUAL_OF_RETRIBUTION_DAMAGE],
+        link='https://eso-hub.com/en/skills/templar/restoring-light/ritual-of-retribution',
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_templar_purifying_ritual.png',
+    )
