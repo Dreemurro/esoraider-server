@@ -19,7 +19,11 @@ class WARDEN_SKILLS(EsoEnum):
     BULL_NETCH = Skill(
         name='Bull Netch',
         id=86058,
-        buffs=[BUFFS.MAJOR_BRUTALITY.value, BUFFS.MAJOR_SORCERY.value],
+        buffs=[
+            WARDEN_BUFFS.BULL_NETCH.value,
+            BUFFS.MAJOR_BRUTALITY_BULL_NETCH.value,
+            BUFFS.MAJOR_SORCERY_BULL_NETCH.value,
+        ],
         link='https://eso-hub.com/en/skills/warden/animal-companions/bull-netch',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_warden_017_b.png',
     )

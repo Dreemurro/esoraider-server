@@ -124,7 +124,6 @@ class BUFFS(EsoEnum):
 
     # Major Brutality
     # Known IDs:
-    # - 89110 (DK?)
     # - 72936
     MAJOR_BRUTALITY = Buff(
         name='Major Brutality',
@@ -139,6 +138,11 @@ class BUFFS(EsoEnum):
     MAJOR_BRUTALITY_BLUE_BETTY = Buff(
         name='Major Brutality',
         id=131350,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_major_brutality.png',
+    )
+    MAJOR_BRUTALITY_BULL_NETCH = Buff(
+        name='Major Brutality',
+        id=89110,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_major_brutality.png',
     )
 
@@ -161,6 +165,11 @@ class BUFFS(EsoEnum):
     MAJOR_SORCERY_BLUE_BETTY = Buff(
         name='Major Sorcery',
         id=89107,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_major_sorcery.png',
+    )
+    MAJOR_SORCERY_BULL_NETCH = Buff(
+        name='Major Sorcery',
+        id=95125,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_major_sorcery.png',
     )
 
