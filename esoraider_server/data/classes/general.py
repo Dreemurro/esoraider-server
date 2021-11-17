@@ -349,6 +349,13 @@ class GENERAL_SKILLS(EsoEnum):
         link='https://eso-hub.com/en/skills/armor/heavy-armor/unstoppable-brute',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_armor_001_a.png',
     )
+    IMMOVABLE = Skill(
+        name='Immovable',
+        id=39197,
+        buffs=[BUFFS.MAJOR_RESOLVE_IMMOVABLE.value],
+        link='https://eso-hub.com/en/skills/armor/heavy-armor/immovable',
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_armor_001_b.png',
+    )
     STALWART_GUARD = Skill(
         name='Stalwart Guard',
         id=61529,

@@ -86,6 +86,11 @@ class BUFFS(EsoEnum):
         id=63134,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_major_resolve.png',
     )
+    MAJOR_RESOLVE_IMMOVABLE = Buff(
+        name='Major Resolve',
+        id=63119,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_major_resolve.png',
+    )
 
     """
     MINOR RESOLVE
