@@ -316,3 +316,10 @@ class GEAR_SETS(EsoEnum):
         link='https://eso-hub.com/en/sets/perfected-sul-xans-torment',
         icon='https://eso-hub.com/storage/icons/gear_rockgrove_med_head_a.webp',
     )
+    TRUE_SWORN_FURY = GearSet(
+        name='True-Sworn Fury',
+        id=569,
+        buffs=[BUFFS_WITH_STACKS.TRUE_SWORN_FURY.value],
+        link='https://eso-hub.com/en/sets/true-sworn-fury',
+        icon='https://eso-hub.com/storage/icons/gear_blackdrakevilla_lgt_head_a.webp',
+    )

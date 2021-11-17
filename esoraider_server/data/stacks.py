@@ -113,6 +113,16 @@ class STACKS(EsoEnum):
         type_=DataType.RESOURCES,
         modifier=lambda x: round((100 - x) * 0.15),
     )
+    TRUE_SWORN_FURY = Stack(
+        name='True-Sworn Fury',
+        id=1000,  # Resource ID of health
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_mage_065.png',
+        max_stacks=3,
+        type_=DataType.RESOURCES,
+        modifier=lambda x:
+            3 if x in range(50)
+            else (2 if x in range(50, 75) else 1),
+    )
 
     #
     # General skills
@@ -194,6 +204,12 @@ class BUFFS_WITH_STACKS(EsoEnum):
         id=100,  # Resource ID of magicka
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_mage_065.png',
         stack=STACKS.BAHSEIS_MANIA.value,
+    )
+    TRUE_SWORN_FURY = Buff(
+        name='True-Sworn Fury',
+        id=1000,  # Resource ID of health
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_mage_065.png',
+        stack=STACKS.TRUE_SWORN_FURY.value,
     )
 
     """
