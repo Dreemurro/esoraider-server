@@ -7,7 +7,10 @@ class WARDEN_SKILLS(EsoEnum):
     BLUE_BETTY = Skill(
         name='Blue Betty',
         id=86054,
-        buffs=[BUFFS.MAJOR_BRUTALITY.value, BUFFS.MAJOR_SORCERY.value],
+        buffs=[
+            BUFFS.MAJOR_BRUTALITY_BLUE_BETTY.value,
+            BUFFS.MAJOR_SORCERY.value,
+        ],
         link='https://eso-hub.com/en/skills/warden/animal-companions/blue-betty',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_warden_017.png',
     )
