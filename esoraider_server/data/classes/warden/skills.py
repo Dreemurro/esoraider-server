@@ -1,4 +1,5 @@
 from esoraider_server.data.classes.general import BUFFS, DEBUFFS
+from esoraider_server.data.classes.warden.buffs import WARDEN_BUFFS
 from esoraider_server.data.classes.warden.debuffs import WARDEN_DEBUFFS
 from esoraider_server.data.core import EsoEnum, Skill
 
@@ -8,6 +9,7 @@ class WARDEN_SKILLS(EsoEnum):
         name='Blue Betty',
         id=86054,
         buffs=[
+            WARDEN_BUFFS.BLUE_BETTY.value,
             BUFFS.MAJOR_BRUTALITY_BLUE_BETTY.value,
             BUFFS.MAJOR_SORCERY_BLUE_BETTY.value,
         ],
