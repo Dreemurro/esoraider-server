@@ -342,3 +342,10 @@ class GENERAL_SKILLS(EsoEnum):
         link='https://eso-hub.com/en/skills/weapon/two-handed/stampede',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_2handed_003_a.png',
     )
+    UNSTOPPABLE_BRUTE = Skill(
+        name='Unstoppable Brute',
+        id=39205,
+        buffs=[BUFFS.MAJOR_RESOLVE_UNSTOPPABLE_BRUTE.value],
+        link='https://eso-hub.com/en/skills/armor/heavy-armor/unstoppable-brute',
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_armor_001_a.png',
+    )

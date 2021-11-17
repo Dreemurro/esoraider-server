@@ -41,9 +41,6 @@ class BUFFS(EsoEnum):
     )
 
     # Major Resolve
-    # Known IDs:
-    # - 80160
-    # - 88758
     MAJOR_RESOLVE = Buff(
         name='Major Resolve',
         id=61694,
@@ -82,6 +79,11 @@ class BUFFS(EsoEnum):
     MAJOR_RESOLVE_HARDENED_ARMOR = Buff(
         name='Major Resolve',
         id=61827,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_major_resolve.png',
+    )
+    MAJOR_RESOLVE_UNSTOPPABLE_BRUTE = Buff(
+        name='Major Resolve',
+        id=63134,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_major_resolve.png',
     )
 
