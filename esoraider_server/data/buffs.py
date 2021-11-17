@@ -135,18 +135,20 @@ class BUFFS(EsoEnum):
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_major_brutality.png',
     )
 
-    """
-    MAJOR SORCERY
-    KNOWN IDS: 
-    - 61747 (overall duration?) 
-    - 61687 
-    - 72933 (potion?)
-    - 63227
-    - 92503
-    """
+    # Major Sorcery
+    # Known IDs:
+    # - 61747 (overall duration?)
+    # - 61687
+    # - 72933 (potion?)
+    # - 63227
     MAJOR_SORCERY = Buff(
         name='Major Sorcery',
         id=61687,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_major_sorcery.png',
+    )
+    MAJOR_SORCERY_IGNEOUS_WEAPONS = Buff(
+        name='Major Sorcery',
+        id=92503,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_major_sorcery.png',
     )
 

@@ -36,7 +36,7 @@ class DRAGONKNIGHT_SKILLS(EsoEnum):
         id=31874,
         buffs=[
             BUFFS.MAJOR_BRUTALITY_IGNEOUS_WEAPONS.value,
-            BUFFS.MAJOR_SORCERY.value,
+            BUFFS.MAJOR_SORCERY_IGNEOUS_WEAPONS.value,
         ],
         link='https://eso-hub.com/en/skills/dragonknight/earthen-heart/igneous-weapons',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_dragonknight_015_a.png',
