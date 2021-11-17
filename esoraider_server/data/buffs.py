@@ -274,6 +274,11 @@ class BUFFS(EsoEnum):
         id=76420,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_major_prophecy.png',
     )
+    MAJOR_PROPHECY_REFLECTIVE_LIGHT = Buff(
+        name='Major Prophecy',
+        id=62755,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_major_prophecy.png',
+    )
 
     # Minor Prophecy
     # Known IDs:

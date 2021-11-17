@@ -7,6 +7,11 @@ class TEMPLAR_DEBUFFS(EsoEnum):
         id=21731,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_templar_vampire_bane.png',
     )
+    REFLECTIVE_LIGHT = Debuff(
+        name='Reflective Light',
+        id=21734,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_templar_reflective_light.png',
+    )
     PURIFYING_LIGHT = Debuff(
         name='Purifying Light',
         id=21765,

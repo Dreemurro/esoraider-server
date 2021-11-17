@@ -15,6 +15,14 @@ class TEMPLAR_SKILLS(EsoEnum):
         link='https://eso-hub.com/en/skills/templar/dawns-wrath/vampires-bane',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_templar_vampire_bane.png',
     )
+    REFLECTIVE_LIGHT = Skill(
+        name='Reflective Light',
+        id=21732,
+        buffs=[BUFFS.MAJOR_PROPHECY_REFLECTIVE_LIGHT.value],
+        debuffs=[TEMPLAR_DEBUFFS.REFLECTIVE_LIGHT.value],
+        link='https://eso-hub.com/en/skills/templar/dawns-wrath/reflective-light',
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_templar_reflective_light.png',
+    )
     POWER_OF_THE_LIGHT = Skill(
         name='Power of the Light',
         id=21763,
