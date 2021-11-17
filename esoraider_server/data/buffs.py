@@ -329,6 +329,18 @@ class BUFFS(EsoEnum):
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_minor_savagery.png',
     )
 
+    # Minor Vitality
+    MINOR_VITALITY = Buff(
+        name='Minor Vitality',
+        id=61549,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_minor_vitality.png',
+    )
+    MINOR_VITALITY_MYSTIC_GUARD = Buff(
+        name='Minor Vitality',
+        id=64080,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_minor_vitality.png',
+    )
+
     #
     # From skills
     #
@@ -345,6 +357,11 @@ class BUFFS(EsoEnum):
         name='Stalwart Guard',
         id=80983,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_ava_stalwart_guard.png',
+    )
+    MYSTIC_GUARD = Buff(
+        name='Mystic Guard',
+        id=80947,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_ava_mystic_guard.png',
     )
 
     #

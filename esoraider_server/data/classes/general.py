@@ -359,3 +359,13 @@ class GENERAL_SKILLS(EsoEnum):
         link='https://eso-hub.com/en/skills/alliance-war/support/stalwart-guard',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_ava_stalwart_guard.png',
     )
+    MYSTIC_GUARD = Skill(
+        name='Mystic Guard',
+        id=61536,
+        buffs=[
+            BUFFS.MYSTIC_GUARD.value,
+            BUFFS.MINOR_VITALITY_MYSTIC_GUARD.value,
+        ],
+        link='https://eso-hub.com/en/skills/alliance-war/support/mystic-guard',
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_ava_mystic_guard.png',
+    )
