@@ -149,9 +149,7 @@ class BUFFS(EsoEnum):
     # Major Sorcery
     # Known IDs:
     # - 61747 (overall duration?)
-    # - 61687
     # - 72933 (potion?)
-    # - 63227
     MAJOR_SORCERY = Buff(
         name='Major Sorcery',
         id=61687,
@@ -170,6 +168,11 @@ class BUFFS(EsoEnum):
     MAJOR_SORCERY_BULL_NETCH = Buff(
         name='Major Sorcery',
         id=95125,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_major_sorcery.png',
+    )
+    MAJOR_SORCERY_DEGENERATION = Buff(
+        name='Major Sorcery',
+        id=63227,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_major_sorcery.png',
     )
 

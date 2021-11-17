@@ -190,7 +190,7 @@ class GENERAL_SKILLS(EsoEnum):
     DEGENERATION = Skill(
         name='Degeneration',
         id=40457,
-        buffs=[BUFFS.MAJOR_SORCERY.value],
+        buffs=[BUFFS.MAJOR_SORCERY_DEGENERATION.value],
         debuffs=[DEBUFFS.DEGENERATION.value],
         link='https://eso-hub.com/en/skills/guild/mages-guild/degeneration',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_mageguild_004_a.png',
