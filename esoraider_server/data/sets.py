@@ -302,3 +302,10 @@ class GEAR_SETS(EsoEnum):
         link='https://eso-hub.com/en/sets/drakes-rush',
         icon='https://eso-hub.com/storage/icons/gear_blackdv_hvy_head_a.webp',
     )
+    TZOGVINS_WARBAND = GearSet(
+        name="Tzogvin's Warband",
+        id=430,  # Has stacks (116742) but its not really needed
+        buffs=[BUFFS.MINOR_FORCE_TZOGVINS_WARBAND.value],
+        link='https://eso-hub.com/en/sets/tzogvins-warband',
+        icon='https://eso-hub.com/storage/icons/gear_coldsnap_medium_head_a.webp',
+    )

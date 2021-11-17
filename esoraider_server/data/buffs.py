@@ -191,6 +191,11 @@ class BUFFS(EsoEnum):
         id=103712,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_minor_force.png',
     )
+    MINOR_FORCE_TZOGVINS_WARBAND = Buff(
+        name='Minor Force',
+        id=116775,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_minor_force.png',
+    )
 
     MINOR_COURAGE = Buff(
         name='Minor Courage',
