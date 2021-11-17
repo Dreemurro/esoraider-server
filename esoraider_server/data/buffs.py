@@ -111,7 +111,12 @@ class BUFFS(EsoEnum):
     # Minor Heroism
     MINOR_HEROISM = Buff(
         name='Minor Heroism',
-        id=62505,  # Another ID - 61708
+        id=61708,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_minor_heroism.png',
+    )
+    MINOR_HEROISM_HEROIC_SLASH = Buff(
+        name='Minor Heroism',
+        id=62505,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_minor_heroism.png',
     )
 

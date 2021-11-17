@@ -137,7 +137,7 @@ class GENERAL_SKILLS(EsoEnum):
     HEROIC_SLASH = Skill(
         name='Heroic Slash',
         id=38264,
-        buffs=[BUFFS.MINOR_HEROISM.value],
+        buffs=[BUFFS.MINOR_HEROISM_HEROIC_SLASH.value],
         # debuffs=[DEBUFFS.MINOR_MAIM_HEROIC_SLASH.value],
         link='https://eso-hub.com/en/skills/weapon/one-hand-and-shield/heroic-slash',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_1handed_001_a.png',
