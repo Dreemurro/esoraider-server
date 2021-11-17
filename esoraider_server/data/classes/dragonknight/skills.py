@@ -96,3 +96,10 @@ class DRAGONKNIGHT_SKILLS(EsoEnum):
         link='https://eso-hub.com/en/skills/dragonknight/draconic-power/hardened-armor',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_dragonknight_007_b.png',
     )
+    BURNING_TALONS = Skill(
+        name='Burning Talons',
+        id=20252,
+        debuffs=[DRAGONKNIGHT_DEBUFFS.BURNING_TALONS.value],
+        link='https://eso-hub.com/en/skills/dragonknight/draconic-power/burning-talons',
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_dragonknight_010_b.png',
+    )

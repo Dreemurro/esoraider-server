@@ -22,3 +22,8 @@ class DRAGONKNIGHT_DEBUFFS(EsoEnum):
         id=44369,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_dragonknight_003_a.png',
     )
+    BURNING_TALONS = Debuff(
+        name='Burning Talons',
+        id=31898,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_dragonknight_010_b.png',
+    )
