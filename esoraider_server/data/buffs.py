@@ -181,6 +181,11 @@ class BUFFS(EsoEnum):
         id=68632,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_minor_force.png',
     )
+    MINOR_FORCE_RACE_AGAINST_TIME = Buff(
+        name='Minor Force',
+        id=103712,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_minor_force.png',
+    )
 
     MINOR_COURAGE = Buff(
         name='Minor Courage',

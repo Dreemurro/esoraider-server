@@ -165,6 +165,13 @@ class GENERAL_SKILLS(EsoEnum):
         link='https://eso-hub.com/en/skills/guild/psijic-order/channeled-acceleration',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_psijic_005_a.png',
     )
+    RACE_AGAINST_TIME = Skill(
+        name='Race Against Time',
+        id=103710,
+        buffs=[BUFFS.MINOR_FORCE_RACE_AGAINST_TIME.value],
+        link='https://eso-hub.com/en/skills/guild/psijic-order/race-against-time',
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_psijic_005_b.png',
+    )
     BARBED_TRAP = Skill(
         name='Barbed Trap',
         id=40382,
