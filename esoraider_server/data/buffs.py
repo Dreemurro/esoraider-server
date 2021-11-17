@@ -156,6 +156,11 @@ class BUFFS(EsoEnum):
         id=92503,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_major_sorcery.png',
     )
+    MAJOR_SORCERY_BLUE_BETTY = Buff(
+        name='Major Sorcery',
+        id=89107,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_major_sorcery.png',
+    )
 
     # Minor Sorcery
     # Known IDs:

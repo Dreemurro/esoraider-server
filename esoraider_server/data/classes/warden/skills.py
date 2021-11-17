@@ -9,7 +9,7 @@ class WARDEN_SKILLS(EsoEnum):
         id=86054,
         buffs=[
             BUFFS.MAJOR_BRUTALITY_BLUE_BETTY.value,
-            BUFFS.MAJOR_SORCERY.value,
+            BUFFS.MAJOR_SORCERY_BLUE_BETTY.value,
         ],
         link='https://eso-hub.com/en/skills/warden/animal-companions/blue-betty',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_warden_017.png',
