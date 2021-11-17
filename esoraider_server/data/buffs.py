@@ -122,12 +122,16 @@ class BUFFS(EsoEnum):
 
     # Major Brutality
     # Known IDs:
-    # - 76518
     # - 89110 (DK?)
     # - 72936
     MAJOR_BRUTALITY = Buff(
         name='Major Brutality',
         id=61665,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_major_brutality.png',
+    )
+    MAJOR_BRUTALITY_IGNEOUS_WEAPONS = Buff(
+        name='Major Brutality',
+        id=76518,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_major_brutality.png',
     )
 
