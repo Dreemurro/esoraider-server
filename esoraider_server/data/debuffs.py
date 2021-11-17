@@ -73,11 +73,16 @@ class DEBUFFS(EsoEnum):
 
     # Minor Vulnerability
     # Known IDs:
-    # - 130168
     # - 130173 (Growing Swarm?)
+    # - 68359
     MINOR_VULNERABILITY = Debuff(
         name='Minor Vulnerability',
         id=79717,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_debuff_minor_vulnerability.png',
+    )
+    MINOR_VULNERABILITY_FETCHER_INFECTION = Debuff(
+        name='Minor Vulnerability',
+        id=130168,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_debuff_minor_vulnerability.png',
     )
 

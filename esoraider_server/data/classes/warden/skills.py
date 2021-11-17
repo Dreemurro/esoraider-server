@@ -22,7 +22,7 @@ class WARDEN_SKILLS(EsoEnum):
         name='Fetcher Infection',
         id=86027,
         debuffs=[
-            DEBUFFS.MINOR_VULNERABILITY.value,
+            DEBUFFS.MINOR_VULNERABILITY_FETCHER_INFECTION.value,
             WARDEN_DEBUFFS.FETCHER_INFECTION.value,
         ],
         link='https://eso-hub.com/en/skills/warden/animal-companions/fetcher-infection',
