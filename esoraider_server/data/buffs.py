@@ -380,6 +380,11 @@ class BUFFS(EsoEnum):
         id=147875,  # Another ID - 147871 (having set equipped)
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_mage_065.png',
     )
+    SUL_XAN_SOULBOUND = Buff(
+        name='Sul-Xan Soulbound',
+        id=154737,
+        icon='https://assets.rpglogs.com/img/eso/abilities/u30_trial_soulrip.png',
+    )
 
     """
     From glyphs
