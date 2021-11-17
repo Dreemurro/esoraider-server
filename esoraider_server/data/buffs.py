@@ -214,6 +214,11 @@ class BUFFS(EsoEnum):
         id=116775,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_minor_force.png',
     )
+    MINOR_FORCE_STALWART_GUARD = Buff(
+        name='Minor Force',
+        id=80986,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_minor_force.png',
+    )
 
     MINOR_COURAGE = Buff(
         name='Minor Courage',
@@ -324,9 +329,9 @@ class BUFFS(EsoEnum):
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_minor_savagery.png',
     )
 
-    """
-    From skills
-    """
+    #
+    # From skills
+    #
     # FIRE_WALL_DAMAGE_BONUS = Buff(
     #     name='Fire Wall Damage Bonus',
     #     id=43192,
@@ -335,6 +340,11 @@ class BUFFS(EsoEnum):
         name='Aggressive Horn',
         id=40224,  # Another ID - 94800
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_ava_003_a.png',
+    )
+    STALWART_GUARD = Buff(
+        name='Stalwart Guard',
+        id=80983,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_ava_stalwart_guard.png',
     )
 
     #

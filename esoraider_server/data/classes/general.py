@@ -349,3 +349,13 @@ class GENERAL_SKILLS(EsoEnum):
         link='https://eso-hub.com/en/skills/armor/heavy-armor/unstoppable-brute',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_armor_001_a.png',
     )
+    STALWART_GUARD = Skill(
+        name='Stalwart Guard',
+        id=61529,
+        buffs=[
+            BUFFS.STALWART_GUARD.value,
+            BUFFS.MINOR_FORCE_STALWART_GUARD.value,
+        ],
+        link='https://eso-hub.com/en/skills/alliance-war/support/stalwart-guard',
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_ava_stalwart_guard.png',
+    )
