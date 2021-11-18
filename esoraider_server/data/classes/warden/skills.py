@@ -66,3 +66,13 @@ class WARDEN_SKILLS(EsoEnum):
         link='https://eso-hub.com/en/skills/warden/winters-embrace/winters-revenge',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_warden_004_b.png',
     )
+    LOTUS_BLOSSOM = Skill(
+        name='Lotus Blossom',
+        id=85855,
+        buffs=[
+            WARDEN_BUFFS.LOTUS_BLOSSOM.value,
+            BUFFS.MAJOR_PROPHECY_LOTUS_BLOSSOM.value,
+        ],
+        link='https://eso-hub.com/en/skills/warden/green-balance/lotus-blossom',
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_warden_009_b.png',
+    )

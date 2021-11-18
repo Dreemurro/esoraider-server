@@ -323,6 +323,11 @@ class BUFFS(EsoEnum):
         id=62755,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_major_prophecy.png',
     )
+    MAJOR_PROPHECY_LOTUS_BLOSSOM = Buff(
+        name='Major Prophecy',
+        id=86303,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_major_prophecy.png',
+    )
 
     # Minor Prophecy
     # Known IDs:

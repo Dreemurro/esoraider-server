@@ -12,3 +12,8 @@ class WARDEN_BUFFS(EsoEnum):
         id=86058,  # Matches skill ID
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_warden_017_b.png',
     )
+    LOTUS_BLOSSOM = Buff(
+        name='Lotus Blossom',
+        id=85855,  # Matches skill ID
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_warden_009_b.png',
+    )
