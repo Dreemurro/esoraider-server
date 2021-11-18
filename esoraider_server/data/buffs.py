@@ -91,6 +91,11 @@ class BUFFS(EsoEnum):
         id=63119,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_major_resolve.png',
     )
+    MAJOR_RESOLVE_HURRICANE = Buff(
+        name='Major Resolve',
+        id=62168,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_major_resolve.png',
+    )
 
     # Minor Resolve
     MINOR_RESOLVE = Buff(
@@ -396,6 +401,18 @@ class BUFFS(EsoEnum):
         name='Minor Vitality',
         id=64080,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_minor_vitality.png',
+    )
+
+    # Minor Expedition
+    MINOR_EXPEDITION = Buff(
+        name='Minor Expedition',
+        id=61735,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_minor_expedition.png',
+    )
+    MINOR_EXPEDITION_HURRICANE = Buff(
+        name='Minor Expedition',
+        id=82797,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_minor_expedition.png',
     )
 
     #

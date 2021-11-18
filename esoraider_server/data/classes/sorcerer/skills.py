@@ -35,3 +35,20 @@ class SORCERER_SKILLS(EsoEnum):
         link='https://eso-hub.com/en/skills/sorcerer/storm-calling/lightning-flood',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_sorcerer_lightning_flood.png',
     )
+    HURRICANE_DAMAGE = Skill(
+        name='Hurricane',
+        id=23232,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_sorcerer_thundering_presence.png',
+    )
+    HURRICANE = Skill(
+        name='Hurricane',
+        id=23231,
+        children=[HURRICANE_DAMAGE],
+        buffs=[
+            SORCERER_BUFFS.HURRICANE.value,
+            BUFFS.MAJOR_RESOLVE_HURRICANE.value,
+            BUFFS.MINOR_EXPEDITION_HURRICANE.value,
+        ],
+        link='https://eso-hub.com/en/skills/sorcerer/storm-calling/hurricane',
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_sorcerer_thundering_presence.png',
+    )
