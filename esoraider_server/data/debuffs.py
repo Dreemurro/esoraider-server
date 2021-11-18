@@ -127,13 +127,18 @@ class DEBUFFS(EsoEnum):
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_rogue_030.png',
     )
 
-    """
-    From skills
-    """
+    #
+    # From skills
+    #
     BARBED_TRAP = Debuff(
         name='Barbed Trap',
         id=40385,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_fightersguild_004_a.png',
+    )
+    LIGHTWEIGHT_BEAST_TRAP = Debuff(
+        name='Lightweight Beast Trap',
+        id=40375,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_fightersguild_004_b.png',
     )
     SCALDING_RUNE = Debuff(
         name='Scalding Rune',

@@ -181,6 +181,14 @@ class GENERAL_SKILLS(EsoEnum):
         link='https://eso-hub.com/en/skills/guild/fighters-guild/barbed-trap',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_fightersguild_004_a.png',
     )
+    LIGHTWEIGHT_BEAST_TRAP = Skill(
+        name='Lightweight Beast Trap',
+        id=40372,
+        buffs=[BUFFS.MINOR_FORCE_LIGHTWEIGHT_BEAST_TRAP.value],
+        debuffs=[DEBUFFS.LIGHTWEIGHT_BEAST_TRAP.value],
+        link='https://eso-hub.com/en/skills/guild/fighters-guild/lightweight-beast-trap',
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_fightersguild_004_b.png',
+    )
     SCALDING_RUNE = Skill(
         name='Scalding Rune',
         id=40465,

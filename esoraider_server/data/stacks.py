@@ -36,7 +36,7 @@ class STACKS(EsoEnum):
 
             # Fighters Guild
             DEBUFFS.BARBED_TRAP.value,
-            # DEBUFFS Trap Beast
+            DEBUFFS.LIGHTWEIGHT_BEAST_TRAP.value,
 
             # Mages Guild
             DEBUFFS.SCALDING_RUNE.value,
