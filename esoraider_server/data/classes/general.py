@@ -240,6 +240,13 @@ class GENERAL_SKILLS(EsoEnum):
         link='https://eso-hub.com/en/skills/world/soul-magic/consuming-trap',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_otherclass_001_b.png',
     )
+    BLESSING_OF_RESTORATION = Skill(
+        name='Blessing Of Restoration',
+        id=40103,
+        buffs=[BUFFS.MINOR_RESOLVE_BLESSING_OF_RESTORATION.value],
+        link='https://eso-hub.com/en/skills/weapon/restoration-staff/blessing-of-restoration',
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_restorationstaff_003_a.png',
+    )
     COMBAT_PRAYER = Skill(
         name='Combat Prayer',
         id=40094,

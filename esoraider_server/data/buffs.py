@@ -92,11 +92,17 @@ class BUFFS(EsoEnum):
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_major_resolve.png',
     )
 
-    """
-    MINOR RESOLVE
-    KNOWN IDS 
-    - 61693 (overall uptime?)
-    """
+    # Minor Resolve
+    MINOR_RESOLVE = Buff(
+        name='Minor Resolve',
+        id=61693,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_minor_resolve.png',
+    )
+    MINOR_RESOLVE_BLESSING_OF_RESTORATION = Buff(
+        name='Minor Resolve',
+        id=62626,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_minor_resolve.png',
+    )
     MINOR_RESOLVE_COMBAT_PRAYER = Buff(
         name='Minor Resolve',
         id=62634,
