@@ -399,3 +399,13 @@ class GENERAL_SKILLS(EsoEnum):
         link='https://eso-hub.com/en/skills/guild/undaunted/overflowing-altar',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_undaunted_001_a.png',
     )
+    ELEMENTAL_DRAIN = Skill(
+        name='Elemental Drain',
+        id=39095,
+        debuffs=[
+            DEBUFFS.MAJOR_BREACH_ELEMENTAL_DRAIN.value,
+            DEBUFFS.MINOR_MAGICKASTEAL_ELEMENTAL_DRAIN.value,
+        ],
+        link='https://eso-hub.com/en/skills/weapon/destruction-staff/elemental-drain',
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_destructionstaff_011a.png',
+    )

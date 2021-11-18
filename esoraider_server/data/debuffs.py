@@ -19,6 +19,11 @@ class DEBUFFS(EsoEnum):
         id=62485,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_debuff_major_breach.png',
     )
+    MAJOR_BREACH_ELEMENTAL_DRAIN = Debuff(
+        name='Major Breach',
+        id=62787,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_debuff_major_breach.png',
+    )
 
     # Major Vulnerability
     MAJOR_VULNERABILITY = Debuff(
@@ -76,6 +81,11 @@ class DEBUFFS(EsoEnum):
     MINOR_MAGICKASTEAL = Debuff(
         name='Minor Magickasteal',
         id=88401,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_minor_magickasteal.png',
+    )
+    MINOR_MAGICKASTEAL_ELEMENTAL_DRAIN = Debuff(
+        name='Minor Magickasteal',
+        id=39100,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_minor_magickasteal.png',
     )
 
