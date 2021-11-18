@@ -225,7 +225,6 @@ class BUFFS(EsoEnum):
 
     # Minor Force
     # Known IDs:
-    # - 103708
     # - 85611 (Medusa set)
     MINOR_FORCE = Buff(
         name='Minor Force',
@@ -240,6 +239,11 @@ class BUFFS(EsoEnum):
     MINOR_FORCE_LIGHTWEIGHT_BEAST_TRAP = Buff(
         name='Minor Force',
         id=68628,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_minor_force.png',
+    )
+    MINOR_FORCE_CHANNELED_ACCELERATION = Buff(
+        name='Minor Force',
+        id=103708,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_minor_force.png',
     )
     MINOR_FORCE_RACE_AGAINST_TIME = Buff(

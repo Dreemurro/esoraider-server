@@ -162,7 +162,7 @@ class GENERAL_SKILLS(EsoEnum):
     CHANNELED_ACCELERATION = Skill(
         name='Channeled Acceleration',
         id=103706,
-        buffs=[BUFFS.MINOR_FORCE.value],
+        buffs=[BUFFS.MINOR_FORCE_CHANNELED_ACCELERATION.value],
         link='https://eso-hub.com/en/skills/guild/psijic-order/channeled-acceleration',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_psijic_005_a.png',
     )
