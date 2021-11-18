@@ -1,5 +1,9 @@
-from esoraider_server.data.core import EsoEnum
+from esoraider_server.data.core import Buff, EsoEnum
 
 
 class SORCERER_BUFFS(EsoEnum):
-    pass
+    CRITICAL_SURGE = Buff(
+        name='Critical Surge',
+        id=23678,  # Matches skill ID
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_sorcerer_critical_surge.png',
+    )
