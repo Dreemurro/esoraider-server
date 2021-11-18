@@ -56,7 +56,7 @@ class STACKS(EsoEnum):
 
             # Destruction Staff
             DEBUFFS.FROST_REACH.value,
-            # DEBUFFS Shock Reach
+            DEBUFFS.SHOCK_REACH.value,
             DEBUFFS.FLAME_REACH.value,
 
             DRAGONKNIGHT_DEBUFFS.ENGULFING_FLAMES_DAMAGE.value,

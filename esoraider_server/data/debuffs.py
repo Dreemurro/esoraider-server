@@ -175,6 +175,11 @@ class DEBUFFS(EsoEnum):
         id=62712,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_destructionstaff_005_b.png',
     )
+    SHOCK_REACH = Debuff(
+        name='Shock Reach',
+        id=62745,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_destructionstaff_006_b.png',
+    )
     CONSUMING_TRAP = Debuff(
         name='Consuming Trap',
         id=126898,

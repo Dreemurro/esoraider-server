@@ -223,14 +223,17 @@ class GENERAL_SKILLS(EsoEnum):
         debuffs=[DEBUFFS.FROST_REACH.value],
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_destructionstaff_005_b.png',
     )
+    SHOCK_REACH = Skill(
+        name='Shock Reach',
+        id=38978,
+        debuffs=[DEBUFFS.SHOCK_REACH.value],
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_destructionstaff_006_b.png',
+    )
     DESTRUCTIVE_REACH = Skill(
         name='Destructive Reach',
         id=38937,
         link='https://eso-hub.com/en/skills/weapon/destruction-staff/destructive-reach',
-        children=[
-            FLAME_REACH,
-            FROST_REACH,
-        ],
+        children=[FLAME_REACH, FROST_REACH, SHOCK_REACH],
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_destructionstaff_005_b.png',
     )
     CONSUMING_TRAP = Skill(
