@@ -61,6 +61,11 @@ class DEBUFFS(EsoEnum):
         id=86304,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_minor_lifesteal.png',
     )
+    MINOR_LIFESTEAL_QUICK_SIPHON = Debuff(
+        name='Minor Lifesteal',
+        id=88606,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_minor_lifesteal.png',
+    )
 
     # Minor Magickasteal
     # Known IDs:

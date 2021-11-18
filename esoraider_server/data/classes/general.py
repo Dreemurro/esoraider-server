@@ -152,12 +152,13 @@ class GENERAL_SKILLS(EsoEnum):
         link='https://eso-hub.com/en/skills/alliance-war/assault/aggressive-horn',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_ava_003_a.png',
     )
-    # QUICK_SIPHON = Skill(
-    #     name='Quick Siphon',
-    #     id=40116,
-    #     debuffs=[],
-    #     link='https://eso-hub.com/en/skills/weapon/restoration-staff/quick-siphon',
-    # )
+    QUICK_SIPHON = Skill(
+        name='Quick Siphon',
+        id=40116,
+        debuffs=[DEBUFFS.MINOR_LIFESTEAL_QUICK_SIPHON.value],
+        link='https://eso-hub.com/en/skills/weapon/restoration-staff/quick-siphon',
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_restorationstaff_005_b.png',
+    )
     CHANNELED_ACCELERATION = Skill(
         name='Channeled Acceleration',
         id=103706,
