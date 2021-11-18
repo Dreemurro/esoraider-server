@@ -302,6 +302,11 @@ class BUFFS(EsoEnum):
         id=61716,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_major_evasion.png',
     )
+    MAJOR_EVASION_ELUDE = Buff(
+        name='Major Evasion',
+        id=63030,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_major_evasion.png',
+    )
 
     # Major Prophecy
     # Known IDs:
@@ -394,6 +399,11 @@ class BUFFS(EsoEnum):
         name='Mystic Guard',
         id=80947,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_ava_mystic_guard.png',
+    )
+    ELUDE = Buff(
+        name='Elude',
+        id=126958,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_mage_065.png',
     )
 
     #

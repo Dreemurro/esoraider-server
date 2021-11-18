@@ -376,3 +376,10 @@ class GENERAL_SKILLS(EsoEnum):
         link='https://eso-hub.com/en/skills/alliance-war/support/mystic-guard',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_ava_mystic_guard.png',
     )
+    ELUDE = Skill(
+        name='Elude',
+        id=39192,
+        buffs=[BUFFS.ELUDE.value, BUFFS.MAJOR_EVASION_ELUDE.value],
+        link='https://eso-hub.com/en/skills/armor/medium-armor/elude',
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_armor_002_b.png',
+    )
