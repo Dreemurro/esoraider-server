@@ -384,3 +384,10 @@ class GENERAL_SKILLS(EsoEnum):
         link='https://eso-hub.com/en/skills/armor/medium-armor/elude',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_armor_002_b.png',
     )
+    OVERFLOWING_ALTAR = Skill(
+        name='Overflowing Altar',
+        id=41958,
+        debuffs=[DEBUFFS.MINOR_LIFESTEAL_OVERFLOWING_ALTAR.value],
+        link='https://eso-hub.com/en/skills/guild/undaunted/overflowing-altar',
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_undaunted_001_a.png',
+    )

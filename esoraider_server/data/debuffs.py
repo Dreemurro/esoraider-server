@@ -54,8 +54,6 @@ class DEBUFFS(EsoEnum):
     )
 
     # Minor Lifesteal
-    # Known IDs:
-    # - 80020 (Overflowing Altar?)
     MINOR_LIFESTEAL = Debuff(
         name='Minor Lifesteal',
         id=86304,
@@ -64,6 +62,11 @@ class DEBUFFS(EsoEnum):
     MINOR_LIFESTEAL_QUICK_SIPHON = Debuff(
         name='Minor Lifesteal',
         id=88606,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_minor_lifesteal.png',
+    )
+    MINOR_LIFESTEAL_OVERFLOWING_ALTAR = Debuff(
+        name='Minor Lifesteal',
+        id=80020,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_minor_lifesteal.png',
     )
 
