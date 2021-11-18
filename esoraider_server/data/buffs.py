@@ -318,6 +318,11 @@ class BUFFS(EsoEnum):
         id=63030,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_major_evasion.png',
     )
+    MAJOR_EVASION_DEADLY_CLOAK = Buff(
+        name='Major Evasion',
+        id=123653,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_major_evasion.png',
+    )
 
     # Major Prophecy
     # Known IDs:
@@ -415,6 +420,11 @@ class BUFFS(EsoEnum):
         name='Elude',
         id=126958,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_mage_065.png',
+    )
+    DEADLY_CLOAK = Buff(
+        name='Deadly Cloak',
+        id=38906,  # Matches skill ID
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_dualwield_004_b.png',
     )
 
     #
