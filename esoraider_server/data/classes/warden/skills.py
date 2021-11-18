@@ -41,7 +41,7 @@ class WARDEN_SKILLS(EsoEnum):
         name='Growing Swarm',
         id=86031,
         debuffs=[
-            DEBUFFS.MINOR_VULNERABILITY.value,
+            DEBUFFS.MINOR_VULNERABILITY_GROWING_SWARM.value,
             WARDEN_DEBUFFS.GROWING_SWARM.value,
         ],
         link='https://eso-hub.com/en/skills/warden/animal-companions/growing-swarm',
