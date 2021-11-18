@@ -268,3 +268,17 @@ class DEBUFFS(EsoEnum):
         id=17945,
         icon='https://assets.rpglogs.com/img/eso/abilities/ava_artifact_005.png',
     )
+
+    #
+    # From poisons
+    #
+    CREEPING_RAVAGE_HEALTH = Debuff(
+        name='Creeping Ravage Health',
+        id=81275,
+        icon='https://assets.rpglogs.com/img/eso/abilities/death_recap_poison_melee.png',
+    )
+    RAVAGE_HEALTH = Debuff(
+        name='Ravage Health',
+        id=81274,
+        icon='https://assets.rpglogs.com/img/eso/abilities/death_recap_poison_melee.png',
+    )

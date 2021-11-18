@@ -30,6 +30,9 @@ class STACKS(EsoEnum):
             # Enchants
             DEBUFFS.POISONED.value,
             DEBUFFS.BURNING.value,
+            # Poisons
+            DEBUFFS.CREEPING_RAVAGE_HEALTH.value,
+            DEBUFFS.RAVAGE_HEALTH.value,
             # Soul Magic
             DEBUFFS.CONSUMING_TRAP.value,
             # DEBUFFS Soul Splitting Trap
