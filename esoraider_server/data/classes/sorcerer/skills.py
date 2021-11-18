@@ -23,3 +23,15 @@ class SORCERER_SKILLS(EsoEnum):
         link='https://eso-hub.com/en/skills/sorcerer/storm-calling/critical-surge',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_sorcerer_critical_surge.png',
     )
+    LIGHTNING_FLOOD_DAMAGE = Skill(
+        name='Lightning Flood',
+        id=23208,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_sorcerer_lightning_flood.png',
+    )
+    LIGHTNING_FLOOD = Skill(
+        name='Lightning Flood',
+        id=23205,
+        children=[LIGHTNING_FLOOD_DAMAGE],
+        link='https://eso-hub.com/en/skills/sorcerer/storm-calling/lightning-flood',
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_sorcerer_lightning_flood.png',
+    )
