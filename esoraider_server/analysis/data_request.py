@@ -10,7 +10,7 @@ from esoraider_server.analysis.tracked_info import TrackedInfo
 from esoraider_server.data.core import Stack
 from esoraider_server.data.passives import Passives
 from esoraider_server.esologs.api import ApiWrapper
-from esoraider_server.esologs.consts import HostilityType
+from esoraider_server.esologs.consts import DataType, HostilityType
 from esoraider_server.esologs.responses.report_data.casts import CastsTableData
 from esoraider_server.esologs.responses.report_data.effects import (
     Aura,
@@ -86,7 +86,7 @@ class DataRequest(object):
         self.buffs_table = await self._api.query_table(
             log=self._log,
             fight_id=self._fight_id,
-            data_type='Buffs',
+            data_type=DataType.BUFFS,
             start_time=self._start_time,
             end_time=self._end_time,
             source_id=self._char_id,
@@ -108,10 +108,10 @@ class DataRequest(object):
         self.debuffs_table = await self._api.query_table(
             log=self._log,
             fight_id=self._fight_id,
-            data_type='Debuffs',
+            data_type=DataType.DEBUFFS,
             start_time=self._start_time,
             end_time=self._end_time,
-            hostility_type='Enemies',
+            hostility_type=HostilityType.ENEMIES,
             target_id=self._char_id,
             filter_exp=self._generate_filter(debuff_ids, self._target),
         )
@@ -136,7 +136,7 @@ class DataRequest(object):
         self.damage_done_table = await self._api.query_table(
             log=self._log,
             fight_id=self._fight_id,
-            data_type='DamageDone',
+            data_type=DataType.DAMAGE_DONE,
             start_time=self._start_time,
             end_time=self._end_time,
             source_id=self._char_id,
@@ -178,7 +178,9 @@ class DataRequest(object):
     ) -> Dict[str, DSLField]:
         stacks_dict = {}
         for stack in stacks:
-            hostility = HostilityType.ENEMIES if stack.type_ == 'Debuff' else None
+            hostility = HostilityType.FRIENDLIES
+            if stack.type_ == DataType.DEBUFFS:
+                hostility = HostilityType.ENEMIES
             stacks_dict.update(
                 await self._api.partial_query_graph(
                     char_id=self._char_id,
@@ -186,7 +188,7 @@ class DataRequest(object):
                     start_time=self._start_time,
                     end_time=self._end_time,
                     ability_id=stack.id,
-                    hostility_type=hostility or HostilityType.FRIENDLIES,
+                    hostility_type=hostility,
                 ),
             )
         return stacks_dict
@@ -221,7 +223,7 @@ class DataRequest(object):
         buffs = await self._api.query_table(
             log=self._log,
             fight_id=self._fight_id,
-            data_type='Buffs',
+            data_type=DataType.BUFFS,
             start_time=self._start_time,
             end_time=self._end_time,
             source_id=self._char_id,

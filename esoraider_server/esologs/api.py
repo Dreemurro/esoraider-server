@@ -223,8 +223,8 @@ class ApiWrapper:
         self,
         log: str,
         fight_id: int,
-        data_type: str = 'Summary',
-        hostility_type: str = 'Friendlies',
+        data_type: DataType = DataType.SUMMARY,
+        hostility_type: HostilityType = HostilityType.FRIENDLIES,
         start_time: int = None,
         end_time: int = None,
         source_id: int = None,
@@ -251,8 +251,8 @@ class ApiWrapper:
         table = self.ds.Report.table(
             startTime=start_time,
             endTime=end_time,
-            dataType=data_type,
-            hostilityType=hostility_type,
+            dataType=data_type.value,
+            hostilityType=hostility_type.value,
             sourceID=source_id,
             targetID=target_id,
             filterExpression=filter_exp,
@@ -266,11 +266,11 @@ class ApiWrapper:
         )
 
         types = {
-            'Summary': SummaryTableData,
-            'DamageDone': CastsTableData,
-            'Casts': CastsTableData,
-            'Buffs': EffectsTableData,
-            'Debuffs': EffectsTableData,
+            DataType.SUMMARY: SummaryTableData,
+            DataType.DAMAGE_DONE: CastsTableData,
+            DataType.CASTS: CastsTableData,
+            DataType.BUFFS: EffectsTableData,
+            DataType.DEBUFFS: EffectsTableData,
         }
         table_data = types[data_type]
 
@@ -304,7 +304,7 @@ class ApiWrapper:
         table = self.ds.Report.table(
             startTime=start_time,
             endTime=end_time,
-            dataType='Summary',
+            dataType=DataType.SUMMARY.value,
             sourceID=char_id,
         )
         report_fields = report.select(table).select(fights)
@@ -324,7 +324,7 @@ class ApiWrapper:
         char_id: int,
         start_time: int,
         end_time: int,
-        data_type: str = 'CombatantInfo',
+        data_type: DataType = DataType.COMBATANT_INFO,
     ) -> List[Event]:
         logger.info('Requesting events')
         logger.info('Log = {0}'.format(log))
@@ -346,7 +346,7 @@ class ApiWrapper:
             startTime=start_time - 1000,
             endTime=end_time,
             sourceID=char_id,
-            dataType=data_type,
+            dataType=data_type.value,
         ).select(self.ds.ReportEventPaginator.data)
 
         report_fields = report.select(events)

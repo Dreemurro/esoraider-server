@@ -121,6 +121,7 @@ class DataType(Enum):
     BUFFS = 'Buffs'
     DEBUFFS = 'Debuffs'
     RESOURCES = 'Resources'
+    COMBATANT_INFO = 'CombatantInfo'
 
 
 @unique
