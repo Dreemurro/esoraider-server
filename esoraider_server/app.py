@@ -89,7 +89,7 @@ async def get_char(
 # WIP, check `encounters.py`
 @app.route('/encounter/<int:encounter>')
 async def get_encounter(encounter, api: ApiWrapper):
-    response = await api.query_name(encounter)
+    response = await api.query_encounter_info(encounter)
 
     if response:
         return response.to_json()

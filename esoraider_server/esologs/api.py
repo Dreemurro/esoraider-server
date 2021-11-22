@@ -26,7 +26,7 @@ def _decode_id(id_: str) -> int:
 
 
 class ApiWrapper(ApiWrapperBase):
-    async def query_name(self, encounter_id: int) -> Encounter:
+    async def query_encounter_info(self, encounter_id: int) -> Encounter:
         logger.info('Requesting info on encounter = {0}'.format(encounter_id))
         query = self.ds.Query.worldData
 
