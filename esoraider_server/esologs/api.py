@@ -1,4 +1,4 @@
-from typing import Dict, List, Optional, Union
+from typing import Dict, List, Optional
 
 from gql.dsl import DSLField, DSLQuery, dsl_gql  # type: ignore
 from loguru import logger
@@ -6,17 +6,13 @@ from loguru import logger
 from esoraider_server.esologs.base import ApiWrapperBase
 from esoraider_server.esologs.consts import DataType, HostilityType
 from esoraider_server.esologs.responses.base import BaseResponseData
-from esoraider_server.esologs.responses.report_data.casts import CastsTableData
-from esoraider_server.esologs.responses.report_data.effects import (
-    EffectsTableData,
-)
 from esoraider_server.esologs.responses.report_data.graph import (
     Event,
     GraphData,
 )
-from esoraider_server.esologs.responses.report_data.report import Report
-from esoraider_server.esologs.responses.report_data.summary import (
-    SummaryTableData,
+from esoraider_server.esologs.responses.report_data.report import (
+    Report,
+    TableData,
 )
 from esoraider_server.esologs.responses.world_data.encounter import Encounter
 
@@ -102,7 +98,7 @@ class ApiWrapper(ApiWrapperBase):
         source_id: int = None,
         target_id: int = None,
         filter_exp: str = None,
-    ) -> Union[SummaryTableData, CastsTableData, EffectsTableData]:
+    ) -> TableData:
         logger.info('Requesting reportData')
         logger.info('Log = {0}'.format(log))
         logger.info('Fight ID = {0}'.format(fight_id))
@@ -137,16 +133,7 @@ class ApiWrapper(ApiWrapperBase):
             await self.execute(dsl_gql(DSLQuery(query))),
         )
 
-        types = {
-            DataType.SUMMARY: SummaryTableData,
-            DataType.DAMAGE_DONE: CastsTableData,
-            DataType.CASTS: CastsTableData,
-            DataType.BUFFS: EffectsTableData,
-            DataType.DEBUFFS: EffectsTableData,
-        }
-        table_data = types[data_type]
-
-        return table_data.from_dict(response.report_data.report.table.data)
+        return response.report_data.report.table
 
     async def query_char_table(
         self,
@@ -185,10 +172,9 @@ class ApiWrapper(ApiWrapperBase):
 
         response = BaseResponseData.from_dict(
             await self.execute(dsl_gql(DSLQuery(query))),
-        ).report_data.report
-        response.table.data = SummaryTableData.from_dict(response.table.data)
+        )
 
-        return response
+        return response.report_data.report
 
     async def query_events(
         self,
@@ -231,7 +217,7 @@ class ApiWrapper(ApiWrapperBase):
 
         return [
             Event.from_dict(event)
-            for event in response.report_data.report.events.data
+            for event in response.report_data.report.events
         ]
 
     async def query_graph(

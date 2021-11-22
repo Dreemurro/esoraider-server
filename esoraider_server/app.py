@@ -72,7 +72,7 @@ async def get_char(
         log=log,
         fight_id=fight,
         char_id=char,
-        summary_table=response.table.data,
+        summary_table=response.table,
         start_time=start_time,
         end_time=end_time,
         encounter_info=response.fights[0],
