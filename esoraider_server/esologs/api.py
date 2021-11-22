@@ -1,4 +1,4 @@
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Tuple
 
 from gql.dsl import DSLField, DSLQuery, dsl_gql  # type: ignore
 from loguru import logger
@@ -71,10 +71,13 @@ class ApiWrapper(ApiWrapperBase):
         query.select(report_fields)
         return await self.execute(dsl_gql(DSLQuery(query)))
 
-    async def query_fight_times(self, log: str, fight_id: int):
-        logger.info('Requesting fight times of log = {0}, fight = {1}'.format(
-            log, fight_id,
-        ))
+    async def query_fight_times(
+        self, log: str, fight_id: int,
+    ) -> Tuple[int, int]:
+        logger.info('Requesting fight times')
+        logger.info('Log = {0}'.format(log))
+        logger.info('Fight ID = {0}'.format(fight_id))
+
         query = self.ds.Query.reportData
         report = self.ds.ReportData.report(code=log)
         fight = self.ds.Report.fights(fightIDs=fight_id)
@@ -85,7 +88,10 @@ class ApiWrapper(ApiWrapperBase):
         report_fields = report.select(fight_fields)
 
         query.select(report_fields)
-        return await self.execute(dsl_gql(DSLQuery(query)))
+
+        response = await self.execute(dsl_gql(DSLQuery(query)))
+        response = response.get('reportData').get('report').get('fights')[0]
+        return response.get('startTime'), response.get('endTime')
 
     async def query_table(
         self,
@@ -110,8 +116,8 @@ class ApiWrapper(ApiWrapperBase):
         logger.info('Target ID = {0}'.format(target_id))
         logger.info('Filter = {0}'.format(filter_exp))
 
-        if (start_time is None) and (end_time is None):
-            start_time, end_time = await self._get_fight_times(log, fight_id)
+        if not start_time or not end_time:
+            start_time, end_time = await self.query_fight_times(log, fight_id)
 
         query = self.ds.Query.reportData
 
@@ -150,8 +156,8 @@ class ApiWrapper(ApiWrapperBase):
         logger.info('Start Time = {0}'.format(start_time))
         logger.info('End Time = {0}'.format(end_time))
 
-        if (start_time is None) and (end_time is None):
-            start_time, end_time = await self._get_fight_times(log, fight_id)
+        if not start_time or not end_time:
+            start_time, end_time = await self.query_fight_times(log, fight_id)
 
         query = self.ds.Query.reportData
 
@@ -242,8 +248,8 @@ class ApiWrapper(ApiWrapperBase):
         logger.info('Ability ID = {0}'.format(ability_id))
         logger.info('Hostility Type = {0}'.format(hostility_type))
 
-        if (start_time is None) and (end_time is None):
-            start_time, end_time = await self._get_fight_times(log, fight_id)
+        if not start_time or not end_time:
+            start_time, end_time = await self.query_fight_times(log, fight_id)
 
         query = self.ds.Query.reportData
 
@@ -304,8 +310,3 @@ class ApiWrapper(ApiWrapperBase):
                 targetID=target_id,
             ),
         }
-
-    async def _get_fight_times(self, log: str, fight_id: int):
-        response = await self.query_fight_times(log, fight_id)
-        response = response.get('reportData').get('report').get('fights')[0]
-        return response.get('startTime'), response.get('endTime')
