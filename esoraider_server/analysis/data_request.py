@@ -53,12 +53,13 @@ class DataRequest(object):
 
     async def execute(self):
         """Query generation and execution."""
-        buffs = asyncio.create_task(self._request_buffs())
-        debuffs = asyncio.create_task(self._request_debuffs())
-        damage_done = asyncio.create_task(self._request_damage_done())
-        graphs = asyncio.create_task(self._request_graphs())
-        passives = asyncio.create_task(self._request_passives())
-        await asyncio.gather(buffs, debuffs, damage_done, graphs, passives)
+        await asyncio.gather(
+            asyncio.create_task(self._request_buffs()),
+            asyncio.create_task(self._request_debuffs()),
+            asyncio.create_task(self._request_damage_done()),
+            asyncio.create_task(self._request_graphs()),
+            asyncio.create_task(self._request_passives()),
+        )
         self.total_time = (
             self.buffs_table.total_time
             or self.debuffs_table.total_time
