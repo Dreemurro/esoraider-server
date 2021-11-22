@@ -17,6 +17,14 @@ from esoraider_server.esologs.responses.report_data.report import (
 from esoraider_server.esologs.responses.world_data.encounter import Encounter
 
 
+def _encode_id(id_: int) -> str:
+    return 'id_{0}'.format(id_)
+
+
+def _decode_id(id_: str) -> int:
+    return int(id_.split('_')[1])
+
+
 class ApiWrapper(ApiWrapperBase):
     async def query_name(self, encounter_id: int) -> Encounter:
         logger.info('Requesting info on encounter = {0}'.format(encounter_id))
@@ -275,7 +283,7 @@ class ApiWrapper(ApiWrapperBase):
         response = response.get('report')
 
         return {
-            int(id_.split('_')[1]): GraphData.from_dict(graph.get('data'))
+            _decode_id(id_): GraphData.from_dict(graph.get('data'))
             for id_, graph in response.items()
         }
 
@@ -300,7 +308,7 @@ class ApiWrapper(ApiWrapperBase):
         target_id = char_id if hostility_type == HostilityType.ENEMIES else None
 
         return {
-            'id_{0}'.format(ability_id): self.ds.Report.graph(
+            _encode_id(ability_id): self.ds.Report.graph(
                 startTime=start_time,
                 endTime=end_time,
                 abilityID=ability_id,
