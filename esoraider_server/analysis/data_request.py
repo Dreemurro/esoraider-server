@@ -27,9 +27,9 @@ class DataRequest(object):
         api: ApiWrapper,
         log: str,
         fight_id: int,
-        start_time: int,
-        end_time: int,
         tracked_info: TrackedInfo,
+        start_time: int = 0,
+        end_time: int = 0,
         char_id: Optional[int] = None,
         target: Optional[Sequence[int]] = None,
     ) -> None:
@@ -44,7 +44,7 @@ class DataRequest(object):
 
         self._tracked_info = tracked_info
 
-        self.total_time: Optional[int] = None
+        self.total_time = self._end_time - self._start_time
         self.buffs_table: Optional[EffectsTableData] = None
         self.debuffs_table: Optional[EffectsTableData] = None
         self.damage_done_table: Optional[CastsTableData] = None
@@ -53,17 +53,20 @@ class DataRequest(object):
 
     async def execute(self):
         """Query generation and execution."""
+        if not self._start_time or not self._end_time:
+            start, end = await self._api.query_fight_times(
+                self._log, self._fight_id,
+            )
+            self._start_time = start
+            self._end_time = end
+            self.total_time = self._end_time - self._start_time
+
         await asyncio.gather(
             asyncio.create_task(self._request_buffs()),
             asyncio.create_task(self._request_debuffs()),
             asyncio.create_task(self._request_damage_done()),
             asyncio.create_task(self._request_graphs()),
             asyncio.create_task(self._request_passives()),
-        )
-        self.total_time = (
-            self.buffs_table.total_time
-            or self.debuffs_table.total_time
-            or self.damage_done_table.total_time
         )
 
     def _generate_filter(
