@@ -5,7 +5,11 @@ from blacksheep.server import Application
 from blacksheep.server.responses import bad_request, json, not_found
 from gql.transport.exceptions import TransportQueryError  # type: ignore
 
-from esoraider_server.analysis.report_builder import ReportBuilder
+from esoraider_server.analysis.report_builder import (
+    OutsideOfCombatException,
+    ReportBuilder,
+    WrongCharException,
+)
 from esoraider_server.analysis.tracked_info import (
     NothingToTrackException,
     SkillsNotFoundException,
@@ -81,7 +85,12 @@ async def get_char(
 
     try:
         return json(await report.build())
-    except (SkillsNotFoundException, NothingToTrackException) as ex:
+    except (
+        SkillsNotFoundException,
+        NothingToTrackException,
+        WrongCharException,
+        OutsideOfCombatException,
+    ) as ex:
         return bad_request(str(ex))
 
 

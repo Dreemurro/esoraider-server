@@ -19,6 +19,18 @@ from esoraider_server.esologs.responses.report_data.summary import (
 )
 
 
+class WrongCharException(Exception):
+    def __init__(self):
+        message = 'Wrong char selected'
+        super().__init__(message)
+
+
+class OutsideOfCombatException(Exception):
+    def __init__(self):
+        message = 'This char was outside of combat'
+        super().__init__(message)
+
+
 class ReportBuilder(object):
     """Performance analysis report builder."""
 
@@ -62,6 +74,8 @@ class ReportBuilder(object):
 
     async def build(self) -> Dict:
         """Execute report building steps."""
+        self._check()
+
         if self.char_id:
             self._get_char_info()
 
@@ -113,6 +127,18 @@ class ReportBuilder(object):
         self._build_report()
 
         return self.report
+
+    def _check(self):
+        if not self._summary_table.combatant_info:
+            raise WrongCharException
+        is_outside_of_combat = (
+            not self._summary_table.damage_done
+            and not self._summary_table.healing_done
+            and not self._summary_table.damage_taken
+            and not self._summary_table.death_events
+        )
+        if is_outside_of_combat:
+            raise OutsideOfCombatException
 
     def _get_char_info(self):
         logger.info('Getting char class and spec')
