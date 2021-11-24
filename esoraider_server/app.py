@@ -115,9 +115,9 @@ async def get_encounter(encounter, api: ApiWrapper):
 async def get_fight_effects(
     log: str,
     fight: int,
-    start_time: int,
-    end_time: int,
     api: ApiWrapper,
+    start_time: Optional[int] = None,
+    end_time: Optional[int] = None,
 ):
     report = ReportBuilder(
         api=api,

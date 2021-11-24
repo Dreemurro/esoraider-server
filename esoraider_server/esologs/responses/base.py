@@ -10,12 +10,12 @@ from esoraider_server.esologs.responses.world_data.encounter import Encounter
 
 @dataclass
 class ReportData(EsoLogsDataClass):
-    report: Optional[Report] = None
+    report: Report
 
 
 @dataclass
 class WorldData(EsoLogsDataClass):
-    encounter: Optional[Encounter] = None
+    encounter: Encounter
 
 
 @dataclass

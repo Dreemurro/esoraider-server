@@ -50,8 +50,8 @@ class ReportBuilder(object):
 
         self.log = log
         self.fight_id = fight_id
-        self.start_time = start_time
-        self.end_time = end_time
+        self.start_time = start_time or 0
+        self.end_time = end_time or 0
 
         self._summary_table = summary_table
         self._encounter_info = encounter_info

@@ -32,7 +32,9 @@ def _decode_id(id_: str) -> int:
 
 
 class ApiWrapper(ApiWrapperBase):
-    async def query_encounter_info(self, encounter_id: int) -> Encounter:
+    async def query_encounter_info(
+        self, encounter_id: int,
+    ) -> Optional[Encounter]:
         logger.info('Requesting info on encounter = {0}'.format(encounter_id))
         query = self.ds.Query.worldData
 
@@ -52,9 +54,14 @@ class ApiWrapper(ApiWrapperBase):
 
         query.select(encounter_fields)
 
-        return BaseResponseData.from_dict(
+        response = BaseResponseData.from_dict(
             await self.execute(dsl_gql(DSLQuery(query))),
-        ).world_data.encounter
+        )
+
+        if not response.world_data:
+            raise ValueError('WorldData is empty')
+
+        return response.world_data.encounter
 
     async def query_log(self, log: str):
         logger.info('Requesting log {0}'.format(log))
@@ -113,11 +120,11 @@ class ApiWrapper(ApiWrapperBase):
         fight_id: int,
         data_type: DataType = DataType.SUMMARY,
         hostility_type: HostilityType = HostilityType.FRIENDLIES,
-        start_time: int = None,
-        end_time: int = None,
-        source_id: int = None,
-        target_id: int = None,
-        filter_exp: str = None,
+        start_time: Optional[int] = None,
+        end_time: Optional[int] = None,
+        source_id: Optional[int] = None,
+        target_id: Optional[int] = None,
+        filter_exp: Optional[str] = None,
     ) -> TableData:
         logger.info('Requesting reportData')
         logger.info('Log = {0}'.format(log))
@@ -155,6 +162,11 @@ class ApiWrapper(ApiWrapperBase):
             await self.execute(dsl_gql(DSLQuery(query))),
         )
 
+        if not response.report_data:
+            raise ValueError('ReportData is empty')
+        if not response.report_data.report.table:
+            raise ValueError('Table is empty')
+
         return response.report_data.report.table
 
     async def query_char_table(
@@ -162,8 +174,8 @@ class ApiWrapper(ApiWrapperBase):
         log: str,
         fight_id: int,
         char_id: int,
-        start_time: int = None,
-        end_time: int = None,
+        start_time: Optional[int] = None,
+        end_time: Optional[int] = None,
     ) -> Report:
         logger.info('Requesting char summary table')
         logger.info('Log = {0}'.format(log))
@@ -197,6 +209,9 @@ class ApiWrapper(ApiWrapperBase):
         response = BaseResponseData.from_dict(
             await self.execute(dsl_gql(DSLQuery(query))),
         )
+
+        if not response.report_data:
+            raise ValueError('ReportData is empty')
 
         return response.report_data.report
 
@@ -239,10 +254,12 @@ class ApiWrapper(ApiWrapperBase):
             await self.execute(dsl_gql(DSLQuery(query))),
         )
 
-        return [
-            Event.from_dict(event)
-            for event in response.report_data.report.events
-        ]
+        if not response.report_data:
+            raise ValueError('ReportData is empty')
+        if not response.report_data.report.events:
+            raise ValueError('No events found')
+
+        return response.report_data.report.events
 
     async def query_graph(
         self,

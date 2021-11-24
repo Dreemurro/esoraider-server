@@ -34,5 +34,6 @@ class Gear(EsoLogsDataClass):
 
     slot: Optional[GearSlot] = None
     name: Optional[str] = None
-    type: Union[GearType, WeaponType, PoisonType, None] = None
+    # int is only needed for initial decoding, it will be replaced later
+    type: Union[GearType, WeaponType, PoisonType, int, None] = None
     set_name: Optional[str] = None

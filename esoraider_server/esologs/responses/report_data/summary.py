@@ -21,7 +21,7 @@ def gear_decoder(raw_gear_list: List[Dict]) -> List[Gear]:
     for gear in raw_gear_list:
         new_gear = Gear.from_dict(gear)
 
-        if not new_gear.type:
+        if not new_gear.type or not new_gear.slot:
             gear_list.append(new_gear)
             continue
 
@@ -52,9 +52,9 @@ class CombatantInfo(EsoLogsDataClass):
         return [t.guid for t in self.talents]
 
 
-def skip_empty_list(item: Union[List, Dict]) -> CombatantInfo:
+def skip_empty_list(item: Union[List, Dict]) -> Optional[CombatantInfo]:
     if isinstance(item, list):
-        return {}
+        return None
     if isinstance(item, dict):
         return CombatantInfo.from_dict(item)
 
@@ -66,10 +66,6 @@ class PlayerDetails(EsoLogsDataClass):
     guid: int
     type: CharClass
     icon: str
-    combatant_info: CombatantInfo = field(metadata=config(
-        # Skip CombatantInfo parsing if log is broken
-        decoder=skip_empty_list,
-    ))
 
     server: Optional[str] = None
     display_name: Optional[str] = None
@@ -77,6 +73,12 @@ class PlayerDetails(EsoLogsDataClass):
     min_item_level: Optional[int] = None
     max_item_level: Optional[int] = None
     specs: Optional[List[str]] = None
+    combatant_info: Optional[CombatantInfo] = field(
+        default=None,
+        metadata=config(
+            # Skip CombatantInfo parsing if log is broken
+            decoder=skip_empty_list,
+        ))
 
 
 @dataclass
@@ -122,7 +124,7 @@ class DeathEvent(EsoLogsDataClass):
 class DoneByChar(EsoLogsDataClass):
     name: str
     guid: int
-    type: str
+    type: Union[int, str]  # str - for summary table, int - for char table
     total: int
 
     id: Optional[int] = None

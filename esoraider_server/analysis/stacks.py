@@ -19,7 +19,9 @@ def _pairwise(iterable):
     return zip(cur, nxt)
 
 
-def _convert_to_interval(bands: List[Band]) -> Interval:
+def _convert_to_interval(bands: Optional[List[Band]] = None) -> Interval:
+    if not bands:
+        return closed()
     return Interval(*[
         closed(band.start_time, band.end_time)
         for band in bands
@@ -73,6 +75,9 @@ class Stacks(object):
         return self._calculate_stacks_uptimes(intervals)
 
     def _calculate_uptime_from_effects(self, stack: Stack) -> Dict[int, float]:
+        char_effects = []
+        effects_ids = []
+
         if stack.buffs:
             char_effects = self._char_buffs
             effects_ids = [buff.id for buff in stack.buffs]
@@ -95,7 +100,11 @@ class Stacks(object):
 
         effects = [eff for eff in char_effects if eff.guid in effects_ids]
 
-        ordered = sorted(effects, key=lambda ef: ef.total_uptime, reverse=True)
+        ordered = sorted(
+            effects,
+            key=lambda ef: ef.total_uptime or 0,
+            reverse=True,
+        )
 
         return self._calculate_complex_stacks_uptimes(
             _convert_to_interval(main_effect.bands),
