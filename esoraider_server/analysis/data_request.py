@@ -237,8 +237,8 @@ class DataRequest(object):
         )
 
         self.passives.extend(
-            [aura for event in events for aura in event.auras]
+            [aura for event in events for aura in event.auras],
         )
-        self.passives.extend([aura for aura in buffs.auras])
+        self.passives.extend(list(buffs.auras))
 
         logger.info('Got {0} passives'.format(len(self.passives)))

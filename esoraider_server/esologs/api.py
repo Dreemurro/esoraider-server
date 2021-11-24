@@ -336,8 +336,12 @@ class ApiWrapper(ApiWrapperBase):
         logger.info('Ability ID = {0}'.format(ability_id))
         logger.info('Hostility Type = {0}'.format(hostility_type))
 
-        source_id = char_id if hostility_type == HostilityType.FRIENDLIES else None
-        target_id = char_id if hostility_type == HostilityType.ENEMIES else None
+        source_id = None
+        target_id = None
+        if hostility_type == HostilityType.FRIENDLIES:
+            source_id = char_id
+        elif hostility_type == HostilityType.ENEMIES:
+            target_id = char_id
 
         return {
             _encode_id(ability_id): self.ds.Report.graph(

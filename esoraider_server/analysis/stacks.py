@@ -93,10 +93,10 @@ class Stacks(object):
             )
         except StopIteration:
             logger.error(
-                "Effect of '{0}' was not found. It's probably because of an "
-                "incomplete set".format(stack.name),
+                "Effect of '{0}' was not found. ".format(stack.name) +
+                "It's probably because of an incomplete set",
             )
-            return {0: 0.0}
+            return {0: float(0)}
 
         effects = [eff for eff in char_effects if eff.guid in effects_ids]
 
