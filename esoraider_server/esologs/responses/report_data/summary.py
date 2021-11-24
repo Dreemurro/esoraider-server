@@ -65,15 +65,15 @@ class PlayerDetails(EsoLogsDataClass):
     id: int
     guid: int
     type: CharClass
-    server: str
-    display_name: str
-    anonymous: bool
     icon: str
     combatant_info: CombatantInfo = field(metadata=config(
         # Skip CombatantInfo parsing if log is broken
         decoder=skip_empty_list,
     ))
 
+    server: Optional[str] = None
+    display_name: Optional[str] = None
+    anonymous: Optional[bool] = None
     min_item_level: Optional[int] = None
     max_item_level: Optional[int] = None
     specs: Optional[List[str]] = None
