@@ -74,9 +74,8 @@ class ReportBuilder(object):
 
     async def build(self) -> Dict:
         """Execute report building steps."""
-        self._check()
-
         if self.char_id:
+            self._check()
             self._get_char_info()
 
         self._tracked_info = TrackedInfo(
