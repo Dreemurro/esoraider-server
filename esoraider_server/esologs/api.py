@@ -237,33 +237,32 @@ class ApiWrapper(ApiWrapperBase):
     async def query_graph(
         self,
         log: str,
-        char_id: int,
-        ability_id: int = None,
-        fight_id: int = None,
-        start_time: int = None,
-        end_time: int = None,
+        char_id: Optional[int] = None,
+        ability_id: Optional[int] = None,
+        fight_id: Optional[int] = None,
+        start_time: Optional[int] = None,
+        end_time: Optional[int] = None,
         data_type: DataType = DataType.BUFFS,
         hostility_type: HostilityType = HostilityType.FRIENDLIES,
-        graphs: Dict[str, DSLField] = None,
+        graphs: Optional[Dict[str, DSLField]] = None,
     ) -> Dict[int, GraphData]:
-        logger.info('Requesting graph')
+        if graphs:
+            logger.info('Requesting multiple graphs')
+        else:
+            logger.info('Requesting graph')
         logger.info('Log = {0}'.format(log))
-        logger.info('Fight ID = {0}'.format(fight_id))
-        logger.info('Char ID = {0}'.format(char_id))
-        logger.info('Start Time = {0}'.format(start_time))
-        logger.info('End Time = {0}'.format(end_time))
-        logger.info('Data Type = {0}'.format(data_type))
-        logger.info('Ability ID = {0}'.format(ability_id))
-        logger.info('Hostility Type = {0}'.format(hostility_type))
-
-        if not start_time or not end_time:
-            start_time, end_time = await self.query_fight_times(log, fight_id)
 
         query = self.ds.Query.reportData
 
         report = self.ds.ReportData.report(code=log)
 
-        if ability_id and not graphs:
+        if graphs:
+            report_fields = report.select(**graphs)
+        elif ability_id and char_id and fight_id:
+            if not start_time or not end_time:
+                start_time, end_time = await self.query_fight_times(
+                    log, fight_id,
+                )
             graph = await self.partial_query_graph(
                 data_type=data_type,
                 ability_id=ability_id,
@@ -273,8 +272,11 @@ class ApiWrapper(ApiWrapperBase):
                 char_id=char_id,
             )
             report_fields = report.select(**graph)
-        elif graphs:
-            report_fields = report.select(**graphs)
+        else:
+            raise TypeError(
+                'Either graphs or fight_id & char_id & ability_id ' +
+                'must be provided',
+            )
 
         query.select(report_fields)
 
