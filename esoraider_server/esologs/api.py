@@ -17,6 +17,12 @@ from esoraider_server.esologs.responses.report_data.report import (
 from esoraider_server.esologs.responses.world_data.encounter import Encounter
 
 
+class ZeroLengthFightException(Exception):
+    def __init__(self):
+        message = "This fight's duration is zero"
+        super().__init__(message)
+
+
 def _encode_id(id_: int) -> str:
     return 'id_{0}'.format(id_)
 
@@ -126,6 +132,8 @@ class ApiWrapper(ApiWrapperBase):
 
         if not start_time or not end_time:
             start_time, end_time = await self.query_fight_times(log, fight_id)
+        if start_time == end_time:
+            raise ZeroLengthFightException
 
         query = self.ds.Query.reportData
 
@@ -166,6 +174,8 @@ class ApiWrapper(ApiWrapperBase):
 
         if not start_time or not end_time:
             start_time, end_time = await self.query_fight_times(log, fight_id)
+        if start_time == end_time:
+            raise ZeroLengthFightException
 
         query = self.ds.Query.reportData
 
@@ -263,6 +273,9 @@ class ApiWrapper(ApiWrapperBase):
                 start_time, end_time = await self.query_fight_times(
                     log, fight_id,
                 )
+            if start_time == end_time:
+                raise ZeroLengthFightException
+
             graph = await self.partial_query_graph(
                 data_type=data_type,
                 ability_id=ability_id,

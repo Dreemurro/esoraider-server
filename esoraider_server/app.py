@@ -14,7 +14,7 @@ from esoraider_server.analysis.tracked_info import (
     NothingToTrackException,
     SkillsNotFoundException,
 )
-from esoraider_server.esologs.api import ApiWrapper
+from esoraider_server.esologs.api import ApiWrapper, ZeroLengthFightException
 from esoraider_server.settings import DEBUG, SHOW_ERROR_DETAILS
 
 app = Application(show_error_details=SHOW_ERROR_DETAILS, debug=DEBUG)
@@ -43,12 +43,15 @@ async def get_fight(
     start_time: Optional[int] = None,
     end_time: Optional[int] = None,
 ):
-    response = await api.query_table(
-        log=log,
-        fight_id=fight,
-        start_time=start_time,
-        end_time=end_time,
-    )
+    try:
+        response = await api.query_table(
+            log=log,
+            fight_id=fight,
+            start_time=start_time,
+            end_time=end_time,
+        )
+    except ZeroLengthFightException as ex:
+        return bad_request(str(ex))
 
     return response.to_json()
 
@@ -63,13 +66,16 @@ async def get_char(
     end_time: Optional[int] = None,
     target: Optional[Tuple[int]] = None,
 ):
-    response = await api.query_char_table(
-        log=log,
-        fight_id=fight,
-        char_id=char,
-        start_time=start_time,
-        end_time=end_time,
-    )
+    try:
+        response = await api.query_char_table(
+            log=log,
+            fight_id=fight,
+            char_id=char,
+            start_time=start_time,
+            end_time=end_time,
+        )
+    except ZeroLengthFightException as ex:
+        return bad_request(str(ex))
 
     report = ReportBuilder(
         api=api,
@@ -120,8 +126,10 @@ async def get_fight_effects(
         start_time=start_time,
         end_time=end_time,
     )
-
-    return json(await report.build())
+    try:
+        return json(await report.build())
+    except ZeroLengthFightException as ex:
+        return bad_request(str(ex))
 
 
 async def connect_api(app: Application) -> None:
