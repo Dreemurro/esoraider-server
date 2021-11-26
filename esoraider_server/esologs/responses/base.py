@@ -15,7 +15,7 @@ class ReportData(EsoLogsDataClass):
 
 @dataclass
 class WorldData(EsoLogsDataClass):
-    encounter: Encounter
+    encounter: Optional[Encounter] = None
 
 
 @dataclass
