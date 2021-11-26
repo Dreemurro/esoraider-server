@@ -7,3 +7,8 @@ class NIGHTBLADE_DEBUFFS(EsoEnum):
         id=36947,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_nightblade_006_a.png',
     )
+    CRIPPLING_GRASP = Debuff(
+        name='Crippling Grasp',
+        id=36960,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_nightblade_006_b.png',
+    )

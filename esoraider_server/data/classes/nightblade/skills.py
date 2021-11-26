@@ -52,4 +52,11 @@ class NIGHTBLADE_SKILLS(EsoEnum):
         link='https://eso-hub.com/en/skills/nightblade/siphoning/debilitate',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_nightblade_006_a.png',
     )
+    CRIPPLING_GRASP = Skill(
+        name='Crippling Grasp',
+        id=36957,  # + upfront damage with ID = 369663
+        debuffs=[NIGHTBLADE_DEBUFFS.CRIPPLING_GRASP.value],
+        link='https://eso-hub.com/en/skills/nightblade/siphoning/crippling-grasp',
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_nightblade_006_b.png',
+    )
     # DARK_SHADE = Skill()  # Pet handling is needed
