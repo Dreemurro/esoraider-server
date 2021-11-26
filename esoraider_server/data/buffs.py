@@ -96,6 +96,11 @@ class BUFFS(EsoEnum):
         id=62168,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_major_resolve.png',
     )
+    MAJOR_RESOLVE_BOUNDLESS_STORM = Buff(
+        name='Major Resolve',
+        id=62175,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_major_resolve.png',
+    )
 
     # Minor Resolve
     MINOR_RESOLVE = Buff(

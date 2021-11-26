@@ -46,6 +46,22 @@ class SORCERER_SKILLS(EsoEnum):
         link='https://eso-hub.com/en/skills/sorcerer/storm-calling/lightning-flood',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_sorcerer_lightning_flood.png',
     )
+    BOUNDLESS_STORM_DAMAGE = Skill(
+        name='Boundless Storm',
+        id=23214,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_sorcerer_boundless_storm.png',
+    )
+    BOUNDLESS_STORM = Skill(
+        name='Boundless Storm',
+        id=23213,
+        children=[BOUNDLESS_STORM_DAMAGE],
+        buffs=[
+            SORCERER_BUFFS.BOUNDLESS_STORM.value,
+            BUFFS.MAJOR_RESOLVE_BOUNDLESS_STORM.value,
+        ],
+        link='https://eso-hub.com/en/skills/sorcerer/storm-calling/boundless-storm',
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_sorcerer_boundless_storm.png',
+    )
     HURRICANE_DAMAGE = Skill(
         name='Hurricane',
         id=23232,
