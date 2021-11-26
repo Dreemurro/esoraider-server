@@ -63,3 +63,13 @@ class SORCERER_SKILLS(EsoEnum):
         link='https://eso-hub.com/en/skills/sorcerer/storm-calling/hurricane',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_sorcerer_thundering_presence.png',
     )
+    EMPOWERED_WARD = Skill(
+        name='Empowered Ward',
+        id=29482,
+        buffs=[
+            SORCERER_BUFFS.EMPOWERED_WARD.value,
+            BUFFS.MINOR_INTELLECT_EMPOWERED_WARD.value,
+        ],
+        link='https://eso-hub.com/en/skills/sorcerer/daedric-summoning/empowered-ward',
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_sorcerer_tempest.png',
+    )

@@ -17,3 +17,8 @@ class SORCERER_BUFFS(EsoEnum):
         id=23231,  # Matches skill ID
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_sorcerer_thundering_presence.png',
     )
+    EMPOWERED_WARD = Buff(
+        name='Empowered Ward',
+        id=29482,  # Matches skill ID
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_sorcerer_tempest.png',
+    )

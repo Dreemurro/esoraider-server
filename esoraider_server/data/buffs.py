@@ -425,6 +425,18 @@ class BUFFS(EsoEnum):
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_minor_expedition.png',
     )
 
+    # Minor Intellect
+    MINOR_INTELLECT = Buff(
+        name='Minor Intellect',
+        id=61706,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_minor_expedition.png',
+    )
+    MINOR_INTELLECT_EMPOWERED_WARD = Buff(
+        name='Minor Intellect',
+        id=77418,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_minor_intellect.png',
+    )
+
     #
     # From skills
     #
