@@ -3,6 +3,7 @@ from typing import Optional, Tuple
 
 from blacksheep.server import Application
 from blacksheep.server.responses import bad_request, json, not_found
+from blacksheep.server.routing import Route
 from gql.transport.exceptions import TransportQueryError  # type: ignore
 
 from esoraider_server.analysis.report_builder import (
@@ -24,8 +25,10 @@ app.use_cors(
     allow_origins='*',
 )
 
+Route.value_patterns['log_code'] = r'(a:)?[a-zA-Z0-9]{16}'
 
-@app.route('/<str:log>')
+
+@app.route('/<log_code:log>')
 async def get_log(log: str, api: ApiWrapper):
     response = await api.query_log(log)
 
@@ -35,7 +38,7 @@ async def get_log(log: str, api: ApiWrapper):
     return response.get('reportData').get('report')
 
 
-@app.route('/<str:log>/<int:fight>')
+@app.route('/<log_code:log>/<int:fight>')
 async def get_fight(
     log: str,
     fight: int,
@@ -56,7 +59,7 @@ async def get_fight(
     return response.to_json()
 
 
-@app.route('/<str:log>/<int:fight>/<int:char>')
+@app.route('/<log_code:log>/<int:fight>/<int:char>')
 async def get_char(
     log: str,
     fight: int,
@@ -111,7 +114,7 @@ async def get_encounter(encounter, api: ApiWrapper):
     return json('')
 
 
-@app.route('/fight/<str:log>/<int:fight>')
+@app.route('/fight/<log_code:log>/<int:fight>')
 async def get_fight_effects(
     log: str,
     fight: int,
