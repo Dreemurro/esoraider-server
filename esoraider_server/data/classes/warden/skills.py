@@ -54,6 +54,16 @@ class WARDEN_SKILLS(EsoEnum):
         link='https://eso-hub.com/en/skills/warden/winters-embrace/expansive-frost-cloak',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_warden_001_a.png',
     )
+    ICE_FORTRESS = Skill(
+        name='Ice Fortress',
+        id=86130,
+        buffs=[
+            BUFFS.MAJOR_RESOLVE_ICE_FORTRESS.value,
+            BUFFS.MINOR_PROTECTION_ICE_FORTRESS.value,
+        ],
+        link='https://eso-hub.com/en/skills/warden/winters-embrace/ice-fortress',
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_warden_001_b.png',
+    )
     WINTERS_REVENGE_DAMAGE = Skill(
         name="Winter's Revenge",
         id=88802,

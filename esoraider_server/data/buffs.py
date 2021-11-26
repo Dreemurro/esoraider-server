@@ -66,6 +66,11 @@ class BUFFS(EsoEnum):
         id=88758,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_major_resolve.png',
     )
+    MAJOR_RESOLVE_ICE_FORTRESS = Buff(
+        name='Major Resolve',
+        id=88761,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_major_resolve.png',
+    )
     MAJOR_RESOLVE_BECKONING_ARMOR = Buff(
         name='Major Resolve',
         id=118239,
@@ -440,6 +445,18 @@ class BUFFS(EsoEnum):
         name='Minor Intellect',
         id=77418,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_minor_intellect.png',
+    )
+
+    # Minor Protection
+    MINOR_PROTECTION = Buff(
+        name='Minor Protection',
+        id=61721,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_minor_protection.png',
+    )
+    MINOR_PROTECTION_ICE_FORTRESS = Buff(
+        name='Minor Protection',
+        id=87194,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_minor_protection.png',
     )
 
     #
