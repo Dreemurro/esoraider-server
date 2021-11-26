@@ -161,6 +161,11 @@ class BUFFS(EsoEnum):
         id=89110,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_major_brutality.png',
     )
+    MAJOR_BRUTALITY_POWER_SURGE = Buff(
+        name='Major Brutality',
+        id=62060,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_major_brutality.png',
+    )
     MAJOR_BRUTALITY_CRITICAL_SURGE = Buff(
         name='Major Brutality',
         id=62147,
@@ -194,6 +199,11 @@ class BUFFS(EsoEnum):
     MAJOR_SORCERY_DEGENERATION = Buff(
         name='Major Sorcery',
         id=63227,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_major_sorcery.png',
+    )
+    MAJOR_SORCERY_POWER_SURGE = Buff(
+        name='Major Sorcery',
+        id=62062,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_major_sorcery.png',
     )
     MAJOR_SORCERY_CRITICAL_SURGE = Buff(

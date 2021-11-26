@@ -12,6 +12,17 @@ class SORCERER_SKILLS(EsoEnum):
         link='https://eso-hub.com/en/skills/sorcerer/daedric-summoning/daedric-prey',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_sorcerer_explosive_curse.png',
     )
+    POWER_SURGE = Skill(
+        name='Power Surge',
+        id=23674,
+        buffs=[
+            SORCERER_BUFFS.POWER_SURGE.value,
+            BUFFS.MAJOR_BRUTALITY_POWER_SURGE.value,
+            BUFFS.MAJOR_SORCERY_POWER_SURGE.value,
+        ],
+        link='https://eso-hub.com/en/skills/sorcerer/storm-calling/power-surge',
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_sorcerer_power_surge.png',
+    )
     CRITICAL_SURGE = Skill(
         name='Critical Surge',
         id=23678,

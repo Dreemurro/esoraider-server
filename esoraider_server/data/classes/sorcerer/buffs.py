@@ -2,6 +2,11 @@ from esoraider_server.data.core import Buff, EsoEnum
 
 
 class SORCERER_BUFFS(EsoEnum):
+    POWER_SURGE = Buff(
+        name='Power Surge',
+        id=23674,  # Matches skill ID
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_sorcerer_power_surge.png',
+    )
     CRITICAL_SURGE = Buff(
         name='Critical Surge',
         id=23678,  # Matches skill ID
