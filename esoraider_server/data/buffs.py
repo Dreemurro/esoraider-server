@@ -335,8 +335,6 @@ class BUFFS(EsoEnum):
     )
 
     # Major Evasion
-    # Known IDs:
-    # - 84341 (Gossamer?)
     MAJOR_EVASION = Buff(
         name='Major Evasion',
         id=61716,
@@ -350,6 +348,11 @@ class BUFFS(EsoEnum):
     MAJOR_EVASION_DEADLY_CLOAK = Buff(
         name='Major Evasion',
         id=123653,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_major_evasion.png',
+    )
+    MAJOR_EVASION_GOSSAMER = Buff(
+        name='Major Evasion',
+        id=84341,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_major_evasion.png',
     )
 

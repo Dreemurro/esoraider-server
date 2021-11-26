@@ -197,7 +197,7 @@ class GEAR_SETS(EsoEnum):
     GOSSAMER = GearSet(
         name='Gossamer',
         id=261,
-        buffs=[BUFFS.MAJOR_EVASION.value],
+        buffs=[BUFFS.MAJOR_EVASION_GOSSAMER.value],
         link='https://eso-hub.com/en/sets/gossamer',
         icon='https://eso-hub.com/storage/icons/gear_kothringi_light_head_a.png',
     )
