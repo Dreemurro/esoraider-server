@@ -1,4 +1,4 @@
-from typing import Optional
+from typing import Optional, Sequence, Tuple
 
 import pytest
 from attr import dataclass
@@ -11,6 +11,7 @@ class TestLog:
     log: str
     fight: Optional[int] = None
     char: Optional[int] = None
+    targets: Optional[Sequence[int]] = None
     expected: int = 200
 
     @property
@@ -21,6 +22,12 @@ class TestLog:
         if self.fight and self.char:
             link += '/{0}'.format(self.char)
         return link
+
+    @property
+    def query(self) -> Optional[Sequence[Tuple[str, str]]]:
+        if self.targets:
+            return [('target', str(_)) for _ in self.targets]
+        return None
 
 
 LOGS = (
@@ -80,6 +87,13 @@ CHARS = (
         char=231,
     ),
     TestLog(
+        desc='Targets provided',
+        log='a:NWBcJ9DYMRLPFkjz',
+        fight=16,
+        char=231,
+        targets=(88878, 88874, 90100, 88875, 88871),  # Adds on Nahvi
+    ),
+    TestLog(
         desc='Anon char outside of fight',
         log='a:PB2xAGyCRHbrXwca',
         fight=21,
@@ -131,7 +145,7 @@ async def test_get_fight(test_client: TestClient, fight: TestLog):
 @pytest.mark.asyncio
 @pytest.mark.parametrize('char', CHARS, ids=id_of_test)
 async def test_get_char(test_client: TestClient, char: TestLog):
-    response = await test_client.get(char.link)
+    response = await test_client.get(char.link, query=char.query)
 
     assert response.status == char.expected
 
