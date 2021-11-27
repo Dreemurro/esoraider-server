@@ -330,3 +330,10 @@ class GEAR_SETS(EsoEnum):
         link='https://eso-hub.com/en/sets/true-sworn-fury',
         icon='https://eso-hub.com/storage/icons/gear_blackdrakevilla_lgt_head_a.webp',
     )
+    BURNING_SPELLWEAVE = GearSet(
+        name='Burning Spellweave',
+        id=160,
+        buffs=[BUFFS.BURNING_SPELLWEAVE.value],
+        link='https://eso-hub.com/en/sets/burning-spellweave',
+        icon='https://eso-hub.com/storage/icons/gear_daedric_light_head_a.webp',
+    )

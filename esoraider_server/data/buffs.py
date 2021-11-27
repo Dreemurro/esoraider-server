@@ -566,6 +566,11 @@ class BUFFS(EsoEnum):
         id=154737,
         icon='https://assets.rpglogs.com/img/eso/abilities/u30_trial_soulrip.png',
     )
+    BURNING_SPELLWEAVE = Buff(
+        name='Burning Spellweave',
+        id=61459,  # Additional ID - 60418
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_destructionstaff_007.png',
+    )
 
     """
     From glyphs
