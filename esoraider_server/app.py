@@ -56,7 +56,7 @@ async def get_fight(
     except ZeroLengthFightException as ex:
         return bad_request(str(ex))
 
-    return response.to_json()
+    return json(response.to_dict())
 
 
 @app.route('/<log_code:log>/<int:fight>/<int:char>')
@@ -103,14 +103,12 @@ async def get_char(
         return bad_request(str(ex))
 
 
-# TODO: Rewrite & probably move to enums
-# WIP, check `encounters.py`
 @app.route('/encounter/<int:encounter>')
 async def get_encounter(encounter, api: ApiWrapper):
     response = await api.query_encounter_info(encounter)
 
     if response:
-        return response.to_json()
+        return json(response.to_dict())
     return json('')
 
 
