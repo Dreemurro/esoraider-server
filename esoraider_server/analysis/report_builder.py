@@ -114,6 +114,7 @@ class ReportBuilder(object):
         if (
             self._requested_data.passives
             and self._summary_table.combatant_info.gear
+            and not self._target
         ):
             self._checklist = ChecklistBuilder(
                 spec=self._char_spec,
