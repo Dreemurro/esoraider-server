@@ -1,6 +1,7 @@
 from esoraider_server.data.classes.dragonknight.passives import (
     DRAGONKNIGHT_PASSIVES,
 )
+from esoraider_server.data.classes.general import GENERAL_SKILLS
 from esoraider_server.data.classes.necromancer.passives import (
     NECROMANCER_PASSIVES,
 )
@@ -269,4 +270,18 @@ class Rules(EsoEnum):
             Passives.UNDAUNTED_COMMAND.value,
             Passives.UNDAUNTED_METTLE.value,
         ]
+    )
+    MAGES_GUILD = Rule(
+        name='Mages Guild passives',
+        icon='https://eso-hub.com/storage/icons/ability_mageguild_005.webp',
+        required=[
+            GENERAL_SKILLS.DEGENERATION.value,
+            GENERAL_SKILLS.STRUCTURED_ENTROPY.value,
+            GENERAL_SKILLS.SCALDING_RUNE.value,
+            GENERAL_SKILLS.BALANCE.value,
+        ],
+        buffs=[
+            Passives.MAGICKA_CONTROLLER.value,
+            Passives.MIGHT_OF_THE_GUILD.value,
+        ],
     )
