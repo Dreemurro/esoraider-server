@@ -285,3 +285,15 @@ class Rules(EsoEnum):
             Passives.MIGHT_OF_THE_GUILD.value,
         ],
     )
+    FIGHTERS_GUILD = Rule(
+        name='Fighters Guild passives',
+        icon='https://eso-hub.com/storage/icons/ability_fightersguild_005.webp',
+        required=[
+            GENERAL_SKILLS.BARBED_TRAP.value,
+            GENERAL_SKILLS.LIGHTWEIGHT_BEAST_TRAP.value,
+            GENERAL_SKILLS.CAMOUFLAGED_HUNTER.value,
+        ],
+        buffs=[
+            Passives.SLAYER.value,
+        ],
+    )
