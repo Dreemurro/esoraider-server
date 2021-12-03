@@ -121,7 +121,7 @@ class Rules(EsoEnum):
             # Next 2 are bugged
             # Passives.SPELL_WARDING.value,
             # Passives.PRODIGY.value,
-        ]
+        ],
     )
     MEDIUM_ARMOR = Rule(
         name='Medium armor passives',
@@ -131,7 +131,7 @@ class Rules(EsoEnum):
             # Next 2 are bugged
             # Passives.DEXTERITY.value,
             # Passives.AGILITY.value,
-        ]
+        ],
     )
 
     # |-----------------------------------------------------------------------|
@@ -142,7 +142,7 @@ class Rules(EsoEnum):
         icon='https://eso-hub.com/storage/icons/ability_bow_001.webp',
         buffs=[
             Passives.HAWK_EYE.value,
-        ]
+        ],
     )
     DESTRUCTION_STAFF = Rule(
         name='Destruction staff passives',
@@ -152,7 +152,7 @@ class Rules(EsoEnum):
             Passives.PENETRATING_MAGIC.value,
             Passives.ANCIENT_KNOWLEDGE.value,
             Passives.DESTRUCTION_EXPERT.value,
-        ]
+        ],
     )
     TWO_HANDED = Rule(
         name='Two Handed passives',
@@ -160,7 +160,7 @@ class Rules(EsoEnum):
         buffs=[
             Passives.FORCEFUL.value,
             Passives.FOLLOW_UP.value,
-        ]
+        ],
     )
 
     # |-----------------------------------------------------------------------|
@@ -181,7 +181,7 @@ class Rules(EsoEnum):
             NECROMANCER_PASSIVES.NEAR_DEATH_EXPERIENCE.value,
             NECROMANCER_PASSIVES.CORPSE_CONSUMPTION.value,
             NECROMANCER_PASSIVES.UNDEAD_CONFEDERATE.value,
-        ]
+        ],
     )
     DRAGONKNIGHT = Rule(
         name='Dragonknight passives',
@@ -198,7 +198,7 @@ class Rules(EsoEnum):
             # DRAGONKNIGHT_PASSIVES.SCALED_ARMOR.value,
             DRAGONKNIGHT_PASSIVES.ETERNAL_MOUNTAIN.value,
             DRAGONKNIGHT_PASSIVES.BATTLE_ROAR.value,
-        ]
+        ],
     )
     WARDEN = Rule(
         name='Warden passives',
@@ -214,7 +214,7 @@ class Rules(EsoEnum):
             WARDEN_PASSIVES.MATURATION.value,
             WARDEN_PASSIVES.ICY_AURA.value,
             WARDEN_PASSIVES.PIERCING_COLD.value,
-        ]
+        ],
     )
     NIGHTBLADE = Rule(
         name='Nightblade passives',
@@ -230,7 +230,7 @@ class Rules(EsoEnum):
             NIGHTBLADE_PASSIVES.DARK_VEIL.value,
             NIGHTBLADE_PASSIVES.CATALYST.value,
             NIGHTBLADE_PASSIVES.SOUL_SIPHONER.value,
-        ]
+        ],
     )
     SORCERER = Rule(
         name='Sorcerer passives',
@@ -243,7 +243,7 @@ class Rules(EsoEnum):
             # SORCERER_PASSIVES.PERSISTENCE.value,
             SORCERER_PASSIVES.EXPLOITATION.value,
             SORCERER_PASSIVES.ENERGIZED.value,
-        ]
+        ],
     )
     TEMPLAR = Rule(
         name='Templar passives',
@@ -257,7 +257,7 @@ class Rules(EsoEnum):
             TEMPLAR_PASSIVES.SACRED_GROUND.value,
             TEMPLAR_PASSIVES.LIGHT_WEAVER.value,
             TEMPLAR_PASSIVES.MASTER_RITUALIST.value,
-        ]
+        ],
     )
 
     # |-----------------------------------------------------------------------|
@@ -269,7 +269,7 @@ class Rules(EsoEnum):
         buffs=[
             Passives.UNDAUNTED_COMMAND.value,
             Passives.UNDAUNTED_METTLE.value,
-        ]
+        ],
     )
     MAGES_GUILD = Rule(
         name='Mages Guild passives',
