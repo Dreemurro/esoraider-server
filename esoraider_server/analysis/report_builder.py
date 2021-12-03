@@ -118,6 +118,7 @@ class ReportBuilder(object):
             self._checklist = ChecklistBuilder(
                 spec=self._char_spec,
                 class_=self._char_class,
+                skills=self._summary_table.combatant_info.talents,
                 gear=self._summary_table.combatant_info.gear,
                 passives=self._requested_data.passives,
             )

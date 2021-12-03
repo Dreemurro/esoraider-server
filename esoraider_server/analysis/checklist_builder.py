@@ -11,7 +11,7 @@ from esoraider_server.esologs.consts import (
     WeaponType,
     WieldType,
 )
-from esoraider_server.esologs.responses.common import Gear
+from esoraider_server.esologs.responses.common import Gear, Talent
 from esoraider_server.esologs.responses.report_data.effects import Aura
 
 
@@ -20,11 +20,13 @@ class ChecklistBuilder(object):
         self,
         spec: str,
         class_: CharClass,
+        skills: List[Talent],
         gear: List[Gear],
         passives: List[Aura],
     ) -> None:
         self._spec = spec
         self._class = class_
+        self._skills = skills
         self._gear = gear
         self._passives = passives
 
@@ -43,6 +45,7 @@ class ChecklistBuilder(object):
         self._add_armor_rules()
         self._add_weapon_rules()
         self._add_class_rules()
+        self._add_skill_rules()
 
         self._finalize()
 
@@ -126,6 +129,17 @@ class ChecklistBuilder(object):
         rule = class_rules.get(self._class, None)
         if rule:
             self.rule_set.add(rule)
+
+    def _add_skill_rules(self):
+        ids = [skill.guid for skill in self._skills]
+        rules = [_ for _ in Rules if _.value.required]
+
+        rules_to_add = []
+        for rule in rules:
+            if any(id_ in ids for id_ in rule.value.required_ids):
+                rules_to_add.append(rule)
+
+        self.rule_set.update(rules_to_add)
 
     def _finalize(self):
         ids = {pas.ability or pas.guid for pas in self._passives}

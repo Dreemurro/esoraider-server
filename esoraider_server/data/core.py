@@ -202,7 +202,13 @@ class Rule:
     name: str
     icon: str
 
+    required: Optional[List[Skill]] = None
+
     buffs: Optional[List[Buff]] = None
+
+    @property
+    def required_ids(self):
+        return [skill.id for skill in self.required]
 
 
 class EsoEnum(Enum):
