@@ -202,6 +202,33 @@ class Passives(EsoEnum):
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_sorcerer_038.png',
         link='https://eso-hub.com/en/skills/guild/mages-guild/might-of-the-guild',
     )
+    # |--------------|
+    # | Psijic Order |
+    # |--------------|
+    CLAIRVOYANCE = Buff(
+        name='Clairvoyance',
+        id=103811,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_psijic_008.png',
+        link='https://eso-hub.com/en/skills/guild/psijic-order/clairvoyance',
+    )
+    SPELL_ORB = Buff(
+        name='Spell Orb',
+        id=103879,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_psijic_009.png',
+        link='https://eso-hub.com/en/skills/guild/psijic-order/spell-orb',
+    )
+    CONCENTRATED_BARRIER = Buff(
+        name='Concentrated Barrier',
+        id=103964,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_psijic_010.png',
+        link='https://eso-hub.com/en/skills/guild/psijic-order/concentrated-barrier',
+    )
+    DELIBERATION = Buff(
+        name='Deliberation',
+        id=103972,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_psijic_011.png',
+        link='https://eso-hub.com/en/skills/guild/psijic-order/deliberation',
+    )
     # |-----------|
     # | Undaunted |
     # |-----------|

@@ -297,3 +297,17 @@ class Rules(EsoEnum):
             Passives.SLAYER.value,
         ],
     )
+    PSIJIC_ORDER = Rule(
+        name='Psijic Order passives',
+        icon='https://eso-hub.com/storage/icons/ability_psijic_001.webp',
+        required=[
+            GENERAL_SKILLS.CHANNELED_ACCELERATION.value,
+            GENERAL_SKILLS.RACE_AGAINST_TIME.value,
+        ],
+        buffs=[
+            Passives.CLAIRVOYANCE.value,
+            Passives.SPELL_ORB.value,
+            Passives.CONCENTRATED_BARRIER.value,
+            Passives.DELIBERATION.value,
+        ],
+    )
