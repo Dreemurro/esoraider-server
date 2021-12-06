@@ -3,6 +3,76 @@ from esoraider_server.data.core import Buff, EsoEnum
 
 class Passives(EsoEnum):
     # |-----------------------------------------------------------------------|
+    # | Mundus stones                                                         |
+    # |-----------------------------------------------------------------------|
+    THE_APPRENTICE = Buff(
+        name='The Apprentice',
+        id=13979,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_mundusstones_008.png',
+        link='https://eso-hub.com/en/mundus-stones/the-apprentice',
+    )
+    THE_ATRONACH = Buff(
+        name='The Atronach',
+        id=13982,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_mundusstones_009.png',
+        link='https://eso-hub.com/en/mundus-stones/the-atronach',
+    )
+    THE_LADY = Buff(
+        name='The Lady',
+        id=13976,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_mundusstones_005.png',
+        link='https://eso-hub.com/en/mundus-stones/the-lady',
+    )
+    THE_LORD = Buff(
+        name='The Lord',
+        id=13978,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_mundusstones_007.png',
+        link='https://eso-hub.com/en/mundus-stones/the-lord',
+    )
+    THE_LOVER = Buff(
+        name='The Lover',
+        id=13981,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_mundusstones_011.png',
+        link='https://eso-hub.com/en/mundus-stones/the-lover',
+    )
+    THE_RITUAL = Buff(
+        name='The Ritual',
+        id=13980,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_mundusstones_010.png',
+        link='https://eso-hub.com/en/mundus-stones/the-ritual',
+    )
+    THE_SERPENT = Buff(
+        name='The Serpent',
+        id=13974,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_mundusstones_004.png',
+        link='https://eso-hub.com/en/mundus-stones/the-serpent',
+    )
+    THE_SHADOW = Buff(
+        name='The Shadow',
+        id=13984,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_mundusstones_012.png',
+        link='https://eso-hub.com/en/mundus-stones/the-shadow',
+    )
+    THE_STEED = Buff(
+        name='The Steed',
+        id=13977,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_mundusstones_006.png',
+        link='https://eso-hub.com/en/mundus-stones/the-steed',
+    )
+    THE_THIEF = Buff(
+        name='The Thief',
+        id=13975,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_mundusstones_003.png',
+        link='https://eso-hub.com/en/mundus-stones/the-thief',
+    )
+    THE_TOWER = Buff(
+        name='The Tower',
+        id=13985,
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_mundusstones_013.png',
+        link='https://eso-hub.com/en/mundus-stones/the-tower',
+    )
+
+    # |-----------------------------------------------------------------------|
     # | Armor                                                                 |
     # |-----------------------------------------------------------------------|
     # |-------------|
