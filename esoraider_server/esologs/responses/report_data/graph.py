@@ -21,6 +21,7 @@ class Event(EsoLogsDataClass):
     )
     target_is_friendly: Optional[bool] = None
     ability: Optional[Talent] = None
+    extra_ability: Optional[Talent] = None
     fight: Optional[int] = None
 
     stack: Optional[int] = None

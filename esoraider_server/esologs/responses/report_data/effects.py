@@ -2,6 +2,7 @@
 
 from dataclasses import dataclass
 from typing import List, Optional
+from esoraider_server.esologs.responses.common import Talent
 
 from esoraider_server.esologs.responses.core import EsoLogsDataClass
 
@@ -28,6 +29,7 @@ class Aura(EsoLogsDataClass):
     ability: Optional[int] = None
     stacks: Optional[int] = None
     icon: Optional[str] = None
+    applied_by_abilities: Optional[List[Talent]] = None
 
 
 @dataclass
