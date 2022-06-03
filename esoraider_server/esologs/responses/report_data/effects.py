@@ -42,3 +42,4 @@ class EffectsTableData(EsoLogsDataClass):
 
     category: Optional[int] = None
     log_version: Optional[int] = None
+    game_version: Optional[int] = None
