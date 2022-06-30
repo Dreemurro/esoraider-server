@@ -203,7 +203,7 @@ class DEBUFFS(EsoEnum):
     CARVE = Debuff(
         name='Carve',
         id=38747,
-        icon='https://assets.rpglogs.com/img/eso/abilities/ability_bow_002_b.png',
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_2handed_002_a.png',
     )
 
     #
