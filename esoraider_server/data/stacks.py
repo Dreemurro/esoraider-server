@@ -56,6 +56,7 @@ class STACKS(EsoEnum):
             # 2H
             # Heavy Weapons Bleed
             # Carve
+            DEBUFFS.CARVE.value,
 
             # Destruction Staff
             DEBUFFS.FROST_REACH.value,
