@@ -47,6 +47,7 @@ class CombatantInfo(EsoLogsDataClass):
         metadata=config(field_name='specIDs'),
     )
     artifact: Optional[List[Any]] = None
+    talent_tree: Optional[List[Any]] = None
 
     def skill_ids(self):
         return [t.guid for t in self.talents]
