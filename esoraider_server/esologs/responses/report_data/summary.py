@@ -74,6 +74,8 @@ class PlayerDetails(EsoLogsDataClass):
     min_item_level: Optional[int] = None
     max_item_level: Optional[int] = None
     specs: Optional[List[str]] = None
+    potion_use: Optional[int] = None
+    healthstone_use: Optional[int] = None
     combatant_info: Optional[CombatantInfo] = field(
         default=None,
         metadata=config(
