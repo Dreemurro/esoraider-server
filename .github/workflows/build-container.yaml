@@ -31,6 +31,7 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           context: .
+          file: ./docker/blacksheep/Dockerfile
           push: true
           tags: |
             ghcr.io/dreemurro/esoraider-server:latest
