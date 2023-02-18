@@ -27,7 +27,7 @@ services:
     <<:
       # Image for production:
       &web
-      image: "ghcr.io/Dreemurro/esoraider-server:latest"
+      image: "ghcr.io/dreemurro/esoraider-server:latest"
       build:
         target: production_build
         args:
