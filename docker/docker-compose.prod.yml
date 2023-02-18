@@ -1,0 +1,52 @@
+---
+
+# This compose-file is production only. So, it should not be called directly.
+#
+# Instead, it should be a part of your deployment strategy.
+# This setup is supposed to be used with `docker-swarm`.
+
+version: "3.8"
+services:
+  caddy:
+    image: "caddy:2.6.2"
+    restart: unless-stopped
+    volumes:
+      - ./docker/caddy/Caddyfile:/srv/Caddyfile # configuration
+      - ./docker/caddy/ci.sh:/etc/ci.sh # test script
+      - caddy-config:/config # configuration autosaves
+      - caddy-data:/data # saving certificates
+    ports:
+      - "80:80"
+      - "443:443"
+    depends_on:
+      - web
+    networks:
+      - proxynet
+
+  web:
+    <<:
+      # Image for production:
+      &web
+      image: "ghcr.io/Dreemurro/esoraider-server:latest"
+      build:
+        target: production_build
+        args:
+          CURRENT_ENV: production
+
+      restart: unless-stopped
+
+    command: bash ./docker/blacksheep/gunicorn.sh
+    networks:
+      - proxynet
+    expose:
+      - 8000
+
+networks:
+  # Network for your proxy server and application to connect them,
+  # do not use it for anything else!
+  proxynet:
+
+
+volumes:
+  caddy-config:
+  caddy-data:

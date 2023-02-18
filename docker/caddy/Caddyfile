@@ -1,0 +1,33 @@
+# See https://caddyserver.com/docs
+
+# Email for Let's Encrypt expiration notices
+{
+	email {$TLS_EMAIL}
+}
+
+# "www" redirect to "non-www" version
+www.{$DOMAIN_NAME} {
+	redir https://{$DOMAIN_NAME}{uri}
+}
+
+{$DOMAIN_NAME} {
+	# HTTPS options:
+	header Strict-Transport-Security max-age=31536000;
+
+	# Removing some headers for improved security:
+	header -Server
+
+	# Serve blacksheep app
+	handle {
+		reverse_proxy web:8000
+	}
+
+	# Dynamically compress response with gzip when it makes sense.
+	# This setting is ignored for precompressed files.
+	encode gzip
+
+	# Logs:
+	log {
+		output stdout
+	}
+}
