@@ -16,17 +16,6 @@ jobs:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
-      - name: Make .env
-        uses: SpicyPizza/create-envfile@v1.3
-        with:
-          envkey_CLIENT_ID: ${{ secrets.CLIENT_ID }}
-          envkey_CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
-          envkey_DEBUG: ${{ secrets.DEBUG }}
-          envkey_SHOW_ERROR_DETAILS: ${{ secrets.SHOW_ERROR_DETAILS }}
-          envkey_DOMAIN_NAME: ${{ secrets.DOMAIN_NAME }}
-          envkey_TLS_EMAIL: ${{ secrets.TLS_EMAIL }}
-          directory: esoraider_server
-          fail_on_empty: true
       - name: Build and push
         uses: docker/build-push-action@v4
         with:
