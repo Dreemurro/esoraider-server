@@ -21,6 +21,8 @@ jobs:
         with:
           context: .
           file: ./docker/blacksheep/Dockerfile
+          build-args: |
+            CURRENT_ENV=production
           target: production_build
           push: true
           tags: |
