@@ -21,6 +21,7 @@ jobs:
         with:
           context: .
           file: ./docker/blacksheep/Dockerfile
+          target: production_build
           push: true
           tags: |
             ghcr.io/dreemurro/esoraider-server:latest
