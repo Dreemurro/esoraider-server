@@ -4,6 +4,8 @@
 
 FROM python:3.9.16-slim-buster AS development_build
 
+LABEL org.opencontainers.image.source=https://github.com/Dreemurro/esoraider-server
+
 # `CURRENT_ENV` arg is used to make prod / dev builds:
 ARG CURRENT_ENV \
     # Needed for fixing permissions of files created by Docker:
