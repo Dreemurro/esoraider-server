@@ -2,9 +2,6 @@ name: deploy-swarm
 
 on: [workflow_dispatch, pull_request]
 
-env:
-  SSH_AUTH_SOCK: /tmp/ssh_agent.sock
-
 jobs:
   deploy-swarm:
     runs-on: ubuntu-latest
@@ -23,9 +20,11 @@ jobs:
           directory: esoraider_server
           fail_on_empty: true
       - name: Deploy to Docker swarm
-        uses: sagebind/docker-swarm-deploy-action@v2
+        uses: sulthonzh/docker-remote-deployment-action@v0.1.2-beta
         with:
-          remote_host: ssh://${{ secrets.USERNAME }}@${{ secrets.HOST }}:${{ secrets.PORT }}
+          remote_docker_host: ${{ secrets.USERNAME }}@${{ secrets.HOST }}
+          remote_docker_port: ${{ secrets.PORT }}
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
           ssh_public_key: ${{ secrets.SSH_PUBLIC_KEY }}
-          args: stack deploy -c docker-compose.yml -c docker/docker-compose.prod.yml esoraider-server
+          deployment_mode: docker-swarm
+          args: -c docker/docker-compose.prod.yml esoraider-server
