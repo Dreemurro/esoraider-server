@@ -1,0 +1,28 @@
+name: deploy-swarm
+
+on: [workflow_dispatch, pull_request]
+
+jobs:
+  deploy-swarm:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Make .env
+        uses: SpicyPizza/create-envfile@v1.3
+        with:
+          envkey_CLIENT_ID: ${{ secrets.CLIENT_ID }}
+          envkey_CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
+          envkey_DEBUG: ${{ secrets.DEBUG }}
+          envkey_SHOW_ERROR_DETAILS: ${{ secrets.SHOW_ERROR_DETAILS }}
+          envkey_DOMAIN_NAME: ${{ secrets.DOMAIN_NAME }}
+          envkey_TLS_EMAIL: ${{ secrets.TLS_EMAIL }}
+          directory: esoraider_server
+          fail_on_empty: true
+      - name: Deploy to Docker swarm
+        uses: wshihadeh/docker-deployment-action@v1
+        with:
+          remote_docker_host: ${{ secrets.USERNAME }}@${{ secrets.HOST }}
+          remote_docker_port: ${{ secrets.PORT }}
+          ssh_private_key: ${{ secrets.KEY }}
+          ssh_public_key: ${{ secrets.FINGERPRINT }}
+          deployment_mode: docker-swarm
+          args: -c docker/docker-compose.prod.yml esoraider-server
