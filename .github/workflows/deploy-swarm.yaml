@@ -23,7 +23,7 @@ jobs:
           directory: esoraider_server
           fail_on_empty: true
       - name: Deploy to Docker swarm
-        uses: wshihadeh/docker-deployment-action@v1
+        uses: wshihadeh/docker-deployment-action@v2
         with:
           remote_docker_host: ${{ secrets.USERNAME }}@${{ secrets.HOST }}
           remote_docker_port: ${{ secrets.PORT }}
