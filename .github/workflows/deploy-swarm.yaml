@@ -23,11 +23,9 @@ jobs:
           directory: esoraider_server
           fail_on_empty: true
       - name: Deploy to Docker swarm
-        uses: wshihadeh/docker-deployment-action@v2
+        uses: sagebind/docker-swarm-deploy-action@v2
         with:
-          remote_docker_host: ${{ secrets.USERNAME }}@${{ secrets.HOST }}
-          remote_docker_port: ${{ secrets.PORT }}
+          remote_host: ssh://${{ secrets.USERNAME }}@${{ secrets.HOST }}:${{ secrets.PORT }}
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
           ssh_public_key: ${{ secrets.SSH_PUBLIC_KEY }}
-          deployment_mode: docker-swarm
-          args: -c docker/docker-compose.prod.yml esoraider-server
+          args: stack deploy -c docker-compose.yml -c docker/docker-compose.prod.yml esoraider-server
