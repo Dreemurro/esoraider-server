@@ -27,6 +27,7 @@ jobs:
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
           ssh_public_key: ${{ secrets.SSH_PUBLIC_KEY }}
           deployment_mode: docker-swarm
+          stack_file_name: docker-compose.yaml
           docker_registry_username: ${{ github.repository_owner }}
           docker_registry_password: ${{ secrets.GITHUB_TOKEN }}
           docker_registry_uri: ghcr.io
