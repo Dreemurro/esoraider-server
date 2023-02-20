@@ -29,7 +29,7 @@ jobs:
         # Also removes absolute paths
         run: |
           docker-compose -f docker-compose.yml -f docker/docker-compose.prod.yml config > docker-compose.full.yml
-          sed -i "s_$(pwd)_\._g" docker-compose.full.yml
+          sed -i "s_/github/workspace_\._g" docker-compose.full.yml
       - name: Deploy to Docker swarm
         uses: sulthonzh/docker-remote-deployment-action@v0.1.2-beta
         with:
