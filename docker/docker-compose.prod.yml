@@ -11,10 +11,13 @@ services:
     image: "caddy:2.6.4"
     restart: unless-stopped
     volumes:
-      - ./docker/caddy/Caddyfile:/srv/Caddyfile # configuration
-      - ./docker/caddy/ci.sh:/etc/ci.sh # test script
       - caddy-config:/config # configuration autosaves
       - caddy-data:/data # saving certificates
+    configs:
+      - source: caddy_config
+        target: /etc/caddy/Caddyfile
+      - source: caddy_test
+        target: /etc/ci.sh
     ports:
       - "80:80"
       - "443:443"
@@ -44,6 +47,12 @@ networks:
   # do not use it for anything else!
   proxynet:
 
+
+configs:
+  caddy_config:
+    file: ./docker/caddy/Caddyfile
+  caddy_test:
+    file: ./docker/caddy/ci.sh
 
 volumes:
   caddy-config:
