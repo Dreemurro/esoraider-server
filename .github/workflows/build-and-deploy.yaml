@@ -27,6 +27,8 @@ jobs:
           push: true
           tags: |
             ghcr.io/dreemurro/esoraider-server:latest
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
   deploy:
     runs-on: ubuntu-latest
     steps:
