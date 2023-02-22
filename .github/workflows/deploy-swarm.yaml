@@ -26,11 +26,7 @@ jobs:
       # https://github.com/saveourtool/save-cloud/issues/1158
       - name: Generate merged docker-compose
         # Has to be docker-compose aka v1
-        # Also removes absolute paths
-        run: |
-          docker-compose -f docker-compose.yml -f docker/docker-compose.prod.yml config > docker-compose.full.yml
-          sed -i "s_/home/runner/work/esoraider-server/esoraider-server_\._g" docker-compose.full.yml
-          sed -i "s_/github/workspace_\._g" docker-compose.full.yml
+        run: docker-compose -f docker-compose.yml -f docker/docker-compose.prod.yml config > docker-compose.full.yml
       - name: Deploy to Docker swarm
         uses: sulthonzh/docker-remote-deployment-action@v0.1.2-beta
         with:
