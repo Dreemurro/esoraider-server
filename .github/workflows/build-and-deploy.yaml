@@ -65,8 +65,8 @@ jobs:
           ssh-add ~/.ssh/id_rsa
       - name: Add known hosts
         run: |
-          ssh-keyscan -p ${{ secrets.PORT }} "${{ secrets.USERNAME }}@${{ secrets.HOST }}" >> ~/.ssh/known_hosts
-          ssh-keyscan -p ${{ secrets.PORT }} "${{ secrets.USERNAME }}@${{ secrets.HOST }}" >> /etc/ssh/ssh_known_hosts
+          ssh-keyscan -p ${{ secrets.PORT }} ${{ secrets.HOST }} >> ~/.ssh/known_hosts
+          ssh-keyscan -p ${{ secrets.PORT }} ${{ secrets.HOST }} >> /etc/ssh/ssh_known_hosts
       - name: Create & use Docker context
         run: |
           docker context create remote --docker "host=ssh://${{ secrets.USERNAME }}@${{ secrets.HOST }}:${{ secrets.PORT }}"
