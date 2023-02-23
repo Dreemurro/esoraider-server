@@ -52,7 +52,10 @@ jobs:
       # https://github.com/saveourtool/save-cloud/issues/1158
       - name: Generate merged docker-compose
         # Has to be docker-compose aka v1
-        run: docker-compose -f docker-compose.yml -f docker/docker-compose.prod.yml config > docker-compose.full.yml
+        run: |
+          docker-compose -f docker-compose.yml -f docker/docker-compose.prod.yml config > docker-compose.full.yml
+          pwd
+          ls -la
       - name: Deploy to Docker swarm
         uses: sulthonzh/docker-remote-deployment-action@v0.1.2-beta
         with:
