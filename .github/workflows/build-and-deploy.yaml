@@ -66,7 +66,6 @@ jobs:
       - name: Add known hosts
         run: |
           ssh-keyscan -p ${{ secrets.PORT }} ${{ secrets.HOST }} >> ~/.ssh/known_hosts
-          ssh-keyscan -p ${{ secrets.PORT }} ${{ secrets.HOST }} >> /etc/ssh/ssh_known_hosts
       - name: Create & use Docker context
         run: |
           docker context create remote --docker "host=ssh://${{ secrets.USERNAME }}@${{ secrets.HOST }}:${{ secrets.PORT }}"
