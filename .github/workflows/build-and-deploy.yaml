@@ -52,20 +52,23 @@ jobs:
       # https://github.com/saveourtool/save-cloud/issues/1158
       - name: Generate merged docker-compose
         # Has to be docker-compose aka v1
+        run: docker-compose -f docker-compose.yml -f docker/docker-compose.prod.yml config > docker-compose.full.yml
+      - name: Register SSH keys
         run: |
-          docker-compose -f docker-compose.yml -f docker/docker-compose.prod.yml config > docker-compose.full.yml
-          pwd
-          ls -la
+          mkdir -p ~/.ssh
+          ls ~/.ssh
+          printf '%s\n' "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          printf '%s\n' "${{ secrets.SSH_PUBLIC_KEY }}" > ~/.ssh/id_rsa.pub
+          chmod 600 ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa.pub
+          ssh-add ~/.ssh/id_rsa
+      - name: Add known hosts
+        run: |
+          ssh-keyscan -p ${{ secrets.PORT }} "${{ secrets.USERNAME }}@${{ secrets.HOST }}" >> ~/.ssh/known_hosts
+          ssh-keyscan -p ${{ secrets.PORT }} "${{ secrets.USERNAME }}@${{ secrets.HOST }}" >> /etc/ssh/ssh_known_hosts
+      - name: Create & use Docker context
+        run: |
+          docker context create remote --docker "host=ssh://${{ secrets.USERNAME }}@${{ secrets.HOST }}:${{ secrets.PORT }}"
+          docker context use remote
       - name: Deploy to Docker swarm
-        uses: sulthonzh/docker-remote-deployment-action@v0.1.2-beta
-        with:
-          remote_docker_host: ${{ secrets.USERNAME }}@${{ secrets.HOST }}
-          remote_docker_port: ${{ secrets.PORT }}
-          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
-          ssh_public_key: ${{ secrets.SSH_PUBLIC_KEY }}
-          deployment_mode: docker-swarm
-          stack_file_name: docker-compose.full.yml
-          docker_registry_username: ${{ github.repository_owner }}
-          docker_registry_password: ${{ secrets.GITHUB_TOKEN }}
-          docker_registry_uri: ghcr.io
-          args: esoraider-server
+        run: docker --log-level debug --host ssh://${{ secrets.USERNAME }}@${{ secrets.HOST }}:${{ secrets.PORT }} stack deploy -c docker-compose.full.yml
