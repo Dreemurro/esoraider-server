@@ -71,4 +71,4 @@ jobs:
           docker context create remote --docker "host=ssh://${{ secrets.USERNAME }}@${{ secrets.HOST }}:${{ secrets.PORT }}"
           docker context use remote
       - name: Deploy to Docker swarm
-        run: docker --log-level debug --host ssh://${{ secrets.USERNAME }}@${{ secrets.HOST }}:${{ secrets.PORT }} stack deploy -c docker-compose.full.yml
+        run: docker --log-level debug --host ssh://${{ secrets.USERNAME }}@${{ secrets.HOST }}:${{ secrets.PORT }} stack deploy -c docker-compose.full.yml esoraider-server
