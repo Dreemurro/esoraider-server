@@ -5,11 +5,6 @@
 	email {$TLS_EMAIL}
 }
 
-# "www" redirect to "non-www" version
-www.{$DOMAIN_NAME} {
-	redir https://{$DOMAIN_NAME}{uri}
-}
-
 {$DOMAIN_NAME} {
 	# HTTPS options:
 	header Strict-Transport-Security max-age=31536000;
@@ -29,9 +24,5 @@ www.{$DOMAIN_NAME} {
 	# Logs:
 	log {
 		output stdout
-	}
-
-	tls {
-		dns_challenge_override_domain {$DOMAIN_NAME}
 	}
 }
