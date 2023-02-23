@@ -30,4 +30,8 @@ www.{$DOMAIN_NAME} {
 	log {
 		output stdout
 	}
+
+	tls {
+		dns_challenge_override_domain {$DOMAIN_NAME}
+	}
 }
