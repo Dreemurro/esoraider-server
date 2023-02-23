@@ -6,9 +6,6 @@
 # This setup is supposed to be used with `docker-swarm`.
 
 version: "3.8"
-
-name: esoraider-server
-
 services:
   caddy:
     image: "caddy:2.6.4"
