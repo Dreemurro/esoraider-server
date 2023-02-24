@@ -19,43 +19,13 @@
 
 ## Getting started
 
-For development I'm using [Visual Studio Code](https://code.visualstudio.com/) and its integration with [Windows Subsystem for Linux (WSL2, Ubuntu 20.04 LTS)](https://docs.microsoft.com/en-us/windows/wsl/tutorials/wsl-vscode)
+This quick guide assumes that you have [Docker](https://docs.docker.com/desktop/) installed
 
-### Install **Python 3.9**
-
-If you went with WSL and Ubuntu you might need to install python from PPA
-
-```bash
-$ sudo add-apt-repository ppa:deadsnakes/ppa
-$ sudo apt install python3.9
-```
-
-Make sure that you have the right version by running
-
-```bash
-$ python -V
-Python 3.9.6
-```
-
-### Install **Pipenv**
-
-```bash
-$ pip install --user pipenv
-```
-
-Please refer to [Installing Pipenv](https://pipenv.pypa.io/en/latest/install/#installing-pipenv) if you encounter any problems
-
-### Clone repo
+### Clone the repo
 
 ```bash
 $ git clone https://github.com/Dreemurro/esoraider-server.git
 $ cd esoraider-server
-```
-
-### Install dependencies (including dev-packages)
-
-```bash
-$ pipenv install -d
 ```
 
 ### Create and populate `.env` file
@@ -76,27 +46,19 @@ DEBUG=True
 SHOW_ERROR_DETAILS=True
 ```
 
-### Activate shell
-
-```bash
-$ pipenv shell
-```
-
 ### Run server locally
 
 ```bash
-$ sh debug.sh
+$ docker-compose up
 ```
-
-or
-
-```bash
-$ uvicorn esoraider_server.app:app --port 5000 --reload
-```
-
 ## TODO
 
 - Follow [wemake-python-styleguide](https://github.com/wemake-services/wemake-python-styleguide)
-- Utilize [mypy](https://github.com/python/mypy)
-- Switch to [poetry](https://github.com/python-poetry/poetry)
-- Dockerize everything
+- Add external health check
+- Add more tests
+- Add coverage report
+- Full CI / CD
+  - Run [pytest](https://docs.pytest.org/en/7.2.x/) before deployment
+  - Run [mypy](https://github.com/python/mypy) before deployment
+  - Run [flake8](https://flake8.pycqa.org/en/latest/) or [flakeheaven](https://flakeheaven.readthedocs.io/en/latest/) before deployment
+- Use [structlog](https://www.structlog.org/en/stable/) for logging
