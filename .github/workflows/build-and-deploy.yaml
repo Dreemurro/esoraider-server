@@ -1,6 +1,9 @@
 name: Build the container & deploy it to Swarm
 
-on: [workflow_dispatch, pull_request]
+on:
+  push:
+    branches:
+      - master
 
 jobs:
   build:
