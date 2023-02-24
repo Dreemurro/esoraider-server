@@ -54,6 +54,7 @@ $ docker-compose up
 ## TODO
 
 - Follow [wemake-python-styleguide](https://github.com/wemake-services/wemake-python-styleguide)
+- Add external health check
 - Add more tests
 - Add coverage report
 - Full CI / CD
