@@ -38,12 +38,12 @@ services:
       restart: unless-stopped
 
     command: bash ./docker/blacksheep/gunicorn.sh
-    healthcheck:
-      test: curl --fail http://localhost:8000/encounter/1 || exit 1
-      interval: 10m
-      retries: 5
-      start_period: 20s
-      timeout: 10s
+    # healthcheck:
+    #   test: curl --fail http://localhost:8000/encounter/1 || exit 1
+    #   interval: 10m
+    #   retries: 5
+    #   start_period: 20s
+    #   timeout: 10s
     init: true
     networks:
       - proxynet
