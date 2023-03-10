@@ -2,7 +2,7 @@ import asyncio
 from typing import Optional, Tuple
 
 from blacksheep.server import Application
-from blacksheep.server.responses import bad_request, json, not_found
+from blacksheep.server.responses import bad_request, html, json, not_found
 from blacksheep.server.routing import Route
 from gql.transport.exceptions import TransportQueryError  # type: ignore
 
@@ -16,7 +16,11 @@ from esoraider_server.analysis.tracked_info import (
     SkillsNotFoundException,
 )
 from esoraider_server.esologs.api import ApiWrapper, ZeroLengthFightException
-from esoraider_server.settings import DEBUG, SHOW_ERROR_DETAILS
+from esoraider_server.settings import (
+    DEBUG,
+    HEALTHCHECK_TOKEN,
+    SHOW_ERROR_DETAILS,
+)
 
 app = Application(show_error_details=SHOW_ERROR_DETAILS, debug=DEBUG)
 
@@ -131,6 +135,11 @@ async def get_fight_effects(
         return json(await report.build())
     except ZeroLengthFightException as ex:
         return bad_request(str(ex))
+
+
+@app.route('/{0}/health'.format(HEALTHCHECK_TOKEN))
+async def healthcheck():
+    return html('gucci')
 
 
 async def connect_api(app: Application) -> None:
