@@ -9,6 +9,7 @@ class CharClass(Enum):
     TEMPLAR = 'Templar'
     WARDEN = 'Warden'
     NECROMANCER = 'Necromancer'
+    ARCANIST = 'Arcanist'
 
 
 @unique

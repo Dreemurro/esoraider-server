@@ -5,6 +5,7 @@ from typing import Dict, List, Optional, Set, Type
 from loguru import logger
 
 from esoraider_server.data.buffs import BUFFS
+from esoraider_server.data.classes.arcanist.skills import ARCANIST_SKILLS
 from esoraider_server.data.classes.dragonknight.skills import (
     DRAGONKNIGHT_SKILLS,
 )
@@ -75,6 +76,7 @@ def _get_class_skills(char_class: str) -> Type[EsoEnum]:
         'Templar': TEMPLAR_SKILLS,
         'Necromancer': NECROMANCER_SKILLS,
         'Sorcerer': SORCERER_SKILLS,
+        'Arcanist': ARCANIST_SKILLS,
     }
 
     try:
