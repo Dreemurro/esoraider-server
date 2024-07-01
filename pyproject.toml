@@ -8,7 +8,7 @@ packages = [{ include = "esoraider_server" }]
 package-mode = false
 
 [tool.poetry.dependencies]
-python = "3.9.*"
+python = "3.11.9"
 blacksheep = "1.2.20"
 dataclasses-json = "0.5.7"
 gql = { extras = ["aiohttp"], version = "3.5.0" }

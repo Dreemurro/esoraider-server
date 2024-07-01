@@ -2,7 +2,7 @@
 # This Dockerfile uses multi-stage build to customize DEV and PROD images:
 # https://docs.docker.com/develop/develop-images/multistage-build/
 
-FROM python:3.9.16-slim-bullseye AS development_build
+FROM python:3.11.9-slim-bookworm AS development_build
 
 LABEL org.opencontainers.image.source=https://github.com/Dreemurro/esoraider-server
 
