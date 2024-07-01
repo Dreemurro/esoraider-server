@@ -36,12 +36,7 @@ SHELL ["/bin/bash", "-eo", "pipefail", "-c"]
 # hadolint ignore=DL3008
 RUN apt-get update && apt-get upgrade -y \
     && apt-get install --no-install-recommends -y \
-    bash \
-    brotli \
-    build-essential \
     curl \
-    gettext \
-    git \
     # Installing `poetry` package manager:
     # https://github.com/python-poetry/poetry
     && curl -sSL 'https://install.python-poetry.org' | python - \
