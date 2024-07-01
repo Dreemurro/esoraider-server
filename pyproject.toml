@@ -9,7 +9,6 @@ package-mode = false
 
 [tool.poetry.dependencies]
 python = "3.9.*"
-backoff = "2.2.1"
 blacksheep = "1.2.10"
 dataclasses-json = "0.5.7"
 gql = { extras = ["aiohttp"], version = "3.5.0" }
