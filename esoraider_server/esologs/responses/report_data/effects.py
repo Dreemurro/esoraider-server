@@ -2,8 +2,8 @@
 
 from dataclasses import dataclass
 from typing import List, Optional
-from esoraider_server.esologs.responses.common import Talent
 
+from esoraider_server.esologs.responses.common import Talent
 from esoraider_server.esologs.responses.core import EsoLogsDataClass
 
 

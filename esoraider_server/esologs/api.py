@@ -304,8 +304,8 @@ class ApiWrapper(ApiWrapperBase):
             report_fields = report.select(**graph)
         else:
             raise TypeError(
-                'Either graphs or fight_id & char_id & ability_id ' +
-                'must be provided',
+                'Either graphs or fight_id & char_id & ability_id '
+                + 'must be provided',
             )
 
         query.select(report_fields)

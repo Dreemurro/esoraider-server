@@ -1,6 +1,6 @@
 """Known data extraction."""
 
-from typing import Dict, List, Optional, Set, Type
+from typing import List, Optional, Set, Type
 
 from loguru import logger
 

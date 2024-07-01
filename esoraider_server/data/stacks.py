@@ -72,7 +72,7 @@ class STACKS(EsoEnum):
             WARDEN_DEBUFFS.GROWING_SWARM.value,
             TEMPLAR_DEBUFFS.VAMPIRES_BANE.value,
             # TEMPLAR_DEBUFFS Reflective Light
-        ]
+        ],
     )
     ARMS_OF_RELEQUEN = Stack(
         name='Arms of Relequen',

@@ -49,14 +49,14 @@ def table_decoder(raw_table: Optional[Dict]) -> Optional[TableData]:
 class Report(EsoLogsDataClass):
     events: Optional[List[Event]] = field(
         default=None,
-        metadata=config(decoder=events_decoder)
+        metadata=config(decoder=events_decoder),
     )
     fights: Optional[List[Fight]] = None
     graph: Optional[GraphData] = field(
         default=None,
-        metadata=config(decoder=graph_decoder)
+        metadata=config(decoder=graph_decoder),
     )
     table: Optional[TableData] = field(
         default=None,
-        metadata=config(decoder=table_decoder)
+        metadata=config(decoder=table_decoder),
     )
