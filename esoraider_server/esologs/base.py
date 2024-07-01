@@ -48,7 +48,7 @@ class ApiWrapperBase(object):
         return answer
 
     def _auth(self):
-        access_token_url = 'https://www.esologs.com/oauth/token'
+        access_token_url = 'https://www.esologs.com/oauth/token'  # noqa: S105
 
         client = BackendApplicationClient(client_id=CLIENT_ID)
         oauth = OAuth2Session(client=client)
