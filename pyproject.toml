@@ -9,7 +9,7 @@ package-mode = false
 
 [tool.poetry.dependencies]
 python = "3.9.*"
-blacksheep = "1.2.10"
+blacksheep = "1.2.20"
 dataclasses-json = "0.5.7"
 gql = { extras = ["aiohttp"], version = "3.5.0" }
 gunicorn = "22.0.0"
