@@ -22,9 +22,9 @@ ENV CURRENT_ENV=${CURRENT_ENV} \
     PIP_NO_CACHE_DIR=1 \
     PIP_DISABLE_PIP_VERSION_CHECK=1 \
     PIP_DEFAULT_TIMEOUT=100 \
+    PIP_ROOT_USER_ACTION=ignore \
     # poetry:
     POETRY_VERSION=1.8.3 \
-    POETRY_NO_INTERACTION=1 \
     POETRY_VIRTUALENVS_CREATE=false \
     POETRY_CACHE_DIR='/var/cache/pypoetry' \
     POETRY_HOME='/usr/local'
@@ -63,7 +63,7 @@ RUN --mount=type=cache,target="$POETRY_CACHE_DIR" \
     && poetry run pip install -U pip \
     && poetry install \
     $(if [ "$CURRENT_ENV" = 'production' ]; then echo '--only main'; fi) \
-    --no-interaction --no-ansi --no-root
+    --no-interaction --no-ansi --sync
 
 # Running as non-root user:
 USER web
