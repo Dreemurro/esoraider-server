@@ -2,7 +2,7 @@
 # This Dockerfile uses multi-stage build to customize DEV and PROD images:
 # https://docs.docker.com/develop/develop-images/multistage-build/
 
-FROM python:3.11.9-slim-bookworm AS development_build
+FROM python:3.11.10-slim-bookworm AS development_build
 
 LABEL org.opencontainers.image.source=https://github.com/Dreemurro/esoraider-server
 
@@ -22,7 +22,7 @@ ENV CURRENT_ENV=${CURRENT_ENV} \
     PIP_DEFAULT_TIMEOUT=100 \
     PIP_ROOT_USER_ACTION=ignore \
     # poetry:
-    POETRY_VERSION=1.8.3 \
+    POETRY_VERSION=1.8.4 \
     POETRY_VIRTUALENVS_CREATE=false \
     POETRY_CACHE_DIR='/var/cache/pypoetry' \
     POETRY_HOME='/usr/local'
