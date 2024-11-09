@@ -6,10 +6,8 @@ FROM python:3.11.9-slim-bookworm AS development_build
 
 LABEL org.opencontainers.image.source=https://github.com/Dreemurro/esoraider-server
 
-# `CURRENT_ENV` arg is used to make prod / dev builds:
-ARG CURRENT_ENV \
-    # Needed for fixing permissions of files created by Docker:
-    UID=1000 \
+# Needed for fixing permissions of files created by Docker:
+ARG UID=1000 \
     GID=1000
 
 ENV CURRENT_ENV=${CURRENT_ENV} \
@@ -57,17 +55,13 @@ COPY --chown=web:web ./poetry.lock ./pyproject.toml /code/
 # Project initialization:
 # hadolint ignore=SC2046
 RUN --mount=type=cache,target="$POETRY_CACHE_DIR" \
-    echo "$CURRENT_ENV" \
-    && poetry version \
+    poetry version \
     # Install deps:
     && poetry run pip install -U pip \
-    && poetry install \
-    $(if [ "$CURRENT_ENV" = 'production' ]; then echo '--only main'; fi) \
+    && poetry install --only main \
     --no-interaction --no-ansi --sync
+
+COPY --chown=web:web . /code
 
 # Running as non-root user:
 USER web
-
-# The following stage is only for production
-FROM development_build AS production_build
-COPY --chown=web:web . /code

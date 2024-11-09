@@ -1,35 +1,13 @@
----
-
-# Default compose file for development and production.
-# Should be used directly in development.
-# Automatically loads `docker-compose.override.yml` if it exists.
-# No extra steps required.
-# Should be used together with `docker/docker-compose.prod.yml`
-# in production.
-
-version: "3.8"
+###############################################################################
+# For local use only
+###############################################################################
 services:
   web:
-    <<:
-      # Image name is changed in production:
-      &web
-      image: "esoraider-server:dev"
-      build:
-        target: development_build
-        context: .
-        dockerfile: ./docker/blacksheep/Dockerfile
-        args:
-          CURRENT_ENV: development
-        cache_from:
-          - "esoraider-server:dev"
-          - "esoraider-server:latest"
-          - "*"
-      networks:
-        - webnet
-      env_file: ./esoraider_server/.env
-
-    command: uvicorn esoraider_server.app:app --host 0.0.0.0 --port 8000 --reload
-
-networks:
-  # Network for your internals, use it by default:
-  webnet:
+    image: "esoraider-server:dev"
+    build:
+      context: .
+    env_file: ./esoraider_server/.env
+    command: bash ./entrypoint.sh
+    ports:
+      - 8000:8000
+    init: true
