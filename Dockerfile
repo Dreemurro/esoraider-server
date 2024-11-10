@@ -1,8 +1,6 @@
 # syntax = docker/dockerfile:1
-# This Dockerfile uses multi-stage build to customize DEV and PROD images:
-# https://docs.docker.com/develop/develop-images/multistage-build/
 
-FROM python:3.11.10-slim-bookworm AS development_build
+FROM python:3.11.10-slim-bookworm
 
 LABEL org.opencontainers.image.source=https://github.com/Dreemurro/esoraider-server
 
@@ -10,9 +8,8 @@ LABEL org.opencontainers.image.source=https://github.com/Dreemurro/esoraider-ser
 ARG UID=1000 \
     GID=1000
 
-ENV CURRENT_ENV=${CURRENT_ENV} \
     # python:
-    PYTHONFAULTHANDLER=1 \
+ENV PYTHONFAULTHANDLER=1 \
     PYTHONUNBUFFERED=1 \
     PYTHONHASHSEED=random \
     PYTHONDONTWRITEBYTECODE=1 \
