@@ -154,7 +154,7 @@ class Encounters(EsoEnum):
                 79507,  # Saint Llothis the Pious
             )),
             Target('Ordinated Protector', (78861,)),
-        ]
+        ],
     )
 
     #

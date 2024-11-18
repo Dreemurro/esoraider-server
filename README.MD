@@ -54,7 +54,6 @@ $ docker-compose up
 ## TODO
 
 - Follow [wemake-python-styleguide](https://github.com/wemake-services/wemake-python-styleguide)
-- Add external health check
 - Add more tests
 - Add coverage report
 - Full CI / CD
@@ -62,3 +61,5 @@ $ docker-compose up
   - Run [mypy](https://github.com/python/mypy) before deployment
   - Run [flake8](https://flake8.pycqa.org/en/latest/) or [flakeheaven](https://flakeheaven.readthedocs.io/en/latest/) before deployment
 - Use [structlog](https://www.structlog.org/en/stable/) for logging
+- Switch to [FastAPI](https://fastapi.tiangolo.com/) and use [Pydantic](https://docs.pydantic.dev/latest/)
+- Add [pre-commit](https://pre-commit.com/)

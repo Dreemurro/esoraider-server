@@ -1,4 +1,3 @@
-import asyncio
 from typing import Optional, Tuple
 
 from blacksheep.server import Application
@@ -143,12 +142,9 @@ async def healthcheck():
 
 
 async def connect_api(app: Application) -> None:
-    api = app.service_provider.get(ApiWrapper)
+    api = ApiWrapper()
     await api.connect()
-
-
-async def configure_background_tasks(app):
-    asyncio.get_event_loop().create_task(connect_api(app))
+    app.services.add_instance(api)
 
 
 async def close_api(app: Application):
@@ -156,7 +152,5 @@ async def close_api(app: Application):
     await service.close()
 
 
-app.on_start += configure_background_tasks
+app.on_start += connect_api
 app.on_stop += close_api
-
-app.services.add_instance(ApiWrapper())

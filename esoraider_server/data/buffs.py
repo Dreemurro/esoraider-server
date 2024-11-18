@@ -10,34 +10,34 @@ class BUFFS(EsoEnum):
     MAJOR_BERSERK = Buff(
         name='Major Berserk',
         id=61745,
-        icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_major_berserk.png'
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_major_berserk.png',
     )
     MAJOR_BERSERK_KINRAS_WRATH = Buff(
         name='Major Berserk',
         id=150757,
-        icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_major_berserk.png'
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_major_berserk.png',
     )
 
     # Minor Berserk
     MINOR_BERSERK = Buff(
         name='Minor Berserk',
         id=61744,
-        icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_minor_berserk.png'
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_minor_berserk.png',
     )
     MINOR_BERSERK_CAMOUFLAGED_HUNTER = Buff(
         name='Minor Berserk',
         id=80471,
-        icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_minor_berserk.png'
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_minor_berserk.png',
     )
     MINOR_BERSERK_COMBAT_PRAYER = Buff(
         name='Minor Berserk',
         id=62636,
-        icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_minor_berserk.png'
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_minor_berserk.png',
     )
     MINOR_BERSERK_KINRAS_WRATH = Buff(
         name='Minor Berserk',
         id=150782,
-        icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_minor_berserk.png'
+        icon='https://assets.rpglogs.com/img/eso/abilities/ability_buff_minor_berserk.png',
     )
 
     # Major Resolve
@@ -314,7 +314,7 @@ class BUFFS(EsoEnum):
 
     """
     MAJOR SLAYER
-    KNOWN IDS: 
+    KNOWN IDS:
     - 93120
     - 93442
     """
