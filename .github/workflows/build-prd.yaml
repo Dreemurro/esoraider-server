@@ -27,6 +27,5 @@ jobs:
           push: true
           tags: |
             ghcr.io/dreemurro/esoraider-server:latest
-            ghcr.io/dreemurro/esoraider-server:${{ github.GITHUB_SHA }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
