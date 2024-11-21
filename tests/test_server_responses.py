@@ -1,9 +1,11 @@
 from dataclasses import dataclass
 from http import HTTPStatus
-from typing import Optional, Sequence, Tuple
+from typing import TYPE_CHECKING, Optional, Sequence, Tuple
 
 import pytest
-from blacksheep.testing import TestClient
+
+if TYPE_CHECKING:
+    from blacksheep.testing import TestClient
 
 
 @dataclass
@@ -129,7 +131,7 @@ def id_of_test(log: Log) -> str:
 
 @pytest.mark.asyncio(loop_scope='session')
 @pytest.mark.parametrize('log', LOGS, ids=id_of_test)
-async def test_get_log(test_client: TestClient, log: Log):
+async def test_get_log(test_client: 'TestClient', log: Log):
     response = await test_client.get(log.link)
 
     assert response.status == log.expected
@@ -137,7 +139,7 @@ async def test_get_log(test_client: TestClient, log: Log):
 
 @pytest.mark.asyncio(loop_scope='session')
 @pytest.mark.parametrize('fight', FIGHTS, ids=id_of_test)
-async def test_get_fight(test_client: TestClient, fight: Log):
+async def test_get_fight(test_client: 'TestClient', fight: Log):
     response = await test_client.get(fight.link)
 
     assert response.status == fight.expected
@@ -145,7 +147,7 @@ async def test_get_fight(test_client: TestClient, fight: Log):
 
 @pytest.mark.asyncio(loop_scope='session')
 @pytest.mark.parametrize('char', CHARS, ids=id_of_test)
-async def test_get_char(test_client: TestClient, char: Log):
+async def test_get_char(test_client: 'TestClient', char: Log):
     response = await test_client.get(char.link, query=char.query)
 
     assert response.status == char.expected
@@ -153,7 +155,7 @@ async def test_get_char(test_client: TestClient, char: Log):
 
 @pytest.mark.asyncio(loop_scope='session')
 @pytest.mark.parametrize('fight', FIGHT_EFFECTS, ids=id_of_test)
-async def test_get_fight_effects(test_client: TestClient, fight: Log):
+async def test_get_fight_effects(test_client: 'TestClient', fight: Log):
     response = await test_client.get('/fight' + fight.link)
 
     assert response.status == fight.expected
@@ -161,7 +163,7 @@ async def test_get_fight_effects(test_client: TestClient, fight: Log):
 
 @pytest.mark.asyncio(loop_scope='session')
 @pytest.mark.parametrize('encounter', ENCOUNTERS)
-async def test_get_encounter_info(test_client: TestClient, encounter: int):
+async def test_get_encounter_info(test_client: 'TestClient', encounter: int):
     response = await test_client.get('/encounter/{0}'.format(encounter))
 
     assert response.status == HTTPStatus.OK
