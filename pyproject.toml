@@ -31,6 +31,10 @@ wemake-python-styleguide = "*"
 pytest = "*"
 pytest-asyncio = "*"
 
+[tool.pytest.ini_options]
+addopts = "-v -rP"
+asyncio_default_fixture_loop_scope = "session"
+
 [tool.nitpick]
 style = "https://raw.githubusercontent.com/wemake-services/wemake-python-styleguide/master/styles/nitpick-style.toml"
 
