@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 from http import HTTPStatus
 from pathlib import Path
-from typing import TYPE_CHECKING, Optional, Sequence, Tuple
+from typing import TYPE_CHECKING
 
 import pytest
 from msgspec import json
@@ -14,9 +14,9 @@ if TYPE_CHECKING:
 class Log:
     desc: str
     log: str
-    fight: Optional[int] = None
-    char: Optional[int] = None
-    targets: Optional[Sequence[int]] = None
+    fight: int | None = None
+    char: int | None = None
+    targets: tuple[int, ...] | None = None
     expected: HTTPStatus = HTTPStatus.OK
 
     @property
@@ -29,7 +29,7 @@ class Log:
         return link
 
     @property
-    def query(self) -> Optional[Sequence[Tuple[str, str]]]:
+    def query(self) -> list[tuple[str, str]] | None:
         if self.targets:
             return [('target', str(_)) for _ in self.targets]
         return None
