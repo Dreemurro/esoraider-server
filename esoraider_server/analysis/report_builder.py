@@ -195,6 +195,9 @@ class ReportBuilder(object):
         def skip_functions(x):
             return {k: v for (k, v) in x if not callable(v)}
 
+        def id_sort(x):
+            return x['id']
+
         self.report = {
             'char': {
                 'id': self.char_id,
@@ -203,29 +206,38 @@ class ReportBuilder(object):
                 'spec': self._char_spec,
             } if self.char_id else {},
             'skills':
-                [asdict(skill) for skill in self._uptimes.skills]
+                sorted(
+                    [asdict(skill) for skill in self._uptimes.skills],
+                    key=id_sort,
+            )
                 if self._uptimes.skills
                 else [],
-            'sets': [
-                asdict(gear_set, dict_factory=skip_functions)
-                for gear_set in self._uptimes.sets
-            ] if self._uptimes.sets else [],
+            'sets': sorted(
+                [
+                    asdict(gear_set, dict_factory=skip_functions)
+                    for gear_set in self._uptimes.sets
+                ],
+                key=id_sort,
+            ) if self._uptimes.sets else [],
             'glyphs':
-                [asdict(glyph) for glyph in self._uptimes.glyphs]
-                if self._uptimes.glyphs
-                else [],
+                sorted(
+                [asdict(glyph) for glyph in self._uptimes.glyphs],
+                key=id_sort,
+            ) if self._uptimes.glyphs else [],
             'buffs':
-                [asdict(buff) for buff in self._uptimes.buffs]
-                if not self.char_id and self._uptimes.buffs
-                else [],
+                sorted(
+                    [asdict(buff) for buff in self._uptimes.buffs],
+                    key=id_sort,
+            ) if not self.char_id and self._uptimes.buffs else [],
             'debuffs':
-                [asdict(debuff) for debuff in self._uptimes.debuffs]
-                if not self.char_id and self._uptimes.debuffs
-                else [],
-            'targets':
-                [asdict(target) for target in self._tracked_info.targets]
-                if self._tracked_info.targets
-                else [],
+                sorted(
+                    [asdict(debuff) for debuff in self._uptimes.debuffs],
+                    key=id_sort,
+            ) if not self.char_id and self._uptimes.debuffs else [],
+            'targets': sorted(
+                [asdict(target) for target in self._tracked_info.targets],
+                key=id_sort,
+            ) if self._tracked_info.targets else [],
             'currentTarget': next(
                 (
                     target
@@ -234,7 +246,7 @@ class ReportBuilder(object):
                 ), None,
             ),
             'checklist':
-                self._checklist.checklist
+                sorted(self._checklist.checklist, key=lambda x: x['name'])
                 if self._checklist
                 else None,
         }
