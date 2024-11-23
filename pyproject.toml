@@ -32,6 +32,12 @@ wemake-python-styleguide = "*"
 pytest = "*"
 pytest-asyncio = "*"
 
+[tool.isort]
+include_trailing_comma = true
+multi_line_output = 3
+line_length = 80
+use_parentheses = true
+
 [tool.pytest.ini_options]
 addopts = "-v -rP"
 asyncio_default_fixture_loop_scope = "session"
