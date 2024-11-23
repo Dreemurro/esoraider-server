@@ -1,0 +1,4674 @@
+{
+  "totalTime": 489305,
+  "itemLevel": 1495,
+  "logVersion": 15,
+  "gameVersion": 1,
+  "composition": [
+    {
+      "name": "Player (1)",
+      "id": 1,
+      "guid": 1000001,
+      "type": "DragonKnight",
+      "specs": [{ "spec": "Tank", "role": "tank" }]
+    },
+    {
+      "name": "Player (4)",
+      "id": 4,
+      "guid": 1000004,
+      "type": "Necromancer",
+      "specs": [{ "spec": "StaminaDPS", "role": "dps" }]
+    },
+    {
+      "name": "Player (9)",
+      "id": 9,
+      "guid": 1000009,
+      "type": "Sorcerer",
+      "specs": [{ "spec": "MagickaDPS", "role": "dps" }]
+    },
+    {
+      "name": "Player (3)",
+      "id": 3,
+      "guid": 1000003,
+      "type": "Necromancer",
+      "specs": [{ "spec": "Tank", "role": "tank" }]
+    },
+    {
+      "name": "Player (2)",
+      "id": 2,
+      "guid": 1000002,
+      "type": "Arcanist",
+      "specs": [{ "spec": "StaminaDPS", "role": "dps" }]
+    },
+    {
+      "name": "Player (35)",
+      "id": 35,
+      "guid": 1000035,
+      "type": "Arcanist",
+      "specs": [{ "spec": "StaminaDPS", "role": "dps" }]
+    },
+    {
+      "name": "Player (10)",
+      "id": 10,
+      "guid": 1000010,
+      "type": "Warden",
+      "specs": [{ "spec": "StaminaDPS", "role": "dps" }]
+    },
+    {
+      "name": "Player (36)",
+      "id": 36,
+      "guid": 1000036,
+      "type": "Nightblade",
+      "specs": [{ "spec": "Healer", "role": "healer" }]
+    },
+    {
+      "name": "Player (7)",
+      "id": 7,
+      "guid": 1000007,
+      "type": "Nightblade",
+      "specs": [{ "spec": "StaminaDPS", "role": "dps" }]
+    },
+    {
+      "name": "Player (11)",
+      "id": 11,
+      "guid": 1000011,
+      "type": "Templar",
+      "specs": [{ "spec": "Healer", "role": "healer" }]
+    },
+    {
+      "name": "Player (6)",
+      "id": 6,
+      "guid": 1000006,
+      "type": "Templar",
+      "specs": [{ "spec": "Healer", "role": "healer" }]
+    },
+    {
+      "name": "Player (8)",
+      "id": 8,
+      "guid": 1000008,
+      "type": "Arcanist",
+      "specs": [{ "spec": "StaminaDPS", "role": "dps" }]
+    }
+  ],
+  "damageDone": [
+    {
+      "name": "Player (1)",
+      "guid": 1000001,
+      "type": "DragonKnight",
+      "total": 1084238,
+      "id": 1,
+      "icon": "DragonKnight-Tank",
+      "abilityIcon": null,
+      "composite": null,
+      "flags": null
+    },
+    {
+      "name": "Player (9)",
+      "guid": 1000009,
+      "type": "Sorcerer",
+      "total": 16405597,
+      "id": 9,
+      "icon": "Sorcerer-MagickaDPS",
+      "abilityIcon": null,
+      "composite": null,
+      "flags": null
+    },
+    {
+      "name": "Player (4)",
+      "guid": 1000004,
+      "type": "Necromancer",
+      "total": 3998386,
+      "id": 4,
+      "icon": "Necromancer-StaminaDPS",
+      "abilityIcon": null,
+      "composite": null,
+      "flags": null
+    },
+    {
+      "name": "Player (3)",
+      "guid": 1000003,
+      "type": "Necromancer",
+      "total": 2206051,
+      "id": 3,
+      "icon": "Necromancer-Tank",
+      "abilityIcon": null,
+      "composite": null,
+      "flags": null
+    },
+    {
+      "name": "Player (35)",
+      "guid": 1000035,
+      "type": "Arcanist",
+      "total": 12974357,
+      "id": 35,
+      "icon": "Arcanist-StaminaDPS",
+      "abilityIcon": null,
+      "composite": null,
+      "flags": null
+    },
+    {
+      "name": "Player (2)",
+      "guid": 1000002,
+      "type": "Arcanist",
+      "total": 1137566,
+      "id": 2,
+      "icon": "Arcanist-StaminaDPS",
+      "abilityIcon": null,
+      "composite": null,
+      "flags": null
+    },
+    {
+      "name": "Player (10)",
+      "guid": 1000010,
+      "type": "Warden",
+      "total": 14393339,
+      "id": 10,
+      "icon": "Warden-StaminaDPS",
+      "abilityIcon": null,
+      "composite": null,
+      "flags": null
+    },
+    {
+      "name": "Player (36)",
+      "guid": 1000036,
+      "type": "Nightblade",
+      "total": 1229645,
+      "id": 36,
+      "icon": "Nightblade-Healer",
+      "abilityIcon": null,
+      "composite": null,
+      "flags": null
+    },
+    {
+      "name": "Player (7)",
+      "guid": 1000007,
+      "type": "Nightblade",
+      "total": 9385367,
+      "id": 7,
+      "icon": "Nightblade-StaminaDPS",
+      "abilityIcon": null,
+      "composite": null,
+      "flags": null
+    },
+    {
+      "name": "Player (11)",
+      "guid": 1000011,
+      "type": "Templar",
+      "total": 1301245,
+      "id": 11,
+      "icon": "Templar-Healer",
+      "abilityIcon": null,
+      "composite": null,
+      "flags": null
+    },
+    {
+      "name": "Player (6)",
+      "guid": 1000006,
+      "type": "Templar",
+      "total": 6454155,
+      "id": 6,
+      "icon": "Templar-Healer",
+      "abilityIcon": null,
+      "composite": null,
+      "flags": null
+    },
+    {
+      "name": "Player (8)",
+      "guid": 1000008,
+      "type": "Arcanist",
+      "total": 6397692,
+      "id": 8,
+      "icon": "Arcanist-StaminaDPS",
+      "abilityIcon": null,
+      "composite": null,
+      "flags": null
+    }
+  ],
+  "healingDone": [
+    {
+      "name": "Player (1)",
+      "guid": 1000001,
+      "type": "DragonKnight",
+      "total": 637175,
+      "id": 1,
+      "icon": "DragonKnight-Tank",
+      "abilityIcon": null,
+      "composite": null,
+      "flags": null
+    },
+    {
+      "name": "Player (4)",
+      "guid": 1000004,
+      "type": "Necromancer",
+      "total": 170516,
+      "id": 4,
+      "icon": "Necromancer-StaminaDPS",
+      "abilityIcon": null,
+      "composite": null,
+      "flags": null
+    },
+    {
+      "name": "Player (9)",
+      "guid": 1000009,
+      "type": "Sorcerer",
+      "total": 277603,
+      "id": 9,
+      "icon": "Sorcerer-MagickaDPS",
+      "abilityIcon": null,
+      "composite": null,
+      "flags": null
+    },
+    {
+      "name": "Player (3)",
+      "guid": 1000003,
+      "type": "Necromancer",
+      "total": 581995,
+      "id": 3,
+      "icon": "Necromancer-Tank",
+      "abilityIcon": null,
+      "composite": null,
+      "flags": null
+    },
+    {
+      "name": "Player (35)",
+      "guid": 1000035,
+      "type": "Arcanist",
+      "total": 198861,
+      "id": 35,
+      "icon": "Arcanist-StaminaDPS",
+      "abilityIcon": null,
+      "composite": null,
+      "flags": null
+    },
+    {
+      "name": "Player (2)",
+      "guid": 1000002,
+      "type": "Arcanist",
+      "total": 160867,
+      "id": 2,
+      "icon": "Arcanist-StaminaDPS",
+      "abilityIcon": null,
+      "composite": null,
+      "flags": null
+    },
+    {
+      "name": "Player (10)",
+      "guid": 1000010,
+      "type": "Warden",
+      "total": 110262,
+      "id": 10,
+      "icon": "Warden-StaminaDPS",
+      "abilityIcon": null,
+      "composite": null,
+      "flags": null
+    },
+    {
+      "name": "Player (36)",
+      "guid": 1000036,
+      "type": "Nightblade",
+      "total": 3415152,
+      "id": 36,
+      "icon": "Nightblade-Healer",
+      "abilityIcon": null,
+      "composite": null,
+      "flags": null
+    },
+    {
+      "name": "Player (7)",
+      "guid": 1000007,
+      "type": "Nightblade",
+      "total": 157743,
+      "id": 7,
+      "icon": "Nightblade-StaminaDPS",
+      "abilityIcon": null,
+      "composite": null,
+      "flags": null
+    },
+    {
+      "name": "Player (11)",
+      "guid": 1000011,
+      "type": "Templar",
+      "total": 1541330,
+      "id": 11,
+      "icon": "Templar-Healer",
+      "abilityIcon": null,
+      "composite": null,
+      "flags": null
+    },
+    {
+      "name": "Player (8)",
+      "guid": 1000008,
+      "type": "Arcanist",
+      "total": 191980,
+      "id": 8,
+      "icon": "Arcanist-StaminaDPS",
+      "abilityIcon": null,
+      "composite": null,
+      "flags": null
+    },
+    {
+      "name": "Player (6)",
+      "guid": 1000006,
+      "type": "Templar",
+      "total": 404183,
+      "id": 6,
+      "icon": "Templar-Healer",
+      "abilityIcon": null,
+      "composite": null,
+      "flags": null
+    }
+  ],
+  "damageTaken": [
+    {
+      "name": "Cyclonic Carving",
+      "guid": 95691,
+      "type": 1,
+      "abilityIcon": "ability_dualwield_005",
+      "total": 554765,
+      "composite": true,
+      "flags": null
+    },
+    {
+      "name": "Lead to Slaughter",
+      "guid": 99095,
+      "type": 4,
+      "abilityIcon": "death_recap_fire_ranged",
+      "total": 18864,
+      "composite": true,
+      "flags": null
+    },
+    {
+      "name": "Teleport Strike",
+      "guid": 99138,
+      "type": 1,
+      "abilityIcon": "death_recap_melee_basic",
+      "total": 4272697,
+      "composite": true,
+      "flags": null
+    },
+    {
+      "name": "Quick Strike",
+      "guid": 99081,
+      "type": 1,
+      "abilityIcon": "ability_warrior_001",
+      "total": 970209,
+      "composite": true,
+      "flags": null
+    },
+    {
+      "name": "Healthy Offering",
+      "guid": 34727,
+      "type": 40,
+      "abilityIcon": "ability_nightblade_011_a",
+      "total": 29160,
+      "composite": true,
+      "flags": null
+    },
+    {
+      "name": "Manifest Wrath",
+      "guid": 99027,
+      "type": 64,
+      "abilityIcon": "death_recap_magic_aoe",
+      "total": 2063659,
+      "composite": true,
+      "flags": null
+    }
+  ],
+  "deathEvents": [
+    {
+      "name": "Player (6)",
+      "id": 6,
+      "guid": 1000006,
+      "type": "Templar",
+      "icon": "Templar-Healer",
+      "deathTime": 59578,
+      "ability": {
+        "name": "Manifest Wrath",
+        "guid": 99038,
+        "type": 64,
+        "abilityIcon": "death_recap_magic_aoe",
+        "flags": 1
+      }
+    },
+    {
+      "name": "Player (6)",
+      "id": 6,
+      "guid": 1000006,
+      "type": "Templar",
+      "icon": "Templar-Healer",
+      "deathTime": 93539,
+      "ability": {
+        "name": "Manifest Wrath",
+        "guid": 99038,
+        "type": 64,
+        "abilityIcon": "death_recap_magic_aoe",
+        "flags": 1
+      }
+    },
+    {
+      "name": "Player (8)",
+      "id": 8,
+      "guid": 1000008,
+      "type": "Arcanist",
+      "icon": "Arcanist-StaminaDPS",
+      "deathTime": 96641,
+      "ability": {
+        "name": "Bleeding",
+        "guid": 99131,
+        "type": 1,
+        "abilityIcon": "death_recap_melee_basic",
+        "flags": 0
+      }
+    },
+    {
+      "name": "Player (4)",
+      "id": 4,
+      "guid": 1000004,
+      "type": "Necromancer",
+      "icon": "Necromancer-StaminaDPS",
+      "deathTime": 134063,
+      "ability": {
+        "name": "Bleeding",
+        "guid": 99131,
+        "type": 1,
+        "abilityIcon": "death_recap_melee_basic",
+        "flags": 0
+      }
+    },
+    {
+      "name": "Player (35)",
+      "id": 35,
+      "guid": 1000035,
+      "type": "Arcanist",
+      "icon": "Arcanist-StaminaDPS",
+      "deathTime": 169820,
+      "ability": {
+        "name": "Manifest Wrath",
+        "guid": 99038,
+        "type": 64,
+        "abilityIcon": "death_recap_magic_aoe",
+        "flags": 1
+      }
+    },
+    {
+      "name": "Player (11)",
+      "id": 11,
+      "guid": 1000011,
+      "type": "Templar",
+      "icon": "Templar-Healer",
+      "deathTime": 182750,
+      "ability": {
+        "name": "Manifest Wrath",
+        "guid": 99038,
+        "type": 64,
+        "abilityIcon": "death_recap_magic_aoe",
+        "flags": 1
+      }
+    },
+    {
+      "name": "Player (4)",
+      "id": 4,
+      "guid": 1000004,
+      "type": "Necromancer",
+      "icon": "Necromancer-StaminaDPS",
+      "deathTime": 196773,
+      "ability": {
+        "name": "Manifest Wrath",
+        "guid": 99033,
+        "type": 64,
+        "abilityIcon": "death_recap_magic_aoe",
+        "flags": 2
+      }
+    },
+    {
+      "name": "Player (2)",
+      "id": 2,
+      "guid": 1000002,
+      "type": "Arcanist",
+      "icon": "Arcanist-StaminaDPS",
+      "deathTime": 233438,
+      "ability": {
+        "name": "Manifest Wrath",
+        "guid": 99038,
+        "type": 64,
+        "abilityIcon": "death_recap_magic_aoe",
+        "flags": 1
+      }
+    },
+    {
+      "name": "Player (8)",
+      "id": 8,
+      "guid": 1000008,
+      "type": "Arcanist",
+      "icon": "Arcanist-StaminaDPS",
+      "deathTime": 245250,
+      "ability": {
+        "name": "Manifest Wrath",
+        "guid": 99033,
+        "type": 64,
+        "abilityIcon": "death_recap_magic_aoe",
+        "flags": 2
+      }
+    },
+    {
+      "name": "Player (2)",
+      "id": 2,
+      "guid": 1000002,
+      "type": "Arcanist",
+      "icon": "Arcanist-StaminaDPS",
+      "deathTime": 245859,
+      "ability": {
+        "name": "Manifest Wrath",
+        "guid": 99033,
+        "type": 64,
+        "abilityIcon": "death_recap_magic_aoe",
+        "flags": 2
+      }
+    },
+    {
+      "name": "Player (7)",
+      "id": 7,
+      "guid": 1000007,
+      "type": "Nightblade",
+      "icon": "Nightblade-StaminaDPS",
+      "deathTime": 260445,
+      "ability": {
+        "name": "Manifest Wrath",
+        "guid": 99038,
+        "type": 64,
+        "abilityIcon": "death_recap_magic_aoe",
+        "flags": 1
+      }
+    },
+    {
+      "name": "Player (35)",
+      "id": 35,
+      "guid": 1000035,
+      "type": "Arcanist",
+      "icon": "Arcanist-StaminaDPS",
+      "deathTime": 260445,
+      "ability": {
+        "name": "Manifest Wrath",
+        "guid": 99038,
+        "type": 64,
+        "abilityIcon": "death_recap_magic_aoe",
+        "flags": 1
+      }
+    },
+    {
+      "name": "Player (4)",
+      "id": 4,
+      "guid": 1000004,
+      "type": "Necromancer",
+      "icon": "Necromancer-StaminaDPS",
+      "deathTime": 299367,
+      "ability": {
+        "name": "Manifest Wrath",
+        "guid": 99038,
+        "type": 64,
+        "abilityIcon": "death_recap_magic_aoe",
+        "flags": 1
+      }
+    },
+    {
+      "name": "Player (4)",
+      "id": 4,
+      "guid": 1000004,
+      "type": "Necromancer",
+      "icon": "Necromancer-StaminaDPS",
+      "deathTime": 340977,
+      "ability": {
+        "name": "Manifest Wrath",
+        "guid": 99038,
+        "type": 64,
+        "abilityIcon": "death_recap_magic_aoe",
+        "flags": 1
+      }
+    },
+    {
+      "name": "Player (6)",
+      "id": 6,
+      "guid": 1000006,
+      "type": "Templar",
+      "icon": "Templar-Healer",
+      "deathTime": 368883,
+      "ability": {
+        "name": "Bleeding",
+        "guid": 99131,
+        "type": 1,
+        "abilityIcon": "death_recap_melee_basic",
+        "flags": 0
+      }
+    },
+    {
+      "name": "Player (11)",
+      "id": 11,
+      "guid": 1000011,
+      "type": "Templar",
+      "icon": "Templar-Healer",
+      "deathTime": 378813,
+      "ability": {
+        "name": "Manifest Wrath",
+        "guid": 99038,
+        "type": 64,
+        "abilityIcon": "death_recap_magic_aoe",
+        "flags": 1
+      }
+    },
+    {
+      "name": "Player (36)",
+      "id": 36,
+      "guid": 1000036,
+      "type": "Nightblade",
+      "icon": "Nightblade-Healer",
+      "deathTime": 378813,
+      "ability": {
+        "name": "Manifest Wrath",
+        "guid": 99038,
+        "type": 64,
+        "abilityIcon": "death_recap_magic_aoe",
+        "flags": 1
+      }
+    },
+    {
+      "name": "Player (3)",
+      "id": 3,
+      "guid": 1000003,
+      "type": "Necromancer",
+      "icon": "Necromancer-Tank",
+      "deathTime": 393320,
+      "ability": {
+        "name": "Manifest Wrath",
+        "guid": 99038,
+        "type": 64,
+        "abilityIcon": "death_recap_magic_aoe",
+        "flags": 1
+      }
+    },
+    {
+      "name": "Player (8)",
+      "id": 8,
+      "guid": 1000008,
+      "type": "Arcanist",
+      "icon": "Arcanist-StaminaDPS",
+      "deathTime": 454711,
+      "ability": {
+        "name": "Bleeding",
+        "guid": 99131,
+        "type": 1,
+        "abilityIcon": "death_recap_melee_basic",
+        "flags": 0
+      }
+    },
+    {
+      "name": "Player (35)",
+      "id": 35,
+      "guid": 1000035,
+      "type": "Arcanist",
+      "icon": "Arcanist-StaminaDPS",
+      "deathTime": 477125,
+      "ability": {
+        "name": "Manifest Wrath",
+        "guid": 99038,
+        "type": 64,
+        "abilityIcon": "death_recap_magic_aoe",
+        "flags": 1
+      }
+    }
+  ],
+  "combatantInfo": null,
+  "playerDetails": {
+    "dps": [
+      {
+        "name": "Player (9)",
+        "id": 9,
+        "guid": 1000009,
+        "type": "Sorcerer",
+        "icon": "Sorcerer-MagickaDPS",
+        "server": null,
+        "displayName": null,
+        "anonymous": null,
+        "minItemLevel": 1605,
+        "maxItemLevel": 1605,
+        "specs": ["MagickaDPS"],
+        "potionUse": 0,
+        "healthstoneUse": 0,
+        "combatantInfo": {
+          "stats": [],
+          "talents": [
+            {
+              "name": "Summon Twilight Matriarch",
+              "guid": 24639,
+              "type": 2,
+              "abilityIcon": "ability_sorcerer_storm_prey",
+              "flags": 3
+            },
+            {
+              "name": "Vibrant Shroud",
+              "guid": 28311,
+              "type": 8,
+              "abilityIcon": "ability_sorcerer_crushing_winds",
+              "flags": 1
+            },
+            {
+              "name": "Hurricane",
+              "guid": 23231,
+              "type": 1,
+              "abilityIcon": "ability_sorcerer_thundering_presence",
+              "flags": 3
+            },
+            {
+              "name": "Critical Surge",
+              "guid": 23678,
+              "type": 8,
+              "abilityIcon": "ability_sorcerer_critical_surge",
+              "flags": 1
+            },
+            {
+              "name": "Unstable Wall of Elements",
+              "guid": 39052,
+              "type": 2,
+              "abilityIcon": "ability_destructionstaff_002b",
+              "flags": 3
+            },
+            {
+              "name": "Greater Storm Atronach",
+              "guid": 23492,
+              "type": 512,
+              "abilityIcon": "ability_sorcerer_greater_storm_atronach",
+              "flags": 1
+            },
+            {
+              "name": "Crystal Weapon",
+              "guid": 46331,
+              "type": 2,
+              "abilityIcon": "ability_sorcerer_crystalweapon",
+              "flags": 1
+            },
+            {
+              "name": "Vibrant Shroud",
+              "guid": 28311,
+              "type": 8,
+              "abilityIcon": "ability_sorcerer_crushing_winds",
+              "flags": 1
+            },
+            {
+              "name": "Rune Prison",
+              "guid": 24371,
+              "type": 2,
+              "abilityIcon": "ability_sorcerer_dark_fog",
+              "flags": 3
+            },
+            {
+              "name": "Dark Exchange",
+              "guid": 24584,
+              "type": 2,
+              "abilityIcon": "ability_sorcerer_dark_exchange",
+              "flags": 3
+            },
+            {
+              "name": "Negate Magic",
+              "guid": 27706,
+              "type": 2,
+              "abilityIcon": "ability_sorcerer_monsoon",
+              "flags": 1
+            }
+          ],
+          "gear": [
+            {
+              "id": 94773,
+              "quality": 5,
+              "icon": "gear_undauntedcrocodile_head_a",
+              "championPoints": 160,
+              "trait": 1,
+              "enchantType": 22,
+              "enchantQuality": 5,
+              "setID": 270,
+              "slot": 0,
+              "name": "Slimecraw Guise",
+              "type": 1,
+              "setName": "Slimecraw"
+            },
+            {
+              "id": 108746,
+              "quality": 5,
+              "icon": "gear_dunmer_heavy_chest_d",
+              "championPoints": 160,
+              "trait": 1,
+              "enchantType": 22,
+              "enchantQuality": 5,
+              "setID": 29,
+              "slot": 1,
+              "name": "Cuirass of the Sergeant",
+              "type": 3,
+              "setName": "Sergeant's Mail"
+            },
+            {
+              "id": 110416,
+              "quality": 5,
+              "icon": "gear_ancient_elf_medium_shoulders_a",
+              "championPoints": 160,
+              "trait": 1,
+              "enchantType": 22,
+              "enchantQuality": 5,
+              "setID": 188,
+              "slot": 2,
+              "name": "Storm Master's Arm Cops",
+              "type": 2,
+              "setName": "Storm Master"
+            },
+            {
+              "id": 110417,
+              "quality": 5,
+              "icon": "gear_ancient_elf_medium_waist_a",
+              "championPoints": 160,
+              "trait": 1,
+              "enchantType": 22,
+              "enchantQuality": 5,
+              "setID": 188,
+              "slot": 3,
+              "name": "Storm Master's Belt",
+              "type": 2,
+              "setName": "Storm Master"
+            },
+            {
+              "id": 110413,
+              "quality": 5,
+              "icon": "gear_ancient_elf_medium_hands_a",
+              "championPoints": 160,
+              "trait": 1,
+              "enchantType": 22,
+              "enchantQuality": 5,
+              "setID": 188,
+              "slot": 4,
+              "name": "Storm Master's Bracers",
+              "type": 2,
+              "setName": "Storm Master"
+            },
+            {
+              "id": 110415,
+              "quality": 5,
+              "icon": "gear_ancient_elf_medium_legs_a",
+              "championPoints": 160,
+              "trait": 1,
+              "enchantType": 16,
+              "enchantQuality": 5,
+              "setID": 188,
+              "slot": 5,
+              "name": "Storm Master's Guards",
+              "type": 2,
+              "setName": "Storm Master"
+            },
+            {
+              "id": 110412,
+              "quality": 5,
+              "icon": "gear_ancient_elf_medium_feet_a",
+              "championPoints": 160,
+              "trait": 1,
+              "enchantType": 22,
+              "enchantQuality": 5,
+              "setID": 188,
+              "slot": 6,
+              "name": "Storm Master's Boots",
+              "type": 2,
+              "setName": "Storm Master"
+            },
+            {
+              "id": 108732,
+              "quality": 5,
+              "icon": "gear_breton_neck_a",
+              "championPoints": 160,
+              "trait": 13,
+              "enchantType": 21,
+              "enchantQuality": 5,
+              "setID": 29,
+              "slot": 7,
+              "name": "Necklace of the Sergeant",
+              "type": 4,
+              "setName": "Sergeant's Mail"
+            },
+            {
+              "id": 187658,
+              "quality": 5,
+              "icon": "u34_mythic_oakensoul_ring",
+              "championPoints": 160,
+              "trait": 13,
+              "enchantType": 21,
+              "enchantQuality": 5,
+              "setID": 658,
+              "slot": 8,
+              "name": "Oakensoul Ring",
+              "type": 4,
+              "setName": "Oakensoul Ring"
+            },
+            {
+              "id": 108731,
+              "quality": 5,
+              "icon": "gear_breton_ring_a",
+              "championPoints": 160,
+              "trait": 13,
+              "enchantType": 21,
+              "enchantQuality": 5,
+              "setID": 29,
+              "slot": 9,
+              "name": "Ring of the Sergeant",
+              "type": 4,
+              "setName": "Sergeant's Mail"
+            },
+            {
+              "id": 108743,
+              "quality": 5,
+              "icon": "gear_dunmer_staff_d",
+              "championPoints": 160,
+              "trait": 31,
+              "enchantType": 12,
+              "enchantQuality": 5,
+              "setID": 29,
+              "slot": 10,
+              "name": "Lightning Staff of the Sergeant",
+              "type": 15,
+              "setName": "Sergeant's Mail"
+            },
+            {
+              "id": 0,
+              "quality": 0,
+              "icon": "",
+              "championPoints": 0,
+              "trait": 0,
+              "enchantType": 0,
+              "enchantQuality": 0,
+              "setID": 0,
+              "slot": 11,
+              "name": null,
+              "type": null,
+              "setName": null
+            },
+            {
+              "id": 0,
+              "quality": 0,
+              "icon": "",
+              "championPoints": 0,
+              "trait": 0,
+              "enchantType": 0,
+              "enchantQuality": 0,
+              "setID": 0,
+              "slot": 12,
+              "name": null,
+              "type": null,
+              "setName": null
+            },
+            {
+              "id": 0,
+              "quality": 0,
+              "icon": "",
+              "championPoints": 0,
+              "trait": 0,
+              "enchantType": 0,
+              "enchantQuality": 0,
+              "setID": 0,
+              "slot": 13,
+              "name": null,
+              "type": null,
+              "setName": null
+            },
+            {
+              "id": 0,
+              "quality": 0,
+              "icon": "",
+              "championPoints": 0,
+              "trait": 0,
+              "enchantType": 0,
+              "enchantQuality": 0,
+              "setID": 0,
+              "slot": 14,
+              "name": null,
+              "type": null,
+              "setName": null
+            },
+            {
+              "id": 0,
+              "quality": 0,
+              "icon": "",
+              "championPoints": 0,
+              "trait": 0,
+              "enchantType": 0,
+              "enchantQuality": 0,
+              "setID": 0,
+              "slot": 15,
+              "name": null,
+              "type": null,
+              "setName": null
+            }
+          ],
+          "specIDs": null,
+          "artifact": null,
+          "talentTree": null
+        }
+      },
+      {
+        "name": "Player (4)",
+        "id": 4,
+        "guid": 1000004,
+        "type": "Necromancer",
+        "icon": "Necromancer-StaminaDPS",
+        "server": null,
+        "displayName": null,
+        "anonymous": null,
+        "minItemLevel": 724,
+        "maxItemLevel": 724,
+        "specs": ["StaminaDPS"],
+        "potionUse": 0,
+        "healthstoneUse": 0,
+        "combatantInfo": {
+          "stats": [],
+          "talents": [
+            {
+              "name": "Quick Cloak",
+              "guid": 38901,
+              "type": 1,
+              "abilityIcon": "ability_dualwield_004_a",
+              "flags": 1
+            },
+            {
+              "name": "Skeletal Archer",
+              "guid": 118680,
+              "type": 2,
+              "abilityIcon": "ability_necromancer_003_a",
+              "flags": 1
+            },
+            {
+              "name": "Detonating Siphon",
+              "guid": 118763,
+              "type": 256,
+              "abilityIcon": "ability_necromancer_005_b",
+              "flags": 1
+            },
+            {
+              "name": "Blighted Blastbones",
+              "guid": 117690,
+              "type": 2,
+              "abilityIcon": "ability_necromancer_002_a",
+              "flags": 1
+            },
+            {
+              "name": "Unnerving Boneyard",
+              "guid": 117805,
+              "type": 16,
+              "abilityIcon": "ability_necromancer_004_a",
+              "flags": 1
+            },
+            {
+              "name": "Flawless Dawnbreaker",
+              "guid": 40161,
+              "type": 1,
+              "abilityIcon": "ability_fightersguild_005_a",
+              "flags": 1
+            },
+            {
+              "name": "Endless Hail",
+              "guid": 38689,
+              "type": 1,
+              "abilityIcon": "ability_bow_003_a",
+              "flags": 1
+            },
+            {
+              "name": "Summoner's Armor",
+              "guid": 118244,
+              "type": 2,
+              "abilityIcon": "ability_necromancer_008_b",
+              "flags": 1
+            },
+            {
+              "name": "Venom Arrow",
+              "guid": 38645,
+              "type": 8,
+              "abilityIcon": "ability_bow_002_a",
+              "flags": 1
+            },
+            {
+              "name": "Spirit Guardian",
+              "guid": 118912,
+              "type": 2,
+              "abilityIcon": "ability_necromancer_015_a",
+              "flags": 1
+            },
+            {
+              "name": "Resolving Vigor",
+              "guid": 61507,
+              "type": 8,
+              "abilityIcon": "ability_ava_resolving_vigor",
+              "flags": 1
+            },
+            {
+              "name": "Bone Goliath Transformation",
+              "guid": 115001,
+              "type": 2,
+              "abilityIcon": "ability_necromancer_012",
+              "flags": 1
+            }
+          ],
+          "gear": [
+            {
+              "id": 94577,
+              "quality": 4,
+              "icon": "gear_undauntedspider_head_a",
+              "championPoints": 160,
+              "trait": 1,
+              "enchantType": 16,
+              "enchantQuality": 4,
+              "setID": 279,
+              "slot": 0,
+              "name": "Selene Visage",
+              "type": 3,
+              "setName": "Selene"
+            },
+            {
+              "id": 184889,
+              "quality": 4,
+              "icon": "gear_breton_medium_chest_d",
+              "championPoints": 160,
+              "trait": 1,
+              "enchantType": 35,
+              "enchantQuality": 3,
+              "setID": 640,
+              "slot": 1,
+              "name": "Jack of the Order's Wrath",
+              "type": 2,
+              "setName": "Order's Wrath"
+            },
+            {
+              "id": 95257,
+              "quality": 4,
+              "icon": "gear_undauntedspider_shoulders_a",
+              "championPoints": 160,
+              "trait": 7,
+              "enchantType": 35,
+              "enchantQuality": 4,
+              "setID": 279,
+              "slot": 2,
+              "name": "Selene Arm Cops",
+              "type": 2,
+              "setName": "Selene"
+            },
+            {
+              "id": 184888,
+              "quality": 4,
+              "icon": "gear_breton_light_waist_d",
+              "championPoints": 160,
+              "trait": 1,
+              "enchantType": 35,
+              "enchantQuality": 3,
+              "setID": 640,
+              "slot": 3,
+              "name": "Sash of the Order's Wrath",
+              "type": 1,
+              "setName": "Order's Wrath"
+            },
+            {
+              "id": 184891,
+              "quality": 4,
+              "icon": "gear_breton_medium_hands_d",
+              "championPoints": 160,
+              "trait": 1,
+              "enchantType": 35,
+              "enchantQuality": 3,
+              "setID": 640,
+              "slot": 4,
+              "name": "Bracers of the Order's Wrath",
+              "type": 2,
+              "setName": "Order's Wrath"
+            },
+            {
+              "id": 184893,
+              "quality": 4,
+              "icon": "gear_breton_medium_legs_d",
+              "championPoints": 160,
+              "trait": 1,
+              "enchantType": 35,
+              "enchantQuality": 3,
+              "setID": 640,
+              "slot": 5,
+              "name": "Guards of the Order's Wrath",
+              "type": 2,
+              "setName": "Order's Wrath"
+            },
+            {
+              "id": 184890,
+              "quality": 4,
+              "icon": "gear_breton_medium_feet_d",
+              "championPoints": 160,
+              "trait": 1,
+              "enchantType": 35,
+              "enchantQuality": 3,
+              "setID": 640,
+              "slot": 6,
+              "name": "Boots of the Order's Wrath",
+              "type": 2,
+              "setName": "Order's Wrath"
+            },
+            {
+              "id": 139725,
+              "quality": 3,
+              "icon": "gear_breton_neck_a",
+              "championPoints": 160,
+              "trait": 13,
+              "enchantType": 19,
+              "enchantQuality": 3,
+              "setID": 51,
+              "slot": 7,
+              "name": "Necklace of the Night Mother",
+              "type": 4,
+              "setName": "Night Mother's Gaze"
+            },
+            {
+              "id": 139683,
+              "quality": 3,
+              "icon": "gear_breton_ring_a",
+              "championPoints": 160,
+              "trait": 13,
+              "enchantType": 19,
+              "enchantQuality": 3,
+              "setID": 51,
+              "slot": 8,
+              "name": "Ring of the Night Mother",
+              "type": 4,
+              "setName": "Night Mother's Gaze"
+            },
+            {
+              "id": 139683,
+              "quality": 3,
+              "icon": "gear_breton_ring_a",
+              "championPoints": 160,
+              "trait": 13,
+              "enchantType": 19,
+              "enchantQuality": 3,
+              "setID": 51,
+              "slot": 9,
+              "name": "Ring of the Night Mother",
+              "type": 4,
+              "setName": "Night Mother's Gaze"
+            },
+            {
+              "id": 49046,
+              "quality": 4,
+              "icon": "gear_breton_dagger_d",
+              "championPoints": 160,
+              "trait": 31,
+              "enchantType": 24,
+              "enchantQuality": 3,
+              "setID": 51,
+              "slot": 10,
+              "name": "Dagger of the Night Mother",
+              "type": 11,
+              "setName": "Night Mother's Gaze"
+            },
+            {
+              "id": 49046,
+              "quality": 4,
+              "icon": "gear_breton_dagger_d",
+              "championPoints": 160,
+              "trait": 31,
+              "enchantType": 12,
+              "enchantQuality": 3,
+              "setID": 51,
+              "slot": 11,
+              "name": "Dagger of the Night Mother",
+              "type": 11,
+              "setName": "Night Mother's Gaze"
+            },
+            {
+              "id": 48930,
+              "quality": 3,
+              "icon": "gear_breton_bow_d",
+              "championPoints": 160,
+              "trait": 26,
+              "enchantType": 5,
+              "enchantQuality": 3,
+              "setID": 51,
+              "slot": 12,
+              "name": "Bow of the Night Mother",
+              "type": 8,
+              "setName": "Night Mother's Gaze"
+            },
+            {
+              "id": 0,
+              "quality": 0,
+              "icon": "",
+              "championPoints": 0,
+              "trait": 0,
+              "enchantType": 0,
+              "enchantQuality": 0,
+              "setID": 0,
+              "slot": 13,
+              "name": null,
+              "type": null,
+              "setName": null
+            },
+            {
+              "id": 0,
+              "quality": 0,
+              "icon": "",
+              "championPoints": 0,
+              "trait": 0,
+              "enchantType": 0,
+              "enchantQuality": 0,
+              "setID": 0,
+              "slot": 14,
+              "name": null,
+              "type": null,
+              "setName": null
+            },
+            {
+              "id": 0,
+              "quality": 0,
+              "icon": "",
+              "championPoints": 0,
+              "trait": 0,
+              "enchantType": 0,
+              "enchantQuality": 0,
+              "setID": 0,
+              "slot": 15,
+              "name": null,
+              "type": null,
+              "setName": null
+            }
+          ],
+          "specIDs": null,
+          "artifact": null,
+          "talentTree": null
+        }
+      },
+      {
+        "name": "Player (35)",
+        "id": 35,
+        "guid": 1000035,
+        "type": "Arcanist",
+        "icon": "Arcanist-StaminaDPS",
+        "server": null,
+        "displayName": null,
+        "anonymous": null,
+        "minItemLevel": null,
+        "maxItemLevel": null,
+        "specs": ["StaminaDPS"],
+        "potionUse": 0,
+        "healthstoneUse": 0,
+        "combatantInfo": {
+          "stats": [],
+          "talents": [
+            {
+              "name": "Pragmatic Fatecarver",
+              "guid": 186366,
+              "type": 2,
+              "abilityIcon": "ability_arcanist_002_b",
+              "flags": 3
+            },
+            {
+              "name": "Cephaliarch's Flail",
+              "guid": 183006,
+              "type": 1,
+              "abilityIcon": "ability_arcanist_003_a",
+              "flags": 1
+            },
+            {
+              "name": "Recuperative Treatise",
+              "guid": 183047,
+              "type": 64,
+              "abilityIcon": "ability_arcanist_005_b",
+              "flags": 1
+            },
+            {
+              "name": "Rune of the Colorless Pool",
+              "guid": 183267,
+              "type": 2,
+              "abilityIcon": "ability_arcanist_011_b",
+              "flags": 1
+            },
+            {
+              "name": "Camouflaged Hunter",
+              "guid": 40195,
+              "type": 2,
+              "abilityIcon": "ability_fightersguild_002_b",
+              "flags": 1
+            },
+            {
+              "name": "Flawless Dawnbreaker",
+              "guid": 40161,
+              "type": 1,
+              "abilityIcon": "ability_fightersguild_005_a",
+              "flags": 1
+            },
+            {
+              "name": "Destructive Reach",
+              "guid": 38937,
+              "type": 2,
+              "abilityIcon": "ability_destructionstaff_005_b",
+              "flags": 1
+            },
+            {
+              "name": "Elemental Blockade",
+              "guid": 39011,
+              "type": 2,
+              "abilityIcon": "ability_destructionstaff_002a",
+              "flags": 3
+            },
+            {
+              "name": "Reconstructive Domain",
+              "guid": 186234,
+              "type": 8,
+              "abilityIcon": "ability_arcanist_017_b",
+              "flags": 1
+            },
+            {
+              "name": "Cruxweaver Armor",
+              "guid": 185908,
+              "type": 2,
+              "abilityIcon": "ability_arcanist_009_a",
+              "flags": 1
+            },
+            {
+              "name": "Inner Light",
+              "guid": 40478,
+              "type": 2,
+              "abilityIcon": "ability_mageguild_002_b",
+              "flags": 1
+            },
+            {
+              "name": "The Tide King's Gaze",
+              "guid": 189837,
+              "type": 64,
+              "abilityIcon": "ability_arcanist_006_a",
+              "flags": 1
+            }
+          ],
+          "gear": [
+            {
+              "id": 94501,
+              "quality": 5,
+              "icon": "gear_undauntedcrocodile_head_a",
+              "championPoints": 160,
+              "trait": 1,
+              "enchantType": 35,
+              "enchantQuality": 5,
+              "setID": 270,
+              "slot": 0,
+              "name": "Slimecraw Visage",
+              "type": 3,
+              "setName": "Slimecraw"
+            },
+            {
+              "id": 187412,
+              "quality": 5,
+              "icon": "gear_amenossea_med_chest_a",
+              "championPoints": 160,
+              "trait": 1,
+              "enchantType": 35,
+              "enchantQuality": 5,
+              "setID": 652,
+              "slot": 1,
+              "name": "Perfected Coral Riptide Jack",
+              "type": 2,
+              "setName": "Perfected Coral Riptide"
+            },
+            {
+              "id": 147370,
+              "quality": 5,
+              "icon": "gear_breton_medium_shoulders_d",
+              "championPoints": 160,
+              "trait": 1,
+              "enchantType": 35,
+              "enchantQuality": 5,
+              "setID": 127,
+              "slot": 2,
+              "name": "Deadly Arm Cops",
+              "type": 2,
+              "setName": "Deadly Strike"
+            },
+            {
+              "id": 187474,
+              "quality": 5,
+              "icon": "gear_amenossea_med_waist_a",
+              "championPoints": 160,
+              "trait": 1,
+              "enchantType": 35,
+              "enchantQuality": 5,
+              "setID": 652,
+              "slot": 3,
+              "name": "Perfected Coral Riptide Belt",
+              "type": 2,
+              "setName": "Perfected Coral Riptide"
+            },
+            {
+              "id": 187436,
+              "quality": 5,
+              "icon": "gear_amenossea_med_hands_a",
+              "championPoints": 160,
+              "trait": 1,
+              "enchantType": 35,
+              "enchantQuality": 5,
+              "setID": 652,
+              "slot": 4,
+              "name": "Perfected Coral Riptide Bracers",
+              "type": 2,
+              "setName": "Perfected Coral Riptide"
+            },
+            {
+              "id": 147369,
+              "quality": 5,
+              "icon": "gear_breton_medium_legs_d",
+              "championPoints": 160,
+              "trait": 1,
+              "enchantType": 35,
+              "enchantQuality": 5,
+              "setID": 127,
+              "slot": 5,
+              "name": "Deadly Guards",
+              "type": 2,
+              "setName": "Deadly Strike"
+            },
+            {
+              "id": 187423,
+              "quality": 5,
+              "icon": "gear_amenossea_med_feet_a",
+              "championPoints": 160,
+              "trait": 1,
+              "enchantType": 35,
+              "enchantQuality": 5,
+              "setID": 652,
+              "slot": 6,
+              "name": "Perfected Coral Riptide Boots",
+              "type": 2,
+              "setName": "Perfected Coral Riptide"
+            },
+            {
+              "id": 194512,
+              "quality": 5,
+              "icon": "u38_antiquities_goldandblueshalknecklace",
+              "championPoints": 160,
+              "trait": 16,
+              "enchantType": 21,
+              "enchantQuality": 5,
+              "setID": 694,
+              "slot": 7,
+              "name": "Velothi Ur-Mage's Amulet",
+              "type": 4,
+              "setName": "Velothi Ur-Mage's Amulet"
+            },
+            {
+              "id": 147512,
+              "quality": 5,
+              "icon": "gear_breton_ring_a",
+              "championPoints": 160,
+              "trait": 16,
+              "enchantType": 21,
+              "enchantQuality": 5,
+              "setID": 127,
+              "slot": 8,
+              "name": "Deadly Ring",
+              "type": 4,
+              "setName": "Deadly Strike"
+            },
+            {
+              "id": 187754,
+              "quality": 5,
+              "icon": "gear_breton_ring_a",
+              "championPoints": 160,
+              "trait": 16,
+              "enchantType": 21,
+              "enchantQuality": 5,
+              "setID": 652,
+              "slot": 9,
+              "name": "Perfected Coral Riptide Ring",
+              "type": 4,
+              "setName": "Perfected Coral Riptide"
+            },
+            {
+              "id": 87869,
+              "quality": 5,
+              "icon": "gear_breton_1hhammer_d",
+              "championPoints": 160,
+              "trait": 32,
+              "enchantType": 1,
+              "enchantQuality": 5,
+              "setID": 127,
+              "slot": 10,
+              "name": "Deadly mace",
+              "type": 2,
+              "setName": "Deadly Strike"
+            },
+            {
+              "id": 87869,
+              "quality": 5,
+              "icon": "gear_breton_1hhammer_d",
+              "championPoints": 160,
+              "trait": 32,
+              "enchantType": 1,
+              "enchantQuality": 5,
+              "setID": 127,
+              "slot": 11,
+              "name": "Deadly mace",
+              "type": 2,
+              "setName": "Deadly Strike"
+            },
+            {
+              "id": 87902,
+              "quality": 5,
+              "icon": "gear_breton_staff_d",
+              "championPoints": 160,
+              "trait": 31,
+              "enchantType": 2,
+              "enchantQuality": 5,
+              "setID": 127,
+              "slot": 12,
+              "name": "Deadly Inferno Staff",
+              "type": 12,
+              "setName": "Deadly Strike"
+            },
+            {
+              "id": 0,
+              "quality": 0,
+              "icon": "",
+              "championPoints": 0,
+              "trait": 0,
+              "enchantType": 0,
+              "enchantQuality": 0,
+              "setID": 0,
+              "slot": 13,
+              "name": null,
+              "type": null,
+              "setName": null
+            },
+            {
+              "id": 0,
+              "quality": 0,
+              "icon": "",
+              "championPoints": 0,
+              "trait": 0,
+              "enchantType": 0,
+              "enchantQuality": 0,
+              "setID": 0,
+              "slot": 14,
+              "name": null,
+              "type": null,
+              "setName": null
+            },
+            {
+              "id": 0,
+              "quality": 0,
+              "icon": "",
+              "championPoints": 0,
+              "trait": 0,
+              "enchantType": 0,
+              "enchantQuality": 0,
+              "setID": 0,
+              "slot": 15,
+              "name": null,
+              "type": null,
+              "setName": null
+            }
+          ],
+          "specIDs": null,
+          "artifact": null,
+          "talentTree": null
+        }
+      },
+      {
+        "name": "Player (2)",
+        "id": 2,
+        "guid": 1000002,
+        "type": "Arcanist",
+        "icon": "Arcanist-StaminaDPS",
+        "server": null,
+        "displayName": null,
+        "anonymous": null,
+        "minItemLevel": 1284,
+        "maxItemLevel": 1284,
+        "specs": ["StaminaDPS"],
+        "potionUse": 0,
+        "healthstoneUse": 0,
+        "combatantInfo": {
+          "stats": [],
+          "talents": [
+            {
+              "name": "Camouflaged Hunter",
+              "guid": 40195,
+              "type": 2,
+              "abilityIcon": "ability_fightersguild_002_b",
+              "flags": 1
+            },
+            {
+              "name": "Quick Cloak",
+              "guid": 38901,
+              "type": 1,
+              "abilityIcon": "ability_dualwield_004_a",
+              "flags": 1
+            },
+            {
+              "name": "Barbed Trap",
+              "guid": 40382,
+              "type": 2,
+              "abilityIcon": "ability_fightersguild_004_a",
+              "flags": 1
+            },
+            {
+              "name": "Cephaliarch's Flail",
+              "guid": 183006,
+              "type": 1,
+              "abilityIcon": "ability_arcanist_003_a",
+              "flags": 1
+            },
+            {
+              "name": "Exhausting Fatecarver",
+              "guid": 183122,
+              "type": 2,
+              "abilityIcon": "ability_arcanist_002_a",
+              "flags": 3
+            },
+            {
+              "name": "Flawless Dawnbreaker",
+              "guid": 40161,
+              "type": 1,
+              "abilityIcon": "ability_fightersguild_005_a",
+              "flags": 1
+            },
+            {
+              "name": "Resolving Vigor",
+              "guid": 61507,
+              "type": 8,
+              "abilityIcon": "ability_ava_resolving_vigor",
+              "flags": 1
+            },
+            {
+              "name": "Elemental Blockade",
+              "guid": 39011,
+              "type": 2,
+              "abilityIcon": "ability_destructionstaff_002a",
+              "flags": 3
+            },
+            {
+              "name": "Fulminating Rune",
+              "guid": 182988,
+              "type": 64,
+              "abilityIcon": "ability_arcanist_004_b",
+              "flags": 1
+            },
+            {
+              "name": "Inspired Scholarship",
+              "guid": 185842,
+              "type": 64,
+              "abilityIcon": "ability_arcanist_005_a",
+              "flags": 1
+            },
+            {
+              "name": "Crushing Shock",
+              "guid": 46348,
+              "type": 4,
+              "abilityIcon": "ability_destructionstaff_001a",
+              "flags": 1
+            },
+            {
+              "name": "The Tide King's Gaze",
+              "guid": 189837,
+              "type": 64,
+              "abilityIcon": "ability_arcanist_006_a",
+              "flags": 1
+            }
+          ],
+          "gear": [
+            {
+              "id": 95044,
+              "quality": 5,
+              "icon": "gear_undauntedcrocodile_head_a",
+              "championPoints": 160,
+              "trait": 1,
+              "enchantType": 35,
+              "enchantQuality": 5,
+              "setID": 270,
+              "slot": 0,
+              "name": "Slimecraw Mask",
+              "type": 2,
+              "setName": "Slimecraw"
+            },
+            {
+              "id": 187412,
+              "quality": 5,
+              "icon": "gear_amenossea_med_chest_a",
+              "championPoints": 160,
+              "trait": 1,
+              "enchantType": 35,
+              "enchantQuality": 5,
+              "setID": 652,
+              "slot": 1,
+              "name": "Perfected Coral Riptide Jack",
+              "type": 2,
+              "setName": "Perfected Coral Riptide"
+            },
+            {
+              "id": 127603,
+              "quality": 4,
+              "icon": "gear_falkreath_medium_shoulder_a",
+              "championPoints": 160,
+              "trait": 8,
+              "enchantType": 35,
+              "enchantQuality": 4,
+              "setID": 336,
+              "slot": 2,
+              "name": "Pillar Of Nirn Arm Cops",
+              "type": 2,
+              "setName": "Pillar of Nirn"
+            },
+            {
+              "id": 187472,
+              "quality": 5,
+              "icon": "gear_amenossea_med_waist_a",
+              "championPoints": 160,
+              "trait": 1,
+              "enchantType": 35,
+              "enchantQuality": 5,
+              "setID": 652,
+              "slot": 3,
+              "name": "Perfected Coral Riptide Belt",
+              "type": 2,
+              "setName": "Perfected Coral Riptide"
+            },
+            {
+              "id": 187433,
+              "quality": 5,
+              "icon": "gear_amenossea_med_hands_a",
+              "championPoints": 160,
+              "trait": 1,
+              "enchantType": 35,
+              "enchantQuality": 5,
+              "setID": 652,
+              "slot": 4,
+              "name": "Perfected Coral Riptide Bracers",
+              "type": 2,
+              "setName": "Perfected Coral Riptide"
+            },
+            {
+              "id": 187452,
+              "quality": 5,
+              "icon": "gear_amenossea_med_legs_a",
+              "championPoints": 160,
+              "trait": 1,
+              "enchantType": 35,
+              "enchantQuality": 5,
+              "setID": 652,
+              "slot": 5,
+              "name": "Perfected Coral Riptide Guards",
+              "type": 2,
+              "setName": "Perfected Coral Riptide"
+            },
+            {
+              "id": 187422,
+              "quality": 5,
+              "icon": "gear_amenossea_med_feet_a",
+              "championPoints": 160,
+              "trait": 1,
+              "enchantType": 35,
+              "enchantQuality": 5,
+              "setID": 652,
+              "slot": 6,
+              "name": "Perfected Coral Riptide Boots",
+              "type": 2,
+              "setName": "Perfected Coral Riptide"
+            },
+            {
+              "id": 194512,
+              "quality": 5,
+              "icon": "u38_antiquities_goldandblueshalknecklace",
+              "championPoints": 160,
+              "trait": 13,
+              "enchantType": 21,
+              "enchantQuality": 5,
+              "setID": 694,
+              "slot": 7,
+              "name": "Velothi Ur-Mage's Amulet",
+              "type": 4,
+              "setName": "Velothi Ur-Mage's Amulet"
+            },
+            {
+              "id": 147512,
+              "quality": 5,
+              "icon": "gear_breton_ring_a",
+              "championPoints": 160,
+              "trait": 13,
+              "enchantType": 19,
+              "enchantQuality": 5,
+              "setID": 127,
+              "slot": 8,
+              "name": "Deadly Ring",
+              "type": 4,
+              "setName": "Deadly Strike"
+            },
+            {
+              "id": 147512,
+              "quality": 5,
+              "icon": "gear_breton_ring_a",
+              "championPoints": 160,
+              "trait": 13,
+              "enchantType": 19,
+              "enchantQuality": 5,
+              "setID": 127,
+              "slot": 9,
+              "name": "Deadly Ring",
+              "type": 4,
+              "setName": "Deadly Strike"
+            },
+            {
+              "id": 87874,
+              "quality": 5,
+              "icon": "gear_breton_dagger_d",
+              "championPoints": 160,
+              "trait": 23,
+              "enchantType": 12,
+              "enchantQuality": 5,
+              "setID": 127,
+              "slot": 10,
+              "name": "Deadly Dagger",
+              "type": 11,
+              "setName": "Deadly Strike"
+            },
+            {
+              "id": 87874,
+              "quality": 5,
+              "icon": "gear_breton_dagger_d",
+              "championPoints": 160,
+              "trait": 23,
+              "enchantType": 24,
+              "enchantQuality": 5,
+              "setID": 127,
+              "slot": 11,
+              "name": "Deadly Dagger",
+              "type": 11,
+              "setName": "Deadly Strike"
+            },
+            {
+              "id": 166232,
+              "quality": 5,
+              "icon": "gear_dwarvenscavenged_staff_a",
+              "championPoints": 160,
+              "trait": 26,
+              "enchantType": 5,
+              "enchantQuality": 5,
+              "setID": 526,
+              "slot": 12,
+              "name": "The Maelstrom's Perfected Inferno Staff",
+              "type": 12,
+              "setName": "Perfected Crushing Wall"
+            },
+            {
+              "id": 0,
+              "quality": 0,
+              "icon": "",
+              "championPoints": 0,
+              "trait": 0,
+              "enchantType": 0,
+              "enchantQuality": 0,
+              "setID": 0,
+              "slot": 13,
+              "name": null,
+              "type": null,
+              "setName": null
+            },
+            {
+              "id": 0,
+              "quality": 0,
+              "icon": "",
+              "championPoints": 0,
+              "trait": 0,
+              "enchantType": 0,
+              "enchantQuality": 0,
+              "setID": 0,
+              "slot": 14,
+              "name": null,
+              "type": null,
+              "setName": null
+            },
+            {
+              "id": 0,
+              "quality": 0,
+              "icon": "",
+              "championPoints": 0,
+              "trait": 0,
+              "enchantType": 0,
+              "enchantQuality": 0,
+              "setID": 0,
+              "slot": 15,
+              "name": null,
+              "type": null,
+              "setName": null
+            }
+          ],
+          "specIDs": null,
+          "artifact": null,
+          "talentTree": null
+        }
+      },
+      {
+        "name": "Player (10)",
+        "id": 10,
+        "guid": 1000010,
+        "type": "Warden",
+        "icon": "Warden-StaminaDPS",
+        "server": null,
+        "displayName": null,
+        "anonymous": null,
+        "minItemLevel": 2506,
+        "maxItemLevel": 2506,
+        "specs": ["StaminaDPS"],
+        "potionUse": 0,
+        "healthstoneUse": 0,
+        "combatantInfo": {
+          "stats": [],
+          "talents": [
+            {
+              "name": "Soul Trap",
+              "guid": 26768,
+              "type": 64,
+              "abilityIcon": "ability_otherclass_001",
+              "flags": 1
+            },
+            {
+              "name": "Subterranean Assault",
+              "guid": 86019,
+              "type": 8,
+              "abilityIcon": "ability_warden_015_b",
+              "flags": 1
+            },
+            {
+              "name": "Cutting Dive",
+              "guid": 85999,
+              "type": 8,
+              "abilityIcon": "ability_warden_013_b",
+              "flags": 1
+            },
+            {
+              "name": "Rending Slashes",
+              "guid": 38839,
+              "type": 2,
+              "abilityIcon": "ability_dualwield_001_a",
+              "flags": 1
+            },
+            {
+              "name": "Deadly Cloak",
+              "guid": 38906,
+              "type": 1,
+              "abilityIcon": "ability_dualwield_004_b",
+              "flags": 1
+            },
+            {
+              "name": "Wild Guardian",
+              "guid": 85990,
+              "type": 2,
+              "abilityIcon": "ability_warden_018_c",
+              "flags": 3
+            },
+            {
+              "name": "Fetcher Infection",
+              "guid": 86027,
+              "type": 64,
+              "abilityIcon": "ability_warden_014_a",
+              "flags": 1
+            },
+            {
+              "name": "Razor Caltrops",
+              "guid": 40242,
+              "type": 1,
+              "abilityIcon": "ability_ava_001_b",
+              "flags": 1
+            },
+            {
+              "name": "Winter's Revenge",
+              "guid": 86169,
+              "type": 16,
+              "abilityIcon": "ability_warden_004_b",
+              "flags": 3
+            },
+            {
+              "name": "Carve",
+              "guid": 38745,
+              "type": 2,
+              "abilityIcon": "ability_2handed_002_a",
+              "flags": 3
+            },
+            {
+              "name": "Stampede",
+              "guid": 38788,
+              "type": 1,
+              "abilityIcon": "ability_2handed_003_a",
+              "flags": 1
+            },
+            {
+              "name": "Wild Guardian",
+              "guid": 85990,
+              "type": 2,
+              "abilityIcon": "ability_warden_018_c",
+              "flags": 3
+            }
+          ],
+          "gear": [
+            {
+              "id": 94773,
+              "quality": 5,
+              "icon": "gear_undauntedcrocodile_head_a",
+              "championPoints": 160,
+              "trait": 1,
+              "enchantType": 35,
+              "enchantQuality": 5,
+              "setID": 270,
+              "slot": 0,
+              "name": "Slimecraw Guise",
+              "type": 1,
+              "setName": "Slimecraw"
+            },
+            {
+              "id": 128141,
+              "quality": 5,
+              "icon": "gear_bloodforge_medium_chest_a",
+              "championPoints": 160,
+              "trait": 1,
+              "enchantType": 35,
+              "enchantQuality": 5,
+              "setID": 339,
+              "slot": 1,
+              "name": "Blooddrinker Jack",
+              "type": 2,
+              "setName": "Blooddrinker"
+            },
+            {
+              "id": 128146,
+              "quality": 5,
+              "icon": "gear_bloodforge_medium_shoulders_a",
+              "championPoints": 160,
+              "trait": 1,
+              "enchantType": 35,
+              "enchantQuality": 5,
+              "setID": 339,
+              "slot": 2,
+              "name": "Blooddrinker Arm Cops",
+              "type": 2,
+              "setName": "Blooddrinker"
+            },
+            {
+              "id": 128147,
+              "quality": 5,
+              "icon": "gear_bloodforge_medium_waist_a",
+              "championPoints": 160,
+              "trait": 1,
+              "enchantType": 35,
+              "enchantQuality": 5,
+              "setID": 339,
+              "slot": 3,
+              "name": "Blooddrinker Belt",
+              "type": 2,
+              "setName": "Blooddrinker"
+            },
+            {
+              "id": 128143,
+              "quality": 5,
+              "icon": "gear_bloodforge_medium_hands_a",
+              "championPoints": 160,
+              "trait": 1,
+              "enchantType": 35,
+              "enchantQuality": 5,
+              "setID": 339,
+              "slot": 4,
+              "name": "Blooddrinker Bracers",
+              "type": 2,
+              "setName": "Blooddrinker"
+            },
+            {
+              "id": 175524,
+              "quality": 5,
+              "icon": "gear_kothringikilt_a",
+              "championPoints": 160,
+              "trait": 1,
+              "enchantType": 35,
+              "enchantQuality": 5,
+              "setID": 594,
+              "slot": 5,
+              "name": "Harpooner's Wading Kilt",
+              "type": 2,
+              "setName": "Harpooner's Wading Kilt"
+            },
+            {
+              "id": 128142,
+              "quality": 5,
+              "icon": "gear_bloodforge_medium_feet_a",
+              "championPoints": 160,
+              "trait": 1,
+              "enchantType": 35,
+              "enchantQuality": 5,
+              "setID": 339,
+              "slot": 6,
+              "name": "Blooddrinker Boots",
+              "type": 2,
+              "setName": "Blooddrinker"
+            },
+            {
+              "id": 127524,
+              "quality": 5,
+              "icon": "gear_breton_neck_a",
+              "championPoints": 160,
+              "trait": 13,
+              "enchantType": 19,
+              "enchantQuality": 5,
+              "setID": 336,
+              "slot": 7,
+              "name": "Pillar Of Nirn Necklace",
+              "type": 4,
+              "setName": "Pillar of Nirn"
+            },
+            {
+              "id": 127523,
+              "quality": 5,
+              "icon": "gear_breton_ring_a",
+              "championPoints": 160,
+              "trait": 13,
+              "enchantType": 19,
+              "enchantQuality": 5,
+              "setID": 336,
+              "slot": 8,
+              "name": "Pillar Of Nirn Ring",
+              "type": 4,
+              "setName": "Pillar of Nirn"
+            },
+            {
+              "id": 127523,
+              "quality": 5,
+              "icon": "gear_breton_ring_a",
+              "championPoints": 160,
+              "trait": 13,
+              "enchantType": 19,
+              "enchantQuality": 5,
+              "setID": 336,
+              "slot": 9,
+              "name": "Pillar Of Nirn Ring",
+              "type": 4,
+              "setName": "Pillar of Nirn"
+            },
+            {
+              "id": 127525,
+              "quality": 5,
+              "icon": "gear_falkreath_1haxe_a",
+              "championPoints": 160,
+              "trait": 28,
+              "enchantType": 12,
+              "enchantQuality": 5,
+              "setID": 336,
+              "slot": 10,
+              "name": "Pillar Of Nirn Axe",
+              "type": 1,
+              "setName": "Pillar of Nirn"
+            },
+            {
+              "id": 127525,
+              "quality": 5,
+              "icon": "gear_falkreath_1haxe_a",
+              "championPoints": 160,
+              "trait": 23,
+              "enchantType": 24,
+              "enchantQuality": 5,
+              "setID": 336,
+              "slot": 11,
+              "name": "Pillar Of Nirn Axe",
+              "type": 1,
+              "setName": "Pillar of Nirn"
+            },
+            {
+              "id": 133737,
+              "quality": 5,
+              "icon": "gear_dwarvenscavenged_2hsword_a",
+              "championPoints": 160,
+              "trait": 26,
+              "enchantType": 5,
+              "enchantQuality": 5,
+              "setID": 369,
+              "slot": 12,
+              "name": "The Maelstrom's Greatsword",
+              "type": 4,
+              "setName": "Merciless Charge"
+            },
+            {
+              "id": 0,
+              "quality": 0,
+              "icon": "",
+              "championPoints": 0,
+              "trait": 0,
+              "enchantType": 0,
+              "enchantQuality": 0,
+              "setID": 0,
+              "slot": 13,
+              "name": null,
+              "type": null,
+              "setName": null
+            },
+            {
+              "id": 0,
+              "quality": 0,
+              "icon": "",
+              "championPoints": 0,
+              "trait": 0,
+              "enchantType": 0,
+              "enchantQuality": 0,
+              "setID": 0,
+              "slot": 14,
+              "name": null,
+              "type": null,
+              "setName": null
+            },
+            {
+              "id": 0,
+              "quality": 0,
+              "icon": "",
+              "championPoints": 0,
+              "trait": 0,
+              "enchantType": 0,
+              "enchantQuality": 0,
+              "setID": 0,
+              "slot": 15,
+              "name": null,
+              "type": null,
+              "setName": null
+            }
+          ],
+          "specIDs": null,
+          "artifact": null,
+          "talentTree": null
+        }
+      },
+      {
+        "name": "Player (7)",
+        "id": 7,
+        "guid": 1000007,
+        "type": "Nightblade",
+        "icon": "Nightblade-StaminaDPS",
+        "server": null,
+        "displayName": null,
+        "anonymous": null,
+        "minItemLevel": 1448,
+        "maxItemLevel": 1448,
+        "specs": ["StaminaDPS"],
+        "potionUse": 0,
+        "healthstoneUse": 0,
+        "combatantInfo": {
+          "stats": [],
+          "talents": [
+            {
+              "name": "Resolving Vigor",
+              "guid": 61507,
+              "type": 8,
+              "abilityIcon": "ability_ava_resolving_vigor",
+              "flags": 1
+            },
+            {
+              "name": "Poison Injection",
+              "guid": 38660,
+              "type": 8,
+              "abilityIcon": "ability_bow_002_b",
+              "flags": 1
+            },
+            {
+              "name": "Crushing Weapon",
+              "guid": 103623,
+              "type": 2,
+              "abilityIcon": "ability_psijic_003_b",
+              "flags": 1
+            },
+            {
+              "name": "Acid Spray",
+              "guid": 38701,
+              "type": 8,
+              "abilityIcon": "ability_bow_005_b",
+              "flags": 1
+            },
+            {
+              "name": "Endless Hail",
+              "guid": 38689,
+              "type": 1,
+              "abilityIcon": "ability_bow_003_a",
+              "flags": 1
+            },
+            {
+              "name": "Toxic Barrage",
+              "guid": 85257,
+              "type": 8,
+              "abilityIcon": "ability_bow_006_b",
+              "flags": 1
+            },
+            {
+              "name": "Relentless Focus",
+              "guid": 61927,
+              "type": 256,
+              "abilityIcon": "ability_nightblade_005_a",
+              "flags": 1
+            },
+            {
+              "name": "Leeching Strikes",
+              "guid": 36908,
+              "type": 2,
+              "abilityIcon": "ability_nightblade_003_a",
+              "flags": 1
+            },
+            {
+              "name": "Razor Caltrops",
+              "guid": 40242,
+              "type": 1,
+              "abilityIcon": "ability_ava_001_b",
+              "flags": 1
+            },
+            {
+              "name": "Shadowy Disguise",
+              "guid": 25380,
+              "type": 2,
+              "abilityIcon": "ability_nightblade_004_a",
+              "flags": 1
+            },
+            {
+              "name": "Shadow Image",
+              "guid": 35441,
+              "type": 2,
+              "abilityIcon": "ability_nightblade_001_b",
+              "flags": 1
+            },
+            {
+              "name": "Incapacitating Strike",
+              "guid": 36508,
+              "type": 2,
+              "abilityIcon": "ability_nightblade_007_a",
+              "flags": 1
+            }
+          ],
+          "gear": [
+            {
+              "id": 95091,
+              "quality": 5,
+              "icon": "gear_undauntedstormatronach_head_a",
+              "championPoints": 160,
+              "trait": 1,
+              "enchantType": 35,
+              "enchantQuality": 5,
+              "setID": 275,
+              "slot": 0,
+              "name": "Stormfist Mask",
+              "type": 2,
+              "setName": "Stormfist"
+            },
+            {
+              "id": 51541,
+              "quality": 4,
+              "icon": "gear_breton_medium_chest_d",
+              "championPoints": 160,
+              "trait": 1,
+              "enchantType": 0,
+              "enchantQuality": 1,
+              "setID": 80,
+              "slot": 1,
+              "name": "Jack of Hunding's Rage",
+              "type": 2,
+              "setName": "Hunding's Rage"
+            },
+            {
+              "id": 95225,
+              "quality": 5,
+              "icon": "gear_undauntedstormatronach_shoulders_a",
+              "championPoints": 160,
+              "trait": 1,
+              "enchantType": 35,
+              "enchantQuality": 5,
+              "setID": 275,
+              "slot": 2,
+              "name": "Stormfist Arm Cops",
+              "type": 2,
+              "setName": "Stormfist"
+            },
+            {
+              "id": 51547,
+              "quality": 5,
+              "icon": "gear_breton_medium_waist_d",
+              "championPoints": 160,
+              "trait": 1,
+              "enchantType": 0,
+              "enchantQuality": 1,
+              "setID": 80,
+              "slot": 3,
+              "name": "Belt of Hunding's Rage",
+              "type": 2,
+              "setName": "Hunding's Rage"
+            },
+            {
+              "id": 51543,
+              "quality": 4,
+              "icon": "gear_breton_medium_hands_d",
+              "championPoints": 160,
+              "trait": 1,
+              "enchantType": 0,
+              "enchantQuality": 1,
+              "setID": 80,
+              "slot": 4,
+              "name": "Bracers of Hunding's Rage",
+              "type": 2,
+              "setName": "Hunding's Rage"
+            },
+            {
+              "id": 51545,
+              "quality": 4,
+              "icon": "gear_breton_medium_legs_d",
+              "championPoints": 160,
+              "trait": 1,
+              "enchantType": 0,
+              "enchantQuality": 1,
+              "setID": 80,
+              "slot": 5,
+              "name": "Guards of Hunding's Rage",
+              "type": 2,
+              "setName": "Hunding's Rage"
+            },
+            {
+              "id": 51542,
+              "quality": 4,
+              "icon": "gear_breton_medium_feet_d",
+              "championPoints": 160,
+              "trait": 1,
+              "enchantType": 0,
+              "enchantQuality": 1,
+              "setID": 80,
+              "slot": 6,
+              "name": "Boots of Hunding's Rage",
+              "type": 2,
+              "setName": "Hunding's Rage"
+            },
+            {
+              "id": 136950,
+              "quality": 4,
+              "icon": "gear_breton_neck_a",
+              "championPoints": 160,
+              "trait": 13,
+              "enchantType": 19,
+              "enchantQuality": 5,
+              "setID": 389,
+              "slot": 7,
+              "name": "Relequen's Necklace",
+              "type": 4,
+              "setName": "Arms of Relequen"
+            },
+            {
+              "id": 136949,
+              "quality": 4,
+              "icon": "gear_breton_ring_a",
+              "championPoints": 160,
+              "trait": 13,
+              "enchantType": 19,
+              "enchantQuality": 5,
+              "setID": 389,
+              "slot": 8,
+              "name": "Relequen's Ring",
+              "type": 4,
+              "setName": "Arms of Relequen"
+            },
+            {
+              "id": 136949,
+              "quality": 4,
+              "icon": "gear_breton_ring_a",
+              "championPoints": 160,
+              "trait": 13,
+              "enchantType": 19,
+              "enchantQuality": 5,
+              "setID": 389,
+              "slot": 9,
+              "name": "Relequen's Ring",
+              "type": 4,
+              "setName": "Arms of Relequen"
+            },
+            {
+              "id": 136958,
+              "quality": 5,
+              "icon": "gear_welkynar_bow_001",
+              "championPoints": 160,
+              "trait": 31,
+              "enchantType": 12,
+              "enchantQuality": 5,
+              "setID": 389,
+              "slot": 10,
+              "name": "Relequen's Bow",
+              "type": 8,
+              "setName": "Arms of Relequen"
+            },
+            {
+              "id": 0,
+              "quality": 0,
+              "icon": "",
+              "championPoints": 0,
+              "trait": 0,
+              "enchantType": 0,
+              "enchantQuality": 0,
+              "setID": 0,
+              "slot": 11,
+              "name": null,
+              "type": null,
+              "setName": null
+            },
+            {
+              "id": 137976,
+              "quality": 4,
+              "icon": "gear_welkynar_staff_001",
+              "championPoints": 160,
+              "trait": 26,
+              "enchantType": 1,
+              "enchantQuality": 4,
+              "setID": 392,
+              "slot": 12,
+              "name": "Galenwe's Perfected Lightning Staff",
+              "type": 15,
+              "setName": "Perfected Aegis of Galenwe"
+            },
+            {
+              "id": 0,
+              "quality": 0,
+              "icon": "",
+              "championPoints": 0,
+              "trait": 0,
+              "enchantType": 0,
+              "enchantQuality": 0,
+              "setID": 0,
+              "slot": 13,
+              "name": null,
+              "type": null,
+              "setName": null
+            },
+            {
+              "id": 0,
+              "quality": 0,
+              "icon": "",
+              "championPoints": 0,
+              "trait": 0,
+              "enchantType": 0,
+              "enchantQuality": 0,
+              "setID": 0,
+              "slot": 14,
+              "name": null,
+              "type": null,
+              "setName": null
+            },
+            {
+              "id": 79690,
+              "quality": 5,
+              "icon": "crownpoison_lethal",
+              "championPoints": 1,
+              "trait": 0,
+              "enchantType": 0,
+              "enchantQuality": 1,
+              "setID": 0,
+              "slot": 15,
+              "name": "Crown Lethal Poison",
+              "type": 1,
+              "setName": null
+            }
+          ],
+          "specIDs": null,
+          "artifact": null,
+          "talentTree": null
+        }
+      },
+      {
+        "name": "Player (8)",
+        "id": 8,
+        "guid": 1000008,
+        "type": "Arcanist",
+        "icon": "Arcanist-StaminaDPS",
+        "server": null,
+        "displayName": null,
+        "anonymous": null,
+        "minItemLevel": 1861,
+        "maxItemLevel": 1861,
+        "specs": ["StaminaDPS"],
+        "potionUse": 0,
+        "healthstoneUse": 0,
+        "combatantInfo": {
+          "stats": [],
+          "talents": [
+            {
+              "name": "Inspired Scholarship",
+              "guid": 185842,
+              "type": 64,
+              "abilityIcon": "ability_arcanist_005_a",
+              "flags": 1
+            },
+            {
+              "name": "Deadly Cloak",
+              "guid": 38906,
+              "type": 1,
+              "abilityIcon": "ability_dualwield_004_b",
+              "flags": 1
+            },
+            {
+              "name": "Cephaliarch's Flail",
+              "guid": 183006,
+              "type": 1,
+              "abilityIcon": "ability_arcanist_003_a",
+              "flags": 1
+            },
+            {
+              "name": "Escalating Runeblades",
+              "guid": 182977,
+              "type": 2,
+              "abilityIcon": "ability_arcanist_001_b",
+              "flags": 1
+            },
+            {
+              "name": "Pragmatic Fatecarver",
+              "guid": 186366,
+              "type": 2,
+              "abilityIcon": "ability_arcanist_002_b",
+              "flags": 3
+            },
+            {
+              "name": "The Tide King's Gaze",
+              "guid": 189837,
+              "type": 64,
+              "abilityIcon": "ability_arcanist_006_a",
+              "flags": 1
+            }
+          ],
+          "gear": [
+            {
+              "id": 95044,
+              "quality": 5,
+              "icon": "gear_undauntedcrocodile_head_a",
+              "championPoints": 160,
+              "trait": 1,
+              "enchantType": 35,
+              "enchantQuality": 5,
+              "setID": 270,
+              "slot": 0,
+              "name": "Slimecraw Mask",
+              "type": 2,
+              "setName": "Slimecraw"
+            },
+            {
+              "id": 186562,
+              "quality": 5,
+              "icon": "gear_amenossea_med_chest_a",
+              "championPoints": 160,
+              "trait": 1,
+              "enchantType": 35,
+              "enchantQuality": 5,
+              "setID": 647,
+              "slot": 1,
+              "name": "Coral Riptide Jack",
+              "type": 2,
+              "setName": "Coral Riptide"
+            },
+            {
+              "id": 127543,
+              "quality": 5,
+              "icon": "gear_falkreath_medium_shoulder_a",
+              "championPoints": 160,
+              "trait": 1,
+              "enchantType": 35,
+              "enchantQuality": 5,
+              "setID": 336,
+              "slot": 2,
+              "name": "Pillar Of Nirn Arm Cops",
+              "type": 2,
+              "setName": "Pillar of Nirn"
+            },
+            {
+              "id": 186568,
+              "quality": 5,
+              "icon": "gear_amenossea_med_waist_a",
+              "championPoints": 160,
+              "trait": 1,
+              "enchantType": 35,
+              "enchantQuality": 5,
+              "setID": 647,
+              "slot": 3,
+              "name": "Coral Riptide Belt",
+              "type": 2,
+              "setName": "Coral Riptide"
+            },
+            {
+              "id": 186564,
+              "quality": 5,
+              "icon": "gear_amenossea_med_hands_a",
+              "championPoints": 160,
+              "trait": 1,
+              "enchantType": 35,
+              "enchantQuality": 5,
+              "setID": 647,
+              "slot": 4,
+              "name": "Coral Riptide Bracers",
+              "type": 2,
+              "setName": "Coral Riptide"
+            },
+            {
+              "id": 186566,
+              "quality": 5,
+              "icon": "gear_amenossea_med_legs_a",
+              "championPoints": 160,
+              "trait": 1,
+              "enchantType": 35,
+              "enchantQuality": 5,
+              "setID": 647,
+              "slot": 5,
+              "name": "Coral Riptide Guards",
+              "type": 2,
+              "setName": "Coral Riptide"
+            },
+            {
+              "id": 186563,
+              "quality": 5,
+              "icon": "gear_amenossea_med_feet_a",
+              "championPoints": 160,
+              "trait": 1,
+              "enchantType": 35,
+              "enchantQuality": 5,
+              "setID": 647,
+              "slot": 6,
+              "name": "Coral Riptide Boots",
+              "type": 2,
+              "setName": "Coral Riptide"
+            },
+            {
+              "id": 127524,
+              "quality": 5,
+              "icon": "gear_breton_neck_a",
+              "championPoints": 160,
+              "trait": 13,
+              "enchantType": 36,
+              "enchantQuality": 5,
+              "setID": 336,
+              "slot": 7,
+              "name": "Pillar Of Nirn Necklace",
+              "type": 4,
+              "setName": "Pillar of Nirn"
+            },
+            {
+              "id": 187658,
+              "quality": 5,
+              "icon": "u34_mythic_oakensoul_ring",
+              "championPoints": 160,
+              "trait": 13,
+              "enchantType": 0,
+              "enchantQuality": 5,
+              "setID": 658,
+              "slot": 8,
+              "name": "Oakensoul Ring",
+              "type": 4,
+              "setName": "Oakensoul Ring"
+            },
+            {
+              "id": 127523,
+              "quality": 5,
+              "icon": "gear_breton_ring_a",
+              "championPoints": 160,
+              "trait": 13,
+              "enchantType": 36,
+              "enchantQuality": 5,
+              "setID": 336,
+              "slot": 9,
+              "name": "Pillar Of Nirn Ring",
+              "type": 4,
+              "setName": "Pillar of Nirn"
+            },
+            {
+              "id": 127531,
+              "quality": 5,
+              "icon": "gear_falkreath_dagger_a",
+              "championPoints": 160,
+              "trait": 28,
+              "enchantType": 3,
+              "enchantQuality": 5,
+              "setID": 336,
+              "slot": 10,
+              "name": "Pillar Of Nirn Dagger",
+              "type": 11,
+              "setName": "Pillar of Nirn"
+            },
+            {
+              "id": 127531,
+              "quality": 5,
+              "icon": "gear_falkreath_dagger_a",
+              "championPoints": 160,
+              "trait": 31,
+              "enchantType": 3,
+              "enchantQuality": 5,
+              "setID": 336,
+              "slot": 11,
+              "name": "Pillar Of Nirn Dagger",
+              "type": 11,
+              "setName": "Pillar of Nirn"
+            },
+            {
+              "id": 0,
+              "quality": 0,
+              "icon": "",
+              "championPoints": 0,
+              "trait": 0,
+              "enchantType": 0,
+              "enchantQuality": 0,
+              "setID": 0,
+              "slot": 12,
+              "name": null,
+              "type": null,
+              "setName": null
+            },
+            {
+              "id": 0,
+              "quality": 0,
+              "icon": "",
+              "championPoints": 0,
+              "trait": 0,
+              "enchantType": 0,
+              "enchantQuality": 0,
+              "setID": 0,
+              "slot": 13,
+              "name": null,
+              "type": null,
+              "setName": null
+            },
+            {
+              "id": 79690,
+              "quality": 5,
+              "icon": "crownpoison_lethal",
+              "championPoints": 1,
+              "trait": 0,
+              "enchantType": 0,
+              "enchantQuality": 1,
+              "setID": 0,
+              "slot": 14,
+              "name": "Crown Lethal Poison",
+              "type": 1,
+              "setName": null
+            },
+            {
+              "id": 0,
+              "quality": 0,
+              "icon": "",
+              "championPoints": 0,
+              "trait": 0,
+              "enchantType": 0,
+              "enchantQuality": 0,
+              "setID": 0,
+              "slot": 15,
+              "name": null,
+              "type": null,
+              "setName": null
+            }
+          ],
+          "specIDs": null,
+          "artifact": null,
+          "talentTree": null
+        }
+      }
+    ],
+    "healers": [
+      {
+        "name": "Player (36)",
+        "id": 36,
+        "guid": 1000036,
+        "type": "Nightblade",
+        "icon": "Nightblade-Healer",
+        "server": null,
+        "displayName": null,
+        "anonymous": null,
+        "minItemLevel": 2068,
+        "maxItemLevel": 2068,
+        "specs": ["Healer"],
+        "potionUse": 0,
+        "healthstoneUse": 0,
+        "combatantInfo": {
+          "stats": [],
+          "talents": [
+            {
+              "name": "Radiating Regeneration",
+              "guid": 40079,
+              "type": 8,
+              "abilityIcon": "ability_restorationstaff_002a",
+              "flags": 1
+            },
+            {
+              "name": "Combat Prayer",
+              "guid": 40094,
+              "type": 8,
+              "abilityIcon": "ability_restorationstaff_003_b",
+              "flags": 1
+            },
+            {
+              "name": "Healing Springs",
+              "guid": 40060,
+              "type": 8,
+              "abilityIcon": "ability_restorationstaff_004a",
+              "flags": 1
+            },
+            {
+              "name": "Refreshing Path",
+              "guid": 36028,
+              "type": 8,
+              "abilityIcon": "ability_nightblade_010_a",
+              "flags": 1
+            },
+            {
+              "name": "Healthy Offering",
+              "guid": 34727,
+              "type": 8,
+              "abilityIcon": "ability_nightblade_011_a",
+              "flags": 1
+            },
+            {
+              "name": "Replenishing Barrier",
+              "guid": 40239,
+              "type": 2,
+              "abilityIcon": "ability_ava_006_a",
+              "flags": 1
+            },
+            {
+              "name": "Elemental Blockade",
+              "guid": 39011,
+              "type": 2,
+              "abilityIcon": "ability_destructionstaff_002a",
+              "flags": 3
+            },
+            {
+              "name": "Echoing Vigor",
+              "guid": 61505,
+              "type": 8,
+              "abilityIcon": "ability_ava_echoing_vigor",
+              "flags": 1
+            },
+            {
+              "name": "Energy Orb",
+              "guid": 42038,
+              "type": 8,
+              "abilityIcon": "ability_undaunted_004b",
+              "flags": 1
+            },
+            {
+              "name": "Overflowing Altar",
+              "guid": 41958,
+              "type": 2,
+              "abilityIcon": "ability_undaunted_001_a",
+              "flags": 1
+            },
+            {
+              "name": "Relentless Focus",
+              "guid": 61927,
+              "type": 256,
+              "abilityIcon": "ability_nightblade_005_a",
+              "flags": 1
+            },
+            {
+              "name": "Aggressive Horn",
+              "guid": 40223,
+              "type": 2,
+              "abilityIcon": "ability_ava_003_a",
+              "flags": 1
+            }
+          ],
+          "gear": [
+            {
+              "id": 147235,
+              "quality": 5,
+              "icon": "gear_undnarlimor_head_a",
+              "championPoints": 160,
+              "trait": 1,
+              "enchantType": 22,
+              "enchantQuality": 5,
+              "setID": 436,
+              "slot": 0,
+              "name": "Symphony of Blades Visage",
+              "type": 3,
+              "setName": "Symphony of Blades"
+            },
+            {
+              "id": 111885,
+              "quality": 5,
+              "icon": "gear_imperialdaedric_light_robe_a",
+              "championPoints": 160,
+              "trait": 1,
+              "enchantType": 22,
+              "enchantQuality": 5,
+              "setID": 185,
+              "slot": 1,
+              "name": "Spell Power Cure Robe",
+              "type": 1,
+              "setName": "Spell Power Cure"
+            },
+            {
+              "id": 147240,
+              "quality": 5,
+              "icon": "gear_undnarlimor_shoulder_a",
+              "championPoints": 160,
+              "trait": 1,
+              "enchantType": 22,
+              "enchantQuality": 5,
+              "setID": 436,
+              "slot": 2,
+              "name": "Symphony of Blades Arm Cops",
+              "type": 2,
+              "setName": "Symphony of Blades"
+            },
+            {
+              "id": 111892,
+              "quality": 5,
+              "icon": "gear_imperialdaedric_light_waist_a",
+              "championPoints": 160,
+              "trait": 1,
+              "enchantType": 22,
+              "enchantQuality": 5,
+              "setID": 185,
+              "slot": 3,
+              "name": "Spell Power Cure Sash",
+              "type": 1,
+              "setName": "Spell Power Cure"
+            },
+            {
+              "id": 111887,
+              "quality": 5,
+              "icon": "gear_imperialdaedric_light_hands_a",
+              "championPoints": 160,
+              "trait": 1,
+              "enchantType": 22,
+              "enchantQuality": 5,
+              "setID": 185,
+              "slot": 4,
+              "name": "Spell Power Cure Gloves",
+              "type": 1,
+              "setName": "Spell Power Cure"
+            },
+            {
+              "id": 111889,
+              "quality": 5,
+              "icon": "gear_imperialdaedric_light_legs_a",
+              "championPoints": 160,
+              "trait": 1,
+              "enchantType": 22,
+              "enchantQuality": 5,
+              "setID": 185,
+              "slot": 5,
+              "name": "Spell Power Cure Breeches",
+              "type": 1,
+              "setName": "Spell Power Cure"
+            },
+            {
+              "id": 111886,
+              "quality": 5,
+              "icon": "gear_imperialdaedric_light_feet_a",
+              "championPoints": 160,
+              "trait": 1,
+              "enchantType": 22,
+              "enchantQuality": 5,
+              "setID": 185,
+              "slot": 6,
+              "name": "Spell Power Cure Shoes",
+              "type": 1,
+              "setName": "Spell Power Cure"
+            },
+            {
+              "id": 187650,
+              "quality": 5,
+              "icon": "gear_breton_neck_a",
+              "championPoints": 160,
+              "trait": 16,
+              "enchantType": 23,
+              "enchantQuality": 5,
+              "setID": 650,
+              "slot": 7,
+              "name": "Perfected Pillager's Amulet",
+              "type": 4,
+              "setName": "Perfected Pillager's Profit"
+            },
+            {
+              "id": 187649,
+              "quality": 5,
+              "icon": "gear_breton_ring_a",
+              "championPoints": 160,
+              "trait": 16,
+              "enchantType": 33,
+              "enchantQuality": 5,
+              "setID": 650,
+              "slot": 8,
+              "name": "Perfected Pillager's Band",
+              "type": 4,
+              "setName": "Perfected Pillager's Profit"
+            },
+            {
+              "id": 187649,
+              "quality": 5,
+              "icon": "gear_breton_ring_a",
+              "championPoints": 160,
+              "trait": 16,
+              "enchantType": 33,
+              "enchantQuality": 5,
+              "setID": 650,
+              "slot": 9,
+              "name": "Perfected Pillager's Band",
+              "type": 4,
+              "setName": "Perfected Pillager's Profit"
+            },
+            {
+              "id": 166064,
+              "quality": 5,
+              "icon": "gear_breton_staff_e",
+              "championPoints": 160,
+              "trait": 30,
+              "enchantType": 5,
+              "enchantQuality": 5,
+              "setID": 533,
+              "slot": 10,
+              "name": "The Master's Perfected Restoration Staff",
+              "type": 9,
+              "setName": "Perfected Grand Rejuvenation"
+            },
+            {
+              "id": 0,
+              "quality": 0,
+              "icon": "",
+              "championPoints": 0,
+              "trait": 0,
+              "enchantType": 0,
+              "enchantQuality": 0,
+              "setID": 0,
+              "slot": 11,
+              "name": null,
+              "type": null,
+              "setName": null
+            },
+            {
+              "id": 187028,
+              "quality": 5,
+              "icon": "gear_amenossea_staff_a",
+              "championPoints": 160,
+              "trait": 26,
+              "enchantType": 28,
+              "enchantQuality": 5,
+              "setID": 650,
+              "slot": 12,
+              "name": "Perfected Pillager's Lightning Staff",
+              "type": 15,
+              "setName": "Perfected Pillager's Profit"
+            },
+            {
+              "id": 0,
+              "quality": 0,
+              "icon": "",
+              "championPoints": 0,
+              "trait": 0,
+              "enchantType": 0,
+              "enchantQuality": 0,
+              "setID": 0,
+              "slot": 13,
+              "name": null,
+              "type": null,
+              "setName": null
+            },
+            {
+              "id": 0,
+              "quality": 0,
+              "icon": "",
+              "championPoints": 0,
+              "trait": 0,
+              "enchantType": 0,
+              "enchantQuality": 0,
+              "setID": 0,
+              "slot": 14,
+              "name": null,
+              "type": null,
+              "setName": null
+            },
+            {
+              "id": 0,
+              "quality": 0,
+              "icon": "",
+              "championPoints": 0,
+              "trait": 0,
+              "enchantType": 0,
+              "enchantQuality": 0,
+              "setID": 0,
+              "slot": 15,
+              "name": null,
+              "type": null,
+              "setName": null
+            }
+          ],
+          "specIDs": null,
+          "artifact": null,
+          "talentTree": null
+        }
+      },
+      {
+        "name": "Player (11)",
+        "id": 11,
+        "guid": 1000011,
+        "type": "Templar",
+        "icon": "Templar-Healer",
+        "server": null,
+        "displayName": null,
+        "anonymous": null,
+        "minItemLevel": 334,
+        "maxItemLevel": 334,
+        "specs": ["Healer"],
+        "potionUse": 0,
+        "healthstoneUse": 0,
+        "combatantInfo": {
+          "stats": [],
+          "talents": [
+            {
+              "name": "Breath of Life",
+              "guid": 22256,
+              "type": 8,
+              "abilityIcon": "ability_templar_breath_of_life",
+              "flags": 3
+            },
+            {
+              "name": "Combat Prayer",
+              "guid": 40094,
+              "type": 8,
+              "abilityIcon": "ability_restorationstaff_003_b",
+              "flags": 1
+            },
+            {
+              "name": "Illustrious Healing",
+              "guid": 40058,
+              "type": 8,
+              "abilityIcon": "ability_restorationstaff_004b",
+              "flags": 1
+            },
+            {
+              "name": "Radiating Regeneration",
+              "guid": 40079,
+              "type": 8,
+              "abilityIcon": "ability_restorationstaff_002a",
+              "flags": 1
+            },
+            {
+              "name": "Purifying Light",
+              "guid": 21765,
+              "type": 64,
+              "abilityIcon": "ability_templar_purifying_light",
+              "flags": 3
+            },
+            {
+              "name": "Solar Prison",
+              "guid": 21755,
+              "type": 2,
+              "abilityIcon": "ability_templar_solar_prison",
+              "flags": 1
+            },
+            {
+              "name": "Channeled Focus",
+              "guid": 22240,
+              "type": 8,
+              "abilityIcon": "ability_templar_channeled_focus",
+              "flags": 1
+            },
+            {
+              "name": "Elemental Blockade",
+              "guid": 39011,
+              "type": 2,
+              "abilityIcon": "ability_destructionstaff_002a",
+              "flags": 3
+            },
+            {
+              "name": "Echoing Vigor",
+              "guid": 61505,
+              "type": 8,
+              "abilityIcon": "ability_ava_echoing_vigor",
+              "flags": 1
+            },
+            {
+              "name": "Energy Orb",
+              "guid": 42038,
+              "type": 8,
+              "abilityIcon": "ability_undaunted_004b",
+              "flags": 1
+            },
+            {
+              "name": "Extended Ritual",
+              "guid": 22262,
+              "type": 8,
+              "abilityIcon": "ability_templar_extended_ritual",
+              "flags": 1
+            },
+            {
+              "name": "Aggressive Horn",
+              "guid": 40223,
+              "type": 2,
+              "abilityIcon": "ability_ava_003_a",
+              "flags": 1
+            }
+          ],
+          "gear": [
+            {
+              "id": 94488,
+              "quality": 4,
+              "icon": "gear_undauntedcenturion_head_a",
+              "championPoints": 160,
+              "trait": 2,
+              "enchantType": 16,
+              "enchantQuality": 4,
+              "setID": 268,
+              "slot": 0,
+              "name": "Sentinel of Rkugamz Visage",
+              "type": 3,
+              "setName": "Sentinel of Rkugamz"
+            },
+            {
+              "id": 111906,
+              "quality": 4,
+              "icon": "gear_imperialdaedric_light_robe_a",
+              "championPoints": 160,
+              "trait": 1,
+              "enchantType": 22,
+              "enchantQuality": 4,
+              "setID": 185,
+              "slot": 1,
+              "name": "Spell Power Cure Robe",
+              "type": 1,
+              "setName": "Spell Power Cure"
+            },
+            {
+              "id": 94899,
+              "quality": 4,
+              "icon": "gear_undauntedcenturion_shoulders_a",
+              "championPoints": 160,
+              "trait": 3,
+              "enchantType": 22,
+              "enchantQuality": 4,
+              "setID": 268,
+              "slot": 2,
+              "name": "Sentinel of Rkugamz Epaulets",
+              "type": 1,
+              "setName": "Sentinel of Rkugamz"
+            },
+            {
+              "id": 111997,
+              "quality": 5,
+              "icon": "gear_imperialdaedric_light_waist_a",
+              "championPoints": 160,
+              "trait": 1,
+              "enchantType": 22,
+              "enchantQuality": 5,
+              "setID": 185,
+              "slot": 3,
+              "name": "Spell Power Cure Sash",
+              "type": 1,
+              "setName": "Spell Power Cure"
+            },
+            {
+              "id": 111887,
+              "quality": 4,
+              "icon": "gear_imperialdaedric_light_hands_a",
+              "championPoints": 160,
+              "trait": 3,
+              "enchantType": 22,
+              "enchantQuality": 4,
+              "setID": 185,
+              "slot": 4,
+              "name": "Spell Power Cure Gloves",
+              "type": 1,
+              "setName": "Spell Power Cure"
+            },
+            {
+              "id": 111973,
+              "quality": 4,
+              "icon": "gear_imperialdaedric_light_legs_a",
+              "championPoints": 160,
+              "trait": 2,
+              "enchantType": 22,
+              "enchantQuality": 4,
+              "setID": 185,
+              "slot": 5,
+              "name": "Spell Power Cure Breeches",
+              "type": 1,
+              "setName": "Spell Power Cure"
+            },
+            {
+              "id": 111886,
+              "quality": 5,
+              "icon": "gear_imperialdaedric_light_feet_a",
+              "championPoints": 160,
+              "trait": 3,
+              "enchantType": 22,
+              "enchantQuality": 5,
+              "setID": 185,
+              "slot": 6,
+              "name": "Spell Power Cure Shoes",
+              "type": 1,
+              "setName": "Spell Power Cure"
+            },
+            {
+              "id": 117088,
+              "quality": 4,
+              "icon": "gear_breton_neck_a",
+              "championPoints": 160,
+              "trait": 20,
+              "enchantType": 36,
+              "enchantQuality": 4,
+              "setID": 180,
+              "slot": 7,
+              "name": "Necklace of the Powerful Assault",
+              "type": 4,
+              "setName": "Powerful Assault"
+            },
+            {
+              "id": 117637,
+              "quality": 4,
+              "icon": "gear_breton_ring_a",
+              "championPoints": 160,
+              "trait": 15,
+              "enchantType": 17,
+              "enchantQuality": 4,
+              "setID": 180,
+              "slot": 8,
+              "name": "Ring of the Powerful Assault",
+              "type": 4,
+              "setName": "Powerful Assault"
+            },
+            {
+              "id": 117087,
+              "quality": 4,
+              "icon": "gear_breton_ring_a",
+              "championPoints": 160,
+              "trait": 20,
+              "enchantType": 36,
+              "enchantQuality": 4,
+              "setID": 180,
+              "slot": 9,
+              "name": "Ring of the Powerful Assault",
+              "type": 4,
+              "setName": "Powerful Assault"
+            },
+            {
+              "id": 112030,
+              "quality": 4,
+              "icon": "gear_imperialdaedric_staff_c",
+              "championPoints": 160,
+              "trait": 33,
+              "enchantType": 2,
+              "enchantQuality": 4,
+              "setID": 185,
+              "slot": 10,
+              "name": "Spell Power Cure Restoration Staff",
+              "type": 9,
+              "setName": "Spell Power Cure"
+            },
+            {
+              "id": 0,
+              "quality": 0,
+              "icon": "",
+              "championPoints": 0,
+              "trait": 0,
+              "enchantType": 0,
+              "enchantQuality": 0,
+              "setID": 0,
+              "slot": 11,
+              "name": null,
+              "type": null,
+              "setName": null
+            },
+            {
+              "id": 117218,
+              "quality": 5,
+              "icon": "gear_breton_staff_d",
+              "championPoints": 160,
+              "trait": 23,
+              "enchantType": 15,
+              "enchantQuality": 5,
+              "setID": 180,
+              "slot": 12,
+              "name": "Ice Staff of the Powerful Assault",
+              "type": 13,
+              "setName": "Powerful Assault"
+            },
+            {
+              "id": 0,
+              "quality": 0,
+              "icon": "",
+              "championPoints": 0,
+              "trait": 0,
+              "enchantType": 0,
+              "enchantQuality": 0,
+              "setID": 0,
+              "slot": 13,
+              "name": null,
+              "type": null,
+              "setName": null
+            },
+            {
+              "id": 0,
+              "quality": 0,
+              "icon": "",
+              "championPoints": 0,
+              "trait": 0,
+              "enchantType": 0,
+              "enchantQuality": 0,
+              "setID": 0,
+              "slot": 14,
+              "name": null,
+              "type": null,
+              "setName": null
+            },
+            {
+              "id": 0,
+              "quality": 0,
+              "icon": "",
+              "championPoints": 0,
+              "trait": 0,
+              "enchantType": 0,
+              "enchantQuality": 0,
+              "setID": 0,
+              "slot": 15,
+              "name": null,
+              "type": null,
+              "setName": null
+            }
+          ],
+          "specIDs": null,
+          "artifact": null,
+          "talentTree": null
+        }
+      },
+      {
+        "name": "Player (6)",
+        "id": 6,
+        "guid": 1000006,
+        "type": "Templar",
+        "icon": "Templar-Healer",
+        "server": null,
+        "displayName": null,
+        "anonymous": null,
+        "minItemLevel": 2012,
+        "maxItemLevel": 2012,
+        "specs": ["Healer"],
+        "potionUse": 0,
+        "healthstoneUse": 0,
+        "combatantInfo": {
+          "stats": [],
+          "talents": [
+            {
+              "name": "Degeneration",
+              "guid": 40457,
+              "type": 64,
+              "abilityIcon": "ability_mageguild_004_a",
+              "flags": 1
+            },
+            {
+              "name": "Power of the Light",
+              "guid": 21763,
+              "type": 1,
+              "abilityIcon": "ability_templar_power_of_the_light",
+              "flags": 3
+            },
+            {
+              "name": "Puncturing Sweep",
+              "guid": 26797,
+              "type": 64,
+              "abilityIcon": "ability_templar_reckless_attacks",
+              "flags": 1
+            },
+            {
+              "name": "Barbed Trap",
+              "guid": 40382,
+              "type": 2,
+              "abilityIcon": "ability_fightersguild_004_a",
+              "flags": 1
+            },
+            {
+              "name": "Radiant Oppression",
+              "guid": 63046,
+              "type": 64,
+              "abilityIcon": "ability_templar_stendarr_aura",
+              "flags": 3
+            },
+            {
+              "name": "Flawless Dawnbreaker",
+              "guid": 40161,
+              "type": 1,
+              "abilityIcon": "ability_fightersguild_005_a",
+              "flags": 1
+            },
+            {
+              "name": "Solar Barrage",
+              "guid": 22095,
+              "type": 64,
+              "abilityIcon": "ability_templar_solar_power",
+              "flags": 1
+            },
+            {
+              "name": "Echoing Vigor",
+              "guid": 61505,
+              "type": 8,
+              "abilityIcon": "ability_ava_echoing_vigor",
+              "flags": 1
+            },
+            {
+              "name": "Carve",
+              "guid": 38745,
+              "type": 2,
+              "abilityIcon": "ability_2handed_002_a",
+              "flags": 3
+            },
+            {
+              "name": "Ritual of Retribution",
+              "guid": 22259,
+              "type": 64,
+              "abilityIcon": "ability_templar_purifying_ritual",
+              "flags": 1
+            },
+            {
+              "name": "Vampire's Bane",
+              "guid": 21729,
+              "type": 4,
+              "abilityIcon": "ability_templar_vampire_bane",
+              "flags": 1
+            },
+            {
+              "name": "Shooting Star",
+              "guid": 40493,
+              "type": 4,
+              "abilityIcon": "ability_mageguild_005_a",
+              "flags": 0
+            }
+          ],
+          "gear": [
+            {
+              "id": 95044,
+              "quality": 5,
+              "icon": "gear_undauntedcrocodile_head_a",
+              "championPoints": 160,
+              "trait": 1,
+              "enchantType": 22,
+              "enchantQuality": 5,
+              "setID": 270,
+              "slot": 0,
+              "name": "Slimecraw Mask",
+              "type": 2,
+              "setName": "Slimecraw"
+            },
+            {
+              "id": 136964,
+              "quality": 5,
+              "icon": "gear_welkynar_medium_chest_a",
+              "championPoints": 160,
+              "trait": 1,
+              "enchantType": 22,
+              "enchantQuality": 5,
+              "setID": 389,
+              "slot": 1,
+              "name": "Relequen's Jack",
+              "type": 2,
+              "setName": "Arms of Relequen"
+            },
+            {
+              "id": 187654,
+              "quality": 5,
+              "icon": "gear_hermaeusmora_shoulders_a",
+              "championPoints": 160,
+              "trait": 10,
+              "enchantType": 26,
+              "enchantQuality": 5,
+              "setID": 654,
+              "slot": 2,
+              "name": "Mora's Whispers",
+              "type": 1,
+              "setName": "Mora's Whispers"
+            },
+            {
+              "id": 136970,
+              "quality": 5,
+              "icon": "gear_welkynar_medium_waist_a",
+              "championPoints": 160,
+              "trait": 1,
+              "enchantType": 22,
+              "enchantQuality": 5,
+              "setID": 389,
+              "slot": 3,
+              "name": "Relequen's Belt",
+              "type": 2,
+              "setName": "Arms of Relequen"
+            },
+            {
+              "id": 136966,
+              "quality": 5,
+              "icon": "gear_welkynar_medium_hand_a",
+              "championPoints": 160,
+              "trait": 1,
+              "enchantType": 22,
+              "enchantQuality": 5,
+              "setID": 389,
+              "slot": 4,
+              "name": "Relequen's Bracers",
+              "type": 2,
+              "setName": "Arms of Relequen"
+            },
+            {
+              "id": 136968,
+              "quality": 5,
+              "icon": "gear_welkynar_medium_legs_a",
+              "championPoints": 160,
+              "trait": 1,
+              "enchantType": 35,
+              "enchantQuality": 5,
+              "setID": 389,
+              "slot": 5,
+              "name": "Relequen's Guards",
+              "type": 2,
+              "setName": "Arms of Relequen"
+            },
+            {
+              "id": 136965,
+              "quality": 5,
+              "icon": "gear_welkynar_medium_feet_a",
+              "championPoints": 160,
+              "trait": 1,
+              "enchantType": 22,
+              "enchantQuality": 5,
+              "setID": 389,
+              "slot": 6,
+              "name": "Relequen's Boots",
+              "type": 2,
+              "setName": "Arms of Relequen"
+            },
+            {
+              "id": 137132,
+              "quality": 5,
+              "icon": "gear_breton_neck_a",
+              "championPoints": 160,
+              "trait": 13,
+              "enchantType": 21,
+              "enchantQuality": 5,
+              "setID": 390,
+              "slot": 7,
+              "name": "Siroria's Necklace",
+              "type": 4,
+              "setName": "Mantle of Siroria"
+            },
+            {
+              "id": 137131,
+              "quality": 5,
+              "icon": "gear_breton_ring_a",
+              "championPoints": 160,
+              "trait": 13,
+              "enchantType": 21,
+              "enchantQuality": 5,
+              "setID": 390,
+              "slot": 8,
+              "name": "Siroria's Ring",
+              "type": 4,
+              "setName": "Mantle of Siroria"
+            },
+            {
+              "id": 137131,
+              "quality": 5,
+              "icon": "gear_breton_ring_a",
+              "championPoints": 160,
+              "trait": 13,
+              "enchantType": 21,
+              "enchantQuality": 5,
+              "setID": 390,
+              "slot": 9,
+              "name": "Siroria's Ring",
+              "type": 4,
+              "setName": "Mantle of Siroria"
+            },
+            {
+              "id": 137139,
+              "quality": 5,
+              "icon": "gear_welkynar_dagger_001",
+              "championPoints": 160,
+              "trait": 28,
+              "enchantType": 12,
+              "enchantQuality": 5,
+              "setID": 390,
+              "slot": 10,
+              "name": "Siroria's Dagger",
+              "type": 11,
+              "setName": "Mantle of Siroria"
+            },
+            {
+              "id": 137139,
+              "quality": 5,
+              "icon": "gear_welkynar_dagger_001",
+              "championPoints": 160,
+              "trait": 23,
+              "enchantType": 24,
+              "enchantQuality": 5,
+              "setID": 390,
+              "slot": 11,
+              "name": "Siroria's Dagger",
+              "type": 11,
+              "setName": "Mantle of Siroria"
+            },
+            {
+              "id": 71130,
+              "quality": 5,
+              "icon": "gear_dwarvenscavenged_2hsword_a",
+              "championPoints": 160,
+              "trait": 26,
+              "enchantType": 5,
+              "enchantQuality": 5,
+              "setID": 369,
+              "slot": 12,
+              "name": "The Maelstrom's Greatsword",
+              "type": 4,
+              "setName": "Merciless Charge"
+            },
+            {
+              "id": 0,
+              "quality": 0,
+              "icon": "",
+              "championPoints": 0,
+              "trait": 0,
+              "enchantType": 0,
+              "enchantQuality": 0,
+              "setID": 0,
+              "slot": 13,
+              "name": null,
+              "type": null,
+              "setName": null
+            },
+            {
+              "id": 0,
+              "quality": 0,
+              "icon": "",
+              "championPoints": 0,
+              "trait": 0,
+              "enchantType": 0,
+              "enchantQuality": 0,
+              "setID": 0,
+              "slot": 14,
+              "name": null,
+              "type": null,
+              "setName": null
+            },
+            {
+              "id": 0,
+              "quality": 0,
+              "icon": "",
+              "championPoints": 0,
+              "trait": 0,
+              "enchantType": 0,
+              "enchantQuality": 0,
+              "setID": 0,
+              "slot": 15,
+              "name": null,
+              "type": null,
+              "setName": null
+            }
+          ],
+          "specIDs": null,
+          "artifact": null,
+          "talentTree": null
+        }
+      }
+    ],
+    "tanks": [
+      {
+        "name": "Player (1)",
+        "id": 1,
+        "guid": 1000001,
+        "type": "DragonKnight",
+        "icon": "DragonKnight-Tank",
+        "server": null,
+        "displayName": null,
+        "anonymous": null,
+        "minItemLevel": 2222,
+        "maxItemLevel": 2222,
+        "specs": ["Tank"],
+        "potionUse": 0,
+        "healthstoneUse": 0,
+        "combatantInfo": {
+          "stats": [],
+          "talents": [
+            {
+              "name": "Igneous Shield",
+              "guid": 29224,
+              "type": 2,
+              "abilityIcon": "ability_dragonknight_017b",
+              "flags": 1
+            },
+            {
+              "name": "Pierce Armor",
+              "guid": 38250,
+              "type": 1,
+              "abilityIcon": "ability_1handed_002_b",
+              "flags": 1
+            },
+            {
+              "name": "Green Dragon Blood",
+              "guid": 32744,
+              "type": 8,
+              "abilityIcon": "ability_dragonknight_011_b",
+              "flags": 3
+            },
+            {
+              "name": "Revealing Flare",
+              "guid": 61489,
+              "type": 2,
+              "abilityIcon": "ability_ava_revealing_flare",
+              "flags": 1
+            },
+            {
+              "name": "Igneous Weapons",
+              "guid": 31874,
+              "type": 2,
+              "abilityIcon": "ability_dragonknight_015_a",
+              "flags": 1
+            },
+            {
+              "name": "Magma Shell",
+              "guid": 17874,
+              "type": 4,
+              "abilityIcon": "ability_dragonknight_018_a",
+              "flags": 1
+            },
+            {
+              "name": "Engulfing Flames",
+              "guid": 20930,
+              "type": 4,
+              "abilityIcon": "ability_dragonknight_004_b",
+              "flags": 1
+            },
+            {
+              "name": "Frost Clench",
+              "guid": 38989,
+              "type": 16,
+              "abilityIcon": "ability_destructionstaff_005_a",
+              "flags": 1
+            },
+            {
+              "name": "Unrelenting Grip",
+              "guid": 20496,
+              "type": 4,
+              "abilityIcon": "ability_dragonknight_005_a",
+              "flags": 1
+            },
+            {
+              "name": "Blockade of Frost",
+              "guid": 39028,
+              "type": 16,
+              "abilityIcon": "ability_destructionstaff_002b",
+              "flags": 1
+            },
+            {
+              "name": "Balance",
+              "guid": 40441,
+              "type": 2,
+              "abilityIcon": "ability_mageguild_003_b",
+              "flags": 1
+            },
+            {
+              "name": "Aggressive Horn",
+              "guid": 40223,
+              "type": 2,
+              "abilityIcon": "ability_ava_003_a",
+              "flags": 1
+            }
+          ],
+          "gear": [
+            {
+              "id": 95094,
+              "quality": 4,
+              "icon": "gear_undauntedsuneripper_head_a",
+              "championPoints": 160,
+              "trait": 8,
+              "enchantType": 16,
+              "enchantQuality": 4,
+              "setID": 276,
+              "slot": 0,
+              "name": "Tremorscale Mask",
+              "type": 2,
+              "setName": "Tremorscale"
+            },
+            {
+              "id": 177407,
+              "quality": 4,
+              "icon": "gear_blackiron_heavy_chest_a",
+              "championPoints": 160,
+              "trait": 8,
+              "enchantType": 16,
+              "enchantQuality": 4,
+              "setID": 602,
+              "slot": 1,
+              "name": "Cuirass of the Crimson Oath",
+              "type": 3,
+              "setName": "Crimson Oath's Rive"
+            },
+            {
+              "id": 95228,
+              "quality": 5,
+              "icon": "gear_undauntedsuneripper_shoulders_a",
+              "championPoints": 160,
+              "trait": 8,
+              "enchantType": 35,
+              "enchantQuality": 5,
+              "setID": 276,
+              "slot": 2,
+              "name": "Tremorscale Arm Cops",
+              "type": 2,
+              "setName": "Tremorscale"
+            },
+            {
+              "id": 177533,
+              "quality": 4,
+              "icon": "gear_blackironhvy_waist_a",
+              "championPoints": 160,
+              "trait": 9,
+              "enchantType": 16,
+              "enchantQuality": 4,
+              "setID": 602,
+              "slot": 3,
+              "name": "Girdle of the Crimson Oath",
+              "type": 3,
+              "setName": "Crimson Oath's Rive"
+            },
+            {
+              "id": 177529,
+              "quality": 4,
+              "icon": "gear_blackironhvy_hands_a",
+              "championPoints": 160,
+              "trait": 9,
+              "enchantType": 16,
+              "enchantQuality": 4,
+              "setID": 602,
+              "slot": 4,
+              "name": "Gauntlets of the Crimson Oath",
+              "type": 3,
+              "setName": "Crimson Oath's Rive"
+            },
+            {
+              "id": 177411,
+              "quality": 4,
+              "icon": "gear_blackiron_heavy_legs_a",
+              "championPoints": 160,
+              "trait": 8,
+              "enchantType": 16,
+              "enchantQuality": 4,
+              "setID": 602,
+              "slot": 5,
+              "name": "Greaves of the Crimson Oath",
+              "type": 3,
+              "setName": "Crimson Oath's Rive"
+            },
+            {
+              "id": 177468,
+              "quality": 4,
+              "icon": "gear_blackironhvy_feet_a",
+              "championPoints": 160,
+              "trait": 8,
+              "enchantType": 16,
+              "enchantQuality": 4,
+              "setID": 602,
+              "slot": 6,
+              "name": "Sabatons of the Crimson Oath",
+              "type": 3,
+              "setName": "Crimson Oath's Rive"
+            },
+            {
+              "id": 181705,
+              "quality": 3,
+              "icon": "gear_breton_neck_a",
+              "championPoints": 160,
+              "trait": 21,
+              "enchantType": 23,
+              "enchantQuality": 3,
+              "setID": 622,
+              "slot": 7,
+              "name": "Amulet of the Turning Tide",
+              "type": 4,
+              "setName": "Turning Tide"
+            },
+            {
+              "id": 181704,
+              "quality": 3,
+              "icon": "gear_breton_ring_a",
+              "championPoints": 160,
+              "trait": 21,
+              "enchantType": 36,
+              "enchantQuality": 3,
+              "setID": 622,
+              "slot": 8,
+              "name": "Ring of the Turning Tide",
+              "type": 4,
+              "setName": "Turning Tide"
+            },
+            {
+              "id": 181704,
+              "quality": 3,
+              "icon": "gear_breton_ring_a",
+              "championPoints": 160,
+              "trait": 21,
+              "enchantType": 36,
+              "enchantQuality": 3,
+              "setID": 622,
+              "slot": 9,
+              "name": "Ring of the Turning Tide",
+              "type": 4,
+              "setName": "Turning Tide"
+            },
+            {
+              "id": 181708,
+              "quality": 4,
+              "icon": "gear_kraken_sword_a",
+              "championPoints": 160,
+              "trait": 25,
+              "enchantType": 3,
+              "enchantQuality": 4,
+              "setID": 622,
+              "slot": 10,
+              "name": "Sword of the Turning Tide",
+              "type": 3,
+              "setName": "Turning Tide"
+            },
+            {
+              "id": 181718,
+              "quality": 4,
+              "icon": "gear_kraken_shield_a",
+              "championPoints": 160,
+              "trait": 9,
+              "enchantType": 35,
+              "enchantQuality": 4,
+              "setID": 622,
+              "slot": 11,
+              "name": "Shield of the Turning Tide",
+              "type": 14,
+              "setName": "Turning Tide"
+            },
+            {
+              "id": 181715,
+              "quality": 3,
+              "icon": "gear_kraken_staff_a",
+              "championPoints": 160,
+              "trait": 25,
+              "enchantType": 28,
+              "enchantQuality": 3,
+              "setID": 622,
+              "slot": 12,
+              "name": "Ice Staff of the Turning Tide",
+              "type": 13,
+              "setName": "Turning Tide"
+            },
+            {
+              "id": 0,
+              "quality": 0,
+              "icon": "",
+              "championPoints": 0,
+              "trait": 0,
+              "enchantType": 0,
+              "enchantQuality": 0,
+              "setID": 0,
+              "slot": 13,
+              "name": null,
+              "type": null,
+              "setName": null
+            },
+            {
+              "id": 0,
+              "quality": 0,
+              "icon": "",
+              "championPoints": 0,
+              "trait": 0,
+              "enchantType": 0,
+              "enchantQuality": 0,
+              "setID": 0,
+              "slot": 14,
+              "name": null,
+              "type": null,
+              "setName": null
+            },
+            {
+              "id": 0,
+              "quality": 0,
+              "icon": "",
+              "championPoints": 0,
+              "trait": 0,
+              "enchantType": 0,
+              "enchantQuality": 0,
+              "setID": 0,
+              "slot": 15,
+              "name": null,
+              "type": null,
+              "setName": null
+            }
+          ],
+          "specIDs": null,
+          "artifact": null,
+          "talentTree": null
+        }
+      },
+      {
+        "name": "Player (3)",
+        "id": 3,
+        "guid": 1000003,
+        "type": "Necromancer",
+        "icon": "Necromancer-Tank",
+        "server": null,
+        "displayName": null,
+        "anonymous": null,
+        "minItemLevel": 1876,
+        "maxItemLevel": 1876,
+        "specs": ["Tank"],
+        "potionUse": 0,
+        "healthstoneUse": 0,
+        "combatantInfo": {
+          "stats": [],
+          "talents": [
+            {
+              "name": "Ransack",
+              "guid": 38256,
+              "type": 1,
+              "abilityIcon": "ability_1handed_002_a",
+              "flags": 1
+            },
+            {
+              "name": "Power Slam",
+              "guid": 38452,
+              "type": 1,
+              "abilityIcon": "ability_1handed_005_a",
+              "flags": 3
+            },
+            {
+              "name": "Shielded Assault",
+              "guid": 38401,
+              "type": 1,
+              "abilityIcon": "ability_1handed_003_a",
+              "flags": 1
+            },
+            {
+              "name": "Mortal Coil",
+              "guid": 118122,
+              "type": 8,
+              "abilityIcon": "ability_necromancer_017_b",
+              "flags": 1
+            },
+            {
+              "name": "Resolving Vigor",
+              "guid": 61507,
+              "type": 8,
+              "abilityIcon": "ability_ava_resolving_vigor",
+              "flags": 1
+            },
+            {
+              "name": "Aggressive Horn",
+              "guid": 40223,
+              "type": 2,
+              "abilityIcon": "ability_ava_003_a",
+              "flags": 1
+            },
+            {
+              "name": "Blighted Blastbones",
+              "guid": 117690,
+              "type": 2,
+              "abilityIcon": "ability_necromancer_002_a",
+              "flags": 1
+            },
+            {
+              "name": "Hungry Scythe",
+              "guid": 118223,
+              "type": 64,
+              "abilityIcon": "ability_necromancer_007_a",
+              "flags": 1
+            },
+            {
+              "name": "Unnerving Boneyard",
+              "guid": 117805,
+              "type": 16,
+              "abilityIcon": "ability_necromancer_004_a",
+              "flags": 1
+            },
+            {
+              "name": "Necrotic Potency",
+              "guid": 118639,
+              "type": 8,
+              "abilityIcon": "ability_necromancer_011_b",
+              "flags": 1
+            },
+            {
+              "name": "Beckoning Armor",
+              "guid": 118237,
+              "type": 2,
+              "abilityIcon": "ability_necromancer_008_a",
+              "flags": 1
+            },
+            {
+              "name": "Animate Blastbones",
+              "guid": 118379,
+              "type": 2,
+              "abilityIcon": "ability_necromancer_018_b",
+              "flags": 1
+            }
+          ],
+          "gear": [
+            {
+              "id": 59499,
+              "quality": 4,
+              "icon": "gear_undauntedharvester_head_a",
+              "championPoints": 160,
+              "trait": 1,
+              "enchantType": 22,
+              "enchantQuality": 4,
+              "setID": 165,
+              "slot": 0,
+              "name": "Malubeth the Scourger's Mask",
+              "type": 2,
+              "setName": "Scourge Harvester"
+            },
+            {
+              "id": 164747,
+              "quality": 4,
+              "icon": "gear_arcticvampire_heavy_chest_a",
+              "championPoints": 160,
+              "trait": 8,
+              "enchantType": 16,
+              "enchantQuality": 4,
+              "setID": 515,
+              "slot": 1,
+              "name": "Crimson Cuirass",
+              "type": 3,
+              "setName": "Crimson Twilight"
+            },
+            {
+              "id": 59521,
+              "quality": 4,
+              "icon": "gear_undauntedharvester_shoulders_a",
+              "championPoints": 160,
+              "trait": 11,
+              "enchantType": 22,
+              "enchantQuality": 4,
+              "setID": 165,
+              "slot": 2,
+              "name": "Malubeth the Scourger's Epaulets",
+              "type": 1,
+              "setName": "Scourge Harvester"
+            },
+            {
+              "id": 48327,
+              "quality": 4,
+              "icon": "gear_breton_heavy_waist_d",
+              "championPoints": 160,
+              "trait": 9,
+              "enchantType": 26,
+              "enchantQuality": 4,
+              "setID": 44,
+              "slot": 3,
+              "name": "Girdle of Vampire's Kiss",
+              "type": 3,
+              "setName": "Vampire's Kiss"
+            },
+            {
+              "id": 164769,
+              "quality": 4,
+              "icon": "gear_arcticvampire_heavy_hands_a",
+              "championPoints": 160,
+              "trait": 2,
+              "enchantType": 16,
+              "enchantQuality": 4,
+              "setID": 515,
+              "slot": 4,
+              "name": "Crimson Gauntlets",
+              "type": 3,
+              "setName": "Crimson Twilight"
+            },
+            {
+              "id": 164731,
+              "quality": 4,
+              "icon": "gear_arcticvampire_heavy_legs_a",
+              "championPoints": 160,
+              "trait": 11,
+              "enchantType": 35,
+              "enchantQuality": 5,
+              "setID": 515,
+              "slot": 5,
+              "name": "Crimson Greaves",
+              "type": 3,
+              "setName": "Crimson Twilight"
+            },
+            {
+              "id": 164688,
+              "quality": 4,
+              "icon": "gear_arcticvampire_heavy_feet_a",
+              "championPoints": 160,
+              "trait": 3,
+              "enchantType": 16,
+              "enchantQuality": 4,
+              "setID": 515,
+              "slot": 6,
+              "name": "Crimson Sabatons",
+              "type": 3,
+              "setName": "Crimson Twilight"
+            },
+            {
+              "id": 140083,
+              "quality": 4,
+              "icon": "gear_breton_neck_a",
+              "championPoints": 160,
+              "trait": 16,
+              "enchantType": 36,
+              "enchantQuality": 4,
+              "setID": 44,
+              "slot": 7,
+              "name": "Necklace of Vampire's Kiss",
+              "type": 4,
+              "setName": "Vampire's Kiss"
+            },
+            {
+              "id": 163052,
+              "quality": 5,
+              "icon": "antiquities_ring_of_the_wild_hunt",
+              "championPoints": 160,
+              "trait": 13,
+              "enchantType": 36,
+              "enchantQuality": 5,
+              "setID": 503,
+              "slot": 8,
+              "name": "Ring of the Wild Hunt",
+              "type": 4,
+              "setName": "Ring of the Wild Hunt"
+            },
+            {
+              "id": 139681,
+              "quality": 4,
+              "icon": "gear_breton_ring_a",
+              "championPoints": 160,
+              "trait": 13,
+              "enchantType": 19,
+              "enchantQuality": 4,
+              "setID": 44,
+              "slot": 9,
+              "name": "Ring of Vampire's Kiss",
+              "type": 4,
+              "setName": "Vampire's Kiss"
+            },
+            {
+              "id": 48311,
+              "quality": 4,
+              "icon": "gear_breton_1hsword_d",
+              "championPoints": 160,
+              "trait": 32,
+              "enchantType": 5,
+              "enchantQuality": 4,
+              "setID": 44,
+              "slot": 10,
+              "name": "Sword of Vampire's Kiss",
+              "type": 3,
+              "setName": "Vampire's Kiss"
+            },
+            {
+              "id": 48343,
+              "quality": 4,
+              "icon": "gear_breton_shield_d",
+              "championPoints": 160,
+              "trait": 9,
+              "enchantType": 26,
+              "enchantQuality": 4,
+              "setID": 44,
+              "slot": 11,
+              "name": "Shield of Vampire's Kiss",
+              "type": 14,
+              "setName": "Vampire's Kiss"
+            },
+            {
+              "id": 164684,
+              "quality": 4,
+              "icon": "gear_arcticvampire_staff_a",
+              "championPoints": 160,
+              "trait": 26,
+              "enchantType": 1,
+              "enchantQuality": 4,
+              "setID": 515,
+              "slot": 12,
+              "name": "Crimson Lightning Staff",
+              "type": 15,
+              "setName": "Crimson Twilight"
+            },
+            {
+              "id": 0,
+              "quality": 0,
+              "icon": "",
+              "championPoints": 0,
+              "trait": 0,
+              "enchantType": 0,
+              "enchantQuality": 0,
+              "setID": 0,
+              "slot": 13,
+              "name": null,
+              "type": null,
+              "setName": null
+            },
+            {
+              "id": 0,
+              "quality": 0,
+              "icon": "",
+              "championPoints": 0,
+              "trait": 0,
+              "enchantType": 0,
+              "enchantQuality": 0,
+              "setID": 0,
+              "slot": 14,
+              "name": null,
+              "type": null,
+              "setName": null
+            },
+            {
+              "id": 0,
+              "quality": 0,
+              "icon": "",
+              "championPoints": 0,
+              "trait": 0,
+              "enchantType": 0,
+              "enchantQuality": 0,
+              "setID": 0,
+              "slot": 15,
+              "name": null,
+              "type": null,
+              "setName": null
+            }
+          ],
+          "specIDs": null,
+          "artifact": null,
+          "talentTree": null
+        }
+      }
+    ]
+  }
+}

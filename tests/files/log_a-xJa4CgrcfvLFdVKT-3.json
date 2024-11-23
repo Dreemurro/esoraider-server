@@ -1,0 +1,228 @@
+{
+  "totalTime": 24,
+  "itemLevel": 1587.199951171875,
+  "logVersion": 15,
+  "gameVersion": 1,
+  "composition": [
+    {
+      "name": "Player (1)",
+      "id": 1,
+      "guid": 1000001,
+      "type": "DragonKnight",
+      "specs": [{ "spec": "Healer", "role": "healer" }]
+    },
+    {
+      "name": "Player (4)",
+      "id": 4,
+      "guid": 1000004,
+      "type": "Necromancer",
+      "specs": [{ "spec": "StaminaDPS", "role": "dps" }]
+    },
+    {
+      "name": "Player (9)",
+      "id": 9,
+      "guid": 1000009,
+      "type": "Sorcerer",
+      "specs": [{ "spec": "StaminaDPS", "role": "dps" }]
+    },
+    {
+      "name": "Player (3)",
+      "id": 3,
+      "guid": 1000003,
+      "type": "Necromancer",
+      "specs": [{ "spec": "Healer", "role": "healer" }]
+    },
+    {
+      "name": "Player (2)",
+      "id": 2,
+      "guid": 1000002,
+      "type": "Arcanist",
+      "specs": []
+    },
+    {
+      "name": "Player (10)",
+      "id": 10,
+      "guid": 1000010,
+      "type": "Warden",
+      "specs": []
+    },
+    {
+      "name": "Player (7)",
+      "id": 7,
+      "guid": 1000007,
+      "type": "Nightblade",
+      "specs": [{ "spec": "Healer", "role": "healer" }]
+    },
+    {
+      "name": "Player (11)",
+      "id": 11,
+      "guid": 1000011,
+      "type": "Templar",
+      "specs": [{ "spec": "Healer", "role": "healer" }]
+    },
+    {
+      "name": "Player (6)",
+      "id": 6,
+      "guid": 1000006,
+      "type": "Templar",
+      "specs": [{ "spec": "StaminaDPS", "role": "dps" }]
+    },
+    {
+      "name": "Player (8)",
+      "id": 8,
+      "guid": 1000008,
+      "type": "Arcanist",
+      "specs": [{ "spec": "StaminaDPS", "role": "dps" }]
+    }
+  ],
+  "damageDone": [],
+  "healingDone": [],
+  "damageTaken": [
+    {
+      "name": "Energy Arc",
+      "guid": 100632,
+      "type": 512,
+      "abilityIcon": "death_recap_shock_aoe",
+      "total": 14531,
+      "composite": true,
+      "flags": null
+    }
+  ],
+  "deathEvents": [],
+  "combatantInfo": null,
+  "playerDetails": {
+    "dps": [
+      {
+        "name": "Player (9)",
+        "id": 9,
+        "guid": 1000009,
+        "type": "Sorcerer",
+        "icon": "Sorcerer-StaminaDPS",
+        "server": null,
+        "displayName": null,
+        "anonymous": null,
+        "minItemLevel": 1605,
+        "maxItemLevel": 1605,
+        "specs": ["StaminaDPS"],
+        "potionUse": 0,
+        "healthstoneUse": 0,
+        "combatantInfo": null
+      },
+      {
+        "name": "Player (4)",
+        "id": 4,
+        "guid": 1000004,
+        "type": "Necromancer",
+        "icon": "Necromancer-StaminaDPS",
+        "server": null,
+        "displayName": null,
+        "anonymous": null,
+        "minItemLevel": 724,
+        "maxItemLevel": 724,
+        "specs": ["StaminaDPS"],
+        "potionUse": 0,
+        "healthstoneUse": 0,
+        "combatantInfo": null
+      },
+      {
+        "name": "Player (8)",
+        "id": 8,
+        "guid": 1000008,
+        "type": "Arcanist",
+        "icon": "Arcanist-StaminaDPS",
+        "server": null,
+        "displayName": null,
+        "anonymous": null,
+        "minItemLevel": 1861,
+        "maxItemLevel": 1861,
+        "specs": ["StaminaDPS"],
+        "potionUse": 0,
+        "healthstoneUse": 0,
+        "combatantInfo": null
+      },
+      {
+        "name": "Player (6)",
+        "id": 6,
+        "guid": 1000006,
+        "type": "Templar",
+        "icon": "Templar-StaminaDPS",
+        "server": null,
+        "displayName": null,
+        "anonymous": null,
+        "minItemLevel": 2012,
+        "maxItemLevel": 2012,
+        "specs": ["StaminaDPS"],
+        "potionUse": 0,
+        "healthstoneUse": 0,
+        "combatantInfo": null
+      }
+    ],
+    "healers": [
+      {
+        "name": "Player (1)",
+        "id": 1,
+        "guid": 1000001,
+        "type": "DragonKnight",
+        "icon": "DragonKnight-Healer",
+        "server": null,
+        "displayName": null,
+        "anonymous": null,
+        "minItemLevel": 2222,
+        "maxItemLevel": 2222,
+        "specs": ["Healer"],
+        "potionUse": 0,
+        "healthstoneUse": 0,
+        "combatantInfo": null
+      },
+      {
+        "name": "Player (3)",
+        "id": 3,
+        "guid": 1000003,
+        "type": "Necromancer",
+        "icon": "Necromancer-Healer",
+        "server": null,
+        "displayName": null,
+        "anonymous": null,
+        "minItemLevel": 1876,
+        "maxItemLevel": 1876,
+        "specs": ["Healer"],
+        "potionUse": 0,
+        "healthstoneUse": 0,
+        "combatantInfo": null
+      },
+      {
+        "name": "Player (7)",
+        "id": 7,
+        "guid": 1000007,
+        "type": "Nightblade",
+        "icon": "Nightblade-Healer",
+        "server": null,
+        "displayName": null,
+        "anonymous": null,
+        "minItemLevel": 1448,
+        "maxItemLevel": 1448,
+        "specs": ["Healer"],
+        "potionUse": 0,
+        "healthstoneUse": 0,
+        "combatantInfo": null
+      },
+      {
+        "name": "Player (11)",
+        "id": 11,
+        "guid": 1000011,
+        "type": "Templar",
+        "icon": "Templar-Healer",
+        "server": null,
+        "displayName": null,
+        "anonymous": null,
+        "minItemLevel": 334,
+        "maxItemLevel": 334,
+        "specs": ["Healer"],
+        "potionUse": 0,
+        "healthstoneUse": 0,
+        "combatantInfo": null
+      }
+    ],
+    "tanks": null
+  }
+}

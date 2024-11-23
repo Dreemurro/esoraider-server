@@ -1,0 +1,11 @@
+{
+  "id": 44,
+  "name": "Yolnahkriin",
+  "zone": {
+    "difficulties": [
+      { "id": 122, "name": "Veteran Hard Mode" },
+      { "id": 121, "name": "Veteran" },
+      { "id": 120, "name": "Normal" }
+    ]
+  }
+}

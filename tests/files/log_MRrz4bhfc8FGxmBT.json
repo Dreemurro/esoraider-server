@@ -1,0 +1,80 @@
+{
+  "code": "MRrz4bhfc8FGxmBT",
+  "title": "vAS0 GF Oct 29-24",
+  "endTime": 1730245413796,
+  "owner": { "name": "Bitter_Apple21" },
+  "fights": [
+    {
+      "id": 1,
+      "name": "Saint Llothis the Pious",
+      "difficulty": 121,
+      "fightPercentage": 78.02,
+      "encounterID": 21,
+      "kill": false,
+      "startTime": 108546,
+      "endTime": 277101,
+      "gameZone": { "name": "Asylum Sanctorium" },
+      "friendlyPlayers": [11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
+    },
+    {
+      "id": 2,
+      "name": "Saint Llothis the Pious",
+      "difficulty": 121,
+      "fightPercentage": 0.01,
+      "encounterID": 21,
+      "kill": true,
+      "startTime": 482820,
+      "endTime": 865671,
+      "gameZone": { "name": "Asylum Sanctorium" },
+      "friendlyPlayers": [11, 10, 9, 8, 7, 6, 4, 3, 2, 1]
+    },
+    {
+      "id": 3,
+      "name": "Imperfect Attendant",
+      "difficulty": null,
+      "fightPercentage": null,
+      "encounterID": 0,
+      "kill": null,
+      "startTime": 865726,
+      "endTime": 865750,
+      "gameZone": { "name": "Asylum Sanctorium" },
+      "friendlyPlayers": [11, 10, 9, 8, 7, 6, 4, 3, 2, 1]
+    },
+    {
+      "id": 4,
+      "name": "Saint Felms the Bold",
+      "difficulty": 121,
+      "fightPercentage": 59.27,
+      "encounterID": 22,
+      "kill": false,
+      "startTime": 921281,
+      "endTime": 1151726,
+      "gameZone": { "name": "Asylum Sanctorium" },
+      "friendlyPlayers": [11, 10, 9, 8, 7, 6, 4, 36, 3, 35, 2, 1]
+    },
+    {
+      "id": 5,
+      "name": "Saint Felms the Bold",
+      "difficulty": 121,
+      "fightPercentage": 0.01,
+      "encounterID": 22,
+      "kill": true,
+      "startTime": 1239812,
+      "endTime": 1729117,
+      "gameZone": { "name": "Asylum Sanctorium" },
+      "friendlyPlayers": [11, 10, 9, 8, 7, 6, 36, 4, 3, 35, 2, 1]
+    },
+    {
+      "id": 6,
+      "name": "Saint Olms the Just",
+      "difficulty": 121,
+      "fightPercentage": 0.01,
+      "encounterID": 23,
+      "kill": true,
+      "startTime": 1882023,
+      "endTime": 2803007,
+      "gameZone": { "name": "Asylum Sanctorium" },
+      "friendlyPlayers": [11, 10, 9, 8, 7, 6, 36, 4, 3, 35, 2, 1]
+    }
+  ]
+}

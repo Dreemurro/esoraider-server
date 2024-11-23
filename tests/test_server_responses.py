@@ -1,8 +1,10 @@
 from dataclasses import dataclass
 from http import HTTPStatus
+from pathlib import Path
 from typing import TYPE_CHECKING, Optional, Sequence, Tuple
 
 import pytest
+from msgspec import json
 
 if TYPE_CHECKING:
     from blacksheep.testing import TestClient
@@ -31,6 +33,21 @@ class Log:
         if self.targets:
             return [('target', str(_)) for _ in self.targets]
         return None
+
+    @property
+    def response(self) -> dict | None:
+        if self.expected != HTTPStatus.OK:
+            return None
+        path = self.log.replace(':', '-')
+        if self.fight:
+            path = '{path}-{fight}'.format(path=path, fight=self.fight)
+        if self.fight and self.char:
+            path = '{path}-{char}'.format(path=path, char=self.char)
+        if self.fight and self.char and self.targets:
+            path = '{path}-targets'.format(path=path)
+        return json.decode(
+            Path('tests/files/log_{path}.json'.format(path=path)).read_bytes(),
+        )
 
 
 LOGS = (
@@ -119,13 +136,38 @@ CHARS = (
     ),
 )
 
+
+@dataclass
+class Encounter:
+    desc: str
+    id: int
+    expected: HTTPStatus = HTTPStatus.OK
+    is_empty: bool = False
+
+    @property
+    def link(self) -> str:
+        return '/{id}'.format(id=self.id)
+
+    @property
+    def response(self) -> str | dict | None:
+        if self.expected != HTTPStatus.OK:
+            return None
+        if self.is_empty:
+            return ''
+        return json.decode(
+            Path(
+                'tests/files/encounter_{id}.json'.format(id=self.id),
+            ).read_bytes(),
+        )
+
+
 ENCOUNTERS = (
-    44,  # Yolnahkriin
-    132737,  # Related to Rockgrove, returns nothing
+    Encounter(desc='Yolnahkriin', id=44),
+    Encounter(desc='Related to Rockgrove', id=132737, is_empty=True),
 )
 
 
-def id_of_test(log: Log) -> str:
+def id_of_test(log: Log | Encounter) -> str:
     return log.desc
 
 
@@ -135,6 +177,7 @@ async def test_get_log(test_client: 'TestClient', log: Log):
     response = await test_client.get(log.link)
 
     assert response.status == log.expected
+    assert await response.json() == log.response
 
 
 @pytest.mark.asyncio(loop_scope='session')
@@ -143,6 +186,7 @@ async def test_get_fight(test_client: 'TestClient', fight: Log):
     response = await test_client.get(fight.link)
 
     assert response.status == fight.expected
+    assert await response.json() == fight.response
 
 
 @pytest.mark.asyncio(loop_scope='session')
@@ -151,6 +195,7 @@ async def test_get_char(test_client: 'TestClient', char: Log):
     response = await test_client.get(char.link, query=char.query)
 
     assert response.status == char.expected
+    assert await response.json() == char.response
 
 
 @pytest.mark.asyncio(loop_scope='session')
@@ -159,11 +204,15 @@ async def test_get_fight_effects(test_client: 'TestClient', fight: Log):
     response = await test_client.get('/fight' + fight.link)
 
     assert response.status == fight.expected
+    assert await response.json() == fight.response
 
 
 @pytest.mark.asyncio(loop_scope='session')
-@pytest.mark.parametrize('encounter', ENCOUNTERS)
-async def test_get_encounter_info(test_client: 'TestClient', encounter: int):
-    response = await test_client.get('/encounter/{0}'.format(encounter))
+@pytest.mark.parametrize('encounter', ENCOUNTERS, ids=id_of_test)
+async def test_get_encounter_info(
+    test_client: 'TestClient', encounter: Encounter,
+):
+    response = await test_client.get('/encounter' + encounter.link)
 
     assert response.status == HTTPStatus.OK
+    assert await response.json() == encounter.response

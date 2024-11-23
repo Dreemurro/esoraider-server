@@ -1,0 +1,727 @@
+{
+  "char": {
+    "id": 2,
+    "name": "äśh",
+    "class": "Necromancer",
+    "spec": "StaminaDPS"
+  },
+  "skills": [
+    {
+      "name": "Deadly Cloak",
+      "id": 38906,
+      "icon": "https://assets.rpglogs.com/img/eso/abilities/ability_dualwield_004_b.png",
+      "link": "https://eso-hub.com/en/skills/weapon/dual-wield/deadly-cloak",
+      "buffs": [
+        {
+          "name": "Deadly Cloak",
+          "id": 38906,
+          "icon": "https://assets.rpglogs.com/img/eso/abilities/ability_dualwield_004_b.png",
+          "advice": null,
+          "optimal_uptime": null,
+          "uptime": 62.04,
+          "stack": null,
+          "link": null
+        },
+        {
+          "name": "Major Evasion",
+          "id": 123653,
+          "icon": "https://assets.rpglogs.com/img/eso/abilities/ability_buff_major_evasion.png",
+          "advice": null,
+          "optimal_uptime": null,
+          "uptime": 61.95,
+          "stack": null,
+          "link": null
+        }
+      ],
+      "debuffs": null,
+      "parent": null,
+      "children": [
+        {
+          "name": "Deadly Cloak",
+          "id": 62547,
+          "icon": "https://assets.rpglogs.com/img/eso/abilities/ability_dualwield_004_b.png",
+          "link": null,
+          "buffs": null,
+          "debuffs": null,
+          "parent": null,
+          "children": [],
+          "tick": 1,
+          "advice": null,
+          "optimal_uptime": null,
+          "uptime": 36.61
+        }
+      ],
+      "tick": 1,
+      "advice": null,
+      "optimal_uptime": null,
+      "uptime": 36.61
+    },
+    {
+      "name": "Elemental Blockade",
+      "id": 39011,
+      "icon": "https://assets.rpglogs.com/img/eso/abilities/ability_destructionstaff_002a.png",
+      "link": "https://eso-hub.com/en/skills/weapon/destruction-staff/elemental-blockade",
+      "buffs": null,
+      "debuffs": null,
+      "parent": null,
+      "children": [
+        {
+          "name": "Blockade of Fire",
+          "id": 39012,
+          "icon": "https://assets.rpglogs.com/img/eso/abilities/ability_destructionstaff_004_b.png",
+          "link": null,
+          "buffs": null,
+          "debuffs": null,
+          "parent": null,
+          "children": [],
+          "tick": 1,
+          "advice": null,
+          "optimal_uptime": null,
+          "uptime": 111.28
+        }
+      ],
+      "tick": 1,
+      "advice": null,
+      "optimal_uptime": null,
+      "uptime": 111.28
+    },
+    {
+      "name": "Camouflaged Hunter",
+      "id": 40195,
+      "icon": "https://assets.rpglogs.com/img/eso/abilities/ability_fightersguild_002_b.png",
+      "link": "https://eso-hub.com/en/skills/guild/fighters-guild/camouflaged-hunter",
+      "buffs": [
+        {
+          "name": "Minor Berserk",
+          "id": 80471,
+          "icon": "https://assets.rpglogs.com/img/eso/abilities/ability_buff_minor_berserk.png",
+          "advice": null,
+          "optimal_uptime": null,
+          "uptime": 0.24,
+          "stack": null,
+          "link": null
+        }
+      ],
+      "debuffs": null,
+      "parent": null,
+      "children": [],
+      "tick": 1,
+      "advice": null,
+      "optimal_uptime": null,
+      "uptime": 0.24
+    },
+    {
+      "name": "Barbed Trap",
+      "id": 40382,
+      "icon": "https://assets.rpglogs.com/img/eso/abilities/ability_fightersguild_004_a.png",
+      "link": "https://eso-hub.com/en/skills/guild/fighters-guild/barbed-trap",
+      "buffs": [
+        {
+          "name": "Minor Force",
+          "id": 68632,
+          "icon": "https://assets.rpglogs.com/img/eso/abilities/ability_buff_minor_force.png",
+          "advice": null,
+          "optimal_uptime": null,
+          "uptime": 45.76,
+          "stack": null,
+          "link": null
+        }
+      ],
+      "debuffs": [
+        {
+          "name": "Barbed Trap",
+          "id": 40385,
+          "icon": "https://assets.rpglogs.com/img/eso/abilities/ability_fightersguild_004_a.png",
+          "advice": null,
+          "optimal_uptime": null,
+          "uptime": 41.26,
+          "stack": null,
+          "link": null
+        }
+      ],
+      "parent": null,
+      "children": [],
+      "tick": 1,
+      "advice": null,
+      "optimal_uptime": null,
+      "uptime": null
+    },
+    {
+      "name": "Unnerving Boneyard",
+      "id": 117805,
+      "icon": "https://assets.rpglogs.com/img/eso/abilities/ability_necromancer_004_a.png",
+      "link": "https://eso-hub.com/en/skills/necromancer/grave-lord/unnerving-boneyard",
+      "buffs": null,
+      "debuffs": null,
+      "parent": null,
+      "children": [],
+      "tick": 1,
+      "advice": null,
+      "optimal_uptime": null,
+      "uptime": 77.84
+    },
+    {
+      "name": "Mystic Siphon",
+      "id": 118008,
+      "icon": "https://assets.rpglogs.com/img/eso/abilities/ability_necromancer_005_a.png",
+      "link": "https://eso-hub.com/en/skills/necromancer/grave-lord/mystic-siphon",
+      "buffs": null,
+      "debuffs": null,
+      "parent": null,
+      "children": [],
+      "tick": 1,
+      "advice": null,
+      "optimal_uptime": null,
+      "uptime": 91.97
+    },
+    {
+      "name": "Glacial Colossus",
+      "id": 122388,
+      "icon": "https://assets.rpglogs.com/img/eso/abilities/ability_necromancer_006_a.png",
+      "link": "https://eso-hub.com/en/skills/necromancer/grave-lord/glacial-colossus",
+      "buffs": null,
+      "debuffs": [
+        {
+          "name": "Major Vulnerability",
+          "id": 106754,
+          "icon": "https://assets.rpglogs.com/img/eso/abilities/ability_debuff_major_vulnerability.png",
+          "advice": null,
+          "optimal_uptime": null,
+          "uptime": 49.18,
+          "stack": null,
+          "link": null
+        }
+      ],
+      "parent": null,
+      "children": [],
+      "tick": 1,
+      "advice": null,
+      "optimal_uptime": null,
+      "uptime": 49.18
+    }
+  ],
+  "sets": [
+    {
+      "name": "War Machine",
+      "id": 331,
+      "link": "https://eso-hub.com/en/sets/war-machine",
+      "uptime": 57.14,
+      "optimal_uptime": null,
+      "icon": "https://eso-hub.com/storage/icons/gear_clockwork_medium_head_a.png",
+      "buffs": [
+        {
+          "name": "Major Slayer",
+          "id": 93109,
+          "icon": "https://assets.rpglogs.com/img/eso/abilities/ability_buff_major_slayer.png",
+          "advice": null,
+          "optimal_uptime": null,
+          "uptime": 57.14,
+          "stack": null,
+          "link": null
+        }
+      ],
+      "debuffs": null
+    },
+    {
+      "name": "Crushing Wall",
+      "id": 373,
+      "link": "https://eso-hub.com/en/sets/crushing-wall",
+      "uptime": 77.64,
+      "optimal_uptime": null,
+      "icon": "https://eso-hub.com/storage/icons/gear_dwarvenscavenged_staff_a.png",
+      "buffs": [
+        {
+          "name": "Crushing Wall",
+          "id": 100155,
+          "icon": "https://assets.rpglogs.com/img/eso/abilities/ability_mage_065.png",
+          "advice": null,
+          "optimal_uptime": null,
+          "uptime": 77.64,
+          "stack": null,
+          "link": null
+        }
+      ],
+      "debuffs": null
+    },
+    {
+      "name": "Elemental Catalyst",
+      "id": 516,
+      "link": "https://eso-hub.com/en/sets/elemental-catalyst",
+      "uptime": null,
+      "optimal_uptime": null,
+      "icon": "https://eso-hub.com/storage/icons/gear_northlandsalchlgt_head_a.png",
+      "buffs": null,
+      "debuffs": [
+        {
+          "name": "Frost Weakness",
+          "id": 142652,
+          "icon": "https://assets.rpglogs.com/img/eso/abilities/death_recap_cold_melee.png",
+          "advice": null,
+          "optimal_uptime": null,
+          "uptime": 36.05,
+          "stack": null,
+          "link": null
+        },
+        {
+          "name": "Flame Weakness",
+          "id": 142610,
+          "icon": "https://assets.rpglogs.com/img/eso/abilities/death_recap_fire_melee.png",
+          "advice": null,
+          "optimal_uptime": null,
+          "uptime": 40.91,
+          "stack": null,
+          "link": null
+        },
+        {
+          "name": "Shock Weakness",
+          "id": 142653,
+          "icon": "https://assets.rpglogs.com/img/eso/abilities/death_recap_shock_melee.png",
+          "advice": null,
+          "optimal_uptime": null,
+          "uptime": 33.94,
+          "stack": null,
+          "link": null
+        }
+      ]
+    },
+    {
+      "name": "Spaulder of Ruin",
+      "id": 627,
+      "link": "https://eso-hub.com/en/sets/spaulder-of-ruin",
+      "uptime": 86.53,
+      "optimal_uptime": null,
+      "icon": "https://eso-hub.com/storage/icons/gear_razorhorndaedric_shoulder_a.png",
+      "buffs": [
+        {
+          "name": "Price of Pride",
+          "id": 163404,
+          "icon": "https://assets.rpglogs.com/img/eso/abilities/ability_mage_065.png",
+          "advice": null,
+          "optimal_uptime": null,
+          "uptime": 86.53,
+          "stack": {
+            "name": "Price of Pride",
+            "id": 163404,
+            "icon": "https://assets.rpglogs.com/img/eso/abilities/ability_mage_065.png",
+            "max_stacks": 6,
+            "type_": "Buffs",
+            "buffs": null,
+            "debuffs": null,
+            "modifier": null,
+            "uptimes": {
+              "1": 98.85,
+              "2": 96.44,
+              "3": 94.12,
+              "4": 92.42,
+              "5": 90.1,
+              "6": 86.53
+            }
+          },
+          "link": null
+        }
+      ],
+      "debuffs": null
+    }
+  ],
+  "glyphs": [
+    {
+      "name": "Glyph of Weapon Damage",
+      "id": 5,
+      "link": "https://en.uesp.net/wiki/Online:Glyph_of_Weapon_Damage",
+      "icon": "https://images.uesp.net/d/d4/ON-icon-glyph-weapon-Glyph_of_Weapon_Damage.png",
+      "buffs": [
+        {
+          "name": "Berserker",
+          "id": 21230,
+          "icon": "https://assets.rpglogs.com/img/eso/abilities/ava_artifact_006.png",
+          "advice": null,
+          "optimal_uptime": null,
+          "uptime": 75.15,
+          "stack": null,
+          "link": null
+        }
+      ],
+      "debuffs": null,
+      "uptime": 75.15,
+      "advice": null
+    },
+    {
+      "name": "Glyph of Poison",
+      "id": 24,
+      "link": "https://en.uesp.net/wiki/Online:Glyph_of_Poison",
+      "icon": "https://images.uesp.net/9/90/ON-icon-glyph-weapon-Glyph_of_Poison.png",
+      "buffs": null,
+      "debuffs": [
+        {
+          "name": "Poisoned",
+          "id": 21929,
+          "icon": "https://assets.rpglogs.com/img/eso/abilities/ability_rogue_030.png",
+          "advice": null,
+          "optimal_uptime": null,
+          "uptime": 21.43,
+          "stack": null,
+          "link": null
+        }
+      ],
+      "uptime": 21.43,
+      "advice": null
+    }
+  ],
+  "buffs": [],
+  "debuffs": [],
+  "targets": [
+    { "name": "Nahviintaas", "id": [88345] },
+    { "name": "Adds", "id": [88878, 88874, 90100, 88875, 88871] }
+  ],
+  "currentTarget": null,
+  "checklist": [
+    {
+      "name": "Dark elf passives",
+      "icon": "https://images.uesp.net/8/86/ON-icon-Dunmer.png",
+      "passives": [
+        {
+          "passive": {
+            "name": "Dynamic",
+            "id": 45267,
+            "icon": "https://assets.rpglogs.com/img/eso/abilities/ability_weapon_023.png",
+            "advice": null,
+            "optimal_uptime": null,
+            "uptime": null,
+            "stack": null,
+            "link": "https://eso-hub.com/en/skills/racial/dark-elf-skills/dynamic"
+          },
+          "present": true
+        },
+        {
+          "passive": {
+            "name": "Resist Flame",
+            "id": 45270,
+            "icon": "https://assets.rpglogs.com/img/eso/abilities/ability_sorcerer_062.png",
+            "advice": null,
+            "optimal_uptime": null,
+            "uptime": null,
+            "stack": null,
+            "link": "https://eso-hub.com/en/skills/racial/dark-elf-skills/resist-flame"
+          },
+          "present": true
+        },
+        {
+          "passive": {
+            "name": "Ruination",
+            "id": 45272,
+            "icon": "https://assets.rpglogs.com/img/eso/abilities/ability_sorcerer_010.png",
+            "advice": null,
+            "optimal_uptime": null,
+            "uptime": null,
+            "stack": null,
+            "link": "https://eso-hub.com/en/skills/racial/dark-elf-skills/ruination"
+          },
+          "present": true
+        }
+      ],
+      "status": true
+    },
+    {
+      "name": "Destruction staff passives",
+      "icon": "https://eso-hub.com/storage/icons/ability_destructionstaff_012.webp",
+      "passives": [
+        {
+          "passive": {
+            "name": "Tri Focus",
+            "id": 45500,
+            "icon": "https://assets.rpglogs.com/img/eso/abilities/ability_weapon_001.png",
+            "advice": null,
+            "optimal_uptime": null,
+            "uptime": null,
+            "stack": null,
+            "link": "https://eso-hub.com/en/skills/weapon/destruction-staff/tri-focus"
+          },
+          "present": true
+        },
+        {
+          "passive": {
+            "name": "Penetrating Magic",
+            "id": 45509,
+            "icon": "https://assets.rpglogs.com/img/eso/abilities/ability_weapon_008.png",
+            "advice": null,
+            "optimal_uptime": null,
+            "uptime": null,
+            "stack": null,
+            "link": "https://eso-hub.com/en/skills/weapon/destruction-staff/penetrating-magic"
+          },
+          "present": true
+        },
+        {
+          "passive": {
+            "name": "Ancient Knowledge",
+            "id": 45513,
+            "icon": "https://assets.rpglogs.com/img/eso/abilities/ability_weapon_003.png",
+            "advice": null,
+            "optimal_uptime": null,
+            "uptime": null,
+            "stack": null,
+            "link": "https://eso-hub.com/en/skills/weapon/destruction-staff/ancient-knowledge"
+          },
+          "present": true
+        },
+        {
+          "passive": {
+            "name": "Destruction Expert",
+            "id": 45514,
+            "icon": "https://assets.rpglogs.com/img/eso/abilities/ability_weapon_006.png",
+            "advice": null,
+            "optimal_uptime": null,
+            "uptime": null,
+            "stack": null,
+            "link": "https://eso-hub.com/en/skills/weapon/destruction-staff/destruction-expert"
+          },
+          "present": true
+        }
+      ],
+      "status": true
+    },
+    {
+      "name": "Fighters Guild passives",
+      "icon": "https://eso-hub.com/storage/icons/ability_fightersguild_005.webp",
+      "passives": [
+        {
+          "passive": {
+            "name": "Slayer",
+            "id": 45596,
+            "icon": "https://assets.rpglogs.com/img/eso/abilities/ability_dragonknight_025.png",
+            "advice": null,
+            "optimal_uptime": null,
+            "uptime": null,
+            "stack": null,
+            "link": "https://eso-hub.com/en/skills/guild/fighters-guild/slayer"
+          },
+          "present": true
+        }
+      ],
+      "status": true
+    },
+    {
+      "name": "Light armor passives",
+      "icon": "https://eso-hub.com/storage/icons/ability_armor_003.webp",
+      "passives": [
+        {
+          "passive": {
+            "name": "Concentration",
+            "id": 45562,
+            "icon": "https://assets.rpglogs.com/img/eso/abilities/ability_sorcerer_060.png",
+            "advice": null,
+            "optimal_uptime": null,
+            "uptime": null,
+            "stack": null,
+            "link": "https://eso-hub.com/en/skills/armor/light-armor/concentration"
+          },
+          "present": true
+        },
+        {
+          "passive": {
+            "name": "Grace",
+            "id": 45549,
+            "icon": "https://assets.rpglogs.com/img/eso/abilities/ability_armor_004.png",
+            "advice": null,
+            "optimal_uptime": null,
+            "uptime": null,
+            "stack": null,
+            "link": "https://eso-hub.com/en/skills/armor/light-armor/grace"
+          },
+          "present": true
+        },
+        {
+          "passive": {
+            "name": "Evocation",
+            "id": 45557,
+            "icon": "https://assets.rpglogs.com/img/eso/abilities/ability_armor_005.png",
+            "advice": null,
+            "optimal_uptime": null,
+            "uptime": null,
+            "stack": null,
+            "link": "https://eso-hub.com/en/skills/armor/light-armor/evocation"
+          },
+          "present": true
+        }
+      ],
+      "status": true
+    },
+    {
+      "name": "Medium armor passives",
+      "icon": "https://eso-hub.com/storage/icons/ability_armor_002.webp",
+      "passives": [
+        {
+          "passive": {
+            "name": "Wind Walker",
+            "id": 45565,
+            "icon": "https://assets.rpglogs.com/img/eso/abilities/ability_armor_011.png",
+            "advice": null,
+            "optimal_uptime": null,
+            "uptime": null,
+            "stack": null,
+            "link": "https://eso-hub.com/en/skills/armor/medium-armor/wind-walker"
+          },
+          "present": true
+        }
+      ],
+      "status": true
+    },
+    {
+      "name": "Necromancer passives",
+      "icon": "https://eso-hub.com/storage/icons/class/gamepad/gp_class_necromancer.png",
+      "passives": [
+        {
+          "passive": {
+            "name": "Death Gleaning",
+            "id": 116235,
+            "icon": "https://assets.rpglogs.com/img/eso/abilities/passive_necromancer_005.png",
+            "advice": null,
+            "optimal_uptime": null,
+            "uptime": null,
+            "stack": null,
+            "link": "https://eso-hub.com/en/skills/necromancer/bone-tyrant/death-gleaning"
+          },
+          "present": true
+        },
+        {
+          "passive": {
+            "name": "Health Avarice",
+            "id": 116270,
+            "icon": "https://assets.rpglogs.com/img/eso/abilities/passive_necromancer_007.png",
+            "advice": null,
+            "optimal_uptime": null,
+            "uptime": null,
+            "stack": null,
+            "link": "https://eso-hub.com/en/skills/necromancer/bone-tyrant/health-avarice"
+          },
+          "present": true
+        },
+        {
+          "passive": {
+            "name": "Last Gasp",
+            "id": 116272,
+            "icon": "https://assets.rpglogs.com/img/eso/abilities/passive_necromancer_008.png",
+            "advice": null,
+            "optimal_uptime": null,
+            "uptime": null,
+            "stack": null,
+            "link": "https://eso-hub.com/en/skills/necromancer/bone-tyrant/last-gasp"
+          },
+          "present": true
+        },
+        {
+          "passive": {
+            "name": "Dismember",
+            "id": 116194,
+            "icon": "https://assets.rpglogs.com/img/eso/abilities/passive_necromancer_003.png",
+            "advice": null,
+            "optimal_uptime": null,
+            "uptime": null,
+            "stack": null,
+            "link": "https://eso-hub.com/en/skills/necromancer/grave-lord/dismember"
+          },
+          "present": true
+        },
+        {
+          "passive": {
+            "name": "Rapid Rot",
+            "id": 116201,
+            "icon": "https://assets.rpglogs.com/img/eso/abilities/passive_necromancer_004.png",
+            "advice": null,
+            "optimal_uptime": null,
+            "uptime": null,
+            "stack": null,
+            "link": "https://eso-hub.com/en/skills/necromancer/grave-lord/rapid-rot"
+          },
+          "present": true
+        },
+        {
+          "passive": {
+            "name": "Curative Curse",
+            "id": 116287,
+            "icon": "https://assets.rpglogs.com/img/eso/abilities/passive_necromancer_009.png",
+            "advice": null,
+            "optimal_uptime": null,
+            "uptime": null,
+            "stack": null,
+            "link": "https://eso-hub.com/en/skills/necromancer/living-death/curative-curse"
+          },
+          "present": true
+        },
+        {
+          "passive": {
+            "name": "Near-Death Experience",
+            "id": 116275,
+            "icon": "https://assets.rpglogs.com/img/eso/abilities/passive_necromancer_010.png",
+            "advice": null,
+            "optimal_uptime": null,
+            "uptime": null,
+            "stack": null,
+            "link": "https://eso-hub.com/en/skills/necromancer/living-death/near-death-experience"
+          },
+          "present": true
+        },
+        {
+          "passive": {
+            "name": "Corpse Consumption",
+            "id": 116285,
+            "icon": "https://assets.rpglogs.com/img/eso/abilities/passive_necromancer_011.png",
+            "advice": null,
+            "optimal_uptime": null,
+            "uptime": null,
+            "stack": null,
+            "link": "https://eso-hub.com/en/skills/necromancer/living-death/corpse-consumption"
+          },
+          "present": true
+        },
+        {
+          "passive": {
+            "name": "Undead Confederate",
+            "id": 116283,
+            "icon": "https://assets.rpglogs.com/img/eso/abilities/passive_necromancer_012.png",
+            "advice": null,
+            "optimal_uptime": null,
+            "uptime": null,
+            "stack": null,
+            "link": "https://eso-hub.com/en/skills/necromancer/living-death/undead-confederate"
+          },
+          "present": true
+        }
+      ],
+      "status": true
+    },
+    {
+      "name": "Undaunted passives",
+      "icon": "https://eso-hub.com/storage/icons/ability_undaunted_001.webp",
+      "passives": [
+        {
+          "passive": {
+            "name": "Undaunted Command",
+            "id": 55676,
+            "icon": "https://assets.rpglogs.com/img/eso/abilities/ability_templar_003.png",
+            "advice": null,
+            "optimal_uptime": null,
+            "uptime": null,
+            "stack": null,
+            "link": "https://eso-hub.com/en/skills/guild/undaunted/undaunted-command"
+          },
+          "present": true
+        },
+        {
+          "passive": {
+            "name": "Undaunted Mettle",
+            "id": 55386,
+            "icon": "https://assets.rpglogs.com/img/eso/abilities/ability_armor_014.png",
+            "advice": null,
+            "optimal_uptime": null,
+            "uptime": null,
+            "stack": null,
+            "link": "https://eso-hub.com/en/skills/guild/undaunted/undaunted-mettle"
+          },
+          "present": true
+        }
+      ],
+      "status": true
+    }
+  ]
+}

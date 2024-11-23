@@ -1,0 +1,203 @@
+{
+  "char": {},
+  "skills": [],
+  "sets": [],
+  "glyphs": [],
+  "buffs": [
+    {
+      "name": "Aggressive Horn",
+      "id": 40224,
+      "icon": "https://assets.rpglogs.com/img/eso/abilities/ability_ava_003_a.png",
+      "advice": null,
+      "optimal_uptime": null,
+      "uptime": 46.87,
+      "stack": null,
+      "link": null
+    },
+    {
+      "name": "Minor Savagery",
+      "id": 61666,
+      "icon": "https://assets.rpglogs.com/img/eso/abilities/ability_buff_minor_savagery.png",
+      "advice": null,
+      "optimal_uptime": null,
+      "uptime": null,
+      "stack": null,
+      "link": null
+    },
+    {
+      "name": "Minor Sorcery",
+      "id": 61685,
+      "icon": "https://assets.rpglogs.com/img/eso/abilities/ability_buff_minor_sorcery.png",
+      "advice": null,
+      "optimal_uptime": null,
+      "uptime": 97.03,
+      "stack": null,
+      "link": null
+    },
+    {
+      "name": "Major Sorcery",
+      "id": 61687,
+      "icon": "https://assets.rpglogs.com/img/eso/abilities/ability_buff_major_sorcery.png",
+      "advice": null,
+      "optimal_uptime": null,
+      "uptime": 86.76,
+      "stack": null,
+      "link": null
+    },
+    {
+      "name": "Minor Prophecy",
+      "id": 61691,
+      "icon": "https://assets.rpglogs.com/img/eso/abilities/ability_buff_minor_prophecy.png",
+      "advice": null,
+      "optimal_uptime": null,
+      "uptime": 90.47,
+      "stack": null,
+      "link": null
+    },
+    {
+      "name": "Major Resolve",
+      "id": 61694,
+      "icon": "https://assets.rpglogs.com/img/eso/abilities/ability_buff_major_resolve.png",
+      "advice": null,
+      "optimal_uptime": null,
+      "uptime": 99.45,
+      "stack": null,
+      "link": null
+    },
+    {
+      "name": "Minor Berserk",
+      "id": 61744,
+      "icon": "https://assets.rpglogs.com/img/eso/abilities/ability_buff_minor_berserk.png",
+      "advice": null,
+      "optimal_uptime": null,
+      "uptime": 100.0,
+      "stack": null,
+      "link": null
+    },
+    {
+      "name": "Major Force",
+      "id": 61747,
+      "icon": "https://assets.rpglogs.com/img/eso/abilities/ability_buff_major_force.png",
+      "advice": null,
+      "optimal_uptime": null,
+      "uptime": 18.12,
+      "stack": null,
+      "link": null
+    },
+    {
+      "name": "Major Slayer",
+      "id": 93109,
+      "icon": "https://assets.rpglogs.com/img/eso/abilities/ability_buff_major_slayer.png",
+      "advice": null,
+      "optimal_uptime": null,
+      "uptime": 51.53,
+      "stack": null,
+      "link": null
+    },
+    {
+      "name": "Major Courage",
+      "id": 109966,
+      "icon": "https://assets.rpglogs.com/img/eso/abilities/ability_mage_045.png",
+      "advice": null,
+      "optimal_uptime": null,
+      "uptime": 96.0,
+      "stack": null,
+      "link": null
+    }
+  ],
+  "debuffs": [
+    {
+      "name": "Crusher",
+      "id": 17906,
+      "icon": "https://assets.rpglogs.com/img/eso/abilities/ava_artifact_004.png",
+      "advice": null,
+      "optimal_uptime": null,
+      "uptime": 71.77,
+      "stack": null,
+      "link": null
+    },
+    {
+      "name": "Minor Maim",
+      "id": 61723,
+      "icon": "https://assets.rpglogs.com/img/eso/abilities/ability_debuff_minor_maim.png",
+      "advice": null,
+      "optimal_uptime": null,
+      "uptime": 50.36,
+      "stack": null,
+      "link": null
+    },
+    {
+      "name": "Minor Breach",
+      "id": 61742,
+      "icon": "https://assets.rpglogs.com/img/eso/abilities/ability_debuff_minor_breach.png",
+      "advice": null,
+      "optimal_uptime": null,
+      "uptime": 70.39,
+      "stack": null,
+      "link": null
+    },
+    {
+      "name": "Major Breach",
+      "id": 61743,
+      "icon": "https://assets.rpglogs.com/img/eso/abilities/ability_debuff_major_breach.png",
+      "advice": null,
+      "optimal_uptime": null,
+      "uptime": 55.31,
+      "stack": null,
+      "link": null
+    },
+    {
+      "name": "Minor Vulnerability",
+      "id": 79717,
+      "icon": "https://assets.rpglogs.com/img/eso/abilities/ability_debuff_minor_vulnerability.png",
+      "advice": null,
+      "optimal_uptime": null,
+      "uptime": 62.57,
+      "stack": null,
+      "link": null
+    },
+    {
+      "name": "Minor Lifesteal",
+      "id": 86304,
+      "icon": "https://assets.rpglogs.com/img/eso/abilities/ability_buff_minor_lifesteal.png",
+      "advice": null,
+      "optimal_uptime": null,
+      "uptime": 61.59,
+      "stack": null,
+      "link": null
+    },
+    {
+      "name": "Minor Magickasteal",
+      "id": 88401,
+      "icon": "https://assets.rpglogs.com/img/eso/abilities/ability_buff_minor_magickasteal.png",
+      "advice": null,
+      "optimal_uptime": null,
+      "uptime": 64.74,
+      "stack": null,
+      "link": null
+    },
+    {
+      "name": "Major Vulnerability",
+      "id": 106754,
+      "icon": "https://assets.rpglogs.com/img/eso/abilities/ability_debuff_major_vulnerability.png",
+      "advice": null,
+      "optimal_uptime": null,
+      "uptime": 24.59,
+      "stack": null,
+      "link": null
+    },
+    {
+      "name": "Minor Brittle",
+      "id": 145975,
+      "icon": "https://assets.rpglogs.com/img/eso/abilities/ability_debuff_minor_brittle.png",
+      "advice": null,
+      "optimal_uptime": null,
+      "uptime": 11.39,
+      "stack": null,
+      "link": null
+    }
+  ],
+  "targets": [],
+  "currentTarget": null,
+  "checklist": null
+}
