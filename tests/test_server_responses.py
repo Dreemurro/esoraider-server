@@ -201,7 +201,7 @@ async def test_get_char(test_client: 'TestClient', char: Log):
 @pytest.mark.asyncio(loop_scope='session')
 @pytest.mark.parametrize('fight', FIGHT_EFFECTS, ids=id_of_test)
 async def test_get_fight_effects(test_client: 'TestClient', fight: Log):
-    response = await test_client.get('/fight' + fight.link)
+    response = await test_client.get('/fight{0}'.format(fight.link))
 
     assert response.status == fight.expected
     assert await response.json() == fight.response
@@ -212,7 +212,7 @@ async def test_get_fight_effects(test_client: 'TestClient', fight: Log):
 async def test_get_encounter_info(
     test_client: 'TestClient', encounter: Encounter,
 ):
-    response = await test_client.get('/encounter' + encounter.link)
+    response = await test_client.get('/encounter{0}'.format(encounter.link))
 
     assert response.status == HTTPStatus.OK
     assert await response.json() == encounter.response
