@@ -9,7 +9,6 @@ package-mode = false
 
 [tool.poetry.dependencies]
 python = "3.11.10"
-blacksheep = "1.2.20"
 dataclasses-json = "0.5.7"
 gql = { extras = ["aiohttp"], version = "3.5.0" }
 gunicorn = "22.0.0"
@@ -20,7 +19,6 @@ portion = "2.3.1"
 python-dotenv = "0.21.1"
 requests-oauthlib = "1.3.1"
 uvicorn = "0.30.1"
-setuptools = "*"  # blacksheep drops dead w/o adding this explicitly
 
 [tool.poetry.group.dev.dependencies]
 autopep8 = "*"
