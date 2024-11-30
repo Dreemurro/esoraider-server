@@ -1,19 +1,16 @@
-import asyncio
+from collections.abc import AsyncIterator
+from typing import TypeAlias
 
 import pytest_asyncio
-from blacksheep.testing import TestClient
+from litestar import Litestar
+from litestar.testing import AsyncTestClient
 
-from esoraider_server.app import app as app_server
+from esoraider_server.app import app
 
-
-@pytest_asyncio.fixture(scope='session')
-async def api():
-    await app_server.start()
-    await asyncio.sleep(3)  # Wait for API connection
-    yield app_server
-    await app_server.stop()
+Client: TypeAlias = AsyncTestClient[Litestar]
 
 
 @pytest_asyncio.fixture(scope='session')
-async def test_client(api):
-    return TestClient(api)
+async def test_client() -> AsyncIterator[Client]:
+    async with AsyncTestClient(app) as client:
+        yield client
