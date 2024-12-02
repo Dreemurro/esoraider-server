@@ -43,7 +43,6 @@ Get your `CLIENT_ID` and `CLIENT_SECRET` from [ESO Logs API](https://www.esologs
 CLIENT_ID=<YOUR_CLIENT_ID>
 CLIENT_SECRET=<YOUR_CLIENT_SECRET>
 DEBUG=True
-SHOW_ERROR_DETAILS=True
 ```
 
 ### Run server locally
@@ -61,5 +60,5 @@ $ docker-compose up
   - Run [mypy](https://github.com/python/mypy) before deployment
   - Run [flake8](https://flake8.pycqa.org/en/latest/) or [flakeheaven](https://flakeheaven.readthedocs.io/en/latest/) before deployment
 - Use [structlog](https://www.structlog.org/en/stable/) for logging
-- Switch to [FastAPI](https://fastapi.tiangolo.com/) and use [Pydantic](https://docs.pydantic.dev/latest/)
+- Use [msgspec](https://jcristharif.com/msgspec/) for literally every JSON
 - Add [pre-commit](https://pre-commit.com/)
