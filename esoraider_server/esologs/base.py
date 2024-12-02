@@ -3,9 +3,11 @@ from gql import Client  # type: ignore
 from gql.dsl import DSLSchema  # type: ignore
 from gql.transport.aiohttp import AIOHTTPTransport  # type: ignore
 from gql.transport.exceptions import TransportQueryError  # type: ignore
-from loguru import logger
+from structlog.stdlib import get_logger
 
 from esoraider_server.settings import CLIENT_ID, CLIENT_SECRET
+
+logger = get_logger()
 
 
 class ApiWrapperBase(object):
@@ -15,23 +17,23 @@ class ApiWrapperBase(object):
         self.ds: DSLSchema = None
 
     async def connect(self):
-        logger.info('Opening connection')
+        await logger.ainfo('Opening connection')
         self._client = await self._create_client()
         self._session = await self._client.connect_async(reconnecting=True)
         self.ds = DSLSchema(self._client.schema)
-        logger.info('Connected to API')
+        await logger.ainfo('Connected to API')
 
     async def close(self):
-        logger.info('Disconnecting')
+        await logger.ainfo('Disconnecting')
         self._session = None
         await self._client.close_async()
-        logger.info('Disconnected')
+        await logger.ainfo('Disconnected')
 
     async def execute(self, *args, **kwargs):
         try:
             answer = await self._session.execute(*args, **kwargs)
         except TransportQueryError as ex:
-            logger.exception("Couldn't get the log")
+            await logger.aexception("Couldn't get the log")
             return ex
 
         return answer

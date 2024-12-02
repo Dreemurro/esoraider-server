@@ -3,7 +3,7 @@
 from dataclasses import asdict
 from typing import Dict, List, Optional, Tuple
 
-from loguru import logger
+from structlog.stdlib import get_logger
 
 from esoraider_server.analysis.checklist_builder import ChecklistBuilder
 from esoraider_server.analysis.data_request import DataRequest
@@ -17,6 +17,8 @@ from esoraider_server.esologs.responses.report_data.graph import Series
 from esoraider_server.esologs.responses.report_data.summary import (
     SummaryTableData,
 )
+
+logger = get_logger()
 
 
 class WrongCharException(Exception):

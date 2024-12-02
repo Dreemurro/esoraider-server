@@ -2,7 +2,7 @@
 
 from typing import List, Optional, Set, Type
 
-from loguru import logger
+from structlog.stdlib import get_logger
 
 from esoraider_server.data.buffs import BUFFS
 from esoraider_server.data.classes.arcanist.skills import ARCANIST_SKILLS
@@ -35,6 +35,8 @@ from esoraider_server.esologs.responses.report_data.fight import Fight
 from esoraider_server.esologs.responses.report_data.summary import (
     SummaryTableData,
 )
+
+logger = get_logger()
 
 FIGHT_BUFFS = (
     BUFFS.MAJOR_COURAGE.value,  # Spell Power Cure, Olorime

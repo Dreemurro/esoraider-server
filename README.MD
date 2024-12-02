@@ -59,7 +59,6 @@ $ docker-compose up
   - Run [pytest](https://docs.pytest.org/en/7.2.x/) before deployment
   - Run [mypy](https://github.com/python/mypy) before deployment
   - Run [flake8](https://flake8.pycqa.org/en/latest/) or [flakeheaven](https://flakeheaven.readthedocs.io/en/latest/) before deployment
-- Use [structlog](https://www.structlog.org/en/stable/) for logging
 - Use [msgspec](https://jcristharif.com/msgspec/) for literally every JSON
 - Add [pre-commit](https://pre-commit.com/)
 - Use [OpenTelemetry](https://docs.litestar.dev/latest/usage/metrics/open-telemetry.html) for traces/metrics

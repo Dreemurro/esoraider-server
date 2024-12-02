@@ -4,12 +4,14 @@ from dataclasses import replace
 from itertools import tee
 from typing import Callable, Dict, List, Optional
 
-from loguru import logger
 from portion.interval import Interval, closed  # type: ignore
+from structlog.stdlib import get_logger
 
 from esoraider_server.data.core import Stack
 from esoraider_server.esologs.responses.report_data.effects import Aura, Band
 from esoraider_server.esologs.responses.report_data.graph import Series
+
+logger = get_logger()
 
 
 def _pairwise(iterable):

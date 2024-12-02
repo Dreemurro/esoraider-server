@@ -4,7 +4,7 @@ import asyncio
 from typing import Dict, List, Optional, Sequence
 
 from gql.dsl import DSLField  # type: ignore
-from loguru import logger
+from structlog.stdlib import get_logger
 
 from esoraider_server.analysis.tracked_info import TrackedInfo
 from esoraider_server.data.core import Stack
@@ -17,6 +17,8 @@ from esoraider_server.esologs.responses.report_data.effects import (
     EffectsTableData,
 )
 from esoraider_server.esologs.responses.report_data.graph import GraphData
+
+logger = get_logger()
 
 
 class DataRequest(object):
@@ -83,12 +85,12 @@ class DataRequest(object):
 
     async def _request_buffs(self):
         if not self._tracked_info.buffs or self.buffs_table:
-            logger.info('Skipping Buffs table request')
+            await logger.ainfo('Skipping Buffs table request')
             return
 
         buff_ids = {bf.id for bf in self._tracked_info.buffs}
 
-        logger.info('Requesting buffs table from API')
+        await logger.ainfo('Requesting buffs table from API')
         self.buffs_table = await self._api.query_table(
             log=self._log,
             fight_id=self._fight_id,
@@ -99,18 +101,18 @@ class DataRequest(object):
             filter_exp=self._generate_filter(buff_ids),
         )
 
-        logger.info('Got {0} buffs'.format(len(self.buffs_table.auras)))
+        await logger.ainfo('Got {0} buffs'.format(len(self.buffs_table.auras)))
         for aura in self.buffs_table.auras:
-            logger.debug('{0} - {1}'.format(aura.name, aura.guid))
+            await logger.adebug('{0} - {1}'.format(aura.name, aura.guid))
 
     async def _request_debuffs(self):
         if not self._tracked_info.debuffs or self.debuffs_table:
-            logger.info('Skipping Debuffs table request')
+            await logger.ainfo('Skipping Debuffs table request')
             return
 
         debuff_ids = {db.id for db in self._tracked_info.debuffs}
 
-        logger.info('Requesting debuffs table from API')
+        await logger.ainfo('Requesting debuffs table from API')
         self.debuffs_table = await self._api.query_table(
             log=self._log,
             fight_id=self._fight_id,
@@ -122,13 +124,13 @@ class DataRequest(object):
             filter_exp=self._generate_filter(debuff_ids, self._target),
         )
 
-        logger.info('Got {0} debuffs'.format(len(self.debuffs_table.auras)))
+        await logger.ainfo('Got {0} debuffs'.format(len(self.debuffs_table.auras)))
         for aura in self.debuffs_table.auras:
-            logger.debug('{0} - {1}'.format(aura.name, aura.guid))
+            await logger.adebug('{0} - {1}'.format(aura.name, aura.guid))
 
     async def _request_damage_done(self):
         if not self._tracked_info.skills or self.damage_done_table:
-            logger.info('Skipping Damage Done table request')
+            await logger.ainfo('Skipping Damage Done table request')
             return
 
         ids = set()
@@ -138,7 +140,7 @@ class DataRequest(object):
                 for child in skill.children:
                     ids.add(child.id)
 
-        logger.info('Requesting DamageDone table from API')
+        await logger.ainfo('Requesting DamageDone table from API')
         self.damage_done_table = await self._api.query_table(
             log=self._log,
             fight_id=self._fight_id,
@@ -149,15 +151,15 @@ class DataRequest(object):
             filter_exp=self._generate_filter(ids, self._target),
         )
 
-        logger.info(
+        await logger.ainfo(
             'Got {0} casts'.format(len(self.damage_done_table.entries)),
         )
         for cast in self.damage_done_table.entries:
-            logger.debug('{0} - {1}'.format(cast.name, cast.guid))
+            await logger.adebug('{0} - {1}'.format(cast.name, cast.guid))
 
     async def _request_graphs(self):
         if not self._tracked_info.stacks or self.graphs:
-            logger.info('Skipping Graphs request')
+            await logger.ainfo('Skipping Graphs request')
             return
 
         simple_stacks = [
@@ -177,7 +179,7 @@ class DataRequest(object):
             graphs=await self._partial_graphs(simple_stacks),
         )
 
-        logger.info('Got {0} graphs'.format(len(self.graphs)))
+        await logger.ainfo('Got {0} graphs'.format(len(self.graphs)))
 
     async def _partial_graphs(
         self, stacks: List[Stack],
@@ -201,10 +203,10 @@ class DataRequest(object):
 
     async def _request_passives(self):
         if not self._tracked_info.skills or self.passives:
-            logger.info('Skipping passives request')
+            await logger.ainfo('Skipping passives request')
             return
 
-        logger.info('Requesting Events list with passives from API')
+        await logger.ainfo('Requesting Events list with passives from API')
         events = await self._api.query_events(
             log=self._log,
             char_id=self._char_id,
@@ -212,7 +214,7 @@ class DataRequest(object):
             end_time=self._end_time,
         )
 
-        logger.info('Requesting Buffs table with passives from API')
+        await logger.ainfo('Requesting Buffs table with passives from API')
         weapon_passive_ids = [
             passive.id for passive in (
                 # Next passives are not included in combatant info from events
@@ -241,4 +243,4 @@ class DataRequest(object):
         )
         self.passives.extend(list(buffs.auras))
 
-        logger.info('Got {0} passives'.format(len(self.passives)))
+        await logger.ainfo('Got {0} passives'.format(len(self.passives)))

@@ -3,7 +3,7 @@
 from dataclasses import replace
 from typing import Dict, List, Optional, Union, overload
 
-from loguru import logger
+from structlog.stdlib import get_logger
 
 from esoraider_server.analysis.data_request import DataRequest
 from esoraider_server.analysis.stacks import Stacks
@@ -19,6 +19,8 @@ from esoraider_server.data.core import (
 from esoraider_server.esologs.responses.report_data.casts import Cast
 from esoraider_server.esologs.responses.report_data.effects import Aura
 from esoraider_server.esologs.responses.report_data.graph import Series
+
+logger = get_logger()
 
 
 class Uptimes(object):
