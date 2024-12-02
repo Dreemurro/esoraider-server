@@ -54,7 +54,7 @@ $ docker-compose up
 
 - Follow [wemake-python-styleguide](https://github.com/wemake-services/wemake-python-styleguide)
 - Add more tests
-- Add coverage report
+- Add [coverage](https://pytest-cov.readthedocs.io/en/latest/) report
 - Full CI / CD
   - Run [pytest](https://docs.pytest.org/en/7.2.x/) before deployment
   - Run [mypy](https://github.com/python/mypy) before deployment
@@ -62,3 +62,4 @@ $ docker-compose up
 - Use [structlog](https://www.structlog.org/en/stable/) for logging
 - Use [msgspec](https://jcristharif.com/msgspec/) for literally every JSON
 - Add [pre-commit](https://pre-commit.com/)
+- Use [OpenTelemetry](https://docs.litestar.dev/latest/usage/metrics/open-telemetry.html) for traces/metrics
