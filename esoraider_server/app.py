@@ -1,9 +1,11 @@
-from typing import Optional, Tuple
+from typing import Annotated, Optional, cast
 
-from blacksheep.server import Application
-from blacksheep.server.responses import bad_request, html, json, not_found
-from blacksheep.server.routing import Route
 from gql.transport.exceptions import TransportQueryError  # type: ignore
+from litestar import Litestar, MediaType, Response, Router, get
+from litestar.datastructures import State
+from litestar.di import Provide
+from litestar.params import Parameter
+from litestar.status_codes import HTTP_400_BAD_REQUEST, HTTP_404_NOT_FOUND
 
 from esoraider_server.analysis.report_builder import (
     OutsideOfCombatException,
@@ -15,40 +17,33 @@ from esoraider_server.analysis.tracked_info import (
     SkillsNotFoundException,
 )
 from esoraider_server.esologs.api import ApiWrapper, ZeroLengthFightException
-from esoraider_server.settings import (
-    DEBUG,
-    HEALTHCHECK_TOKEN,
-    SHOW_ERROR_DETAILS,
-)
+from esoraider_server.settings import DEBUG, HEALTHCHECK_TOKEN
 
-app = Application(show_error_details=SHOW_ERROR_DETAILS, debug=DEBUG)
-
-app.use_cors(
-    allow_methods='*',
-    allow_origins='*',
-)
-
-Route.value_patterns['log_code'] = r'(a:)?[a-zA-Z0-9]{16}'
+log_code = Parameter(title='Log code', pattern=r'(a:)?[a-zA-Z0-9]{16}')
 
 
-@app.route('/<log_code:log>')
-async def get_log(log: str, api: ApiWrapper):
+@get('/{log:str}')
+async def get_log(log: Annotated[str, log_code], api: ApiWrapper) -> dict:
     response = await api.query_log(log)
 
     if isinstance(response, TransportQueryError):
-        return not_found("This log is either private or doesn't exist")
+        return Response(
+            "This log is either private or doesn't exist",
+            media_type=MediaType.TEXT,
+            status_code=HTTP_404_NOT_FOUND,
+        )
 
     return response.get('reportData').get('report')
 
 
-@app.route('/<log_code:log>/<int:fight>')
+@get('/{log:str}/{fight:int}')
 async def get_fight(
     log: str,
     fight: int,
     api: ApiWrapper,
     start_time: Optional[int] = None,
     end_time: Optional[int] = None,
-):
+) -> dict:
     try:
         response = await api.query_table(
             log=log,
@@ -57,12 +52,17 @@ async def get_fight(
             end_time=end_time,
         )
     except ZeroLengthFightException as ex:
-        return bad_request(str(ex))
+        # FIXME: this is done only for the initial compatibility
+        return Response(
+            str(ex),
+            media_type=MediaType.TEXT,
+            status_code=HTTP_400_BAD_REQUEST,
+        )
 
-    return json(response.to_dict())
+    return response.to_dict()
 
 
-@app.route('/<log_code:log>/<int:fight>/<int:char>')
+@get('/{log:str}/{fight:int}/{char:int}')
 async def get_char(
     log: str,
     fight: int,
@@ -70,8 +70,8 @@ async def get_char(
     api: ApiWrapper,
     start_time: Optional[int] = None,
     end_time: Optional[int] = None,
-    target: Optional[Tuple[int]] = None,
-):
+    target: Optional[list[int]] = None,
+) -> dict:
     try:
         response = await api.query_char_table(
             log=log,
@@ -81,7 +81,12 @@ async def get_char(
             end_time=end_time,
         )
     except ZeroLengthFightException as ex:
-        return bad_request(str(ex))
+        # FIXME: this is done only for the initial compatibility
+        return Response(
+            str(ex),
+            media_type=MediaType.TEXT,
+            status_code=HTTP_400_BAD_REQUEST,
+        )
 
     report = ReportBuilder(
         api=api,
@@ -96,33 +101,38 @@ async def get_char(
     )
 
     try:
-        return json(await report.build())
+        return await report.build()
     except (
         SkillsNotFoundException,
         NothingToTrackException,
         WrongCharException,
         OutsideOfCombatException,
     ) as ex:
-        return bad_request(str(ex))
+        # FIXME: this is done only for the initial compatibility
+        return Response(
+            str(ex),
+            media_type=MediaType.TEXT,
+            status_code=HTTP_400_BAD_REQUEST,
+        )
 
 
-@app.route('/encounter/<int:encounter>')
-async def get_encounter(encounter, api: ApiWrapper):
+@get('/encounter/{encounter:int}')
+async def get_encounter(encounter: int, api: ApiWrapper) -> dict | str:
     response = await api.query_encounter_info(encounter)
 
     if response:
-        return json(response.to_dict())
-    return json('')
+        return response.to_dict()
+    return ''
 
 
-@app.route('/fight/<log_code:log>/<int:fight>')
+@get('/fight/{log:str}/{fight:int}')
 async def get_fight_effects(
     log: str,
     fight: int,
     api: ApiWrapper,
     start_time: Optional[int] = None,
     end_time: Optional[int] = None,
-):
+) -> dict:
     report = ReportBuilder(
         api=api,
         log=log,
@@ -131,26 +141,54 @@ async def get_fight_effects(
         end_time=end_time,
     )
     try:
-        return json(await report.build())
+        return await report.build()
     except ZeroLengthFightException as ex:
-        return bad_request(str(ex))
+        # FIXME: this is done only for the initial compatibility
+        return Response(
+            str(ex),
+            media_type=MediaType.TEXT,
+            status_code=HTTP_400_BAD_REQUEST,
+        )
 
 
-@app.route('/{0}/health'.format(HEALTHCHECK_TOKEN))
-async def healthcheck():
-    return html('gucci')
+@get('/{0}/health'.format(HEALTHCHECK_TOKEN), media_type=MediaType.HTML)
+async def healthcheck() -> str:
+    return 'gucci'
 
 
-async def connect_api(app: Application) -> None:
-    api = ApiWrapper()
-    await api.connect()
-    app.services.add_instance(api)
+async def connect_api(app: Litestar) -> ApiWrapper:
+    if not getattr(app.state, 'api', None):
+        api = ApiWrapper()
+        await api.connect()
+        app.state.api = api
+    return app.state.api
 
 
-async def close_api(app: Application):
-    service = app.service_provider[ApiWrapper]
-    await service.close()
+async def close_api(app: Litestar) -> None:
+    if getattr(app.state, 'api', None):
+        await cast('ApiWrapper', app.state.api).close()
 
 
-app.on_start += connect_api
-app.on_stop += close_api
+async def api(state: State) -> ApiWrapper:
+    return state.api
+
+base_router = Router(
+    path='/',
+    route_handlers=[
+        get_log,
+        get_fight,
+        get_char,
+        get_encounter,
+        get_fight_effects,
+        healthcheck,
+    ],
+    dependencies={'api': Provide(api)},
+)
+
+app = Litestar(
+    route_handlers=[base_router],
+    on_startup=[connect_api],
+    on_shutdown=[close_api],
+    debug=DEBUG,
+    logging_config=None,
+)

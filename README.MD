@@ -43,7 +43,6 @@ Get your `CLIENT_ID` and `CLIENT_SECRET` from [ESO Logs API](https://www.esologs
 CLIENT_ID=<YOUR_CLIENT_ID>
 CLIENT_SECRET=<YOUR_CLIENT_SECRET>
 DEBUG=True
-SHOW_ERROR_DETAILS=True
 ```
 
 ### Run server locally
@@ -55,11 +54,12 @@ $ docker-compose up
 
 - Follow [wemake-python-styleguide](https://github.com/wemake-services/wemake-python-styleguide)
 - Add more tests
-- Add coverage report
+- Add [coverage](https://pytest-cov.readthedocs.io/en/latest/) report
 - Full CI / CD
   - Run [pytest](https://docs.pytest.org/en/7.2.x/) before deployment
   - Run [mypy](https://github.com/python/mypy) before deployment
   - Run [flake8](https://flake8.pycqa.org/en/latest/) or [flakeheaven](https://flakeheaven.readthedocs.io/en/latest/) before deployment
 - Use [structlog](https://www.structlog.org/en/stable/) for logging
-- Switch to [FastAPI](https://fastapi.tiangolo.com/) and use [Pydantic](https://docs.pydantic.dev/latest/)
+- Use [msgspec](https://jcristharif.com/msgspec/) for literally every JSON
 - Add [pre-commit](https://pre-commit.com/)
+- Use [OpenTelemetry](https://docs.litestar.dev/latest/usage/metrics/open-telemetry.html) for traces/metrics
