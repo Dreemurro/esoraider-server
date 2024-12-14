@@ -7,6 +7,10 @@ from structlog.stdlib import get_logger
 
 from esoraider_server.analysis.checklist_builder import ChecklistBuilder
 from esoraider_server.analysis.data_request import DataRequest
+from esoraider_server.analysis.exceptions import (
+    OutsideOfCombatException,
+    WrongCharException,
+)
 from esoraider_server.analysis.tracked_info import TrackedInfo
 from esoraider_server.analysis.uptimes import Uptimes
 from esoraider_server.esologs.api import ApiWrapper
@@ -19,18 +23,6 @@ from esoraider_server.esologs.responses.report_data.summary import (
 )
 
 logger = get_logger()
-
-
-class WrongCharException(Exception):
-    def __init__(self):
-        message = 'Wrong char selected'
-        super().__init__(message)
-
-
-class OutsideOfCombatException(Exception):
-    def __init__(self):
-        message = 'This char was outside of combat'
-        super().__init__(message)
 
 
 class ReportBuilder(object):

@@ -14,6 +14,7 @@ from esoraider_server.esologs.converters import (
     convert_table,
     encode_graph_id,
 )
+from esoraider_server.esologs.exceptions import ZeroLengthFightException
 
 if TYPE_CHECKING:
     from gql.dsl import DSLField
@@ -32,12 +33,6 @@ if TYPE_CHECKING:
     )
 
 logger = get_logger()
-
-
-class ZeroLengthFightException(Exception):
-    def __init__(self):
-        message = "This fight's duration is zero"
-        super().__init__(message)
 
 
 class ApiWrapper(ApiWrapperBase):

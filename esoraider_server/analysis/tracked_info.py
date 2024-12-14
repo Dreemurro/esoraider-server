@@ -4,6 +4,10 @@ from typing import List, Optional, Set, Type
 
 from structlog.stdlib import get_logger
 
+from esoraider_server.analysis.exceptions import (
+    NothingToTrackException,
+    SkillsNotFoundException,
+)
 from esoraider_server.data.buffs import BUFFS
 from esoraider_server.data.classes.arcanist.skills import ARCANIST_SKILLS
 from esoraider_server.data.classes.dragonknight.skills import (
@@ -88,18 +92,6 @@ def _get_class_skills(char_class: str) -> Type[EsoEnum]:
             'Class {0} is not known. Are you from the future?'.format(
                 char_class,
             ))
-
-
-class SkillsNotFoundException(Exception):
-    def __init__(self):
-        message = 'Log is broken - character skills were not found'
-        super().__init__(message)
-
-
-class NothingToTrackException(Exception):
-    def __init__(self):
-        message = 'There is nothing to track'
-        super().__init__(message)
 
 
 class TrackedInfo(object):
