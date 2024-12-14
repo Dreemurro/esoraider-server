@@ -1,24 +1,19 @@
-from dataclasses import dataclass, field
 from typing import List, Optional
 
-from dataclasses_json import config
+from msgspec import convert, field
 
 from esoraider_server.esologs.responses.common import Gear, Talent
 from esoraider_server.esologs.responses.core import EsoLogsDataClass
 from esoraider_server.esologs.responses.report_data.effects import Aura
 
 
-@dataclass
 class Event(EsoLogsDataClass):
     timestamp: int
     type: str
-    source_id: int = field(metadata=config(field_name='sourceID'))
+    source_id: int = field(name='sourceID')
 
     source_is_friendly: Optional[bool] = None
-    target_id: Optional[int] = field(
-        default=None,
-        metadata=config(field_name='targetID'),
-    )
+    target_id: Optional[int] = field(default=None, name='targetID')
     target_is_friendly: Optional[bool] = None
     ability: Optional[Talent] = None
     extra_ability: Optional[Talent] = None
@@ -38,18 +33,6 @@ class Event(EsoLogsDataClass):
     waste: Optional[int] = None
 
 
-def skip_events(items: List) -> List[Event]:
-    final = []
-    for item in items:
-        if isinstance(item, list):
-            continue
-        if item.get('type') == 'combatantinfo':
-            continue
-        final.append(item)
-    return [Event.from_dict(_) for _ in final]
-
-
-@dataclass
 class Series(EsoLogsDataClass):
     name: str
     id: int
@@ -57,18 +40,26 @@ class Series(EsoLogsDataClass):
     type: str
     # 0 - time, 1 - stack
     data: List[List[int]]  # noqa: WPS110
-    events: List[Event] = field(metadata=config(
-        # First and last elements are empty lists for some reason
-        # + there is an occasional combatantinfo in there
-        # Skipping such stuff for now
-        decoder=skip_events,
-    ))
+    _events: list[list | dict] = field(default_factory=list, name='events')
 
     current_values: Optional[List[int]] = None
     max_values: Optional[List[int]] = None
 
+    @property
+    def events(self) -> list[Event]:
+        # First and last elements are empty lists for some reason
+        # + there is an occasional combatantinfo in there
+        # Skipping such stuff for now
+        final = []
+        for item in self._events:
+            if isinstance(item, list):
+                continue
+            if item.get('type') == 'combatantinfo':
+                continue
+            final.append(item)
+        return [convert(_, Event) for _ in final]
 
-@dataclass
+
 class GraphData(EsoLogsDataClass):
     series: List[Series]
 

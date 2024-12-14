@@ -1,19 +1,16 @@
 """Effects table (dataType: Buffs / Debuffs) response."""
 
-from dataclasses import dataclass
 from typing import List, Optional
 
 from esoraider_server.esologs.responses.common import Talent
 from esoraider_server.esologs.responses.core import EsoLogsDataClass
 
 
-@dataclass
 class Band(EsoLogsDataClass):
     start_time: int
     end_time: int
 
 
-@dataclass
 class Aura(EsoLogsDataClass):
     name: str
 
@@ -32,7 +29,6 @@ class Aura(EsoLogsDataClass):
     applied_by_abilities: Optional[List[Talent]] = None
 
 
-@dataclass
 class EffectsTableData(EsoLogsDataClass):
     auras: List[Aura]
     use_targets: bool

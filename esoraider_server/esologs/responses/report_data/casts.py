@@ -1,13 +1,11 @@
 """Casts / damage done table (dataType: Casts / DamageDone) response."""
 
-from dataclasses import dataclass
 from typing import Any, List, Optional
 
 from esoraider_server.esologs.responses.common import Gear, Talent
 from esoraider_server.esologs.responses.core import EsoLogsDataClass
 
 
-@dataclass
 class CastActor(EsoLogsDataClass):
     name: str
     total: int
@@ -28,7 +26,6 @@ class CastActor(EsoLogsDataClass):
     gear: Optional[List[Gear]] = None
 
 
-@dataclass
 class HitDetails(EsoLogsDataClass):
     type: str
     total: int
@@ -41,7 +38,6 @@ class HitDetails(EsoLogsDataClass):
     count_reduced: Optional[int] = None
 
 
-@dataclass
 class Cast(EsoLogsDataClass):
     name: str
     guid: int
@@ -80,7 +76,6 @@ class Cast(EsoLogsDataClass):
     multistrikemissdetails: Optional[List[Any]] = None
 
 
-@dataclass
 class CastsTableData(EsoLogsDataClass):
     entries: List[Cast]
     total_time: int

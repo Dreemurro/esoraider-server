@@ -1,7 +1,6 @@
-from dataclasses import dataclass, field
 from typing import Optional, Union
 
-from dataclasses_json import config
+from msgspec import field
 
 from esoraider_server.esologs.consts import (
     GearSlot,
@@ -12,7 +11,6 @@ from esoraider_server.esologs.consts import (
 from esoraider_server.esologs.responses.core import EsoLogsDataClass
 
 
-@dataclass
 class Talent(EsoLogsDataClass):
     name: str
     guid: int
@@ -21,7 +19,6 @@ class Talent(EsoLogsDataClass):
     flags: int
 
 
-@dataclass
 class Gear(EsoLogsDataClass):
     id: int
     quality: int
@@ -30,10 +27,23 @@ class Gear(EsoLogsDataClass):
     trait: int
     enchant_type: int
     enchant_quality: int
-    set_id: int = field(metadata=config(field_name='setID'))
+    set_id: int = field(name='setID')
 
     slot: Optional[GearSlot] = None
     name: Optional[str] = None
     # int is only needed for initial decoding, it will be replaced later
-    type: Union[GearType, WeaponType, PoisonType, int, None] = None
+    _type: Union[int, None] = field(default=None, name='type')
     set_name: Optional[str] = None
+
+    @property
+    def type(self) -> GearType | WeaponType | PoisonType | None:
+        if not self._type or not self.slot:
+            return None
+
+        if GearSlot.is_armor(self.slot):
+            return GearType(self._type)
+        elif GearSlot.is_weapon(self.slot):
+            return WeaponType(self._type)
+        elif GearSlot.is_poison(self.slot):
+            return PoisonType(self._type)
+        return None

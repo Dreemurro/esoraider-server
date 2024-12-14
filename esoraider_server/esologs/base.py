@@ -34,7 +34,7 @@ class ApiWrapperBase(object):
             answer = await self._session.execute(*args, **kwargs)
         except TransportQueryError as ex:
             await logger.aexception("Couldn't get the log")
-            return ex
+            raise ex
 
         return answer
 

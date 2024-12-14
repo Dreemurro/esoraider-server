@@ -5,11 +5,20 @@ from structlog.stdlib import get_logger
 
 from esoraider_server.esologs.base import ApiWrapperBase
 from esoraider_server.esologs.consts import DataType, HostilityType
-from esoraider_server.esologs.responses.base import BaseResponseData
+from esoraider_server.esologs.converters import (
+    convert_encounter,
+    convert_events,
+    convert_graphs,
+    convert_log,
+    convert_report,
+    convert_table,
+    encode_graph_id,
+)
 from esoraider_server.esologs.responses.report_data.graph import (
     Event,
     GraphData,
 )
+from esoraider_server.esologs.responses.report_data.log import Log
 from esoraider_server.esologs.responses.report_data.report import (
     Report,
     TableData,
@@ -23,14 +32,6 @@ class ZeroLengthFightException(Exception):
     def __init__(self):
         message = "This fight's duration is zero"
         super().__init__(message)
-
-
-def _encode_id(id_: int) -> str:
-    return 'id_{0}'.format(id_)
-
-
-def _decode_id(id_: str) -> int:
-    return int(id_.split('_')[1])
 
 
 class ApiWrapper(ApiWrapperBase):
@@ -56,16 +57,9 @@ class ApiWrapper(ApiWrapperBase):
 
         query.select(encounter_fields)
 
-        response = BaseResponseData.from_dict(
-            await self.execute(dsl_gql(DSLQuery(query))),
-        )
+        return convert_encounter(await self.execute(dsl_gql(DSLQuery(query))))
 
-        if not response.world_data:
-            raise ValueError('WorldData is empty')
-
-        return response.world_data.encounter
-
-    async def query_log(self, log: str):
+    async def query_log(self, log: str) -> Log:
         await logger.ainfo('Requesting log {0}'.format(log))
         query = self.ds.Query.reportData
 
@@ -92,7 +86,8 @@ class ApiWrapper(ApiWrapperBase):
         )
 
         query.select(report_fields)
-        return await self.execute(dsl_gql(DSLQuery(query)))
+
+        return convert_log(await self.execute(dsl_gql(DSLQuery(query))))
 
     async def query_fight_times(
         self, log: str, fight_id: int,
@@ -160,16 +155,10 @@ class ApiWrapper(ApiWrapperBase):
 
         query.select(report_fields)
 
-        response = BaseResponseData.from_dict(
-            await self.execute(dsl_gql(DSLQuery(query))),
+        return convert_table(
+            obj=await self.execute(dsl_gql(DSLQuery(query))),
+            data_type=data_type,
         )
-
-        if not response.report_data:
-            raise ValueError('ReportData is empty')
-        if not response.report_data.report.table:
-            raise ValueError('Table is empty')
-
-        return response.report_data.report.table
 
     async def query_char_table(
         self,
@@ -208,14 +197,7 @@ class ApiWrapper(ApiWrapperBase):
 
         query.select(report_fields)
 
-        response = BaseResponseData.from_dict(
-            await self.execute(dsl_gql(DSLQuery(query))),
-        )
-
-        if not response.report_data:
-            raise ValueError('ReportData is empty')
-
-        return response.report_data.report
+        return convert_report(await self.execute(dsl_gql(DSLQuery(query))))
 
     async def query_events(
         self,
@@ -252,16 +234,7 @@ class ApiWrapper(ApiWrapperBase):
 
         query.select(report_fields)
 
-        response = BaseResponseData.from_dict(
-            await self.execute(dsl_gql(DSLQuery(query))),
-        )
-
-        if not response.report_data:
-            raise ValueError('ReportData is empty')
-        if not response.report_data.report.events:
-            raise ValueError('No events found')
-
-        return response.report_data.report.events
+        return convert_events(await self.execute(dsl_gql(DSLQuery(query))))
 
     async def query_graph(
         self,
@@ -312,14 +285,7 @@ class ApiWrapper(ApiWrapperBase):
 
         query.select(report_fields)
 
-        response = await self.execute(dsl_gql(DSLQuery(query)))
-        response = response.get('reportData')
-        response = response.get('report')
-
-        return {
-            _decode_id(id_): GraphData.from_dict(graph.get('data'))
-            for id_, graph in response.items()
-        }
+        return convert_graphs(await self.execute(dsl_gql(DSLQuery(query))))
 
     async def partial_query_graph(
         self,
@@ -346,7 +312,7 @@ class ApiWrapper(ApiWrapperBase):
             target_id = char_id
 
         return {
-            _encode_id(ability_id): self.ds.Report.graph(
+            encode_graph_id(ability_id): self.ds.Report.graph(
                 startTime=start_time,
                 endTime=end_time,
                 abilityID=ability_id,

@@ -1,51 +1,20 @@
 """Summary table (dataType: Summary) response."""
 
-from dataclasses import dataclass, field
-from typing import Any, Dict, List, Optional, Union
+from typing import Any, List, Optional, Union
 
-from dataclasses_json import config
+from msgspec import field
 
-from esoraider_server.esologs.consts import (
-    CharClass,
-    GearSlot,
-    GearType,
-    PoisonType,
-    WeaponType,
-)
+from esoraider_server.esologs.consts import CharClass
 from esoraider_server.esologs.responses.common import Gear, Talent
 from esoraider_server.esologs.responses.core import EsoLogsDataClass
 
 
-def gear_decoder(raw_gear_list: List[Dict]) -> List[Gear]:
-    gear_list = []
-    for gear in raw_gear_list:
-        new_gear = Gear.from_dict(gear)
-
-        if not new_gear.type or not new_gear.slot:
-            gear_list.append(new_gear)
-            continue
-
-        if GearSlot.is_armor(new_gear.slot):
-            new_gear.type = GearType(new_gear.type)
-        elif GearSlot.is_weapon(new_gear.slot):
-            new_gear.type = WeaponType(new_gear.type)
-        elif GearSlot.is_poison(new_gear.slot):
-            new_gear.type = PoisonType(new_gear.type)
-        gear_list.append(new_gear)
-
-    return gear_list
-
-
-@dataclass
 class CombatantInfo(EsoLogsDataClass):
     stats: List[Any]
     talents: List[Talent]
-    gear: List[Gear] = field(metadata=config(decoder=gear_decoder))
+    gear: List[Gear] = field(default_factory=list)
 
-    spec_ids: Optional[List[Any]] = field(
-        default=None,
-        metadata=config(field_name='specIDs'),
-    )
+    spec_ids: Optional[List[Any]] = field(default=None, name='specIDs')
     artifact: Optional[List[Any]] = None
     talent_tree: Optional[List[Any]] = None
 
@@ -53,14 +22,6 @@ class CombatantInfo(EsoLogsDataClass):
         return [t.guid for t in self.talents]
 
 
-def skip_empty_list(item: Union[List, Dict]) -> Optional[CombatantInfo]:
-    if isinstance(item, list):
-        return None
-    if isinstance(item, dict):
-        return CombatantInfo.from_dict(item)
-
-
-@dataclass
 class PlayerDetails(EsoLogsDataClass):
     name: str
     id: int
@@ -76,22 +37,16 @@ class PlayerDetails(EsoLogsDataClass):
     specs: Optional[List[str]] = None
     potion_use: Optional[int] = None
     healthstone_use: Optional[int] = None
-    combatant_info: Optional[CombatantInfo] = field(
-        default=None,
-        metadata=config(
-            # Skip CombatantInfo parsing if log is broken
-            decoder=skip_empty_list,
-        ))
+    # CombatantInfo can be an empty list if requested log is broken
+    combatant_info: CombatantInfo | list[None] | None = None
 
 
-@dataclass
 class PlayerDetailsBySpec(EsoLogsDataClass):
     dps: Optional[List[PlayerDetails]] = None
     healers: Optional[List[PlayerDetails]] = None
     tanks: Optional[List[PlayerDetails]] = None
 
 
-@dataclass
 class DoneByAbility(EsoLogsDataClass):
     name: str
     guid: int
@@ -103,7 +58,6 @@ class DoneByAbility(EsoLogsDataClass):
     flags: Optional[int] = None
 
 
-@dataclass
 class DeathFromAbility(EsoLogsDataClass):
     name: str
     guid: int
@@ -112,7 +66,6 @@ class DeathFromAbility(EsoLogsDataClass):
     flags: int
 
 
-@dataclass
 class DeathEvent(EsoLogsDataClass):
     name: str
     id: int
@@ -123,7 +76,6 @@ class DeathEvent(EsoLogsDataClass):
     ability: DeathFromAbility
 
 
-@dataclass
 class DoneByChar(EsoLogsDataClass):
     name: str
     guid: int
@@ -137,13 +89,11 @@ class DoneByChar(EsoLogsDataClass):
     flags: Optional[int] = None
 
 
-@dataclass
 class Spec(EsoLogsDataClass):
     spec: str
     role: str
 
 
-@dataclass
 class Composition(EsoLogsDataClass):
     name: str
     id: int
@@ -152,7 +102,6 @@ class Composition(EsoLogsDataClass):
     specs: List[Spec]
 
 
-@dataclass
 class SummaryTableData(EsoLogsDataClass):
     total_time: int
     item_level: float

@@ -17,23 +17,26 @@ from esoraider_server.analysis.tracked_info import (
     SkillsNotFoundException,
 )
 from esoraider_server.esologs.api import ApiWrapper, ZeroLengthFightException
+from esoraider_server.esologs.responses.report_data.log import Log
+from esoraider_server.esologs.responses.world_data.encounter import Encounter
 from esoraider_server.settings import DEBUG, HEALTHCHECK_TOKEN
 
 log_code = Parameter(title='Log code', pattern=r'(a:)?[a-zA-Z0-9]{16}')
 
 
 @get('/{log:str}')
-async def get_log(log: Annotated[str, log_code], api: ApiWrapper) -> dict:
-    response = await api.query_log(log)
-
-    if isinstance(response, TransportQueryError):
+async def get_log(
+    log: Annotated[str, log_code],
+    api: ApiWrapper,
+) -> Log:
+    try:
+        return await api.query_log(log)
+    except TransportQueryError:
         return Response(
             "This log is either private or doesn't exist",
             media_type=MediaType.TEXT,
             status_code=HTTP_404_NOT_FOUND,
         )
-
-    return response.get('reportData').get('report')
 
 
 @get('/{log:str}/{fight:int}')
@@ -45,7 +48,7 @@ async def get_fight(
     end_time: Optional[int] = None,
 ) -> dict:
     try:
-        response = await api.query_table(
+        return await api.query_table(
             log=log,
             fight_id=fight,
             start_time=start_time,
@@ -58,8 +61,6 @@ async def get_fight(
             media_type=MediaType.TEXT,
             status_code=HTTP_400_BAD_REQUEST,
         )
-
-    return response.to_dict()
 
 
 @get('/{log:str}/{fight:int}/{char:int}')
@@ -117,11 +118,11 @@ async def get_char(
 
 
 @get('/encounter/{encounter:int}')
-async def get_encounter(encounter: int, api: ApiWrapper) -> dict | str:
+async def get_encounter(encounter: int, api: ApiWrapper) -> Encounter:
     response = await api.query_encounter_info(encounter)
 
     if response:
-        return response.to_dict()
+        return response
     return ''
 
 
