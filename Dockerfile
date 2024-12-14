@@ -1,6 +1,6 @@
 # syntax = docker/dockerfile:1
 
-FROM python:3.11.10-slim-bookworm
+FROM python:3.12.8-slim-bookworm
 
 LABEL org.opencontainers.image.source=https://github.com/Dreemurro/esoraider-server
 
