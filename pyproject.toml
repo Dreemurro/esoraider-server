@@ -23,7 +23,6 @@ uvicorn = "0.32.1"
 autopep8 = "*"
 isort = "*"
 mypy = "*"
-nitpick = "*"
 wemake-python-styleguide = "*"
 
 [tool.poetry.group.tests.dependencies]
@@ -39,9 +38,6 @@ use_parentheses = true
 [tool.pytest.ini_options]
 addopts = "-v -rP"
 asyncio_default_fixture_loop_scope = "session"
-
-[tool.nitpick]
-style = "https://raw.githubusercontent.com/wemake-services/wemake-python-styleguide/master/styles/nitpick-style.toml"
 
 [build-system]
 requires = ["poetry-core"]
