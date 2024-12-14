@@ -1,5 +1,3 @@
-from typing import List, Optional, Union
-
 from esoraider_server.esologs.responses.core import EsoLogsDataClass
 from esoraider_server.esologs.responses.report_data.casts import CastsTableData
 from esoraider_server.esologs.responses.report_data.effects import (
@@ -14,13 +12,13 @@ from esoraider_server.esologs.responses.report_data.summary import (
     SummaryTableData,
 )
 
-TableData = Union[SummaryTableData, CastsTableData, EffectsTableData]
+TableData = SummaryTableData | CastsTableData | EffectsTableData
 
 
 class Report(EsoLogsDataClass):
-    events: Optional[List[Event]] = None
-    fights: Optional[List[BaseFight]] = None
-    graph: Optional[GraphData] = None
+    events: list[Event] | None = None
+    fights: list[BaseFight] | None = None
+    graph: GraphData | None = None
     table: SummaryTableData | None = None
 
 

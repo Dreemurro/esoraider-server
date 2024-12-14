@@ -1,5 +1,3 @@
-from typing import List, Optional
-
 from msgspec import convert, field
 
 from esoraider_server.esologs.responses.common import Gear, Talent
@@ -12,25 +10,25 @@ class Event(EsoLogsDataClass):
     type: str
     source_id: int = field(name='sourceID')
 
-    source_is_friendly: Optional[bool] = None
-    target_id: Optional[int] = field(default=None, name='targetID')
-    target_is_friendly: Optional[bool] = None
-    ability: Optional[Talent] = None
-    extra_ability: Optional[Talent] = None
-    fight: Optional[int] = None
+    source_is_friendly: bool | None = None
+    target_id: int | None = field(default=None, name='targetID')
+    target_is_friendly: bool | None = None
+    ability: Talent | None = None
+    extra_ability: Talent | None = None
+    fight: int | None = None
 
-    stack: Optional[int] = None
-    target_instance: Optional[int] = None
-    absorb: Optional[int] = None
+    stack: int | None = None
+    target_instance: int | None = None
+    absorb: int | None = None
 
-    gear: Optional[List[Gear]] = None
-    auras: Optional[List[Aura]] = None
+    gear: list[Gear] | None = None
+    auras: list[Aura] | None = None
 
-    resource_change: Optional[int] = None
-    resource_change_type: Optional[int] = None
-    other_resource_change: Optional[int] = None
-    max_resource_amount: Optional[int] = None
-    waste: Optional[int] = None
+    resource_change: int | None = None
+    resource_change_type: int | None = None
+    other_resource_change: int | None = None
+    max_resource_amount: int | None = None
+    waste: int | None = None
 
 
 class Series(EsoLogsDataClass):
@@ -39,11 +37,11 @@ class Series(EsoLogsDataClass):
     guid: int
     type: str
     # 0 - time, 1 - stack
-    data: List[List[int]]  # noqa: WPS110
+    data: list[list[int]]  # noqa: WPS110
     _events: list[list | dict] = field(default_factory=list, name='events')
 
-    current_values: Optional[List[int]] = None
-    max_values: Optional[List[int]] = None
+    current_values: list[int] | None = None
+    max_values: list[int] | None = None
 
     @property
     def events(self) -> list[Event]:
@@ -61,8 +59,8 @@ class Series(EsoLogsDataClass):
 
 
 class GraphData(EsoLogsDataClass):
-    series: List[Series]
+    series: list[Series]
 
-    start_time: Optional[int] = None
-    end_time: Optional[int] = None
-    use_targets: Optional[bool] = None
+    start_time: int | None = None
+    end_time: int | None = None
+    use_targets: bool | None = None

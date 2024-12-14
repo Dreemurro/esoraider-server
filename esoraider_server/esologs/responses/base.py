@@ -1,7 +1,5 @@
 """Main body of any response."""
 
-from typing import Optional
-
 from esoraider_server.esologs.responses.core import EsoLogsDataClass
 from esoraider_server.esologs.responses.world_data.encounter import Encounter
 
@@ -11,7 +9,7 @@ class ReportData(EsoLogsDataClass):
 
 
 class WorldData(EsoLogsDataClass):
-    encounter: Optional[Encounter] = None
+    encounter: Encounter | None = None
 
 
 class WorldDataResponse(EsoLogsDataClass):

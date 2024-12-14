@@ -1,7 +1,5 @@
 """Casts / damage done table (dataType: Casts / DamageDone) response."""
 
-from typing import Any, List, Optional
-
 from esoraider_server.esologs.responses.common import Gear, Talent
 from esoraider_server.esologs.responses.core import EsoLogsDataClass
 
@@ -11,19 +9,19 @@ class CastActor(EsoLogsDataClass):
     total: int
     type: str
 
-    total_reduced: Optional[int] = None
-    id: Optional[int] = None
-    guid: Optional[int] = None
-    icon: Optional[str] = None
-    item_level: Optional[int] = None
-    active_time: Optional[int] = None
-    active_time_reduced: Optional[int] = None
-    overheal: Optional[int] = None
-    abilities: Optional[List['CastActor']] = None
-    damage_abilities: Optional[List['CastActor']] = None
-    targets: Optional[List['CastActor']] = None
-    talents: Optional[List[Talent]] = None
-    gear: Optional[List[Gear]] = None
+    total_reduced: int | None = None
+    id: int | None = None
+    guid: int | None = None
+    icon: str | None = None
+    item_level: int | None = None
+    active_time: int | None = None
+    active_time_reduced: int | None = None
+    overheal: int | None = None
+    abilities: list['CastActor'] | None = None
+    damage_abilities: list['CastActor'] | None = None
+    targets: list['CastActor'] | None = None
+    talents: list[Talent] | None = None
+    gear: list[Gear] | None = None
 
 
 class HitDetails(EsoLogsDataClass):
@@ -34,8 +32,8 @@ class HitDetails(EsoLogsDataClass):
     min: int
     max: int
 
-    total_reduced: Optional[int] = None
-    count_reduced: Optional[int] = None
+    total_reduced: int | None = None
+    count_reduced: int | None = None
 
 
 class Cast(EsoLogsDataClass):
@@ -54,30 +52,30 @@ class Cast(EsoLogsDataClass):
     multistrike_tick_miss_count: int
     crit_hit_count: int
     crit_tick_count: int
-    sources: List[CastActor]
-    targets: List[CastActor]
+    sources: list[CastActor]
+    targets: list[CastActor]
 
-    blockable: Optional[bool] = None
-    composite: Optional[bool] = None
-    subentries: Optional[List['Cast']] = None
-    actor: Optional[int] = None
-    actor_name: Optional[str] = None
-    actor_icon: Optional[str] = None
-    actor_type: Optional[str] = None
-    flags: Optional[int] = None
-    uptime: Optional[int] = None
+    blockable: bool | None = None
+    composite: bool | None = None
+    subentries: list['Cast'] | None = None
+    actor: int | None = None
+    actor_name: str | None = None
+    actor_icon: str | None = None
+    actor_type: str | None = None
+    flags: int | None = None
+    uptime: int | None = None
 
     # From Damage Done
-    total_reduced: Optional[int] = None
-    uses: Optional[int] = None
-    hitdetails: Optional[List[HitDetails]] = None
-    multistrikedetails: Optional[List[Any]] = None
-    missdetails: Optional[List[Any]] = None
-    multistrikemissdetails: Optional[List[Any]] = None
+    total_reduced: int | None = None
+    uses: int | None = None
+    hitdetails: list[HitDetails] | None = None
+    multistrikedetails: list | None = None
+    missdetails: list | None = None
+    multistrikemissdetails: list | None = None
 
 
 class CastsTableData(EsoLogsDataClass):
-    entries: List[Cast]
+    entries: list[Cast]
     total_time: int
     log_version: int
     game_version: int

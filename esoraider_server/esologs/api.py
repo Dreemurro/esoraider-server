@@ -1,6 +1,6 @@
-from typing import Dict, List, Optional, Tuple
+from typing import TYPE_CHECKING
 
-from gql.dsl import DSLField, DSLQuery, dsl_gql  # type: ignore
+from gql.dsl import DSLQuery, dsl_gql  # type: ignore
 from structlog.stdlib import get_logger
 
 from esoraider_server.esologs.base import ApiWrapperBase
@@ -14,16 +14,22 @@ from esoraider_server.esologs.converters import (
     convert_table,
     encode_graph_id,
 )
-from esoraider_server.esologs.responses.report_data.graph import (
-    Event,
-    GraphData,
-)
-from esoraider_server.esologs.responses.report_data.log import Log
-from esoraider_server.esologs.responses.report_data.report import (
-    Report,
-    TableData,
-)
-from esoraider_server.esologs.responses.world_data.encounter import Encounter
+
+if TYPE_CHECKING:
+    from gql.dsl import DSLField
+
+    from esoraider_server.esologs.responses.report_data.graph import (
+        Event,
+        GraphData,
+    )
+    from esoraider_server.esologs.responses.report_data.log import Log
+    from esoraider_server.esologs.responses.report_data.report import (
+        Report,
+        TableData,
+    )
+    from esoraider_server.esologs.responses.world_data.encounter import (
+        Encounter,
+    )
 
 logger = get_logger()
 
@@ -37,7 +43,7 @@ class ZeroLengthFightException(Exception):
 class ApiWrapper(ApiWrapperBase):
     async def query_encounter_info(
         self, encounter_id: int,
-    ) -> Optional[Encounter]:
+    ) -> 'Encounter | None':
         await logger.ainfo('Requesting info on encounter = {0}'.format(encounter_id))
         query = self.ds.Query.worldData
 
@@ -59,7 +65,7 @@ class ApiWrapper(ApiWrapperBase):
 
         return convert_encounter(await self.execute(dsl_gql(DSLQuery(query))))
 
-    async def query_log(self, log: str) -> Log:
+    async def query_log(self, log: str) -> 'Log':
         await logger.ainfo('Requesting log {0}'.format(log))
         query = self.ds.Query.reportData
 
@@ -91,7 +97,7 @@ class ApiWrapper(ApiWrapperBase):
 
     async def query_fight_times(
         self, log: str, fight_id: int,
-    ) -> Tuple[int, int]:
+    ) -> tuple[int, int]:
         await logger.ainfo('Requesting fight times')
         await logger.ainfo('Log = {0}'.format(log))
         await logger.ainfo('Fight ID = {0}'.format(fight_id))
@@ -117,12 +123,12 @@ class ApiWrapper(ApiWrapperBase):
         fight_id: int,
         data_type: DataType = DataType.SUMMARY,
         hostility_type: HostilityType = HostilityType.FRIENDLIES,
-        start_time: Optional[int] = None,
-        end_time: Optional[int] = None,
-        source_id: Optional[int] = None,
-        target_id: Optional[int] = None,
-        filter_exp: Optional[str] = None,
-    ) -> TableData:
+        start_time: int | None = None,
+        end_time: int | None = None,
+        source_id: int | None = None,
+        target_id: int | None = None,
+        filter_exp: str | None = None,
+    ) -> 'TableData':
         await logger.ainfo('Requesting reportData')
         await logger.ainfo('Log = {0}'.format(log))
         await logger.ainfo('Fight ID = {0}'.format(fight_id))
@@ -165,9 +171,9 @@ class ApiWrapper(ApiWrapperBase):
         log: str,
         fight_id: int,
         char_id: int,
-        start_time: Optional[int] = None,
-        end_time: Optional[int] = None,
-    ) -> Report:
+        start_time: int | None = None,
+        end_time: int | None = None,
+    ) -> 'Report':
         await logger.ainfo('Requesting char summary table')
         await logger.ainfo('Log = {0}'.format(log))
         await logger.ainfo('Fight ID = {0}'.format(fight_id))
@@ -206,7 +212,7 @@ class ApiWrapper(ApiWrapperBase):
         start_time: int,
         end_time: int,
         data_type: DataType = DataType.COMBATANT_INFO,
-    ) -> List[Event]:
+    ) -> list['Event']:
         await logger.ainfo('Requesting events')
         await logger.ainfo('Log = {0}'.format(log))
         await logger.ainfo('Char ID = {0}'.format(char_id))
@@ -239,15 +245,15 @@ class ApiWrapper(ApiWrapperBase):
     async def query_graph(
         self,
         log: str,
-        char_id: Optional[int] = None,
-        ability_id: Optional[int] = None,
-        fight_id: Optional[int] = None,
-        start_time: Optional[int] = None,
-        end_time: Optional[int] = None,
+        char_id: int | None = None,
+        ability_id: int | None = None,
+        fight_id: int | None = None,
+        start_time: int | None = None,
+        end_time: int | None = None,
         data_type: DataType = DataType.BUFFS,
         hostility_type: HostilityType = HostilityType.FRIENDLIES,
-        graphs: Optional[Dict[str, DSLField]] = None,
-    ) -> Dict[int, GraphData]:
+        graphs: dict[str, 'DSLField'] | None = None,
+    ) -> dict[int, 'GraphData']:
         if graphs:
             await logger.ainfo('Requesting multiple graphs')
         else:
@@ -294,8 +300,8 @@ class ApiWrapper(ApiWrapperBase):
         start_time: int,
         end_time: int,
         hostility_type: HostilityType = HostilityType.FRIENDLIES,
-        char_id: Optional[int] = None,
-    ) -> Dict[str, DSLField]:
+        char_id: int | None = None,
+    ) -> dict[str, 'DSLField']:
         await logger.ainfo('Building partial graph request')
         await logger.ainfo('Char ID = {0}'.format(char_id))
         await logger.ainfo('Start Time = {0}'.format(start_time))

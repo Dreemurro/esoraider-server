@@ -1,5 +1,3 @@
-from typing import Optional, Union
-
 from msgspec import field
 
 from esoraider_server.esologs.consts import (
@@ -29,11 +27,11 @@ class Gear(EsoLogsDataClass):
     enchant_quality: int
     set_id: int = field(name='setID')
 
-    slot: Optional[GearSlot] = None
-    name: Optional[str] = None
+    slot: GearSlot | None = None
+    name: str | None = None
     # int is only needed for initial decoding, it will be replaced later
-    _type: Union[int, None] = field(default=None, name='type')
-    set_name: Optional[str] = None
+    _type: int | None = field(default=None, name='type')
+    set_name: str | None = None
 
     @property
     def type(self) -> GearType | WeaponType | PoisonType | None:
