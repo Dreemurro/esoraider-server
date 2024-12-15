@@ -2,14 +2,20 @@
 
 from dataclasses import replace
 from itertools import tee
-from typing import Callable, Dict, List, Optional
+from typing import TYPE_CHECKING
 
 from portion.interval import Interval, closed  # type: ignore
 from structlog.stdlib import get_logger
 
-from esoraider_server.data.core import Stack
-from esoraider_server.esologs.responses.report_data.effects import Aura, Band
-from esoraider_server.esologs.responses.report_data.graph import Series
+if TYPE_CHECKING:
+    from collections.abc import Callable
+
+    from esoraider_server.data.core import Stack
+    from esoraider_server.esologs.responses.report_data.effects import (
+        Aura,
+        Band,
+    )
+    from esoraider_server.esologs.responses.report_data.graph import Series
 
 logger = get_logger()
 
@@ -21,7 +27,7 @@ def _pairwise(iterable):
     return zip(cur, nxt)
 
 
-def _convert_to_interval(bands: Optional[List[Band]] = None) -> Interval:
+def _convert_to_interval(bands: list['Band'] | None = None) -> Interval:
     if not bands:
         return closed()
     return Interval(*[
@@ -42,10 +48,10 @@ class Stacks(object):
 
     def __init__(
         self,
-        known_stacks: List[Stack],
-        char_graphs: Dict[int, List[Series]],
-        char_buffs: List[Aura],
-        char_debuffs: List[Aura],
+        known_stacks: list['Stack'],
+        char_graphs: dict[int, list['Series']],
+        char_buffs: list['Aura'],
+        char_debuffs: list['Aura'],
         total_time: int,
     ) -> None:
         self._known_stacks = known_stacks
@@ -53,7 +59,7 @@ class Stacks(object):
         self._char_buffs = char_buffs
         self._char_debuffs = char_debuffs
         self._total_time = total_time
-        self.calculated: List[Stack] = []
+        self.calculated: list['Stack'] = []
 
     def calculate(self):
         """Calculate stacks uptimes."""
@@ -68,7 +74,7 @@ class Stacks(object):
 
             self.calculated.append(replace(stack, uptimes=uptimes))
 
-    def _calculate_uptime_from_graph(self, stack: Stack) -> Dict[int, float]:
+    def _calculate_uptime_from_graph(self, stack: 'Stack') -> dict[int, float]:
         series_list = self._char_graphs[stack.id]
 
         intervals = self._calculate_intervals(
@@ -76,7 +82,7 @@ class Stacks(object):
         )
         return self._calculate_stacks_uptimes(intervals)
 
-    def _calculate_uptime_from_effects(self, stack: Stack) -> Dict[int, float]:
+    def _calculate_uptime_from_effects(self, stack: 'Stack') -> dict[int, float]:
         char_effects = []
         effects_ids = []
 
@@ -117,9 +123,9 @@ class Stacks(object):
     def _calculate_intervals(
         self,
         max_stacks: int,
-        series_list: List[Series],
-        modifier: Optional[Callable[[int], int]] = None,
-    ) -> Dict[int, Interval]:
+        series_list: list['Series'],
+        modifier: 'Callable[[int], int] | None' = None,
+    ) -> dict[int, Interval]:
         intervals = {key: Interval() for key in range(1, max_stacks + 1)}
         stacks_list = [series.data for series in series_list]
         for stack_data in stacks_list:
@@ -133,8 +139,8 @@ class Stacks(object):
         return intervals
 
     def _calculate_stacks_uptimes(
-        self, intervals: Dict[int, Interval],
-    ) -> Dict[int, float]:
+        self, intervals: dict[int, Interval],
+    ) -> dict[int, float]:
         uptimes = {key: float(0) for key in intervals.keys()}
         for stack, interval in intervals.items():
             uptimes[stack] = _uptime_from_interval(interval, self._total_time)
@@ -144,9 +150,9 @@ class Stacks(object):
     def _calculate_complex_stacks_uptimes(
         self,
         effect_with_stacks: Interval,
-        effects: List[Interval],
+        effects: list[Interval],
         max_stacks: int,
-    ) -> Dict[int, float]:
+    ) -> dict[int, float]:
         # Whole thing is based on debuff uptime intervals
         # Debuffs come in desc order, from highest uptime to lowest
         # Assuming there are 6 debuffs and 5 max stacks:
@@ -157,7 +163,7 @@ class Stacks(object):
         #      with combined
         # Last step for each stack is to intersect with the main debuff
         # to get final uptime
-        calculated_stacks: Dict[int, float] = {}
+        calculated_stacks: dict[int, float] = {}
         for n_stacks in range(1, max_stacks + 1):
             # Not enough debuffs for stack calculation
             if n_stacks > len(effects):
@@ -177,7 +183,7 @@ class Stacks(object):
 
     def _combine_and_intersect(
         self,
-        effects: List[Interval],
+        effects: list[Interval],
         n_stacks: int,
         to_union: int,
     ) -> Interval:

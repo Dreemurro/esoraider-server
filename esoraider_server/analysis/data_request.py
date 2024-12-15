@@ -1,22 +1,29 @@
 """Data request from ESO Logs API."""
 
 import asyncio
-from typing import Dict, List, Optional, Sequence
+from typing import TYPE_CHECKING
 
-from gql.dsl import DSLField  # type: ignore
 from structlog.stdlib import get_logger
 
-from esoraider_server.analysis.tracked_info import TrackedInfo
-from esoraider_server.data.core import Stack
 from esoraider_server.data.passives import Passives
 from esoraider_server.esologs.api import ApiWrapper
 from esoraider_server.esologs.consts import DataType, HostilityType
-from esoraider_server.esologs.responses.report_data.casts import CastsTableData
-from esoraider_server.esologs.responses.report_data.effects import (
-    Aura,
-    EffectsTableData,
-)
-from esoraider_server.esologs.responses.report_data.graph import GraphData
+
+if TYPE_CHECKING:
+    from collections.abc import Sequence
+
+    from gql.dsl import DSLField
+
+    from esoraider_server.analysis.tracked_info import TrackedInfo
+    from esoraider_server.data.core import Stack
+    from esoraider_server.esologs.responses.report_data.casts import (
+        CastsTableData,
+    )
+    from esoraider_server.esologs.responses.report_data.effects import (
+        Aura,
+        EffectsTableData,
+    )
+    from esoraider_server.esologs.responses.report_data.graph import GraphData
 
 logger = get_logger()
 
@@ -29,11 +36,11 @@ class DataRequest(object):
         api: ApiWrapper,
         log: str,
         fight_id: int,
-        tracked_info: TrackedInfo,
+        tracked_info: 'TrackedInfo',
         start_time: int = 0,
         end_time: int = 0,
-        char_id: Optional[int] = None,
-        target: Optional[Sequence[int]] = None,
+        char_id: int | None = None,
+        target: 'Sequence[int] | None' = None,
     ) -> None:
         self._api = api
 
@@ -47,11 +54,11 @@ class DataRequest(object):
         self._tracked_info = tracked_info
 
         self.total_time = self._end_time - self._start_time
-        self.buffs_table: Optional[EffectsTableData] = None
-        self.debuffs_table: Optional[EffectsTableData] = None
-        self.damage_done_table: Optional[CastsTableData] = None
-        self.graphs: Dict[int, GraphData] = {}
-        self.passives: List[Aura] = []
+        self.buffs_table: 'EffectsTableData | None' = None
+        self.debuffs_table: 'EffectsTableData | None' = None
+        self.damage_done_table: 'CastsTableData | None' = None
+        self.graphs: dict[int, 'GraphData'] = {}
+        self.passives: list['Aura'] = []
 
     async def execute(self):
         """Query generation and execution."""
@@ -73,8 +80,8 @@ class DataRequest(object):
 
     def _generate_filter(
         self,
-        ability_ids: Sequence[int],
-        targets: Optional[Sequence[int]] = None,
+        ability_ids: 'Sequence[int]',
+        targets: 'Sequence[int] | None' = None,
     ):
         if targets:
             return 'ability.id IN ({0}) AND target.id IN ({1})'.format(
@@ -182,8 +189,8 @@ class DataRequest(object):
         await logger.ainfo('Got {0} graphs'.format(len(self.graphs)))
 
     async def _partial_graphs(
-        self, stacks: List[Stack],
-    ) -> Dict[str, DSLField]:
+        self, stacks: list['Stack'],
+    ) -> dict[str, 'DSLField']:
         stacks_dict = {}
         for stack in stacks:
             hostility = HostilityType.FRIENDLIES

@@ -1,6 +1,6 @@
 """Known data extraction."""
 
-from typing import List, Optional, Set, Type
+from typing import TYPE_CHECKING
 
 from structlog.stdlib import get_logger
 
@@ -19,26 +19,28 @@ from esoraider_server.data.classes.nightblade.skills import NIGHTBLADE_SKILLS
 from esoraider_server.data.classes.sorcerer.skills import SORCERER_SKILLS
 from esoraider_server.data.classes.templar.skills import TEMPLAR_SKILLS
 from esoraider_server.data.classes.warden.skills import WARDEN_SKILLS
-from esoraider_server.data.core import (
-    Buff,
-    Debuff,
-    EsoEnum,
-    GearSet,
-    Glyph,
-    Skill,
-    Stack,
-    Target,
-)
 from esoraider_server.data.debuffs import DEBUFFS
 from esoraider_server.data.encounters import Encounters
 from esoraider_server.data.glyphs import GLYPHS
 from esoraider_server.data.sets import GEAR_SETS
-from esoraider_server.esologs.consts import CharClass
-from esoraider_server.esologs.responses.common import Talent
-from esoraider_server.esologs.responses.report_data.fight import Fight
-from esoraider_server.esologs.responses.report_data.summary import (
-    SummaryTableData,
-)
+
+if TYPE_CHECKING:
+    from esoraider_server.data.core import (
+        Buff,
+        Debuff,
+        EsoEnum,
+        GearSet,
+        Glyph,
+        Skill,
+        Stack,
+        Target,
+    )
+    from esoraider_server.esologs.consts import CharClass
+    from esoraider_server.esologs.responses.common import Talent
+    from esoraider_server.esologs.responses.report_data.fight import Fight
+    from esoraider_server.esologs.responses.report_data.summary import (
+        SummaryTableData,
+    )
 
 logger = get_logger()
 
@@ -74,7 +76,7 @@ FIGHT_DEBUFFS = (
 
 
 # Move to general skills?
-def _get_class_skills(char_class: str) -> Type[EsoEnum]:
+def _get_class_skills(char_class: str) -> type['EsoEnum']:
     classes = {
         'Nightblade': NIGHTBLADE_SKILLS,
         'DragonKnight': DRAGONKNIGHT_SKILLS,
@@ -108,22 +110,22 @@ class TrackedInfo(object):
 
     def __init__(
         self,
-        summary_table: Optional[SummaryTableData] = None,
-        char_class: Optional[CharClass] = None,
-        encounter_info: Optional[Fight] = None,
+        summary_table: 'SummaryTableData | None' = None,
+        char_class: 'CharClass | None' = None,
+        encounter_info: 'Fight | None' = None,
     ) -> None:
         self._summary_table = summary_table
         self._encounter_info = encounter_info
         self._char_class = char_class
-        self._char_skills: List[Talent] = []
+        self._char_skills: list['Talent'] = []
 
-        self.targets: List[Target] = []
-        self.skills: Set[Skill] = set()
-        self.sets: List[GearSet] = []
-        self.glyphs: List[Glyph] = []
-        self.buffs: List[Buff] = []
-        self.debuffs: List[Debuff] = []
-        self.stacks: List[Stack] = []
+        self.targets: list['Target'] = []
+        self.skills: set['Skill'] = set()
+        self.sets: list['GearSet'] = []
+        self.glyphs: list['Glyph'] = []
+        self.buffs: list['Buff'] = []
+        self.debuffs: list['Debuff'] = []
+        self.stacks: list['Stack'] = []
 
     def extract(self):
         """Extract known skills, sets, glyphs, buffs & debuffs with stacks."""
@@ -188,7 +190,7 @@ class TrackedInfo(object):
         for skill in self._char_skills:
             for skills_enum in (general_skills, class_skills):
                 try:
-                    known_skill: Skill = skills_enum(skill.guid).value
+                    known_skill: 'Skill' = skills_enum(skill.guid).value
                 except StopIteration:
                     continue
                 self.skills.add(known_skill)

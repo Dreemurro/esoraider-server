@@ -1,7 +1,6 @@
 """Performance analysis report building."""
 
 from dataclasses import asdict
-from typing import Dict, List, Optional, Tuple
 
 from structlog.stdlib import get_logger
 
@@ -33,12 +32,12 @@ class ReportBuilder(object):
         api: ApiWrapper,
         log: str,
         fight_id: int,
-        summary_table: Optional[SummaryTableData] = None,
-        char_id: Optional[int] = None,
-        start_time: Optional[int] = None,
-        end_time: Optional[int] = None,
-        encounter_info: Optional[Fight] = None,
-        target: Optional[Tuple[int]] = None,
+        summary_table: SummaryTableData | None = None,
+        char_id: int | None = None,
+        start_time: int | None = None,
+        end_time: int | None = None,
+        encounter_info: Fight | None = None,
+        target: tuple[int] | None = None,
     ) -> None:
         self._api = api
 
@@ -51,22 +50,22 @@ class ReportBuilder(object):
         self._encounter_info = encounter_info
         self._target = target
 
-        self._tracked_info: Optional[TrackedInfo] = None
-        self._requested_data: Optional[DataRequest] = None
-        self._uptimes: Optional[Uptimes] = None
-        self._checklist: Optional[ChecklistBuilder] = None
+        self._tracked_info: TrackedInfo | None = None
+        self._requested_data: DataRequest | None = None
+        self._uptimes: Uptimes | None = None
+        self._checklist: ChecklistBuilder | None = None
 
         self.char_id = char_id
-        self._char_class: Optional[CharClass] = None
-        self._char_spec: Optional[str] = None
-        self._char_name: Optional[str] = None
-        self._char_buffs: List[Aura] = []
-        self._char_debuffs: List[Aura] = []
-        self._char_graphs: Dict[int, List[Series]] = {}
+        self._char_class: CharClass | None = None
+        self._char_spec: str | None = None
+        self._char_name: str | None = None
+        self._char_buffs: list[Aura] = []
+        self._char_debuffs: list[Aura] = []
+        self._char_graphs: dict[int, list[Series]] = {}
 
-        self.report: Dict = {}
+        self.report: dict = {}
 
-    async def build(self) -> Dict:
+    async def build(self) -> dict:
         """Execute report building steps."""
         if self.char_id:
             self._check()

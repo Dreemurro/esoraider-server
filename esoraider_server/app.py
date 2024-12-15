@@ -1,4 +1,4 @@
-from typing import Annotated, Optional, cast
+from typing import Annotated, cast
 
 from gql.transport.exceptions import TransportQueryError  # type: ignore
 from litestar import Litestar, MediaType, Response, Router, get
@@ -14,7 +14,8 @@ from esoraider_server.analysis.exceptions import (
     WrongCharException,
 )
 from esoraider_server.analysis.report_builder import ReportBuilder
-from esoraider_server.esologs.api import ApiWrapper, ZeroLengthFightException
+from esoraider_server.esologs.api import ApiWrapper
+from esoraider_server.esologs.exceptions import ZeroLengthFightException
 from esoraider_server.esologs.responses.report_data.log import Log
 from esoraider_server.esologs.responses.world_data.encounter import Encounter
 from esoraider_server.settings import DEBUG, HEALTHCHECK_TOKEN
@@ -42,8 +43,8 @@ async def get_fight(
     log: str,
     fight: int,
     api: ApiWrapper,
-    start_time: Optional[int] = None,
-    end_time: Optional[int] = None,
+    start_time: int | None = None,
+    end_time: int | None = None,
 ) -> dict:
     try:
         return await api.query_table(
@@ -67,9 +68,9 @@ async def get_char(
     fight: int,
     char: int,
     api: ApiWrapper,
-    start_time: Optional[int] = None,
-    end_time: Optional[int] = None,
-    target: Optional[list[int]] = None,
+    start_time: int | None = None,
+    end_time: int | None = None,
+    target: list[int] | None = None,
 ) -> dict:
     try:
         response = await api.query_char_table(
@@ -129,8 +130,8 @@ async def get_fight_effects(
     log: str,
     fight: int,
     api: ApiWrapper,
-    start_time: Optional[int] = None,
-    end_time: Optional[int] = None,
+    start_time: int | None = None,
+    end_time: int | None = None,
 ) -> dict:
     report = ReportBuilder(
         api=api,

@@ -1,24 +1,20 @@
 """Uptimes calculation."""
 
 from dataclasses import replace
-from typing import Dict, List, Optional, Union, overload
+from typing import TYPE_CHECKING, overload
 
 from structlog.stdlib import get_logger
 
-from esoraider_server.analysis.data_request import DataRequest
 from esoraider_server.analysis.stacks import Stacks
-from esoraider_server.analysis.tracked_info import TrackedInfo
-from esoraider_server.data.core import (
-    Buff,
-    Debuff,
-    GearSet,
-    Glyph,
-    Skill,
-    Stack,
-)
+from esoraider_server.data.core import Buff, Debuff, GearSet, Glyph, Skill
 from esoraider_server.esologs.responses.report_data.casts import Cast
 from esoraider_server.esologs.responses.report_data.effects import Aura
-from esoraider_server.esologs.responses.report_data.graph import Series
+
+if TYPE_CHECKING:
+    from esoraider_server.analysis.data_request import DataRequest
+    from esoraider_server.analysis.tracked_info import TrackedInfo
+    from esoraider_server.data.core import Stack
+    from esoraider_server.esologs.responses.report_data.graph import Series
 
 logger = get_logger()
 
@@ -32,18 +28,18 @@ class Uptimes(object):
 
     def __init__(
         self,
-        tracked_info: TrackedInfo,
-        requested_info: DataRequest,
-        char_buffs: List[Aura],
-        char_debuffs: List[Aura],
-        char_graphs: Dict[int, List[Series]],
+        tracked_info: 'TrackedInfo',
+        requested_info: 'DataRequest',
+        char_buffs: list[Aura],
+        char_debuffs: list[Aura],
+        char_graphs: dict[int, list['Series']],
     ) -> None:
-        self.skills: List[Skill] = []
-        self.sets: List[GearSet] = []
-        self.glyphs: List[Glyph] = []
-        self.buffs: List[Buff] = []
-        self.debuffs: List[Debuff] = []
-        self._stacks: List[Stack] = []
+        self.skills: list[Skill] = []
+        self.sets: list[GearSet] = []
+        self.glyphs: list[Glyph] = []
+        self.buffs: list[Buff] = []
+        self.debuffs: list[Debuff] = []
+        self._stacks: list['Stack'] = []
 
         self._requested = requested_info
         self._tracked = tracked_info
@@ -133,7 +129,7 @@ class Uptimes(object):
                 uptime=new_uptime,
             )
 
-    def _calculate_skill_children_uptimes(self, skill: Skill) -> List[Skill]:
+    def _calculate_skill_children_uptimes(self, skill: Skill) -> list[Skill]:
         # Not the best solution for child's children calculation
         if not skill.children:
             return []
@@ -159,11 +155,11 @@ class Uptimes(object):
 
     def _set_parent_uptime(
         self,
-        parent_item: Union[Skill, GearSet, Glyph],
-        buffs: Optional[List[Buff]] = None,
-        debuffs: Optional[List[Debuff]] = None,
-        children: List[Skill] = None,
-    ) -> Union[float, None]:
+        parent_item: Skill | GearSet | Glyph,
+        buffs: list[Buff] | None = None,
+        debuffs: list[Debuff] | None = None,
+        children: list[Skill] | None = None,
+    ) -> float | None:
         # If there is exactly one child/buff/debuff of a skill/set being
         # tracked - move calculated uptime to parent skill/set
         if isinstance(parent_item, Skill):
@@ -181,17 +177,17 @@ class Uptimes(object):
     @overload
     def _calculate_effects_uptimes(
         self,
-        effects: List[Buff],
-        effects_info: List[Aura],
-    ) -> List[Buff]:
+        effects: list[Buff],
+        effects_info: list[Aura],
+    ) -> list[Buff]:
         ...  # noqa: WPS428
 
     @overload
     def _calculate_effects_uptimes(
         self,
-        effects: List[Debuff],
-        effects_info: List[Aura],
-    ) -> List[Debuff]:
+        effects: list[Debuff],
+        effects_info: list[Aura],
+    ) -> list[Debuff]:
         ...  # noqa: WPS428
 
     def _calculate_effects_uptimes(self, effects, effects_info):
@@ -221,18 +217,18 @@ class Uptimes(object):
     def _calculate_skill_or_effect_uptime(
         self,
         skill_or_effect: Skill,
-        casts_or_auras: List[Cast],
-        stack: Optional[Stack] = None,
-    ) -> Optional[float]:
+        casts_or_auras: list[Cast],
+        stack: 'Stack | None' = None,
+    ) -> float | None:
         ...  # noqa: WPS428
 
     @overload
     def _calculate_skill_or_effect_uptime(
         self,
-        skill_or_effect: Union[Buff, Debuff],
-        casts_or_auras: List[Aura],
-        stack: Optional[Stack] = None,
-    ) -> Optional[float]:
+        skill_or_effect: Buff | Debuff,
+        casts_or_auras: list[Aura],
+        stack: 'Stack | None' = None,
+    ) -> float | None:
         ...  # noqa: WPS428
 
     def _calculate_skill_or_effect_uptime(

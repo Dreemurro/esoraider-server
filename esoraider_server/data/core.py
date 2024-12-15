@@ -1,8 +1,11 @@
 from dataclasses import dataclass
 from enum import Enum
-from typing import Callable, Dict, List, Optional, Sequence
+from typing import TYPE_CHECKING
 
-from esoraider_server.esologs.consts import DataType
+if TYPE_CHECKING:
+    from collections.abc import Callable, Sequence
+
+    from esoraider_server.esologs.consts import DataType
 
 
 # TODO: Merge Buff and Debuff into Effect?
@@ -11,18 +14,18 @@ class Buff:
     name: str
     id: int
 
-    icon: Optional[str] = None
-    advice: Optional[str] = None
-    optimal_uptime: Optional[float] = None
-    uptime: Optional[float] = None
-    stack: Optional['Stack'] = None
-    link: Optional[str] = None
+    icon: str | None = None
+    advice: str | None = None
+    optimal_uptime: float | None = None
+    uptime: float | None = None
+    stack: 'Stack | None' = None
+    link: str | None = None
 
     def calculate_uptime(
         self,
         total_uptime: int,
         total_time: int,
-        stack: 'Stack' = None,
+        stack: 'Stack | None' = None,
     ):
         if stack and stack.uptimes:
             return stack.uptimes[stack.max_stacks]
@@ -35,18 +38,18 @@ class Debuff:
     name: str
     id: int
 
-    icon: Optional[str] = None
-    advice: Optional[str] = None
-    optimal_uptime: Optional[float] = None
-    uptime: Optional[float] = None
-    stack: Optional['Stack'] = None
-    link: Optional[str] = None
+    icon: str | None = None
+    advice: str | None = None
+    optimal_uptime: float | None = None
+    uptime: float | None = None
+    stack: 'Stack | None' = None
+    link: str | None = None
 
     def calculate_uptime(
         self,
         total_uptime: int,
         total_time: int,
-        stack: 'Stack' = None,
+        stack: 'Stack | None' = None,
     ):
         if stack and stack.uptimes:
             return stack.uptimes[stack.max_stacks]
@@ -68,16 +71,16 @@ class Skill:
     id: int
     icon: str
 
-    link: Optional[str] = None
-    buffs: Optional[List[Buff]] = None
-    debuffs: Optional[List[Debuff]] = None
-    parent: Optional['Skill'] = None
-    children: Optional[List['Skill']] = None
+    link: str | None = None
+    buffs: list[Buff] | None = None
+    debuffs: list[Debuff] | None = None
+    parent: 'Skill | None' = None
+    children: list['Skill'] | None = None
 
     tick: int = 1
-    advice: Optional[str] = None
-    optimal_uptime: Optional[float] = None
-    uptime: Optional[float] = None
+    advice: str | None = None
+    optimal_uptime: float | None = None
+    uptime: float | None = None
 
     def calculate_uptime(
         self,
@@ -92,10 +95,10 @@ class Skill:
 
     def bumped_uptime(
         self,
-        buffs: Optional[List[Buff]] = None,
-        debuffs: Optional[List[Debuff]] = None,
-        children: Optional[List['Skill']] = None,
-    ) -> Optional[float]:
+        buffs: list[Buff] | None = None,
+        debuffs: list[Debuff] | None = None,
+        children: list['Skill'] | None = None,
+    ) -> float | None:
         if children and len(children) == 1:
             uptime = children[0].uptime
         elif self.uptime:
@@ -115,17 +118,17 @@ class GearSet:
     id: int
     link: str
 
-    uptime: Optional[float] = None
-    optimal_uptime: Optional[float] = None
-    icon: Optional[str] = None
-    buffs: Optional[List[Buff]] = None
-    debuffs: Optional[List[Debuff]] = None
+    uptime: float | None = None
+    optimal_uptime: float | None = None
+    icon: str | None = None
+    buffs: list[Buff] | None = None
+    debuffs: list[Debuff] | None = None
 
     def bumped_uptime(
         self,
-        buffs: Optional[List[Buff]] = None,
-        debuffs: Optional[List[Debuff]] = None,
-    ) -> Optional[float]:
+        buffs: list[Buff] | None = None,
+        debuffs: list[Debuff] | None = None,
+    ) -> float | None:
         if buffs and len(buffs) == 1 and not debuffs:
             uptime = buffs[0].uptime
         elif debuffs and len(debuffs) == 1 and not buffs:
@@ -142,16 +145,16 @@ class Glyph:
     link: str
     icon: str
 
-    buffs: Optional[List[Buff]] = None
-    debuffs: Optional[List[Debuff]] = None
-    uptime: Optional[float] = None
-    advice: Optional[str] = None
+    buffs: list[Buff] | None = None
+    debuffs: list[Debuff] | None = None
+    uptime: float | None = None
+    advice: str | None = None
 
     def bumped_uptime(
         self,
-        buffs: Optional[List[Buff]] = None,
-        debuffs: Optional[List[Debuff]] = None,
-    ) -> Optional[float]:
+        buffs: list[Buff] | None = None,
+        debuffs: list[Debuff] | None = None,
+    ) -> float | None:
         if buffs and len(buffs) == 1 and not debuffs:
             uptime = buffs[0].uptime
         elif debuffs and len(debuffs) == 1 and not buffs:
@@ -167,18 +170,18 @@ class Stack:
     id: int
     icon: str
     max_stacks: int
-    type_: DataType
+    type_: 'DataType'
 
-    buffs: Optional[List[Buff]] = None
-    debuffs: Optional[List[Debuff]] = None
-    modifier: Optional[Callable[[int], int]] = None
-    uptimes: Optional[Dict[int, float]] = None
+    buffs: list[Buff] | None = None
+    debuffs: list[Debuff] | None = None
+    modifier: 'Callable[[int], int] | None' = None
+    uptimes: dict[int, float] | None = None
 
 
 @dataclass(frozen=True)
 class Target:
     name: str
-    id: Sequence[int]
+    id: 'Sequence[int]'
 
 
 @dataclass(frozen=True)
@@ -192,9 +195,9 @@ class Encounter:
     name: str
     id: int
 
-    targets: Optional[List[Target]] = None
-    difficulties: Optional[List[Difficulty]] = None
-    phases: Optional[int] = None
+    targets: list[Target] | None = None
+    difficulties: list[Difficulty] | None = None
+    phases: int | None = None
 
 
 @dataclass(frozen=True)
@@ -202,9 +205,9 @@ class Rule:
     name: str
     icon: str
 
-    required: Optional[List[Skill]] = None
+    required: list[Skill] | None = None
 
-    buffs: Optional[List[Buff]] = None
+    buffs: list[Buff] | None = None
 
     @property
     def required_ids(self):
