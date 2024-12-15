@@ -28,6 +28,7 @@ wemake-python-styleguide = "*"
 [tool.poetry.group.tests.dependencies]
 pytest = "*"
 pytest-asyncio = "*"
+pytest-cov = "*"
 
 [tool.isort]
 include_trailing_comma = true
@@ -36,7 +37,7 @@ line_length = 80
 use_parentheses = true
 
 [tool.pytest.ini_options]
-addopts = "-v -rP"
+addopts = "-v -rP --cov=esoraider_server"
 asyncio_default_fixture_loop_scope = "session"
 
 [build-system]
