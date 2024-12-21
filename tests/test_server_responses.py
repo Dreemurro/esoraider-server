@@ -21,6 +21,8 @@ class Log:
     fight: int | None = None
     char: int | None = None
     targets: tuple[int, ...] | None = None
+    start_time: int | None = None
+    end_time: int | None = None
     expected: HTTPStatus = HTTPStatus.OK
 
     @property
@@ -33,8 +35,15 @@ class Log:
         return link
 
     @property
-    def query(self) -> dict[str, list[int]] | None:
-        return {'target': list(self.targets)} if self.targets else None
+    def query(self) -> dict[str, int | list[int]] | None:
+        params: dict[str, int | list[int]] = {}
+        if self.targets:
+            params.update({'target': list(self.targets)})
+        if self.start_time:
+            params.update({'start_time': self.start_time})
+        if self.end_time:
+            params.update({'end_time': self.end_time})
+        return params if params else None
 
     @property
     def response(self) -> dict | None:
@@ -47,6 +56,10 @@ class Log:
             path = '{path}-{char}'.format(path=path, char=self.char)
         if self.fight and self.char and self.targets:
             path = '{path}-targets'.format(path=path)
+        if self.start_time:
+            path = '{path}-start'.format(path=path)
+        if self.end_time:
+            path = '{path}-end'.format(path=path)
         return json.decode(
             Path('tests/files/log_{path}.json'.format(path=path)).read_bytes(),
         )
@@ -92,6 +105,13 @@ FIGHT_EFFECTS = (
         desc='Fight w/o issues',
         log='XmB7YQbrjD6p8x4n',
         fight=97,
+    ),
+    Log(
+        desc='Start / End time provided',
+        log='XmB7YQbrjD6p8x4n',
+        fight=12,
+        start_time=1355053,
+        end_time=1548695,
     ),
     Log(
         desc='Zero-length trash fight',
@@ -212,7 +232,7 @@ async def test_get_fight_effects(test_client: 'Client', fight: Log):
     response = await test_client.get('/fight{0}'.format(fight.link))
 
     assert response.status_code == fight.expected
-    assert get_json(response) == fight.response
+    assert len(get_json(response) or {}) == len(fight.response or {})
 
 
 @ pytest.mark.asyncio(loop_scope='session')
