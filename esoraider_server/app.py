@@ -20,12 +20,35 @@ from esoraider_server.esologs.responses.report_data.log import Log
 from esoraider_server.esologs.responses.world_data.encounter import Encounter
 from esoraider_server.settings import DEBUG, HEALTHCHECK_TOKEN
 
-log_code = Parameter(title='Log code', pattern=r'(a:)?[a-zA-Z0-9]{16}')
+LogCode = Annotated[
+    str,
+    Parameter(title='Log code', pattern=r'(a:)?[a-zA-Z0-9]{16}'),
+]
+FightID = Annotated[
+    int,
+    Parameter(title='Fight ID', ge=0),
+]
+Target = Annotated[
+    int | None,  # noqa: WPS465
+    Parameter(title='Target ID', ge=0),
+]
+Targets = Annotated[
+    list[Target] | None,  # noqa: WPS465
+    Parameter(title='Target IDs', min_items=1, required=False),
+]
+StartTime = Annotated[
+    int | None,  # noqa: WPS465
+    Parameter(title='Start time', ge=0, required=False),
+]
+EndTime = Annotated[
+    int | None,  # noqa: WPS465
+    Parameter(title='Start time', ge=0, required=False),
+]
 
 
 @get('/{log:str}')
 async def get_log(
-    log: Annotated[str, log_code],
+    log: LogCode,
     api: ApiWrapper,
 ) -> Log:
     try:
@@ -40,11 +63,11 @@ async def get_log(
 
 @get('/{log:str}/{fight:int}')
 async def get_fight(
-    log: str,
-    fight: int,
+    log: LogCode,
+    fight: FightID,
     api: ApiWrapper,
-    start_time: int | None = None,
-    end_time: int | None = None,
+    start_time: StartTime = None,
+    end_time: EndTime = None,
 ) -> dict:
     try:
         return await api.query_table(
@@ -64,13 +87,13 @@ async def get_fight(
 
 @get('/{log:str}/{fight:int}/{char:int}')
 async def get_char(
-    log: str,
-    fight: int,
+    log: LogCode,
+    fight: FightID,
     char: int,
     api: ApiWrapper,
-    start_time: int | None = None,
-    end_time: int | None = None,
-    target: list[int] | None = None,
+    start_time: StartTime = None,
+    end_time: EndTime = None,
+    target: Targets = None,
 ) -> dict:
     try:
         response = await api.query_char_table(
@@ -127,11 +150,11 @@ async def get_encounter(encounter: int, api: ApiWrapper) -> Encounter:
 
 @get('/fight/{log:str}/{fight:int}')
 async def get_fight_effects(
-    log: str,
-    fight: int,
+    log: LogCode,
+    fight: FightID,
     api: ApiWrapper,
-    start_time: int | None = None,
-    end_time: int | None = None,
+    start_time: StartTime = None,
+    end_time: EndTime = None,
 ) -> dict:
     report = ReportBuilder(
         api=api,
