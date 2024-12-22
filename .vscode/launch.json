@@ -5,10 +5,10 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Debug (with Uvicorn)",
+      "name": "Debug (with Granian)",
       "type": "debugpy",
       "request": "launch",
-      "module": "uvicorn",
+      "module": "granian",
       "args": [
         "esoraider_server.app:app",
         "--host",

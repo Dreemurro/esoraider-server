@@ -4,9 +4,13 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-# We are using `gunicorn` for production, see:
-# http://docs.gunicorn.org/en/stable/configure.html
+# We are using `granian` for production, see:
+# hhttps://github.com/emmett-framework/granian/
 
-# Start gunicorn:
-# Docs: http://docs.gunicorn.org/en/stable/settings.html
-/usr/local/bin/gunicorn esoraider_server.app:app
+# Start granian:
+granian \
+    --host 0.0.0.0 \
+    --port 8000 \
+    --interface asgi \
+    --no-ws \
+    esoraider_server.app:app

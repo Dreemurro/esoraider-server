@@ -11,19 +11,20 @@ package-mode = false
 python = "~3.12"
 aioauth-client = "0.29.0" 
 gql = { extras = ["aiohttp"], version = "3.5.0" }
-gunicorn = "23.0.0"
+granian = "1.7.1"
 litestar = { extras = ["standard"], version = "2.13.0" }
 msgspec = "0.18.6"
 portion = "2.3.1"
 python-dotenv = "0.21.1"
 structlog = "24.4.0"
-uvicorn = "0.32.1"
 
 [tool.poetry.group.dev.dependencies]
 autopep8 = "*"
 isort = "*"
 mypy = "*"
 wemake-python-styleguide = "*"
+# For debugging
+granian = {extras = ["reload"], version = "1.7.1"}
 
 [tool.poetry.group.tests.dependencies]
 pytest = "*"
