@@ -26,15 +26,6 @@ class Log:
     expected: HTTPStatus = HTTPStatus.OK
 
     @property
-    def link(self) -> str:
-        link = '/{0}'.format(self.log)
-        if self.fight:
-            link += '/{0}'.format(self.fight)
-        if self.fight and self.char:
-            link += '/{0}'.format(self.char)
-        return link
-
-    @property
     def query(self) -> dict[str, int | list[int]] | None:
         params: dict[str, int | list[int]] = {}
         if self.targets:
@@ -167,10 +158,6 @@ class Encounter:
     is_empty: bool = False
 
     @property
-    def link(self) -> str:
-        return '/{id}'.format(id=self.id)
-
-    @property
     def response(self) -> str | dict | None:
         if self.expected != HTTPStatus.OK:
             return None
@@ -202,7 +189,9 @@ def get_json(response: 'Response') -> dict | None:
 @pytest.mark.asyncio(loop_scope='session')
 @pytest.mark.parametrize('log', LOGS, ids=id_of_test)
 async def test_get_log(test_client: 'Client', log: Log):
-    response = await test_client.get(log.link)
+    path = test_client.app.route_reverse('get_log', log=log.log)
+
+    response = await test_client.get(path)
 
     assert response.status_code == log.expected
     assert get_json(response) == log.response
@@ -211,7 +200,11 @@ async def test_get_log(test_client: 'Client', log: Log):
 @pytest.mark.asyncio(loop_scope='session')
 @pytest.mark.parametrize('fight', FIGHTS, ids=id_of_test)
 async def test_get_fight(test_client: 'Client', fight: Log):
-    response = await test_client.get(fight.link)
+    path = test_client.app.route_reverse(
+        'get_fight', log=fight.log, fight=fight.fight,
+    )
+
+    response = await test_client.get(path)
 
     assert response.status_code == fight.expected
     assert len(get_json(response) or {}) == len(fight.response or {})
@@ -220,7 +213,11 @@ async def test_get_fight(test_client: 'Client', fight: Log):
 @pytest.mark.asyncio(loop_scope='session')
 @pytest.mark.parametrize('char', CHARS, ids=id_of_test)
 async def test_get_char(test_client: 'Client', char: Log):
-    response = await test_client.get(char.link, params=char.query)
+    path = test_client.app.route_reverse(
+        'get_char', log=char.log, fight=char.fight, char=char.char,
+    )
+
+    response = await test_client.get(path, params=char.query)
 
     assert response.status_code == char.expected
     assert len(get_json(response) or {}) == len(char.response or {})
@@ -229,7 +226,11 @@ async def test_get_char(test_client: 'Client', char: Log):
 @ pytest.mark.asyncio(loop_scope='session')
 @ pytest.mark.parametrize('fight', FIGHT_EFFECTS, ids=id_of_test)
 async def test_get_fight_effects(test_client: 'Client', fight: Log):
-    response = await test_client.get('/fight{0}'.format(fight.link))
+    path = test_client.app.route_reverse(
+        'get_fight_effects', log=fight.log, fight=fight.fight,
+    )
+
+    response = await test_client.get(path)
 
     assert response.status_code == fight.expected
     assert len(get_json(response) or {}) == len(fight.response or {})
@@ -237,8 +238,12 @@ async def test_get_fight_effects(test_client: 'Client', fight: Log):
 
 @ pytest.mark.asyncio(loop_scope='session')
 @ pytest.mark.parametrize('encounter', ENCOUNTERS, ids=id_of_test)
-async def test_get_encounter_info(test_client: 'Client', encounter: Encounter):
-    response = await test_client.get('/encounter{0}'.format(encounter.link))
+async def test_get_encounter(test_client: 'Client', encounter: Encounter):
+    path = test_client.app.route_reverse(
+        'get_encounter', encounter=encounter.id,
+    )
+
+    response = await test_client.get(path)
 
     assert response.status_code == HTTPStatus.OK
     assert get_json(response) or '' == encounter.response
