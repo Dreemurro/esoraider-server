@@ -46,7 +46,7 @@ EndTime = Annotated[
 ]
 
 
-@get('/{log:str}')
+@get('/{log:str}', name='get_log')
 async def get_log(
     log: LogCode,
     api: ApiWrapper,
@@ -61,7 +61,7 @@ async def get_log(
         )
 
 
-@get('/{log:str}/{fight:int}')
+@get('/{log:str}/{fight:int}', name='get_fight')
 async def get_fight(
     log: LogCode,
     fight: FightID,
@@ -85,7 +85,7 @@ async def get_fight(
         )
 
 
-@get('/{log:str}/{fight:int}/{char:int}')
+@get('/{log:str}/{fight:int}/{char:int}', name='get_char')
 async def get_char(
     log: LogCode,
     fight: FightID,
@@ -139,7 +139,7 @@ async def get_char(
         )
 
 
-@get('/encounter/{encounter:int}')
+@get('/encounter/{encounter:int}', name='get_encounter')
 async def get_encounter(encounter: int, api: ApiWrapper) -> Encounter:
     response = await api.query_encounter_info(encounter)
 
@@ -148,7 +148,7 @@ async def get_encounter(encounter: int, api: ApiWrapper) -> Encounter:
     return ''
 
 
-@get('/fight/{log:str}/{fight:int}')
+@get('/fight/{log:str}/{fight:int}', name='get_fight_effects')
 async def get_fight_effects(
     log: LogCode,
     fight: FightID,
@@ -174,7 +174,11 @@ async def get_fight_effects(
         )
 
 
-@get('/{0}/health'.format(HEALTHCHECK_TOKEN), media_type=MediaType.HTML)
+@get(
+    '/{0}/health'.format(HEALTHCHECK_TOKEN),
+    media_type=MediaType.HTML,
+    name='health',
+)
 async def healthcheck() -> str:
     return 'gucci'
 
