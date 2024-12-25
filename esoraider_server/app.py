@@ -2,18 +2,17 @@ from typing import Annotated, cast
 
 from gql.transport.exceptions import TransportQueryError  # type: ignore
 from litestar import Litestar, MediaType, Response, Router, get
-from litestar.datastructures import State
 from litestar.di import Provide
 from litestar.params import Parameter
 from litestar.status_codes import HTTP_400_BAD_REQUEST, HTTP_404_NOT_FOUND
 
+from esoraider_server import dependencies as deps
 from esoraider_server.analysis.exceptions import (
     NothingToTrackException,
     OutsideOfCombatException,
     SkillsNotFoundException,
     WrongCharException,
 )
-from esoraider_server.analysis.report_builder import ReportBuilder
 from esoraider_server.esologs.api import ApiWrapper
 from esoraider_server.esologs.exceptions import ZeroLengthFightException
 from esoraider_server.esologs.responses.report_data.log import Log
@@ -46,36 +45,45 @@ EndTime = Annotated[
 ]
 
 
-@get('/{log:str}', name='get_log')
+@get(
+    '/{log:str}',
+    name='get_log',
+    dependencies={'usecase': Provide(deps.get_log_use_case)},
+)
 async def get_log(
     log: LogCode,
-    api: ApiWrapper,
+    usecase: deps.UseCaseGetLog,
 ) -> Log:
+    usecase.log = log
     try:
-        return await api.query_log(log)
+        await usecase.run()
     except TransportQueryError:
         return Response(
             "This log is either private or doesn't exist",
             media_type=MediaType.TEXT,
             status_code=HTTP_404_NOT_FOUND,
         )
+    return usecase.result
 
 
-@get('/{log:str}/{fight:int}', name='get_fight')
+@get(
+    '/{log:str}/{fight:int}',
+    name='get_fight',
+    dependencies={'usecase': Provide(deps.get_fight_use_case)},
+)
 async def get_fight(
     log: LogCode,
     fight: FightID,
-    api: ApiWrapper,
+    usecase: deps.UseCaseGetFight,
     start_time: StartTime = None,
     end_time: EndTime = None,
 ) -> dict:
+    usecase.log = log
+    usecase.fight = fight
+    usecase.start_time = start_time
+    usecase.end_time = end_time
     try:
-        return await api.query_table(
-            log=log,
-            fight_id=fight,
-            start_time=start_time,
-            end_time=end_time,
-        )
+        await usecase.run()
     except ZeroLengthFightException as ex:
         # FIXME: this is done only for the initial compatibility
         return Response(
@@ -83,26 +91,31 @@ async def get_fight(
             media_type=MediaType.TEXT,
             status_code=HTTP_400_BAD_REQUEST,
         )
+    return usecase.result
 
 
-@get('/{log:str}/{fight:int}/{char:int}', name='get_char')
+@get(
+    '/{log:str}/{fight:int}/{char:int}',
+    name='get_char',
+    dependencies={'usecase': Provide(deps.get_char_use_case)},
+)
 async def get_char(
     log: LogCode,
     fight: FightID,
     char: int,
-    api: ApiWrapper,
+    usecase: deps.UseCaseGetChar,
     start_time: StartTime = None,
     end_time: EndTime = None,
     target: Targets = None,
 ) -> dict:
+    usecase.log = log
+    usecase.fight = fight
+    usecase.char = char
+    usecase.start_time = start_time
+    usecase.end_time = end_time
+    usecase.targets = target
     try:
-        response = await api.query_char_table(
-            log=log,
-            fight_id=fight,
-            char_id=char,
-            start_time=start_time,
-            end_time=end_time,
-        )
+        await usecase.run()
     except ZeroLengthFightException as ex:
         # FIXME: this is done only for the initial compatibility
         return Response(
@@ -110,21 +123,6 @@ async def get_char(
             media_type=MediaType.TEXT,
             status_code=HTTP_400_BAD_REQUEST,
         )
-
-    report = ReportBuilder(
-        api=api,
-        log=log,
-        fight_id=fight,
-        char_id=char,
-        summary_table=response.table,
-        start_time=start_time,
-        end_time=end_time,
-        encounter_info=response.fights[0],
-        target=target,
-    )
-
-    try:
-        return await report.build()
     except (
         SkillsNotFoundException,
         NothingToTrackException,
@@ -137,34 +135,41 @@ async def get_char(
             media_type=MediaType.TEXT,
             status_code=HTTP_400_BAD_REQUEST,
         )
+    return usecase.result
 
 
-@get('/encounter/{encounter:int}', name='get_encounter')
-async def get_encounter(encounter: int, api: ApiWrapper) -> Encounter:
-    response = await api.query_encounter_info(encounter)
+@get(
+    '/encounter/{encounter:int}',
+    name='get_encounter',
+    dependencies={'usecase': Provide(deps.get_encounter_use_case)},
+)
+async def get_encounter(
+    encounter: int,
+    usecase: deps.UseCaseGetEncounter,
+) -> Encounter:
+    usecase.encounter = encounter
+    await usecase.run()
+    return usecase.result
 
-    if response:
-        return response
-    return ''
 
-
-@get('/fight/{log:str}/{fight:int}', name='get_fight_effects')
+@get(
+    '/fight/{log:str}/{fight:int}',
+    name='get_fight_effects',
+    dependencies={'usecase': Provide(deps.get_fight_effects_use_case)},
+)
 async def get_fight_effects(
     log: LogCode,
     fight: FightID,
-    api: ApiWrapper,
+    usecase: deps.UseCaseGetFightEffects,
     start_time: StartTime = None,
     end_time: EndTime = None,
 ) -> dict:
-    report = ReportBuilder(
-        api=api,
-        log=log,
-        fight_id=fight,
-        start_time=start_time,
-        end_time=end_time,
-    )
+    usecase.log = log
+    usecase.fight = fight
+    usecase.start_time = start_time
+    usecase.end_time = end_time
     try:
-        return await report.build()
+        await usecase.run()
     except ZeroLengthFightException as ex:
         # FIXME: this is done only for the initial compatibility
         return Response(
@@ -172,6 +177,7 @@ async def get_fight_effects(
             media_type=MediaType.TEXT,
             status_code=HTTP_400_BAD_REQUEST,
         )
+    return usecase.result
 
 
 @get(
@@ -196,9 +202,6 @@ async def close_api(app: Litestar) -> None:
         await cast('ApiWrapper', app.state.api).close()
 
 
-async def api(state: State) -> ApiWrapper:
-    return state.api
-
 base_router = Router(
     path='/',
     route_handlers=[
@@ -209,7 +212,7 @@ base_router = Router(
         get_fight_effects,
         healthcheck,
     ],
-    dependencies={'api': Provide(api)},
+    dependencies={'api': Provide(deps.api)},
 )
 
 app = Litestar(
