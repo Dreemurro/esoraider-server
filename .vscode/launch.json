@@ -11,6 +11,9 @@
       "module": "granian",
       "args": [
         "esoraider_server.app:app",
+        "--interface",
+        "asgi",
+        "--no-ws",
         "--host",
         "0.0.0.0",
         "--port",
