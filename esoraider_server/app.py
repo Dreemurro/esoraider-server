@@ -1,10 +1,10 @@
 from typing import Annotated, cast
 
 from gql.transport.exceptions import TransportQueryError  # type: ignore
-from litestar import Litestar, MediaType, Response, Router, get
+from litestar import Litestar, MediaType, Router, get
 from litestar.di import Provide
+from litestar.exceptions import NotFoundException, ValidationException
 from litestar.params import Parameter
-from litestar.status_codes import HTTP_400_BAD_REQUEST, HTTP_404_NOT_FOUND
 
 from esoraider_server import dependencies as deps
 from esoraider_server.analysis.exceptions import (
@@ -57,12 +57,10 @@ async def get_log(
     usecase.log = log
     try:
         await usecase.run()
-    except TransportQueryError:
-        return Response(
-            "This log is either private or doesn't exist",
-            media_type=MediaType.TEXT,
-            status_code=HTTP_404_NOT_FOUND,
-        )
+    except TransportQueryError as ex:
+        raise NotFoundException(
+            detail="This log is either private or doesn't exist",
+        ) from ex
     return usecase.result
 
 
@@ -85,12 +83,7 @@ async def get_fight(
     try:
         await usecase.run()
     except ZeroLengthFightException as ex:
-        # FIXME: this is done only for the initial compatibility
-        return Response(
-            str(ex),
-            media_type=MediaType.TEXT,
-            status_code=HTTP_400_BAD_REQUEST,
-        )
+        raise ValidationException(detail=str(ex)) from ex
     return usecase.result
 
 
@@ -116,25 +109,14 @@ async def get_char(
     usecase.targets = target
     try:
         await usecase.run()
-    except ZeroLengthFightException as ex:
-        # FIXME: this is done only for the initial compatibility
-        return Response(
-            str(ex),
-            media_type=MediaType.TEXT,
-            status_code=HTTP_400_BAD_REQUEST,
-        )
     except (
+        ZeroLengthFightException,
         SkillsNotFoundException,
         NothingToTrackException,
         WrongCharException,
         OutsideOfCombatException,
     ) as ex:
-        # FIXME: this is done only for the initial compatibility
-        return Response(
-            str(ex),
-            media_type=MediaType.TEXT,
-            status_code=HTTP_400_BAD_REQUEST,
-        )
+        raise ValidationException(detail=str(ex)) from ex
     return usecase.result
 
 
@@ -171,12 +153,7 @@ async def get_fight_effects(
     try:
         await usecase.run()
     except ZeroLengthFightException as ex:
-        # FIXME: this is done only for the initial compatibility
-        return Response(
-            str(ex),
-            media_type=MediaType.TEXT,
-            status_code=HTTP_400_BAD_REQUEST,
-        )
+        raise ValidationException(detail=str(ex)) from ex
     return usecase.result
 
 
