@@ -2,6 +2,7 @@ from typing import Annotated, cast
 
 from gql.transport.exceptions import TransportQueryError  # type: ignore
 from litestar import Litestar, MediaType, Router, get
+from litestar.config.cors import CORSConfig
 from litestar.di import Provide
 from litestar.exceptions import NotFoundException, ValidationException
 from litestar.params import Parameter
@@ -17,7 +18,11 @@ from esoraider_server.esologs.api import ApiWrapper
 from esoraider_server.esologs.exceptions import ZeroLengthFightException
 from esoraider_server.esologs.responses.report_data.log import Log
 from esoraider_server.esologs.responses.world_data.encounter import Encounter
-from esoraider_server.settings import DEBUG, HEALTHCHECK_TOKEN
+from esoraider_server.settings import (
+    CORS_ALLOW_ORIGINS,
+    DEBUG,
+    HEALTHCHECK_TOKEN,
+)
 
 LogCode = Annotated[
     str,
@@ -192,10 +197,15 @@ base_router = Router(
     dependencies={'api': Provide(deps.api)},
 )
 
+cors_config = CORSConfig(
+    allow_origins=CORS_ALLOW_ORIGINS,
+)
+
 app = Litestar(
     route_handlers=[base_router],
     on_startup=[connect_api],
     on_shutdown=[close_api],
     debug=DEBUG,
+    cors_config=cors_config,
     logging_config=None,
 )
