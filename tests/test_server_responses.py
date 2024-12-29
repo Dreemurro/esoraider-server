@@ -89,6 +89,18 @@ FIGHTS = (
         fight=18,
         expected=HTTPStatus.BAD_REQUEST,
     ),
+    Log(
+        desc='Nonexistent fight',
+        log='XmB7YQbrjD6p8x4n',
+        fight=999,
+        expected=HTTPStatus.NOT_FOUND,
+    ),
+    Log(
+        desc='Nonexistent log',
+        log='0123456789101112',
+        fight=999,
+        expected=HTTPStatus.NOT_FOUND,
+    ),
 )
 
 FIGHT_EFFECTS = (
@@ -109,6 +121,18 @@ FIGHT_EFFECTS = (
         log='XmB7YQbrjD6p8x4n',
         fight=18,
         expected=HTTPStatus.BAD_REQUEST,
+    ),
+    Log(
+        desc='Nonexistent fight',
+        log='XmB7YQbrjD6p8x4n',
+        fight=999,
+        expected=HTTPStatus.NOT_FOUND,
+    ),
+    Log(
+        desc='Nonexistent log',
+        log='0123456789101112',
+        fight=999,
+        expected=HTTPStatus.NOT_FOUND,
     ),
 )
 
@@ -147,6 +171,27 @@ CHARS = (
         char=4,
         expected=HTTPStatus.BAD_REQUEST,
     ),
+    Log(
+        desc='Nonexistent char',
+        log='XmB7YQbrjD6p8x4n',
+        fight=35,
+        char=999,
+        expected=HTTPStatus.NOT_FOUND,
+    ),
+    Log(
+        desc='Nonexistent fight',
+        log='XmB7YQbrjD6p8x4n',
+        fight=999,
+        char=999,
+        expected=HTTPStatus.NOT_FOUND,
+    ),
+    Log(
+        desc='Nonexistent log',
+        log='0123456789101112',
+        fight=999,
+        char=999,
+        expected=HTTPStatus.NOT_FOUND,
+    ),
 )
 
 
@@ -181,6 +226,8 @@ def id_of_test(log: Log | Encounter) -> str:
 
 
 def get_json(response: 'Response') -> dict | None:
+    if response.status_code >= HTTPStatus.BAD_REQUEST:
+        return None
     with suppress(JSONDecodeError):
         return response.json()
     return None
