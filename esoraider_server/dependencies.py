@@ -40,20 +40,27 @@ async def get_fight_effects_use_case(
 ) -> usecases.GetFightEffectsUseCase:
     return usecases.GetFightEffectsUseCase(api)
 
+
 ################################################################################
 
+
 UseCaseGetLog = Annotated[
-    usecases.GetLogUseCase, Dependency(),
+    usecases.GetLogUseCase,
+    Dependency(),
 ]
 UseCaseGetFight = Annotated[
-    usecases.GetFightUseCase, Dependency(),
+    usecases.GetFightUseCase,
+    Dependency(),
 ]
 UseCaseGetChar = Annotated[
-    usecases.GetCharUseCase, Dependency(),
+    usecases.GetCharUseCase,
+    Dependency(),
 ]
 UseCaseGetEncounter = Annotated[
-    usecases.GetEncounterUseCase, Dependency(),
+    usecases.GetEncounterUseCase,
+    Dependency(),
 ]
 UseCaseGetFightEffects = Annotated[
-    usecases.GetFightEffectsUseCase, Dependency(),
+    usecases.GetFightEffectsUseCase,
+    Dependency(),
 ]
