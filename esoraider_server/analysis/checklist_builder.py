@@ -1,7 +1,6 @@
 """Checklist building."""
 
 from dataclasses import asdict
-from typing import List, Set
 
 from esoraider_server.data.rules import Rules
 from esoraider_server.esologs.consts import (
@@ -20,9 +19,9 @@ class ChecklistBuilder:
         self,
         spec: str,
         class_: CharClass,
-        skills: List[Talent],
-        gear: List[Gear],
-        passives: List[Aura],
+        skills: list[Talent],
+        gear: list[Gear],
+        passives: list[Aura],
     ) -> None:
         self._spec = spec
         self._class = class_
@@ -30,11 +29,11 @@ class ChecklistBuilder:
         self._gear = gear
         self._passives = passives
 
-        self._armor: List[Gear] = []
-        self._front_bar: List[Gear] = []
-        self._back_bar: List[Gear] = []
+        self._armor: list[Gear] = []
+        self._front_bar: list[Gear] = []
+        self._back_bar: list[Gear] = []
 
-        self.rule_set: Set[Rules] = set()
+        self.rule_set: set[Rules] = set()
         self.checklist = None
 
     def build(self):
