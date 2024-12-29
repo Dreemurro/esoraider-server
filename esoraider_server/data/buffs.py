@@ -504,7 +504,7 @@ class BUFFS(EsoEnum):
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_mage_065.png',
     )
     BEHEMOTHS_AURA = Buff(
-        name='Behemoth\'s Aura',
+        name="Behemoth's Aura",
         id=151033,
         icon='https://assets.rpglogs.com/img/eso/abilities/death_recap_fire_dot_heavy.png',
     )

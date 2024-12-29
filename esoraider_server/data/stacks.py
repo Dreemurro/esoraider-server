@@ -13,14 +13,14 @@ class STACKS(EsoEnum):
     # Sets
     #
     HUNTERS_FOCUS = Stack(
-        name='Hunter\'s Focus',
+        name="Hunter's Focus",
         id=155150,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_rogue_066.png',
         max_stacks=10,
         type_=DataType.BUFFS,
     )
     TOUCH_OF_ZEN = Stack(
-        name='Touch of Z\'en',
+        name="Touch of Z'en",
         id=126597,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_healer_006.png',
         max_stacks=5,
@@ -82,7 +82,7 @@ class STACKS(EsoEnum):
         type_=DataType.DEBUFFS,
     )
     SIRORIAS_BOON = Stack(
-        name='Siroria\'s Boon',
+        name="Siroria's Boon",
         id=110118,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_mage_010.png',
         max_stacks=10,
@@ -174,13 +174,13 @@ class BUFFS_WITH_STACKS(EsoEnum):
     # Sets
     #
     HUNTERS_FOCUS = Buff(
-        name='Hunter\'s Focus',
+        name="Hunter's Focus",
         id=155150,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_rogue_066.png',
         stack=STACKS.HUNTERS_FOCUS.value,
     )
     SIRORIAS_BOON = Buff(
-        name='Siroria\'s Boon',
+        name="Siroria's Boon",
         id=110118,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_mage_010.png',
         stack=STACKS.SIRORIAS_BOON.value,
@@ -238,7 +238,7 @@ class DEBUFFS_WITH_STACKS(EsoEnum):
     Sets
     """
     TOUCH_OF_ZEN = Debuff(
-        name='Touch of Z\'en',
+        name="Touch of Z'en",
         id=126597,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_healer_006.png',
         stack=STACKS.TOUCH_OF_ZEN.value,

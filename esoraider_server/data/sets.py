@@ -20,7 +20,7 @@ class GEAR_SETS(EsoEnum):
         icon='https://eso-hub.com/storage/icons/gear_dwarvenscavenged_staff_a.png',
     )
     HARPOONERS_WADING_KILT = GearSet(
-        name='Harpooner\'s Wading Kilt',
+        name="Harpooner's Wading Kilt",
         id=594,
         buffs=[BUFFS_WITH_STACKS.HUNTERS_FOCUS.value],
         link='https://eso-hub.com/en/sets/harpooners-wading-kilt',
@@ -45,7 +45,7 @@ class GEAR_SETS(EsoEnum):
         icon='https://eso-hub.com/storage/icons/gear_sunspire_heavy_helmet_a.png',
     )
     ENCRATISS_BEHEMOTH = GearSet(
-        name='Encratis\'s Behemoth',
+        name="Encratis's Behemoth",
         id=577,
         buffs=[BUFFS.BEHEMOTHS_AURA.value],
         link='https://eso-hub.com/en/sets/encratiss-behemoth',
@@ -94,14 +94,14 @@ class GEAR_SETS(EsoEnum):
         icon='https://eso-hub.com/storage/icons/gear_yokudan_light_head_a.png',
     )
     ZENS_REDRESS = GearSet(
-        name='Z\'en\'s Redress',
+        name="Z'en's Redress",
         id=455,
         debuffs=[DEBUFFS_WITH_STACKS.TOUCH_OF_ZEN.value],
         link='https://eso-hub.com/en/sets/zens-redress',
         icon='https://eso-hub.com/storage/icons/gear_stagzenlgt_helmet_a.png',
     )
     DIAMONDS_VICTORY = GearSet(
-        name='Diamond\'s Victory',
+        name="Diamond's Victory",
         id=584,
         buffs=[BUFFS.MELEE_SUPREMACY.value, BUFFS.RANGE_SUPREMACY.value],
         link='https://eso-hub.com/en/sets/diamonds-victory',
