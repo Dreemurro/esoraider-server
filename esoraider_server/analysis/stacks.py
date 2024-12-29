@@ -24,7 +24,7 @@ def _pairwise(iterable):
     # s -> (s0,s1), (s1,s2), (s2, s3), ...
     cur, nxt = tee(iterable)
     next(nxt, None)
-    return zip(cur, nxt)
+    return zip(cur, nxt, strict=False)
 
 
 def _convert_to_interval(bands: list['Band'] | None = None) -> Interval:
