@@ -39,7 +39,7 @@ class Uptimes(object):
         self.glyphs: list[Glyph] = []
         self.buffs: list[Buff] = []
         self.debuffs: list[Debuff] = []
-        self._stacks: list['Stack'] = []
+        self._stacks: list[Stack] = []
 
         self._requested = requested_info
         self._tracked = tracked_info

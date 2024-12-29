@@ -54,11 +54,11 @@ class DataRequest(object):
         self._tracked_info = tracked_info
 
         self.total_time = self._end_time - self._start_time
-        self.buffs_table: 'EffectsTableData | None' = None
-        self.debuffs_table: 'EffectsTableData | None' = None
-        self.damage_done_table: 'CastsTableData | None' = None
-        self.graphs: dict[int, 'GraphData'] = {}
-        self.passives: list['Aura'] = []
+        self.buffs_table: EffectsTableData | None = None
+        self.debuffs_table: EffectsTableData | None = None
+        self.damage_done_table: CastsTableData | None = None
+        self.graphs: dict[int, GraphData] = {}
+        self.passives: list[Aura] = []
 
     async def execute(self):
         """Query generation and execution."""

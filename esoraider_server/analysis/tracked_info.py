@@ -115,15 +115,15 @@ class TrackedInfo(object):
         self._summary_table = summary_table
         self._encounter_info = encounter_info
         self._char_class = char_class
-        self._char_skills: list['Talent'] = []
+        self._char_skills: list[Talent] = []
 
-        self.targets: list['Target'] = []
-        self.skills: set['Skill'] = set()
-        self.sets: list['GearSet'] = []
-        self.glyphs: list['Glyph'] = []
-        self.buffs: list['Buff'] = []
-        self.debuffs: list['Debuff'] = []
-        self.stacks: list['Stack'] = []
+        self.targets: list[Target] = []
+        self.skills: set[Skill] = set()
+        self.sets: list[GearSet] = []
+        self.glyphs: list[Glyph] = []
+        self.buffs: list[Buff] = []
+        self.debuffs: list[Debuff] = []
+        self.stacks: list[Stack] = []
 
     def extract(self):
         """Extract known skills, sets, glyphs, buffs & debuffs with stacks."""
@@ -188,7 +188,7 @@ class TrackedInfo(object):
         for skill in self._char_skills:
             for skills_enum in (general_skills, class_skills):
                 try:
-                    known_skill: 'Skill' = skills_enum(skill.guid).value
+                    known_skill: Skill = skills_enum(skill.guid).value
                 except StopIteration:
                     continue
                 self.skills.add(known_skill)

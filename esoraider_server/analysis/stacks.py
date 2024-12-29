@@ -59,7 +59,7 @@ class Stacks(object):
         self._char_buffs = char_buffs
         self._char_debuffs = char_debuffs
         self._total_time = total_time
-        self.calculated: list['Stack'] = []
+        self.calculated: list[Stack] = []
 
     def calculate(self):
         """Calculate stacks uptimes."""
