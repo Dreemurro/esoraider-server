@@ -108,9 +108,9 @@ class DataRequest(object):
             filter_exp=self._generate_filter(buff_ids),
         )
 
-        await logger.ainfo('Got {0} buffs'.format(len(self.buffs_table.auras)))
+        await logger.ainfo(f'Got {len(self.buffs_table.auras)} buffs')
         for aura in self.buffs_table.auras:
-            await logger.adebug('{0} - {1}'.format(aura.name, aura.guid))
+            await logger.adebug(f'{aura.name} - {aura.guid}')
 
     async def _request_debuffs(self):
         if not self._tracked_info.debuffs or self.debuffs_table:
@@ -131,9 +131,9 @@ class DataRequest(object):
             filter_exp=self._generate_filter(debuff_ids, self._target),
         )
 
-        await logger.ainfo('Got {0} debuffs'.format(len(self.debuffs_table.auras)))
+        await logger.ainfo(f'Got {len(self.debuffs_table.auras)} debuffs')
         for aura in self.debuffs_table.auras:
-            await logger.adebug('{0} - {1}'.format(aura.name, aura.guid))
+            await logger.adebug(f'{aura.name} - {aura.guid}')
 
     async def _request_damage_done(self):
         if not self._tracked_info.skills or self.damage_done_table:
@@ -159,10 +159,10 @@ class DataRequest(object):
         )
 
         await logger.ainfo(
-            'Got {0} casts'.format(len(self.damage_done_table.entries)),
+            f'Got {len(self.damage_done_table.entries)} casts',
         )
         for cast in self.damage_done_table.entries:
-            await logger.adebug('{0} - {1}'.format(cast.name, cast.guid))
+            await logger.adebug(f'{cast.name} - {cast.guid}')
 
     async def _request_graphs(self):
         if not self._tracked_info.stacks or self.graphs:
@@ -186,7 +186,7 @@ class DataRequest(object):
             graphs=await self._partial_graphs(simple_stacks),
         )
 
-        await logger.ainfo('Got {0} graphs'.format(len(self.graphs)))
+        await logger.ainfo(f'Got {len(self.graphs)} graphs')
 
     async def _partial_graphs(
         self, stacks: list['Stack'],
@@ -250,4 +250,4 @@ class DataRequest(object):
         )
         self.passives.extend(list(buffs.auras))
 
-        await logger.ainfo('Got {0} passives'.format(len(self.passives)))
+        await logger.ainfo(f'Got {len(self.passives)} passives')

@@ -91,9 +91,7 @@ def _get_class_skills(char_class: str) -> type['EsoEnum']:
         return classes[char_class]
     except KeyError:
         raise KeyError(
-            'Class {0} is not known. Are you from the future?'.format(
-                char_class,
-            ))
+            f'Class {char_class} is not known. Are you from the future?')
 
 
 class TrackedInfo(object):
@@ -163,13 +161,13 @@ class TrackedInfo(object):
             encounter = Encounters(id_)
         except StopIteration:
             logger.info(
-                'Targets for encounter = {0} were not found'.format(id_),
+                f'Targets for encounter = {id_} were not found',
             )
             return
         if encounter.value.targets:
             self.targets = encounter.value.targets
             for _ in self.targets:
-                logger.debug('{0} - {1}'.format(_.name, _.id))
+                logger.debug(f'{_.name} - {_.id}')
 
     def _get_char_skills(self):
         logger.info('Get char skills from summary table')
@@ -179,7 +177,7 @@ class TrackedInfo(object):
 
         for talent in self._summary_table.combatant_info.talents:
             self._char_skills.append(talent)
-            logger.debug('{0} - {1}'.format(talent.name, talent.guid))
+            logger.debug(f'{talent.name} - {talent.guid}')
 
     def _get_known_skills(self):
         logger.info('Checking extracted skills in enum of skills to track')
@@ -196,7 +194,7 @@ class TrackedInfo(object):
                 self.skills.add(known_skill)
                 break
 
-        logger.info('{0} skills to track'.format(len(self.skills)))
+        logger.info(f'{len(self.skills)} skills to track')
         for _ in self.skills:
             logger.debug(_.name)
 
@@ -212,7 +210,7 @@ class TrackedInfo(object):
                 continue
             self.sets.append(known_set)
 
-        logger.info('{0} sets to track'.format(len(self.sets)))
+        logger.info(f'{len(self.sets)} sets to track')
         for _ in self.sets:
             logger.debug(_.name)
 
@@ -229,7 +227,7 @@ class TrackedInfo(object):
                 continue
             self.glyphs.append(known_glyph)
 
-        logger.info('{0} glyphs to track'.format(len(self.glyphs)))
+        logger.info(f'{len(self.glyphs)} glyphs to track')
         for _ in self.glyphs:
             logger.debug(_.name)
 
@@ -268,10 +266,10 @@ class TrackedInfo(object):
             for debuff in tracked.debuffs
         ])
 
-        logger.info('{0} buffs to track'.format(len(self.buffs)))
+        logger.info(f'{len(self.buffs)} buffs to track')
         for _ in self.buffs:
             logger.debug(_.name)
-        logger.info('{0} debuffs to track'.format(len(self.debuffs)))
+        logger.info(f'{len(self.debuffs)} debuffs to track')
         for _ in self.debuffs:
             logger.debug(_.name)
 
@@ -296,6 +294,6 @@ class TrackedInfo(object):
                 for debuff in _.debuffs:
                     logger.debug(debuff.name)
 
-        logger.info('{0} stacks to track'.format(len(self.stacks)))
+        logger.info(f'{len(self.stacks)} stacks to track')
         for _ in self.stacks:
             logger.debug(_.name)

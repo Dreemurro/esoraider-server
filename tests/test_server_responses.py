@@ -42,17 +42,17 @@ class Log:
             return None
         path = self.log.replace(':', '-')
         if self.fight:
-            path = '{path}-{fight}'.format(path=path, fight=self.fight)
+            path = f'{path}-{self.fight}'
         if self.fight and self.char:
-            path = '{path}-{char}'.format(path=path, char=self.char)
+            path = f'{path}-{self.char}'
         if self.fight and self.char and self.targets:
-            path = '{path}-targets'.format(path=path)
+            path = f'{path}-targets'
         if self.start_time:
-            path = '{path}-start'.format(path=path)
+            path = f'{path}-start'
         if self.end_time:
-            path = '{path}-end'.format(path=path)
+            path = f'{path}-end'
         return json.decode(
-            Path('tests/files/log_{path}.json'.format(path=path)).read_bytes(),
+            Path(f'tests/files/log_{path}.json').read_bytes(),
         )
 
 
@@ -210,7 +210,7 @@ class Encounter:
             return ''
         return json.decode(
             Path(
-                'tests/files/encounter_{id}.json'.format(id=self.id),
+                f'tests/files/encounter_{self.id}.json',
             ).read_bytes(),
         )
 

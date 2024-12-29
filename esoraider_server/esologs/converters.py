@@ -77,7 +77,7 @@ def convert_log(obj: dict) -> Log:
 
 
 def encode_graph_id(id_: int) -> str:
-    return 'id_{0}'.format(id_)
+    return f'id_{id_}'
 
 
 def decode_graph_id(id_: str) -> int:

@@ -50,7 +50,7 @@ class ApiWrapperBase(object):
         return Client(
             transport=AIOHTTPTransport(
                 url='https://www.esologs.com/api/v2/client',
-                headers={'Authorization': 'Bearer {0}'.format(token)},
+                headers={'Authorization': f'Bearer {token}'},
             ),
             fetch_schema_from_transport=True,
         )

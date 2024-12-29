@@ -173,7 +173,7 @@ async def get_fight_effects(
 
 
 @get(
-    '/{0}/health'.format(HEALTHCHECK_TOKEN),
+    f'/{HEALTHCHECK_TOKEN}/health',
     media_type=MediaType.HTML,
     name='health',
 )

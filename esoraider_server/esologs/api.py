@@ -42,7 +42,7 @@ class ApiWrapper(ApiWrapperBase):
     async def query_encounter_info(
         self, encounter_id: int,
     ) -> 'Encounter | None':
-        await logger.ainfo('Requesting info on encounter = {0}'.format(encounter_id))
+        await logger.ainfo(f'Requesting info on encounter = {encounter_id}')
         query = self.ds.Query.worldData
 
         encounter = self.ds.WorldData.encounter(id=encounter_id)
@@ -64,7 +64,7 @@ class ApiWrapper(ApiWrapperBase):
         return convert_encounter(await self.execute(dsl_gql(DSLQuery(query))))
 
     async def query_log(self, log: str) -> 'Log':
-        await logger.ainfo('Requesting log {0}'.format(log))
+        await logger.ainfo(f'Requesting log {log}')
         query = self.ds.Query.reportData
 
         report = self.ds.ReportData.report(code=log)
@@ -97,8 +97,8 @@ class ApiWrapper(ApiWrapperBase):
         self, log: str, fight_id: int,
     ) -> tuple[int, int]:
         await logger.ainfo('Requesting fight times')
-        await logger.ainfo('Log = {0}'.format(log))
-        await logger.ainfo('Fight ID = {0}'.format(fight_id))
+        await logger.ainfo(f'Log = {log}')
+        await logger.ainfo(f'Fight ID = {fight_id}')
 
         query = self.ds.Query.reportData
         report = self.ds.ReportData.report(code=log)
@@ -131,15 +131,15 @@ class ApiWrapper(ApiWrapperBase):
         filter_exp: str | None = None,
     ) -> 'TableData':
         await logger.ainfo('Requesting reportData')
-        await logger.ainfo('Log = {0}'.format(log))
-        await logger.ainfo('Fight ID = {0}'.format(fight_id))
-        await logger.ainfo('Data Type = {0}'.format(data_type))
-        await logger.ainfo('Hostility Type = {0}'.format(hostility_type))
-        await logger.ainfo('Start Time = {0}'.format(start_time))
-        await logger.ainfo('End Time = {0}'.format(end_time))
-        await logger.ainfo('Source ID = {0}'.format(source_id))
-        await logger.ainfo('Target ID = {0}'.format(target_id))
-        await logger.ainfo('Filter = {0}'.format(filter_exp))
+        await logger.ainfo(f'Log = {log}')
+        await logger.ainfo(f'Fight ID = {fight_id}')
+        await logger.ainfo(f'Data Type = {data_type}')
+        await logger.ainfo(f'Hostility Type = {hostility_type}')
+        await logger.ainfo(f'Start Time = {start_time}')
+        await logger.ainfo(f'End Time = {end_time}')
+        await logger.ainfo(f'Source ID = {source_id}')
+        await logger.ainfo(f'Target ID = {target_id}')
+        await logger.ainfo(f'Filter = {filter_exp}')
 
         if not start_time or not end_time:
             start_time, end_time = await self.query_fight_times(log, fight_id)
@@ -176,11 +176,11 @@ class ApiWrapper(ApiWrapperBase):
         end_time: int | None = None,
     ) -> 'Report':
         await logger.ainfo('Requesting char summary table')
-        await logger.ainfo('Log = {0}'.format(log))
-        await logger.ainfo('Fight ID = {0}'.format(fight_id))
-        await logger.ainfo('Char ID = {0}'.format(char_id))
-        await logger.ainfo('Start Time = {0}'.format(start_time))
-        await logger.ainfo('End Time = {0}'.format(end_time))
+        await logger.ainfo(f'Log = {log}')
+        await logger.ainfo(f'Fight ID = {fight_id}')
+        await logger.ainfo(f'Char ID = {char_id}')
+        await logger.ainfo(f'Start Time = {start_time}')
+        await logger.ainfo(f'End Time = {end_time}')
 
         if not start_time or not end_time:
             start_time, end_time = await self.query_fight_times(log, fight_id)
@@ -215,11 +215,11 @@ class ApiWrapper(ApiWrapperBase):
         data_type: DataType = DataType.COMBATANT_INFO,
     ) -> list['Event']:
         await logger.ainfo('Requesting events')
-        await logger.ainfo('Log = {0}'.format(log))
-        await logger.ainfo('Char ID = {0}'.format(char_id))
-        await logger.ainfo('Start Time = {0}'.format(start_time))
-        await logger.ainfo('End Time = {0}'.format(end_time))
-        await logger.ainfo('Data Type = {0}'.format(data_type))
+        await logger.ainfo(f'Log = {log}')
+        await logger.ainfo(f'Char ID = {char_id}')
+        await logger.ainfo(f'Start Time = {start_time}')
+        await logger.ainfo(f'End Time = {end_time}')
+        await logger.ainfo(f'Data Type = {data_type}')
 
         query = self.ds.Query.reportData
 
@@ -259,7 +259,7 @@ class ApiWrapper(ApiWrapperBase):
             await logger.ainfo('Requesting multiple graphs')
         else:
             await logger.ainfo('Requesting graph')
-        await logger.ainfo('Log = {0}'.format(log))
+        await logger.ainfo(f'Log = {log}')
 
         query = self.ds.Query.reportData
 
@@ -304,12 +304,12 @@ class ApiWrapper(ApiWrapperBase):
         char_id: int | None = None,
     ) -> dict[str, 'DSLField']:
         await logger.ainfo('Building partial graph request')
-        await logger.ainfo('Char ID = {0}'.format(char_id))
-        await logger.ainfo('Start Time = {0}'.format(start_time))
-        await logger.ainfo('End Time = {0}'.format(end_time))
-        await logger.ainfo('Data Type = {0}'.format(data_type))
-        await logger.ainfo('Ability ID = {0}'.format(ability_id))
-        await logger.ainfo('Hostility Type = {0}'.format(hostility_type))
+        await logger.ainfo(f'Char ID = {char_id}')
+        await logger.ainfo(f'Start Time = {start_time}')
+        await logger.ainfo(f'End Time = {end_time}')
+        await logger.ainfo(f'Data Type = {data_type}')
+        await logger.ainfo(f'Ability ID = {ability_id}')
+        await logger.ainfo(f'Hostility Type = {hostility_type}')
 
         source_id = None
         target_id = None

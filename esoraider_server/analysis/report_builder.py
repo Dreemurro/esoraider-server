@@ -143,8 +143,8 @@ class ReportBuilder(object):
         self._char_class = combatant[0].type
         self._char_spec = combatant[0].specs[0].spec
         self._char_name = combatant[0].name
-        logger.debug('Class: {0}'.format(self._char_class.value))
-        logger.debug('Spec: {0}'.format(self._char_spec))
+        logger.debug(f'Class: {self._char_class.value}')
+        logger.debug(f'Spec: {self._char_spec}')
 
     def _get_char_buffs(self):
         if not self._tracked_info.buffs:

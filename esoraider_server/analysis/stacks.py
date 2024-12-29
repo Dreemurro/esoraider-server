@@ -101,7 +101,7 @@ class Stacks(object):
             )
         except StopIteration:
             logger.error(
-                "Effect of '{0}' was not found. ".format(stack.name)
+                f"Effect of '{stack.name}' was not found. "
                 + "It's probably because of an incomplete set",
             )
             return {0: float(0)}

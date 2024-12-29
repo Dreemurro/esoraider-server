@@ -71,7 +71,7 @@ class Uptimes(object):
         stacks.calculate()
         self._stacks = stacks.calculated
         for _ in self._stacks:
-            logger.debug('{0} - {1}'.format(_.name, _.uptimes))
+            logger.debug(f'{_.name} - {_.uptimes}')
 
         self.skills = self._uptimes_of(self._tracked.skills)
         self.sets = self._uptimes_of(self._tracked.sets)
@@ -82,7 +82,7 @@ class Uptimes(object):
         for eso_item in eso_items:
             new_item = self._calculate_item_uptimes(eso_item)
             new_items.append(new_item)
-            logger.debug('{0} - {1}'.format(new_item.name, new_item.uptime))
+            logger.debug(f'{new_item.name} - {new_item.uptime}')
         return new_items
 
     @overload
