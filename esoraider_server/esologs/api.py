@@ -14,7 +14,10 @@ from esoraider_server.esologs.converters import (
     convert_table,
     encode_graph_id,
 )
-from esoraider_server.esologs.exceptions import ZeroLengthFightException
+from esoraider_server.esologs.exceptions import (
+    NonexistentFightException,
+    ZeroLengthFightException,
+)
 
 if TYPE_CHECKING:
     from gql.dsl import DSLField
@@ -109,7 +112,10 @@ class ApiWrapper(ApiWrapperBase):
         query.select(report_fields)
 
         response = await self.execute(dsl_gql(DSLQuery(query)))
-        response = response.get('reportData').get('report').get('fights')[0]
+        fights = response.get('reportData').get('report').get('fights')
+        if not fights:
+            raise NonexistentFightException
+        response = fights[0]
         return response.get('startTime'), response.get('endTime')
 
     async def query_table(

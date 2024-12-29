@@ -15,7 +15,10 @@ from esoraider_server.analysis.exceptions import (
     WrongCharException,
 )
 from esoraider_server.esologs.api import ApiWrapper
-from esoraider_server.esologs.exceptions import ZeroLengthFightException
+from esoraider_server.esologs.exceptions import (
+    NonexistentFightException,
+    ZeroLengthFightException,
+)
 from esoraider_server.esologs.responses.report_data.log import Log
 from esoraider_server.esologs.responses.world_data.encounter import Encounter
 from esoraider_server.settings import (
@@ -89,6 +92,12 @@ async def get_fight(
         await usecase.run()
     except ZeroLengthFightException as ex:
         raise ValidationException(detail=str(ex)) from ex
+    except TransportQueryError as ex:
+        raise NotFoundException(
+            detail="This log is either private or doesn't exist",
+        ) from ex
+    except NonexistentFightException as ex:
+        raise NotFoundException(detail=str(ex)) from ex
     return usecase.result
 
 
@@ -118,10 +127,15 @@ async def get_char(
         ZeroLengthFightException,
         SkillsNotFoundException,
         NothingToTrackException,
-        WrongCharException,
         OutsideOfCombatException,
     ) as ex:
         raise ValidationException(detail=str(ex)) from ex
+    except TransportQueryError as ex:
+        raise NotFoundException(
+            detail="This log is either private or doesn't exist",
+        ) from ex
+    except (NonexistentFightException, WrongCharException) as ex:
+        raise NotFoundException(detail=str(ex)) from ex
     return usecase.result
 
 
@@ -159,6 +173,12 @@ async def get_fight_effects(
         await usecase.run()
     except ZeroLengthFightException as ex:
         raise ValidationException(detail=str(ex)) from ex
+    except TransportQueryError as ex:
+        raise NotFoundException(
+            detail="This log is either private or doesn't exist",
+        ) from ex
+    except NonexistentFightException as ex:
+        raise NotFoundException(detail=str(ex)) from ex
     return usecase.result
 
 
