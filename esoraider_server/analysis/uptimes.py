@@ -87,15 +87,15 @@ class Uptimes(object):
 
     @overload
     def _calculate_item_uptimes(self, eso_item: Skill) -> Skill:
-        ...  # noqa: WPS428
+        ...
 
     @overload
     def _calculate_item_uptimes(self, eso_item: GearSet) -> GearSet:
-        ...  # noqa: WPS428
+        ...
 
     @overload
     def _calculate_item_uptimes(self, eso_item: Glyph) -> Glyph:
-        ...  # noqa: WPS428
+        ...
 
     def _calculate_item_uptimes(self, eso_item):
         new_buffs = self._calculate_effects_uptimes(
@@ -180,7 +180,7 @@ class Uptimes(object):
         effects: list[Buff],
         effects_info: list[Aura],
     ) -> list[Buff]:
-        ...  # noqa: WPS428
+        ...
 
     @overload
     def _calculate_effects_uptimes(
@@ -188,7 +188,7 @@ class Uptimes(object):
         effects: list[Debuff],
         effects_info: list[Aura],
     ) -> list[Debuff]:
-        ...  # noqa: WPS428
+        ...
 
     def _calculate_effects_uptimes(self, effects, effects_info):
         new_items = []
@@ -220,7 +220,7 @@ class Uptimes(object):
         casts_or_auras: list[Cast],
         stack: 'Stack | None' = None,
     ) -> float | None:
-        ...  # noqa: WPS428
+        ...
 
     @overload
     def _calculate_skill_or_effect_uptime(
@@ -229,7 +229,7 @@ class Uptimes(object):
         casts_or_auras: list[Aura],
         stack: 'Stack | None' = None,
     ) -> float | None:
-        ...  # noqa: WPS428
+        ...
 
     def _calculate_skill_or_effect_uptime(
         self, skill_or_effect, casts_or_auras, stack=None,

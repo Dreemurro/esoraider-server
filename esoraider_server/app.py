@@ -36,19 +36,19 @@ FightID = Annotated[
     Parameter(title='Fight ID', ge=0),
 ]
 Target = Annotated[
-    int | None,  # noqa: WPS465
+    int | None,
     Parameter(title='Target ID', ge=0),
 ]
 Targets = Annotated[
-    list[Target] | None,  # noqa: WPS465
+    list[Target] | None,
     Parameter(title='Target IDs', min_items=1, required=False),
 ]
 StartTime = Annotated[
-    int | None,  # noqa: WPS465
+    int | None,
     Parameter(title='Start time', ge=0, required=False),
 ]
 EndTime = Annotated[
-    int | None,  # noqa: WPS465
+    int | None,
     Parameter(title='Start time', ge=0, required=False),
 ]
 
