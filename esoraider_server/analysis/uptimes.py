@@ -121,7 +121,7 @@ class Uptimes:
                 children=new_children,
                 uptime=new_uptime,
             )
-        elif isinstance(eso_item, GearSet | Glyph):
+        if isinstance(eso_item, GearSet | Glyph):
             return replace(
                 eso_item,
                 buffs=new_buffs,
@@ -252,7 +252,7 @@ class Uptimes:
                 extracted.tick_count,
                 self._requested.total_time,
             )
-        elif is_effect and is_aura:
+        if is_effect and is_aura:
             return skill_or_effect.calculate_uptime(
                 extracted.total_uptime,
                 self._requested.total_time,

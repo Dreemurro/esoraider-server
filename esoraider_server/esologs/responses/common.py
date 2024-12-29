@@ -40,8 +40,8 @@ class Gear(EsoLogsDataClass):
 
         if GearSlot.is_armor(self.slot):
             return GearType(self._type)
-        elif GearSlot.is_weapon(self.slot):
+        if GearSlot.is_weapon(self.slot):
             return WeaponType(self._type)
-        elif GearSlot.is_poison(self.slot):
+        if GearSlot.is_poison(self.slot):
             return PoisonType(self._type)
         return None

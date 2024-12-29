@@ -55,9 +55,9 @@ def convert_table(obj: dict, data_type: DataType) -> TableData:
 
     if data_type == DataType.SUMMARY:
         return convert(raw_report.table.data, SummaryTableData)
-    elif data_type in {DataType.BUFFS, DataType.DEBUFFS}:
+    if data_type in {DataType.BUFFS, DataType.DEBUFFS}:
         return convert(raw_report.table.data, EffectsTableData)
-    elif data_type == DataType.DAMAGE_DONE:
+    if data_type == DataType.DAMAGE_DONE:
         return convert(raw_report.table.data, CastsTableData)
     raise ValueError
 

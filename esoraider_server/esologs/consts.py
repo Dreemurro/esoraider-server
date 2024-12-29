@@ -86,8 +86,7 @@ class WeaponType(Enum):
         if second:
             if second == cls.SHIELD:
                 return WieldType.ONE_HAND_AND_SHIELD
-            else:
-                return WieldType.DUAL_WIELD
+            return WieldType.DUAL_WIELD
 
         wield = {
             cls.FIRE_STAFF: WieldType.DESTRUCTION_STAFF,
