@@ -1,6 +1,5 @@
 from typing import Annotated, cast
 
-from gql.transport.exceptions import TransportQueryError  # type: ignore
 from litestar import Litestar, MediaType, Router, get
 from litestar.config.cors import CORSConfig
 from litestar.di import Provide
@@ -17,6 +16,7 @@ from esoraider_server.analysis.exceptions import (
 from esoraider_server.esologs.api import ApiWrapper
 from esoraider_server.esologs.exceptions import (
     NonexistentFightException,
+    NonexistentLogException,
     ZeroLengthFightException,
 )
 from esoraider_server.esologs.responses.report_data.log import Log
@@ -65,10 +65,8 @@ async def get_log(
     usecase.log = log
     try:
         await usecase.run()
-    except TransportQueryError as ex:
-        raise NotFoundException(
-            detail="This log is either private or doesn't exist",
-        ) from ex
+    except NonexistentLogException as ex:
+        raise NotFoundException(detail=str(ex)) from ex
     return usecase.result
 
 
@@ -92,11 +90,7 @@ async def get_fight(
         await usecase.run()
     except ZeroLengthFightException as ex:
         raise ValidationException(detail=str(ex)) from ex
-    except TransportQueryError as ex:
-        raise NotFoundException(
-            detail="This log is either private or doesn't exist",
-        ) from ex
-    except NonexistentFightException as ex:
+    except (NonexistentFightException, NonexistentLogException) as ex:
         raise NotFoundException(detail=str(ex)) from ex
     return usecase.result
 
@@ -130,11 +124,11 @@ async def get_char(
         OutsideOfCombatException,
     ) as ex:
         raise ValidationException(detail=str(ex)) from ex
-    except TransportQueryError as ex:
-        raise NotFoundException(
-            detail="This log is either private or doesn't exist",
-        ) from ex
-    except (NonexistentFightException, WrongCharException) as ex:
+    except (
+        NonexistentFightException,
+        WrongCharException,
+        NonexistentLogException,
+    ) as ex:
         raise NotFoundException(detail=str(ex)) from ex
     return usecase.result
 
@@ -173,11 +167,7 @@ async def get_fight_effects(
         await usecase.run()
     except ZeroLengthFightException as ex:
         raise ValidationException(detail=str(ex)) from ex
-    except TransportQueryError as ex:
-        raise NotFoundException(
-            detail="This log is either private or doesn't exist",
-        ) from ex
-    except NonexistentFightException as ex:
+    except (NonexistentFightException, NonexistentLogException) as ex:
         raise NotFoundException(detail=str(ex)) from ex
     return usecase.result
 

@@ -5,6 +5,7 @@ from gql.transport.aiohttp import AIOHTTPTransport  # type: ignore
 from gql.transport.exceptions import TransportQueryError  # type: ignore
 from structlog.stdlib import get_logger
 
+from esoraider_server.esologs.exceptions import NonexistentLogException
 from esoraider_server.settings import CLIENT_ID, CLIENT_SECRET
 
 logger = get_logger()
@@ -34,6 +35,12 @@ class ApiWrapperBase(object):
             answer = await self._session.execute(*args, **kwargs)
         except TransportQueryError as ex:
             await logger.aexception("Couldn't get the log")
+            if (
+                ex.errors
+                and isinstance(ex.errors[0], dict)
+                and ex.errors[0].get('message') == 'This report does not exist.'
+            ):
+                raise NonexistentLogException from ex
             raise ex
 
         return answer
