@@ -105,7 +105,7 @@ class Uptimes(object):
             eso_item.debuffs, self._char_debuffs,
         ) if eso_item.debuffs else None
 
-        new_children: List[Skill] = []
+        new_children: list[Skill] = []
         if isinstance(eso_item, Skill):
             new_children = self._calculate_skill_children_uptimes(eso_item)
 
