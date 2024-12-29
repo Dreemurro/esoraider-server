@@ -141,7 +141,7 @@ class Stacks:
     def _calculate_stacks_uptimes(
         self, intervals: dict[int, Interval],
     ) -> dict[int, float]:
-        uptimes = {key: float(0) for key in intervals.keys()}
+        uptimes = {key: float(0) for key in intervals}
         for stack, interval in intervals.items():
             uptimes[stack] = _uptime_from_interval(interval, self._total_time)
         return uptimes

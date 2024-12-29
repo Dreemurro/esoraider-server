@@ -177,7 +177,7 @@ class ReportBuilder:
 
         logger.info('Extracting tracked stacks from graphs')
         for id_, graph in self._requested_data.graphs.items():
-            if id_ not in self._char_graphs.keys():
+            if id_ not in self._char_graphs:
                 self._char_graphs[id_] = []
             for series in graph.series:
                 if series:
