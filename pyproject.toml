@@ -22,6 +22,7 @@ structlog = "24.4.0"
 autopep8 = "*"
 isort = "*"
 mypy = "*"
+ruff = "*"
 wemake-python-styleguide = "*"
 # For debugging
 granian = {extras = ["reload"], version = "1.7.1"}
