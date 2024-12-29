@@ -121,7 +121,7 @@ class Uptimes:
                 children=new_children,
                 uptime=new_uptime,
             )
-        elif isinstance(eso_item, (GearSet, Glyph)):
+        elif isinstance(eso_item, GearSet | Glyph):
             return replace(
                 eso_item,
                 buffs=new_buffs,
@@ -169,7 +169,7 @@ class Uptimes:
                 parent_item,
                 self._requested.damage_done_table.entries,
             )
-        elif isinstance(parent_item, (GearSet, Glyph)):
+        elif isinstance(parent_item, GearSet | Glyph):
             uptime = parent_item.bumped_uptime(buffs, debuffs)
 
         return uptime
@@ -243,7 +243,7 @@ class Uptimes:
             return None
 
         is_skill = isinstance(skill_or_effect, Skill)
-        is_effect = isinstance(skill_or_effect, (Buff, Debuff))
+        is_effect = isinstance(skill_or_effect, Buff | Debuff)
         is_cast = isinstance(extracted, Cast)
         is_aura = isinstance(extracted, Aura)
         if is_skill and is_cast:
