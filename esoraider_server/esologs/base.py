@@ -11,7 +11,7 @@ from esoraider_server.settings import CLIENT_ID, CLIENT_SECRET
 logger = get_logger()
 
 
-class ApiWrapperBase(object):
+class ApiWrapperBase:
     def __init__(self) -> None:
         self._client: Client | None = None
         self._session = None

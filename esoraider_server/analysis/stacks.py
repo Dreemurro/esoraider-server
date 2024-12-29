@@ -43,7 +43,7 @@ def _uptime_from_interval(interval: Interval, total_time: int) -> float:
     return round(total_uptime / total_time * 100, 2)
 
 
-class Stacks(object):
+class Stacks:
     """Uptimes calculation of stackable buffs & debuffs."""
 
     def __init__(

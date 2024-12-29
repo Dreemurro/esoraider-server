@@ -94,7 +94,7 @@ def _get_class_skills(char_class: str) -> type['EsoEnum']:
             f'Class {char_class} is not known. Are you from the future?')
 
 
-class TrackedInfo(object):
+class TrackedInfo:
     """
     Extracts known info for further usage during analysis.
 

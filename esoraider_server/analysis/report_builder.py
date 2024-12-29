@@ -24,7 +24,7 @@ from esoraider_server.esologs.responses.report_data.summary import (
 logger = get_logger()
 
 
-class ReportBuilder(object):
+class ReportBuilder:
     """Performance analysis report builder."""
 
     def __init__(

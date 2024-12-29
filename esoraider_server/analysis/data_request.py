@@ -28,7 +28,7 @@ if TYPE_CHECKING:
 logger = get_logger()
 
 
-class DataRequest(object):
+class DataRequest:
     """Generates and executes ESO Logs API queries based on data to track."""
 
     def __init__(

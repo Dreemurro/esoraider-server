@@ -19,7 +19,7 @@ if TYPE_CHECKING:
 logger = get_logger()
 
 
-class Uptimes(object):
+class Uptimes:
     """Uptimes calculation based on provided info.
 
     Uptimes are calculated for skills, sets, glyphs, buffs & debuffs and their

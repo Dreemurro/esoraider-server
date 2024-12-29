@@ -15,7 +15,7 @@ from esoraider_server.esologs.responses.common import Gear, Talent
 from esoraider_server.esologs.responses.report_data.effects import Aura
 
 
-class ChecklistBuilder(object):
+class ChecklistBuilder:
     def __init__(
         self,
         spec: str,
