@@ -84,11 +84,11 @@ class DataRequest:
         targets: 'Sequence[int] | None' = None,
     ):
         if targets:
-            return 'ability.id IN ({0}) AND target.id IN ({1})'.format(
+            return 'ability.id IN ({}) AND target.id IN ({})'.format(
                 ', '.join(map(str, ability_ids)),
                 ', '.join(map(str, targets)),
             )
-        return 'ability.id IN ({0})'.format(', '.join(map(str, ability_ids)))
+        return 'ability.id IN ({})'.format(', '.join(map(str, ability_ids)))
 
     async def _request_buffs(self):
         if not self._tracked_info.buffs or self.buffs_table:
