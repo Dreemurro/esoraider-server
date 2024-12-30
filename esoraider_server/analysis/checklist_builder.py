@@ -112,7 +112,7 @@ class ChecklistBuilder:
         )
         for weapons in bars:
             wield_type = WeaponType.wield_type(*weapons)
-            rule = weapon_rules.get(wield_type, None)
+            rule = weapon_rules.get(wield_type)
             if rule:
                 self.rule_set.add(rule)
 

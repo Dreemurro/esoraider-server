@@ -129,6 +129,8 @@ class Uptimes:
                 uptime=new_uptime,
             )
 
+        raise TypeError('Unsupported type')
+
     def _calculate_skill_children_uptimes(self, skill: Skill) -> list[Skill]:
         # Not the best solution for child's children calculation
         if not skill.children:

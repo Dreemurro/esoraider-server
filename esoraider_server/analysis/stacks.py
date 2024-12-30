@@ -100,7 +100,7 @@ class Stacks:
                 if eff.guid == stack.id
             )
         except StopIteration:
-            logger.error(
+            logger.exception(
                 f"Effect of '{stack.name}' was not found. "
                 + "It's probably because of an incomplete set",
             )

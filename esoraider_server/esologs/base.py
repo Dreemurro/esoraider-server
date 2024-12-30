@@ -41,7 +41,7 @@ class ApiWrapperBase:
                 and ex.errors[0].get('message') == 'This report does not exist.'
             ):
                 raise NonexistentLogException from ex
-            raise ex
+            raise
 
         return answer
 

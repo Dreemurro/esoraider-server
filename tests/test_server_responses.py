@@ -293,4 +293,4 @@ async def test_get_encounter(test_client: 'Client', encounter: Encounter):
     response = await test_client.get(path)
 
     assert response.status_code == HTTPStatus.OK
-    assert get_json(response) or '' == encounter.response
+    assert (get_json(response) or '') == encounter.response
