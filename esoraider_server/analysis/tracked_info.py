@@ -89,9 +89,10 @@ def _get_class_skills(char_class: str) -> type['EsoEnum']:
 
     try:
         return classes[char_class]
-    except KeyError:
-        raise KeyError(
-            f'Class {char_class} is not known. Are you from the future?')
+    except KeyError as ex:
+        raise ValueError(
+            f'Class {char_class} is not known. Are you from the future?'
+        ) from ex
 
 
 class TrackedInfo:
