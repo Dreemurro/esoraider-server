@@ -64,6 +64,6 @@ class ApiWrapperBase:
             access_token_url=url.format('token'),
         )
         token, _ = await client.get_access_token(
-            '', grant_type='client_credentials',
+            '', grant_type='client_credentials'
         )
         return token

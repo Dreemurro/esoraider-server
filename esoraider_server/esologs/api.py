@@ -40,7 +40,7 @@ logger = get_logger()
 
 class ApiWrapper(ApiWrapperBase):
     async def query_encounter_info(
-        self, encounter_id: int,
+        self, encounter_id: int
     ) -> 'Encounter | None':
         await logger.ainfo(f'Requesting info on encounter = {encounter_id}')
         query = self.ds.Query.worldData
@@ -94,7 +94,7 @@ class ApiWrapper(ApiWrapperBase):
         return convert_log(await self.execute(dsl_gql(DSLQuery(query))))
 
     async def query_fight_times(
-        self, log: str, fight_id: int,
+        self, log: str, fight_id: int
     ) -> tuple[int, int]:
         await logger.ainfo('Requesting fight times')
         await logger.ainfo(f'Log = {log}')
@@ -270,7 +270,7 @@ class ApiWrapper(ApiWrapperBase):
         elif ability_id and char_id and fight_id:
             if not start_time or not end_time:
                 start_time, end_time = await self.query_fight_times(
-                    log, fight_id,
+                    log, fight_id
                 )
             if start_time == end_time:
                 raise ZeroLengthFightError
