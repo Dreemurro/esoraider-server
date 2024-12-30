@@ -249,7 +249,7 @@ async def test_get_log(test_client: 'Client', log: Log):
 @pytest.mark.parametrize('fight', FIGHTS, ids=id_of_test)
 async def test_get_fight(test_client: 'Client', fight: Log):
     path = test_client.app.route_reverse(
-        'get_fight', log=fight.log, fight=fight.fight,
+        'get_fight', log=fight.log, fight=fight.fight
     )
 
     response = await test_client.get(path)
@@ -262,7 +262,7 @@ async def test_get_fight(test_client: 'Client', fight: Log):
 @pytest.mark.parametrize('char', CHARS, ids=id_of_test)
 async def test_get_char(test_client: 'Client', char: Log):
     path = test_client.app.route_reverse(
-        'get_char', log=char.log, fight=char.fight, char=char.char,
+        'get_char', log=char.log, fight=char.fight, char=char.char
     )
 
     response = await test_client.get(path, params=char.query)
@@ -271,11 +271,11 @@ async def test_get_char(test_client: 'Client', char: Log):
     assert len(get_json(response) or {}) == len(char.response or {})
 
 
-@ pytest.mark.asyncio(loop_scope='session')
-@ pytest.mark.parametrize('fight', FIGHT_EFFECTS, ids=id_of_test)
+@pytest.mark.asyncio(loop_scope='session')
+@pytest.mark.parametrize('fight', FIGHT_EFFECTS, ids=id_of_test)
 async def test_get_fight_effects(test_client: 'Client', fight: Log):
     path = test_client.app.route_reverse(
-        'get_fight_effects', log=fight.log, fight=fight.fight,
+        'get_fight_effects', log=fight.log, fight=fight.fight
     )
 
     response = await test_client.get(path)
@@ -284,11 +284,11 @@ async def test_get_fight_effects(test_client: 'Client', fight: Log):
     assert len(get_json(response) or {}) == len(fight.response or {})
 
 
-@ pytest.mark.asyncio(loop_scope='session')
-@ pytest.mark.parametrize('encounter', ENCOUNTERS, ids=id_of_test)
+@pytest.mark.asyncio(loop_scope='session')
+@pytest.mark.parametrize('encounter', ENCOUNTERS, ids=id_of_test)
 async def test_get_encounter(test_client: 'Client', encounter: Encounter):
     path = test_client.app.route_reverse(
-        'get_encounter', encounter=encounter.id,
+        'get_encounter', encounter=encounter.id
     )
 
     response = await test_client.get(path)
