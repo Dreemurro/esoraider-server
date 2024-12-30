@@ -82,7 +82,9 @@ class Stacks:
         )
         return self._calculate_stacks_uptimes(intervals)
 
-    def _calculate_uptime_from_effects(self, stack: 'Stack') -> dict[int, float]:
+    def _calculate_uptime_from_effects(
+        self, stack: 'Stack'
+    ) -> dict[int, float]:
         char_effects = []
         effects_ids = []
 

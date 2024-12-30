@@ -205,7 +205,8 @@ class Passives(EsoEnum):
     # |------------|
     # | Dual Wield | (COMPLETELY BUGGED AS OF NOW)
     # |------------|
-    DUAL_WIELD_EXPERT = Buff(  # Potentially bugged - only tracked on log's owner
+    # Potentially bugged - only tracked on log's owner
+    DUAL_WIELD_EXPERT = Buff(
         name='Dual Wield Expert',
         id=45477,  # Additional ID - 30873
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_weapon_013.png',
@@ -217,7 +218,8 @@ class Passives(EsoEnum):
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_weapon_018.png',
         link='https://eso-hub.com/en/skills/weapon/dual-wield/controlled-fury',
     )
-    TWIN_BLADE_AND_BLUNT = Buff(  # Potentially bugged - only tracked on log's owner
+    # Potentially bugged - only tracked on log's owner
+    TWIN_BLADE_AND_BLUNT = Buff(
         name='Twin Blade and Blunt',
         id=45482,  # Additional ID - 30893
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_weapon_016.png',
