@@ -20,7 +20,6 @@ from esoraider_server.data.classes.warden.skills import WardenSkills
 from esoraider_server.data.debuffs import Debuffs
 from esoraider_server.data.glyphs import Glyphs
 from esoraider_server.data.repository import EnumESODataRepository
-from esoraider_server.data.sets import GearSets
 
 if TYPE_CHECKING:
     from esoraider_server.data.core import (
@@ -201,9 +200,8 @@ class TrackedInfo:
             gear.set_id for gear in self._summary_table.combatant_info.gear
         }
         for gear_set in char_sets:
-            try:
-                known_set = GearSets(gear_set).value
-            except StopIteration:
+            known_set = self._repository.get_gear_set(gear_set)
+            if not known_set:
                 continue
             self.sets.append(known_set)
 
