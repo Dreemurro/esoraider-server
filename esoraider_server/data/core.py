@@ -214,6 +214,7 @@ class Rule:
         return [skill.id for skill in self.required]
 
 
+# FIXME: Search takes O(n) time, use a dict instead?
 class EsoEnum(Enum):
     @classmethod
     def _missing_(cls, value):

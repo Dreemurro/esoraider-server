@@ -18,8 +18,8 @@ from esoraider_server.data.classes.sorcerer.skills import SorcererSkills
 from esoraider_server.data.classes.templar.skills import TemplarSkills
 from esoraider_server.data.classes.warden.skills import WardenSkills
 from esoraider_server.data.debuffs import Debuffs
-from esoraider_server.data.encounters import Encounters
 from esoraider_server.data.glyphs import Glyphs
+from esoraider_server.data.repository import EnumESODataRepository
 from esoraider_server.data.sets import GearSets
 
 if TYPE_CHECKING:
@@ -107,6 +107,8 @@ class TrackedInfo:
         char_class: 'CharClass | None' = None,
         encounter_info: 'Fight | None' = None,
     ) -> None:
+        self._repository = EnumESODataRepository()
+
         self._summary_table = summary_table
         self._encounter_info = encounter_info
         self._char_class = char_class
@@ -153,15 +155,14 @@ class TrackedInfo:
         logger.info('Get main targets of a fight')
         id_ = self._encounter_info.encounter_id
 
-        try:
-            encounter = Encounters(id_)
-        except StopIteration:
-            logger.info(
+        encounter = self._repository.get_encounter(id_)
+        if not encounter:
+            logger.warning(
                 f'Targets for encounter = {id_} were not found',
             )
             return
-        if encounter.value.targets:
-            self.targets = encounter.value.targets
+        if encounter.targets:
+            self.targets = encounter.targets
             for _ in self.targets:
                 logger.debug(f'{_.name} - {_.id}')
 
