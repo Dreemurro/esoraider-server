@@ -10,59 +10,53 @@ from esoraider_server.data.glyphs import Glyphs
 from esoraider_server.data.sets import GearSets
 
 if TYPE_CHECKING:
-    from esoraider_server.data.core import (
-        Buff,
-        Debuff,
-        Encounter,
-        GearSet,
-        Glyph,
-    )
+    from esoraider_server.data import core
 
 logger = get_logger()
 
 
 class ESODataRepository(metaclass=ABCMeta):
     @abstractmethod
-    def get_encounter(self, id_: int) -> 'Encounter | None':
+    def get_encounter(self, id_: int) -> 'core.Encounter | None':
         raise NotImplementedError
 
     @abstractmethod
-    def get_gear_set(self, id_: int) -> 'GearSet | None':
+    def get_gear_set(self, id_: int) -> 'core.GearSet | None':
         raise NotImplementedError
 
     @abstractmethod
-    def get_glyph(self, id_: int) -> 'Glyph | None':
+    def get_glyph(self, id_: int) -> 'core.Glyph | None':
         raise NotImplementedError
 
     @abstractmethod
-    def get_fight_buffs(self) -> 'list[Buff]':
+    def get_fight_buffs(self) -> 'list[core.Buff]':
         raise NotImplementedError
 
     @abstractmethod
-    def get_fight_debuffs(self) -> 'list[Debuff]':
+    def get_fight_debuffs(self) -> 'list[core.Debuff]':
         raise NotImplementedError
 
 
 class EnumESODataRepository(ESODataRepository):
-    def get_encounter(self, id_: int) -> 'Encounter | None':
+    def get_encounter(self, id_: int) -> 'core.Encounter | None':
         try:
             return Encounters(id_).value
         except StopIteration:
             return None
 
-    def get_gear_set(self, id_: int) -> 'GearSet | None':
+    def get_gear_set(self, id_: int) -> 'core.GearSet | None':
         try:
             return GearSets(id_).value
         except StopIteration:
             return None
 
-    def get_glyph(self, id_: int) -> 'Glyph | None':
+    def get_glyph(self, id_: int) -> 'core.Glyph | None':
         try:
             return Glyphs(id_).value
         except StopIteration:
             return None
 
-    def get_fight_buffs(self) -> 'list[Buff]':
+    def get_fight_buffs(self) -> 'list[core.Buff]':
         return [
             Buffs.MAJOR_COURAGE.value,  # Spell Power Cure, Olorime
             Buffs.MAJOR_FORCE.value,  # Saxhleel, Aggressive Horn
@@ -78,7 +72,7 @@ class EnumESODataRepository(ESODataRepository):
             Buffs.AGGRESSIVE_HORN.value,
         ]
 
-    def get_fight_debuffs(self) -> 'list[Debuff]':
+    def get_fight_debuffs(self) -> 'list[core.Debuff]':
         return [
             Debuffs.MAJOR_BREACH.value,
             Debuffs.MAJOR_VULNERABILITY.value,
