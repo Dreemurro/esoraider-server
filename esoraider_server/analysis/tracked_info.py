@@ -8,7 +8,6 @@ from esoraider_server.analysis.exceptions import (
     NothingToTrackError,
     SkillsNotFoundError,
 )
-from esoraider_server.data.buffs import Buffs
 from esoraider_server.data.classes.arcanist.skills import ArcanistSkills
 from esoraider_server.data.classes.dragonknight.skills import DragonknightSkills
 from esoraider_server.data.classes.general import GeneralSkills
@@ -17,7 +16,6 @@ from esoraider_server.data.classes.nightblade.skills import NightbladeSkills
 from esoraider_server.data.classes.sorcerer.skills import SorcererSkills
 from esoraider_server.data.classes.templar.skills import TemplarSkills
 from esoraider_server.data.classes.warden.skills import WardenSkills
-from esoraider_server.data.debuffs import Debuffs
 from esoraider_server.data.repository import EnumESODataRepository
 
 if TYPE_CHECKING:
@@ -39,32 +37,6 @@ if TYPE_CHECKING:
     )
 
 logger = get_logger()
-
-FIGHT_BUFFS = (
-    Buffs.MAJOR_COURAGE.value,  # Spell Power Cure, Olorime
-    Buffs.MAJOR_FORCE.value,  # Saxhleel, Aggressive Horn
-    # BUFFS.MAJOR_PROPHECY.value,  # Potions
-    Buffs.MAJOR_RESOLVE.value,  # Frost Cloak
-    # BUFFS.MAJOR_SAVAGERY.value,  # Potions
-    Buffs.MAJOR_SLAYER.value,  # Master Architect, War Machine, Roaring
-    Buffs.MAJOR_SORCERY.value,  # Potions, Igneous Weapons
-    Buffs.MINOR_BERSERK.value,  # Combat Prayer
-    Buffs.MINOR_PROPHECY.value,  # Sorc passive
-    Buffs.MINOR_SAVAGERY.value,  # NB passive
-    Buffs.MINOR_SORCERY.value,  # Templar passive
-    Buffs.AGGRESSIVE_HORN.value,
-)
-FIGHT_DEBUFFS = (
-    Debuffs.MAJOR_BREACH.value,
-    Debuffs.MAJOR_VULNERABILITY.value,
-    Debuffs.MINOR_BREACH.value,
-    Debuffs.MINOR_BRITTLE.value,
-    Debuffs.MINOR_LIFESTEAL.value,
-    Debuffs.MINOR_MAGICKASTEAL.value,
-    Debuffs.MINOR_MAIM.value,
-    Debuffs.MINOR_VULNERABILITY.value,
-    Debuffs.CRUSHER.value,
-)
 
 
 # Move to general skills?
@@ -123,8 +95,8 @@ class TrackedInfo:
     def extract(self):
         """Extract known skills, sets, glyphs, buffs & debuffs with stacks."""
         if not self._summary_table and not self._char_class:
-            self.buffs = list(FIGHT_BUFFS)
-            self.debuffs = list(FIGHT_DEBUFFS)
+            self.buffs = self._repository.get_fight_buffs()
+            self.debuffs = self._repository.get_fight_debuffs()
             return
 
         self._get_encounter_targets()
