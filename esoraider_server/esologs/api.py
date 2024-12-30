@@ -15,8 +15,8 @@ from esoraider_server.esologs.converters import (
     encode_graph_id,
 )
 from esoraider_server.esologs.exceptions import (
-    NonexistentFightException,
-    ZeroLengthFightException,
+    NonexistentFightError,
+    ZeroLengthFightError,
 )
 
 if TYPE_CHECKING:
@@ -114,7 +114,7 @@ class ApiWrapper(ApiWrapperBase):
         response = await self.execute(dsl_gql(DSLQuery(query)))
         fights = response.get('reportData').get('report').get('fights')
         if not fights:
-            raise NonexistentFightException
+            raise NonexistentFightError
         response = fights[0]
         return response.get('startTime'), response.get('endTime')
 
@@ -144,7 +144,7 @@ class ApiWrapper(ApiWrapperBase):
         if not start_time or not end_time:
             start_time, end_time = await self.query_fight_times(log, fight_id)
         if start_time == end_time:
-            raise ZeroLengthFightException
+            raise ZeroLengthFightError
 
         query = self.ds.Query.reportData
 
@@ -185,7 +185,7 @@ class ApiWrapper(ApiWrapperBase):
         if not start_time or not end_time:
             start_time, end_time = await self.query_fight_times(log, fight_id)
         if start_time == end_time:
-            raise ZeroLengthFightException
+            raise ZeroLengthFightError
 
         query = self.ds.Query.reportData
 
@@ -273,7 +273,7 @@ class ApiWrapper(ApiWrapperBase):
                     log, fight_id,
                 )
             if start_time == end_time:
-                raise ZeroLengthFightException
+                raise ZeroLengthFightError
 
             graph = await self.partial_query_graph(
                 data_type=data_type,

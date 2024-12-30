@@ -5,7 +5,7 @@ from gql.transport.aiohttp import AIOHTTPTransport  # type: ignore
 from gql.transport.exceptions import TransportQueryError  # type: ignore
 from structlog.stdlib import get_logger
 
-from esoraider_server.esologs.exceptions import NonexistentLogException
+from esoraider_server.esologs.exceptions import NonexistentLogError
 from esoraider_server.settings import CLIENT_ID, CLIENT_SECRET
 
 logger = get_logger()
@@ -40,7 +40,7 @@ class ApiWrapperBase:
                 and isinstance(ex.errors[0], dict)
                 and ex.errors[0].get('message') == 'This report does not exist.'
             ):
-                raise NonexistentLogException from ex
+                raise NonexistentLogError from ex
             raise
 
         return answer

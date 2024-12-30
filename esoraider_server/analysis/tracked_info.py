@@ -5,8 +5,8 @@ from typing import TYPE_CHECKING
 from structlog.stdlib import get_logger
 
 from esoraider_server.analysis.exceptions import (
-    NothingToTrackException,
-    SkillsNotFoundException,
+    NothingToTrackError,
+    SkillsNotFoundError,
 )
 from esoraider_server.data.buffs import BUFFS
 from esoraider_server.data.classes.arcanist.skills import ARCANIST_SKILLS
@@ -152,7 +152,7 @@ class TrackedInfo:
                 self.stacks,
             ))
         if not any(empty_attrs):
-            raise NothingToTrackException
+            raise NothingToTrackError
 
     def _get_encounter_targets(self):
         logger.info('Get main targets of a fight')
@@ -174,7 +174,7 @@ class TrackedInfo:
         logger.info('Get char skills from summary table')
 
         if not self._summary_table.combatant_info.talents:
-            raise SkillsNotFoundException
+            raise SkillsNotFoundError
 
         for talent in self._summary_table.combatant_info.talents:
             self._char_skills.append(talent)

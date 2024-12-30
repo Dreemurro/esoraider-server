@@ -8,16 +8,16 @@ from litestar.params import Parameter
 
 from esoraider_server import dependencies as deps
 from esoraider_server.analysis.exceptions import (
-    NothingToTrackException,
-    OutsideOfCombatException,
-    SkillsNotFoundException,
-    WrongCharException,
+    NothingToTrackError,
+    OutsideOfCombatError,
+    SkillsNotFoundError,
+    WrongCharError,
 )
 from esoraider_server.esologs.api import ApiWrapper
 from esoraider_server.esologs.exceptions import (
-    NonexistentFightException,
-    NonexistentLogException,
-    ZeroLengthFightException,
+    NonexistentFightError,
+    NonexistentLogError,
+    ZeroLengthFightError,
 )
 from esoraider_server.esologs.responses.report_data.log import Log
 from esoraider_server.esologs.responses.world_data.encounter import Encounter
@@ -65,7 +65,7 @@ async def get_log(
     usecase.log = log
     try:
         await usecase.run()
-    except NonexistentLogException as ex:
+    except NonexistentLogError as ex:
         raise NotFoundException(detail=str(ex)) from ex
     return usecase.result
 
@@ -88,9 +88,9 @@ async def get_fight(
     usecase.end_time = end_time
     try:
         await usecase.run()
-    except ZeroLengthFightException as ex:
+    except ZeroLengthFightError as ex:
         raise ValidationException(detail=str(ex)) from ex
-    except (NonexistentFightException, NonexistentLogException) as ex:
+    except (NonexistentFightError, NonexistentLogError) as ex:
         raise NotFoundException(detail=str(ex)) from ex
     return usecase.result
 
@@ -118,16 +118,16 @@ async def get_char(
     try:
         await usecase.run()
     except (
-        ZeroLengthFightException,
-        SkillsNotFoundException,
-        NothingToTrackException,
-        OutsideOfCombatException,
+        ZeroLengthFightError,
+        SkillsNotFoundError,
+        NothingToTrackError,
+        OutsideOfCombatError,
     ) as ex:
         raise ValidationException(detail=str(ex)) from ex
     except (
-        NonexistentFightException,
-        WrongCharException,
-        NonexistentLogException,
+        NonexistentFightError,
+        WrongCharError,
+        NonexistentLogError,
     ) as ex:
         raise NotFoundException(detail=str(ex)) from ex
     return usecase.result
@@ -165,9 +165,9 @@ async def get_fight_effects(
     usecase.end_time = end_time
     try:
         await usecase.run()
-    except ZeroLengthFightException as ex:
+    except ZeroLengthFightError as ex:
         raise ValidationException(detail=str(ex)) from ex
-    except (NonexistentFightException, NonexistentLogException) as ex:
+    except (NonexistentFightError, NonexistentLogError) as ex:
         raise NotFoundException(detail=str(ex)) from ex
     return usecase.result
 

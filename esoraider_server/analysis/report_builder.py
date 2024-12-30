@@ -7,8 +7,8 @@ from structlog.stdlib import get_logger
 from esoraider_server.analysis.checklist_builder import ChecklistBuilder
 from esoraider_server.analysis.data_request import DataRequest
 from esoraider_server.analysis.exceptions import (
-    OutsideOfCombatException,
-    WrongCharException,
+    OutsideOfCombatError,
+    WrongCharError,
 )
 from esoraider_server.analysis.tracked_info import TrackedInfo
 from esoraider_server.analysis.uptimes import Uptimes
@@ -124,7 +124,7 @@ class ReportBuilder:
 
     def _check(self):
         if not self._summary_table.combatant_info:
-            raise WrongCharException
+            raise WrongCharError
         is_outside_of_combat = (
             not self._summary_table.damage_done
             and not self._summary_table.healing_done
@@ -132,7 +132,7 @@ class ReportBuilder:
             and not self._summary_table.death_events
         )
         if is_outside_of_combat:
-            raise OutsideOfCombatException
+            raise OutsideOfCombatError
 
     def _get_char_info(self):
         logger.info('Getting char class and spec')

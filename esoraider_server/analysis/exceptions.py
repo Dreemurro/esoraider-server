@@ -1,26 +1,26 @@
-class AnalysisException(Exception):
+class AnalysisError(Exception):
     pass
 
 
-class SkillsNotFoundException(AnalysisException):
+class SkillsNotFoundError(AnalysisError):
     def __init__(self):
         message = 'Log is broken - character skills were not found'
         super().__init__(message)
 
 
-class NothingToTrackException(AnalysisException):
+class NothingToTrackError(AnalysisError):
     def __init__(self):
         message = 'There is nothing to track'
         super().__init__(message)
 
 
-class WrongCharException(AnalysisException):
+class WrongCharError(AnalysisError):
     def __init__(self):
         message = 'Wrong char selected'
         super().__init__(message)
 
 
-class OutsideOfCombatException(AnalysisException):
+class OutsideOfCombatError(AnalysisError):
     def __init__(self):
         message = 'This char was outside of combat'
         super().__init__(message)
