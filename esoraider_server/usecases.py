@@ -18,8 +18,7 @@ class UseCase(Generic[ResultT], metaclass=ABCMeta):
     _result: ResultT
 
     @abstractmethod
-    async def run(self) -> None:
-        ...
+    async def run(self) -> None: ...
 
     @property
     def result(self) -> ResultT:
