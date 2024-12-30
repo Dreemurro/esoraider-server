@@ -36,33 +36,26 @@ class Stacks(EsoEnum):
             # Soul Magic
             Debuffs.CONSUMING_TRAP.value,
             # DEBUFFS Soul Splitting Trap
-
             # Fighters Guild
             Debuffs.BARBED_TRAP.value,
             Debuffs.LIGHTWEIGHT_BEAST_TRAP.value,
-
             # Mages Guild
             Debuffs.SCALDING_RUNE.value,
             Debuffs.DEGENERATION.value,
             Debuffs.STRUCTURED_ENTROPY.value,
-
             # Bow
             Debuffs.POISON_INJECTION.value,
-
             # DW
             # Twin Blade and Blunt Bleed
             Debuffs.RENDING_SLASHES.value,
-
             # 2H
             # Heavy Weapons Bleed
             # Carve
             Debuffs.CARVE.value,
-
             # Destruction Staff
             Debuffs.FROST_REACH.value,
             Debuffs.SHOCK_REACH.value,
             Debuffs.FLAME_REACH.value,
-
             DragonknightDebuffs.ENGULFING_FLAMES_DAMAGE.value,
             DragonknightDebuffs.NOXIOUS_BREATH.value,
             DragonknightDebuffs.BURNING_EMBERS.value,
@@ -123,9 +116,9 @@ class Stacks(EsoEnum):
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_mage_065.png',
         max_stacks=3,
         type_=DataType.RESOURCES,
-        modifier=lambda x:
-            3 if x in range(50)
-            else (2 if x in range(50, 75) else 1),
+        modifier=lambda x: 3
+        if x in range(50)
+        else (2 if x in range(50, 75) else 1),
     )
 
     #
@@ -234,9 +227,9 @@ class BuffsWithStacks(EsoEnum):
 
 
 class DebuffsWithStacks(EsoEnum):
-    """
-    Sets
-    """
+    #
+    # Sets
+    #
     TOUCH_OF_ZEN = Debuff(
         name="Touch of Z'en",
         id=126597,

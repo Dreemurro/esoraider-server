@@ -219,6 +219,6 @@ class EsoEnum(Enum):
     def _missing_(cls, value):
         # This will allow access by id of a skill / set / buff / etc
         # i.e. BUFFS(40224) will return Skill(name='Aggressive Horn')
-        return next(filter(
-            lambda x: x.value.id == value, cls.__members__.values(),
-        ))
+        return next(
+            filter(lambda x: x.value.id == value, cls.__members__.values())
+        )

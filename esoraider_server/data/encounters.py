@@ -107,11 +107,14 @@ class Encounters(EsoEnum):
         ],
         targets=[
             Target('Assembly General', (76600,)),
-            Target('Adds', (
-                78538,  # Calefactor
-                78537,  # Capacitor
-                77464,  # Tactical Facsimile
-            )),
+            Target(
+                'Adds',
+                (
+                    78538,  # Calefactor
+                    78537,  # Capacitor
+                    77464,  # Tactical Facsimile
+                ),
+            ),
         ],
     )
 
@@ -149,10 +152,13 @@ class Encounters(EsoEnum):
         ],
         targets=[
             Target('Saint Olms the Just', (78773,)),
-            Target('Minis', (
-                79508,  # Saint Felms the Bold
-                79507,  # Saint Llothis the Pious
-            )),
+            Target(
+                'Minis',
+                (
+                    79508,  # Saint Felms the Bold
+                    79507,  # Saint Llothis the Pious
+                ),
+            ),
             Target('Ordinated Protector', (78861,)),
         ],
     )
@@ -204,15 +210,21 @@ class Encounters(EsoEnum):
             Difficulty('Veteran +3', 125),
         ],
         targets=[
-            Target("Z'Maja", (
-                83117,  # Z'Maja
-                83835,  # Shade of Z'Maja
-            )),
-            Target('Minis', (
-                83607,  # Shade of Galenwe
-                83594,  # Shade of Relequen
-                83591,  # Shade of Siroria
-            )),
+            Target(
+                "Z'Maja",
+                (
+                    83117,  # Z'Maja
+                    83835,  # Shade of Z'Maja
+                ),
+            ),
+            Target(
+                'Minis',
+                (
+                    83607,  # Shade of Galenwe
+                    83594,  # Shade of Relequen
+                    83591,  # Shade of Siroria
+                ),
+            ),
         ],
     )
 
@@ -254,13 +266,16 @@ class Encounters(EsoEnum):
         ],
         targets=[
             Target('Nahviintaas', (88345,)),
-            Target('Adds', (
-                88878,  # Alkosh's Fate
-                88874,  # Alkosh's Will
-                90100,  # Flame Atronach
-                88875,  # Fury of Alkosh
-                88871,  # Ruin of Alkosh
-            )),
+            Target(
+                'Adds',
+                (
+                    88878,  # Alkosh's Fate
+                    88874,  # Alkosh's Will
+                    90100,  # Flame Atronach
+                    88875,  # Fury of Alkosh
+                    88871,  # Ruin of Alkosh
+                ),
+            ),
         ],
     )
 
