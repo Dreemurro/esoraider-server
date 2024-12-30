@@ -133,10 +133,11 @@ class ChecklistBuilder:
         ids = [skill.guid for skill in self._skills]
         rules = [_ for _ in Rules if _.value.required]
 
-        rules_to_add = []
-        for rule in rules:
-            if any(id_ in ids for id_ in rule.value.required_ids):
-                rules_to_add.append(rule)
+        rules_to_add = [
+            rule
+            for rule in rules
+            if any(id_ in ids for id_ in rule.value.required_ids)
+        ]
 
         self.rule_set.update(rules_to_add)
 
