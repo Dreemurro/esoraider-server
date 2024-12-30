@@ -30,10 +30,7 @@ def _pairwise(iterable):
 def _convert_to_interval(bands: list['Band'] | None = None) -> Interval:
     if not bands:
         return closed()
-    return Interval(*[
-        closed(band.start_time, band.end_time)
-        for band in bands
-    ])
+    return Interval(*[closed(band.start_time, band.end_time) for band in bands])
 
 
 def _uptime_from_interval(interval: Interval, total_time: int) -> float:
@@ -78,7 +75,7 @@ class Stacks:
         series_list = self._char_graphs[stack.id]
 
         intervals = self._calculate_intervals(
-            stack.max_stacks, series_list, stack.modifier,
+            stack.max_stacks, series_list, stack.modifier
         )
         return self._calculate_stacks_uptimes(intervals)
 
@@ -97,9 +94,7 @@ class Stacks:
 
         try:
             main_effect = next(
-                eff
-                for eff in char_effects
-                if eff.guid == stack.id
+                eff for eff in char_effects if eff.guid == stack.id
             )
         except StopIteration:
             logger.exception(
@@ -141,7 +136,7 @@ class Stacks:
         return intervals
 
     def _calculate_stacks_uptimes(
-        self, intervals: dict[int, Interval],
+        self, intervals: dict[int, Interval]
     ) -> dict[int, float]:
         uptimes = {key: float(0) for key in intervals}
         for stack, interval in intervals.items():
@@ -174,7 +169,7 @@ class Stacks:
 
             to_union = len(effects) - n_stacks + 1
             effects_intervals = self._combine_and_intersect(
-                effects, n_stacks, to_union,
+                effects, n_stacks, to_union
             )
 
             calculated_stacks[n_stacks] = _uptime_from_interval(
@@ -196,7 +191,7 @@ class Stacks:
         intersected = None
         if n_stacks > 1:
             intersected = effects[0]
-            for to_intersect in effects[1:n_stacks - 1]:
+            for to_intersect in effects[1 : n_stacks - 1]:
                 intersected = intersected.intersection(to_intersect)
 
         if intersected:

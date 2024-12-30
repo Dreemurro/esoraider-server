@@ -58,9 +58,7 @@ class ChecklistBuilder:
                 self._armor.append(gear)
 
     def _add_universal_rules(self):
-        rules = (
-            Rules.UNDAUNTED,
-        )
+        rules = (Rules.UNDAUNTED,)
         for rule in rules:
             self.rule_set.add(rule)
 
@@ -154,11 +152,13 @@ class ChecklistBuilder:
                 for buff in rules.value.buffs
             ]
 
-            checklist.append({
-                'name': rules.value.name,
-                'icon': rules.value.icon,
-                'passives': buffs,
-                'status': all(buff['present'] for buff in buffs),
-            })
+            checklist.append(
+                {
+                    'name': rules.value.name,
+                    'icon': rules.value.icon,
+                    'passives': buffs,
+                    'status': all(buff['present'] for buff in buffs),
+                }
+            )
 
         self.checklist = checklist

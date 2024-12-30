@@ -136,10 +136,12 @@ class ReportBuilder:
 
     def _get_char_info(self):
         logger.info('Getting char class and spec')
-        combatant = list(filter(
-            lambda char: char.id == self.char_id,
-            self._summary_table.composition,
-        ))
+        combatant = list(
+            filter(
+                lambda char: char.id == self.char_id,
+                self._summary_table.composition,
+            )
+        )
         self._char_class = combatant[0].type
         self._char_spec = combatant[0].specs[0].spec
         self._char_name = combatant[0].name
@@ -197,49 +199,59 @@ class ReportBuilder:
                 'name': self._char_name,
                 'class': self._char_class,
                 'spec': self._char_spec,
-            } if self.char_id else {},
-            'skills':
-                sorted(
-                    [asdict(skill) for skill in self._uptimes.skills],
-                    key=id_sort,
+            }
+            if self.char_id
+            else {},
+            'skills': sorted(
+                [asdict(skill) for skill in self._uptimes.skills],
+                key=id_sort,
             )
-                if self._uptimes.skills
-                else [],
+            if self._uptimes.skills
+            else [],
             'sets': sorted(
                 [
                     asdict(gear_set, dict_factory=skip_functions)
                     for gear_set in self._uptimes.sets
                 ],
                 key=id_sort,
-            ) if self._uptimes.sets else [],
-            'glyphs':
-                sorted(
+            )
+            if self._uptimes.sets
+            else [],
+            'glyphs': sorted(
                 [asdict(glyph) for glyph in self._uptimes.glyphs],
                 key=id_sort,
-            ) if self._uptimes.glyphs else [],
-            'buffs':
-                sorted(
-                    [asdict(buff) for buff in self._uptimes.buffs],
-                    key=id_sort,
-            ) if not self.char_id and self._uptimes.buffs else [],
-            'debuffs':
-                sorted(
-                    [asdict(debuff) for debuff in self._uptimes.debuffs],
-                    key=id_sort,
-            ) if not self.char_id and self._uptimes.debuffs else [],
+            )
+            if self._uptimes.glyphs
+            else [],
+            'buffs': sorted(
+                [asdict(buff) for buff in self._uptimes.buffs],
+                key=id_sort,
+            )
+            if not self.char_id and self._uptimes.buffs
+            else [],
+            'debuffs': sorted(
+                [asdict(debuff) for debuff in self._uptimes.debuffs],
+                key=id_sort,
+            )
+            if not self.char_id and self._uptimes.debuffs
+            else [],
             'targets': sorted(
                 [asdict(target) for target in self._tracked_info.targets],
                 key=id_sort,
-            ) if self._tracked_info.targets else [],
+            )
+            if self._tracked_info.targets
+            else [],
             'currentTarget': next(
                 (
                     target
                     for target in self._tracked_info.targets
                     if target.id == self._target
-                ), None,
+                ),
+                None,
             ),
-            'checklist':
-                sorted(self._checklist.checklist, key=lambda x: x['name'])
-                if self._checklist
-                else None,
+            'checklist': sorted(
+                self._checklist.checklist, key=lambda x: x['name']
+            )
+            if self._checklist
+            else None,
         }

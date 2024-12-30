@@ -50,25 +50,21 @@ FIGHT_BUFFS = (
     # BUFFS.MAJOR_SAVAGERY.value,  # Potions
     Buffs.MAJOR_SLAYER.value,  # Master Architect, War Machine, Roaring
     Buffs.MAJOR_SORCERY.value,  # Potions, Igneous Weapons
-
     Buffs.MINOR_BERSERK.value,  # Combat Prayer
     Buffs.MINOR_PROPHECY.value,  # Sorc passive
     Buffs.MINOR_SAVAGERY.value,  # NB passive
     Buffs.MINOR_SORCERY.value,  # Templar passive
-
     Buffs.AGGRESSIVE_HORN.value,
 )
 FIGHT_DEBUFFS = (
     Debuffs.MAJOR_BREACH.value,
     Debuffs.MAJOR_VULNERABILITY.value,
-
     Debuffs.MINOR_BREACH.value,
     Debuffs.MINOR_BRITTLE.value,
     Debuffs.MINOR_LIFESTEAL.value,
     Debuffs.MINOR_MAGICKASTEAL.value,
     Debuffs.MINOR_MAIM.value,
     Debuffs.MINOR_VULNERABILITY.value,
-
     Debuffs.CRUSHER.value,
 )
 
@@ -148,7 +144,8 @@ class TrackedInfo:
                 self.buffs,
                 self.debuffs,
                 self.stacks,
-            ))
+            )
+        )
         if not any(empty_attrs):
             raise NothingToTrackError
 
@@ -239,9 +236,7 @@ class TrackedInfo:
             skill for skill in self.skills if skill.children
         ]
         children = [
-            child
-            for skill in skills_with_children
-            for child in skill.children
+            child for skill in skills_with_children for child in skill.children
         ]
         with_buffs = [
             tracked
@@ -254,16 +249,12 @@ class TrackedInfo:
             if tracked.debuffs
         ]
 
-        self.buffs.extend([
-            buff
-            for tracked in with_buffs
-            for buff in tracked.buffs
-        ])
-        self.debuffs.extend([
-            debuff
-            for tracked in with_debuffs
-            for debuff in tracked.debuffs
-        ])
+        self.buffs.extend(
+            [buff for tracked in with_buffs for buff in tracked.buffs]
+        )
+        self.debuffs.extend(
+            [debuff for tracked in with_debuffs for debuff in tracked.debuffs]
+        )
 
         logger.info(f'{len(self.buffs)} buffs to track')
         for _ in self.buffs:

@@ -54,10 +54,10 @@ class Uptimes:
 
         if not self._char_buffs and not self._char_debuffs:
             self.buffs = self._calculate_effects_uptimes(
-                self._tracked.buffs, self._requested.buffs_table.auras,
+                self._tracked.buffs, self._requested.buffs_table.auras
             )
             self.debuffs = self._calculate_effects_uptimes(
-                self._tracked.debuffs, self._requested.debuffs_table.auras,
+                self._tracked.debuffs, self._requested.debuffs_table.auras
             )
             return
 
@@ -86,31 +86,34 @@ class Uptimes:
         return new_items
 
     @overload
-    def _calculate_item_uptimes(self, eso_item: Skill) -> Skill:
-        ...
+    def _calculate_item_uptimes(self, eso_item: Skill) -> Skill: ...
 
     @overload
-    def _calculate_item_uptimes(self, eso_item: GearSet) -> GearSet:
-        ...
+    def _calculate_item_uptimes(self, eso_item: GearSet) -> GearSet: ...
 
     @overload
-    def _calculate_item_uptimes(self, eso_item: Glyph) -> Glyph:
-        ...
+    def _calculate_item_uptimes(self, eso_item: Glyph) -> Glyph: ...
 
     def _calculate_item_uptimes(self, eso_item):
-        new_buffs = self._calculate_effects_uptimes(
-            eso_item.buffs, self._char_buffs,
-        ) if eso_item.buffs else None
-        new_debuffs = self._calculate_effects_uptimes(
-            eso_item.debuffs, self._char_debuffs,
-        ) if eso_item.debuffs else None
+        new_buffs = (
+            self._calculate_effects_uptimes(eso_item.buffs, self._char_buffs)
+            if eso_item.buffs
+            else None
+        )
+        new_debuffs = (
+            self._calculate_effects_uptimes(
+                eso_item.debuffs, self._char_debuffs
+            )
+            if eso_item.debuffs
+            else None
+        )
 
         new_children: list[Skill] = []
         if isinstance(eso_item, Skill):
             new_children = self._calculate_skill_children_uptimes(eso_item)
 
         new_uptime = self._set_parent_uptime(
-            eso_item, new_buffs, new_debuffs, new_children,
+            eso_item, new_buffs, new_debuffs, new_children
         )
 
         if isinstance(eso_item, Skill):
@@ -137,8 +140,7 @@ class Uptimes:
             return []
 
         skill_children = [
-            self._calculate_item_uptimes(child)
-            for child in skill.children
+            self._calculate_item_uptimes(child) for child in skill.children
         ]
 
         new_children = []
@@ -148,8 +150,7 @@ class Uptimes:
                 child_uptime = child.uptime
             else:
                 child_uptime = self._calculate_skill_or_effect_uptime(
-                    child,
-                    self._requested.damage_done_table.entries,
+                    child, self._requested.damage_done_table.entries
                 )
             if child_uptime:
                 new_children.append(replace(child, uptime=child_uptime))
@@ -166,10 +167,9 @@ class Uptimes:
         # tracked - move calculated uptime to parent skill/set
         if isinstance(parent_item, Skill):
             uptime = parent_item.bumped_uptime(
-                buffs, debuffs, children,
+                buffs, debuffs, children
             ) or self._calculate_skill_or_effect_uptime(
-                parent_item,
-                self._requested.damage_done_table.entries,
+                parent_item, self._requested.damage_done_table.entries
             )
         elif isinstance(parent_item, GearSet | Glyph):
             uptime = parent_item.bumped_uptime(buffs, debuffs)
@@ -181,16 +181,14 @@ class Uptimes:
         self,
         effects: list[Buff],
         effects_info: list[Aura],
-    ) -> list[Buff]:
-        ...
+    ) -> list[Buff]: ...
 
     @overload
     def _calculate_effects_uptimes(
         self,
         effects: list[Debuff],
         effects_info: list[Aura],
-    ) -> list[Debuff]:
-        ...
+    ) -> list[Debuff]: ...
 
     def _calculate_effects_uptimes(self, effects, effects_info):
         new_items = []
@@ -221,8 +219,7 @@ class Uptimes:
         skill_or_effect: Skill,
         casts_or_auras: list[Cast],
         stack: 'Stack | None' = None,
-    ) -> float | None:
-        ...
+    ) -> float | None: ...
 
     @overload
     def _calculate_skill_or_effect_uptime(
@@ -230,17 +227,19 @@ class Uptimes:
         skill_or_effect: Buff | Debuff,
         casts_or_auras: list[Aura],
         stack: 'Stack | None' = None,
-    ) -> float | None:
-        ...
+    ) -> float | None: ...
 
     def _calculate_skill_or_effect_uptime(
-        self, skill_or_effect, casts_or_auras, stack=None,
+        self, skill_or_effect, casts_or_auras, stack=None
     ):
         try:
-            extracted = next(filter(
-                lambda cast_or_aura: cast_or_aura.guid == skill_or_effect.id,
-                casts_or_auras,
-            ))
+            extracted = next(
+                filter(
+                    lambda cast_or_aura: cast_or_aura.guid
+                    == skill_or_effect.id,
+                    casts_or_auras,
+                )
+            )
         except StopIteration:
             return None
 

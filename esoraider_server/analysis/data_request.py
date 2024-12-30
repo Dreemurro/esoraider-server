@@ -64,7 +64,7 @@ class DataRequest:
         """Query generation and execution."""
         if not self._start_time or not self._end_time:
             start, end = await self._api.query_fight_times(
-                self._log, self._fight_id,
+                self._log, self._fight_id
             )
             self._start_time = start
             self._end_time = end
@@ -189,7 +189,7 @@ class DataRequest:
         await logger.ainfo(f'Got {len(self.graphs)} graphs')
 
     async def _partial_graphs(
-        self, stacks: list['Stack'],
+        self, stacks: list['Stack']
     ) -> dict[str, 'DSLField']:
         stacks_dict = {}
         for stack in stacks:
@@ -223,7 +223,8 @@ class DataRequest:
 
         await logger.ainfo('Requesting Buffs table with passives from API')
         weapon_passive_ids = [
-            passive.id for passive in (
+            passive.id
+            for passive in (
                 # Next passives are not included in combatant info from events
                 # TODO: Add a special flag to buff dataclass?
                 Passives.TRI_FOCUS.value,
