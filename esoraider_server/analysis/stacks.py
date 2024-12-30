@@ -102,7 +102,7 @@ class Stacks:
         except StopIteration:
             logger.exception(
                 f"Effect of '{stack.name}' was not found. "
-                + "It's probably because of an incomplete set",
+                "It's probably because of an incomplete set",
             )
             return {0: float(0)}
 
