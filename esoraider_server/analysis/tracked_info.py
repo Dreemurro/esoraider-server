@@ -18,7 +18,6 @@ from esoraider_server.data.classes.sorcerer.skills import SorcererSkills
 from esoraider_server.data.classes.templar.skills import TemplarSkills
 from esoraider_server.data.classes.warden.skills import WardenSkills
 from esoraider_server.data.debuffs import Debuffs
-from esoraider_server.data.glyphs import Glyphs
 from esoraider_server.data.repository import EnumESODataRepository
 
 if TYPE_CHECKING:
@@ -216,9 +215,8 @@ class TrackedInfo:
             for gear in self._summary_table.combatant_info.gear
         }
         for enchant in char_enchants:
-            try:
-                known_glyph = Glyphs(enchant).value
-            except StopIteration:
+            known_glyph = self._repository.get_glyph(enchant)
+            if not known_glyph:
                 continue
             self.glyphs.append(known_glyph)
 
