@@ -40,7 +40,10 @@ class Log:
     def response(self) -> dict | None:
         if self.expected != HTTPStatus.OK:
             return None
-        path = self.log.replace(':', '-')
+        return json.decode(Path(self._get_json_path()).read_bytes())
+
+    def _get_json_path(self) -> str:
+        path = self.log.replace(':', '-')  # anon logs have colon in their id
         if self.fight:
             path = f'{path}-{self.fight}'
         if self.fight and self.char:
@@ -51,9 +54,7 @@ class Log:
             path = f'{path}-start'
         if self.end_time:
             path = f'{path}-end'
-        return json.decode(
-            Path(f'tests/files/log_{path}.json').read_bytes(),
-        )
+        return f'tests/files/log_{path}.json'
 
 
 LOGS = (

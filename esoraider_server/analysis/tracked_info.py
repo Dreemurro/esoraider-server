@@ -283,6 +283,13 @@ class TrackedInfo:
             if effect.stack
         ]
 
+        self._track_stack_effects()
+
+        logger.info(f'{len(self.stacks)} stacks to track')
+        for _ in self.stacks:
+            logger.debug(_.name)
+
+    def _track_stack_effects(self):
         for _ in self.stacks:
             if _.buffs:
                 logger.info('Found additional buffs required for stack')
@@ -294,7 +301,3 @@ class TrackedInfo:
                 self.debuffs.extend(_.debuffs)
                 for debuff in _.debuffs:
                     logger.debug(debuff.name)
-
-        logger.info(f'{len(self.stacks)} stacks to track')
-        for _ in self.stacks:
-            logger.debug(_.name)
