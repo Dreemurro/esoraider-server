@@ -1,7 +1,7 @@
 from esoraider_server.data.core import Debuff, EsoEnum
 
 
-class SORCERER_DEBUFFS(EsoEnum):
+class SorcererDebuffs(EsoEnum):
     DAEDRIC_PREY = Debuff(
         name='Daedric Prey',
         id=24328,  # Debuff ID = Skill ID, don't ask ¯\_(ツ)_/¯

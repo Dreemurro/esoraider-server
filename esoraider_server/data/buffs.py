@@ -1,7 +1,7 @@
 from esoraider_server.data.core import Buff, EsoEnum
 
 
-class BUFFS(EsoEnum):
+class Buffs(EsoEnum):
     #
     # Minor / Major
     #

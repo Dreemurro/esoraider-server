@@ -1,16 +1,14 @@
 from esoraider_server.data.classes.dragonknight.passives import (
-    DRAGONKNIGHT_PASSIVES,
+    DragonknightPassives,
 )
-from esoraider_server.data.classes.general import GENERAL_SKILLS
+from esoraider_server.data.classes.general import GeneralSkills
 from esoraider_server.data.classes.necromancer.passives import (
-    NECROMANCER_PASSIVES,
+    NecromancerPassives,
 )
-from esoraider_server.data.classes.nightblade.passives import (
-    NIGHTBLADE_PASSIVES,
-)
-from esoraider_server.data.classes.sorcerer.passives import SORCERER_PASSIVES
-from esoraider_server.data.classes.templar.passives import TEMPLAR_PASSIVES
-from esoraider_server.data.classes.warden.passives import WARDEN_PASSIVES
+from esoraider_server.data.classes.nightblade.passives import NightbladePassives
+from esoraider_server.data.classes.sorcerer.passives import SorcererPassives
+from esoraider_server.data.classes.templar.passives import TemplarPassives
+from esoraider_server.data.classes.warden.passives import WardenPassives
 from esoraider_server.data.core import EsoEnum, Rule
 from esoraider_server.data.passives import Passives
 from esoraider_server.data.races import RacialPassives
@@ -170,93 +168,93 @@ class Rules(EsoEnum):
         name='Necromancer passives',
         icon='https://eso-hub.com/storage/icons/class/gamepad/gp_class_necromancer.png',
         buffs=[
-            NECROMANCER_PASSIVES.DEATH_GLEANING.value,
-            NECROMANCER_PASSIVES.HEALTH_AVARICE.value,
-            NECROMANCER_PASSIVES.LAST_GASP.value,
+            NecromancerPassives.DEATH_GLEANING.value,
+            NecromancerPassives.HEALTH_AVARICE.value,
+            NecromancerPassives.LAST_GASP.value,
             # Reusasble Parts is not in combatant info, skipping for now
             # NECROMANCER_PASSIVES.REUSABLE_PARTS.value,
-            NECROMANCER_PASSIVES.DISMEMBER.value,
-            NECROMANCER_PASSIVES.RAPID_ROT.value,
-            NECROMANCER_PASSIVES.CURATIVE_CURSE.value,
-            NECROMANCER_PASSIVES.NEAR_DEATH_EXPERIENCE.value,
-            NECROMANCER_PASSIVES.CORPSE_CONSUMPTION.value,
-            NECROMANCER_PASSIVES.UNDEAD_CONFEDERATE.value,
+            NecromancerPassives.DISMEMBER.value,
+            NecromancerPassives.RAPID_ROT.value,
+            NecromancerPassives.CURATIVE_CURSE.value,
+            NecromancerPassives.NEAR_DEATH_EXPERIENCE.value,
+            NecromancerPassives.CORPSE_CONSUMPTION.value,
+            NecromancerPassives.UNDEAD_CONFEDERATE.value,
         ],
     )
     DRAGONKNIGHT = Rule(
         name='Dragonknight passives',
         icon='https://eso-hub.com/storage/icons/class/gamepad/gp_class_dragonknight.png',
         buffs=[
-            DRAGONKNIGHT_PASSIVES.COMBUSTION.value,
-            DRAGONKNIGHT_PASSIVES.WARMTH.value,
+            DragonknightPassives.COMBUSTION.value,
+            DragonknightPassives.WARMTH.value,
             # Next 2 are bugged
             # DRAGONKNIGHT_PASSIVES.SEARING_HEAT.value,
             # DRAGONKNIGHT_PASSIVES.WORLD_IN_RUIN.value,
-            DRAGONKNIGHT_PASSIVES.IRON_SKIN.value,
-            DRAGONKNIGHT_PASSIVES.ELDER_DRAGON.value,
+            DragonknightPassives.IRON_SKIN.value,
+            DragonknightPassives.ELDER_DRAGON.value,
             # Next one is bugged
             # DRAGONKNIGHT_PASSIVES.SCALED_ARMOR.value,
-            DRAGONKNIGHT_PASSIVES.ETERNAL_MOUNTAIN.value,
-            DRAGONKNIGHT_PASSIVES.BATTLE_ROAR.value,
+            DragonknightPassives.ETERNAL_MOUNTAIN.value,
+            DragonknightPassives.BATTLE_ROAR.value,
         ],
     )
     WARDEN = Rule(
         name='Warden passives',
         icon='https://eso-hub.com/storage/icons/class/gamepad/gp_class_warden.png',
         buffs=[
-            WARDEN_PASSIVES.BOND_WITH_NATURE.value,
-            WARDEN_PASSIVES.SAVAGE_BEAST.value,
-            WARDEN_PASSIVES.FLOURISH.value,
-            WARDEN_PASSIVES.ADVANCED_SPECIES.value,
-            WARDEN_PASSIVES.ACCELERATED_GROWTH.value,
-            WARDEN_PASSIVES.NATURES_GIFT.value,
-            WARDEN_PASSIVES.EMERALD_MOSS.value,
-            WARDEN_PASSIVES.MATURATION.value,
-            WARDEN_PASSIVES.ICY_AURA.value,
-            WARDEN_PASSIVES.PIERCING_COLD.value,
+            WardenPassives.BOND_WITH_NATURE.value,
+            WardenPassives.SAVAGE_BEAST.value,
+            WardenPassives.FLOURISH.value,
+            WardenPassives.ADVANCED_SPECIES.value,
+            WardenPassives.ACCELERATED_GROWTH.value,
+            WardenPassives.NATURES_GIFT.value,
+            WardenPassives.EMERALD_MOSS.value,
+            WardenPassives.MATURATION.value,
+            WardenPassives.ICY_AURA.value,
+            WardenPassives.PIERCING_COLD.value,
         ],
     )
     NIGHTBLADE = Rule(
         name='Nightblade passives',
         icon='https://eso-hub.com/storage/icons/class/gamepad/gp_class_nightblade.png',
         buffs=[
-            NIGHTBLADE_PASSIVES.MASTER_ASSASSIN.value,
-            NIGHTBLADE_PASSIVES.EXECUTIONER.value,
-            NIGHTBLADE_PASSIVES.PRESSURE_POINTS.value,
-            NIGHTBLADE_PASSIVES.HEMORRHAGE.value,
-            NIGHTBLADE_PASSIVES.REFRESHING_SHADOWS.value,
-            NIGHTBLADE_PASSIVES.SHADOW_BARRIER.value,
-            NIGHTBLADE_PASSIVES.DARK_VIGOR.value,
-            NIGHTBLADE_PASSIVES.DARK_VEIL.value,
-            NIGHTBLADE_PASSIVES.CATALYST.value,
-            NIGHTBLADE_PASSIVES.SOUL_SIPHONER.value,
+            NightbladePassives.MASTER_ASSASSIN.value,
+            NightbladePassives.EXECUTIONER.value,
+            NightbladePassives.PRESSURE_POINTS.value,
+            NightbladePassives.HEMORRHAGE.value,
+            NightbladePassives.REFRESHING_SHADOWS.value,
+            NightbladePassives.SHADOW_BARRIER.value,
+            NightbladePassives.DARK_VIGOR.value,
+            NightbladePassives.DARK_VEIL.value,
+            NightbladePassives.CATALYST.value,
+            NightbladePassives.SOUL_SIPHONER.value,
         ],
     )
     SORCERER = Rule(
         name='Sorcerer passives',
         icon='https://eso-hub.com/storage/icons/class/gamepad/gp_class_sorcerer.png',
         buffs=[
-            SORCERER_PASSIVES.REBATE.value,
-            SORCERER_PASSIVES.EXPERT_SUMMONER.value,
-            SORCERER_PASSIVES.BLOOD_MAGIC.value,
+            SorcererPassives.REBATE.value,
+            SorcererPassives.EXPERT_SUMMONER.value,
+            SorcererPassives.BLOOD_MAGIC.value,
             # Only activates on block, skipping for now
             # SORCERER_PASSIVES.PERSISTENCE.value,
-            SORCERER_PASSIVES.EXPLOITATION.value,
-            SORCERER_PASSIVES.ENERGIZED.value,
+            SorcererPassives.EXPLOITATION.value,
+            SorcererPassives.ENERGIZED.value,
         ],
     )
     TEMPLAR = Rule(
         name='Templar passives',
         icon='https://eso-hub.com/storage/icons/class/gamepad/gp_class_templar.png',
         buffs=[
-            TEMPLAR_PASSIVES.PIERCING_SPEAR.value,
-            TEMPLAR_PASSIVES.SPEAR_WALL.value,
-            TEMPLAR_PASSIVES.BURNING_LIGHT.value,
-            TEMPLAR_PASSIVES.ILLUMINATE.value,
-            TEMPLAR_PASSIVES.RESTORING_SPIRIT.value,
-            TEMPLAR_PASSIVES.SACRED_GROUND.value,
-            TEMPLAR_PASSIVES.LIGHT_WEAVER.value,
-            TEMPLAR_PASSIVES.MASTER_RITUALIST.value,
+            TemplarPassives.PIERCING_SPEAR.value,
+            TemplarPassives.SPEAR_WALL.value,
+            TemplarPassives.BURNING_LIGHT.value,
+            TemplarPassives.ILLUMINATE.value,
+            TemplarPassives.RESTORING_SPIRIT.value,
+            TemplarPassives.SACRED_GROUND.value,
+            TemplarPassives.LIGHT_WEAVER.value,
+            TemplarPassives.MASTER_RITUALIST.value,
         ],
     )
 
@@ -275,10 +273,10 @@ class Rules(EsoEnum):
         name='Mages Guild passives',
         icon='https://eso-hub.com/storage/icons/ability_mageguild_005.webp',
         required=[
-            GENERAL_SKILLS.DEGENERATION.value,
-            GENERAL_SKILLS.STRUCTURED_ENTROPY.value,
-            GENERAL_SKILLS.SCALDING_RUNE.value,
-            GENERAL_SKILLS.BALANCE.value,
+            GeneralSkills.DEGENERATION.value,
+            GeneralSkills.STRUCTURED_ENTROPY.value,
+            GeneralSkills.SCALDING_RUNE.value,
+            GeneralSkills.BALANCE.value,
         ],
         buffs=[
             Passives.MAGICKA_CONTROLLER.value,
@@ -289,9 +287,9 @@ class Rules(EsoEnum):
         name='Fighters Guild passives',
         icon='https://eso-hub.com/storage/icons/ability_fightersguild_005.webp',
         required=[
-            GENERAL_SKILLS.BARBED_TRAP.value,
-            GENERAL_SKILLS.LIGHTWEIGHT_BEAST_TRAP.value,
-            GENERAL_SKILLS.CAMOUFLAGED_HUNTER.value,
+            GeneralSkills.BARBED_TRAP.value,
+            GeneralSkills.LIGHTWEIGHT_BEAST_TRAP.value,
+            GeneralSkills.CAMOUFLAGED_HUNTER.value,
         ],
         buffs=[
             Passives.SLAYER.value,
@@ -301,8 +299,8 @@ class Rules(EsoEnum):
         name='Psijic Order passives',
         icon='https://eso-hub.com/storage/icons/ability_psijic_001.webp',
         required=[
-            GENERAL_SKILLS.CHANNELED_ACCELERATION.value,
-            GENERAL_SKILLS.RACE_AGAINST_TIME.value,
+            GeneralSkills.CHANNELED_ACCELERATION.value,
+            GeneralSkills.RACE_AGAINST_TIME.value,
         ],
         buffs=[
             Passives.CLAIRVOYANCE.value,

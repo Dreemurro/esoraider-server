@@ -1,25 +1,25 @@
-from esoraider_server.data.buffs import BUFFS
-from esoraider_server.data.classes.templar.buffs import TEMPLAR_BUFFS
-from esoraider_server.data.classes.templar.debuffs import TEMPLAR_DEBUFFS
+from esoraider_server.data.buffs import Buffs
+from esoraider_server.data.classes.templar.buffs import TemplarBuffs
+from esoraider_server.data.classes.templar.debuffs import TemplarDebuffs
 from esoraider_server.data.core import EsoEnum, Skill
-from esoraider_server.data.debuffs import DEBUFFS
+from esoraider_server.data.debuffs import Debuffs
 
 
-class TEMPLAR_SKILLS(EsoEnum):
+class TemplarSkills(EsoEnum):
     VAMPIRES_BANE = Skill(
         # 21729 - skill and initial damage (debuff), 21731 - DoT (also debuff)
         # Mark them as children or move to debuffs?
         name="Vampire's Bane",
         id=21729,
-        debuffs=[TEMPLAR_DEBUFFS.VAMPIRES_BANE.value],
+        debuffs=[TemplarDebuffs.VAMPIRES_BANE.value],
         link='https://eso-hub.com/en/skills/templar/dawns-wrath/vampires-bane',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_templar_vampire_bane.png',
     )
     REFLECTIVE_LIGHT = Skill(
         name='Reflective Light',
         id=21732,
-        buffs=[BUFFS.MAJOR_PROPHECY_REFLECTIVE_LIGHT.value],
-        debuffs=[TEMPLAR_DEBUFFS.REFLECTIVE_LIGHT.value],
+        buffs=[Buffs.MAJOR_PROPHECY_REFLECTIVE_LIGHT.value],
+        debuffs=[TemplarDebuffs.REFLECTIVE_LIGHT.value],
         link='https://eso-hub.com/en/skills/templar/dawns-wrath/reflective-light',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_templar_reflective_light.png',
     )
@@ -27,14 +27,14 @@ class TEMPLAR_SKILLS(EsoEnum):
         name='Power of the Light',
         id=21763,
         # Include PoTL debuff with the same ID?
-        debuffs=[DEBUFFS.MINOR_BREACH_POWER_OF_THE_LIGHT.value],
+        debuffs=[Debuffs.MINOR_BREACH_POWER_OF_THE_LIGHT.value],
         link='https://eso-hub.com/en/skills/templar/dawns-wrath/power-of-the-light',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_templar_power_of_the_light.png',
     )
     PURIFYING_LIGHT = Skill(
         name='Purifying Light',
         id=21765,
-        debuffs=[TEMPLAR_DEBUFFS.PURIFYING_LIGHT.value],
+        debuffs=[TemplarDebuffs.PURIFYING_LIGHT.value],
         link='https://eso-hub.com/en/skills/templar/dawns-wrath/purifying-light',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_templar_purifying_light.png',
     )
@@ -58,14 +58,14 @@ class TEMPLAR_SKILLS(EsoEnum):
     RESTORING_FOCUS = Skill(
         name='Restoring Focus',
         id=22237,
-        buffs=[BUFFS.MAJOR_RESOLVE_RESTORING_FOCUS.value],
+        buffs=[Buffs.MAJOR_RESOLVE_RESTORING_FOCUS.value],
         link='https://eso-hub.com/en/skills/templar/restoring-light/restoring-focus',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_templar_uninterrupted_focus.png',
     )
     CHANNELED_FOCUS = Skill(
         name='Channeled Focus',
         id=22240,
-        buffs=[BUFFS.MAJOR_RESOLVE_CHANNELED_FOCUS.value],
+        buffs=[Buffs.MAJOR_RESOLVE_CHANNELED_FOCUS.value],
         link='https://eso-hub.com/en/skills/templar/restoring-light/channeled-focus',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_templar_channeled_focus.png',
     )
@@ -80,8 +80,8 @@ class TEMPLAR_SKILLS(EsoEnum):
         tick=2,
         children=[SOLAR_BARRAGE_DAMAGE],
         buffs=[
-            TEMPLAR_BUFFS.SOLAR_BARRAGE.value,
-            BUFFS.EMPOWER_SOLAR_BARRAGE.value,
+            TemplarBuffs.SOLAR_BARRAGE.value,
+            Buffs.EMPOWER_SOLAR_BARRAGE.value,
         ],
         link='https://eso-hub.com/en/skills/templar/dawns-wrath/solar-barrage',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_templar_solar_power.png',

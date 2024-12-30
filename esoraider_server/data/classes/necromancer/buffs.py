@@ -1,7 +1,7 @@
 from esoraider_server.data.core import Buff, EsoEnum
 
 
-class NECROMANCER_BUFFS(EsoEnum):
+class NecromancerBuffs(EsoEnum):
     SKELETAL_ARCHER = Buff(
         name='Skeletal Archer',
         id=118680,  # ID matches skill, it's a pet

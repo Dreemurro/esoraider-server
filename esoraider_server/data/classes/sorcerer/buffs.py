@@ -1,7 +1,7 @@
 from esoraider_server.data.core import Buff, EsoEnum
 
 
-class SORCERER_BUFFS(EsoEnum):
+class SorcererBuffs(EsoEnum):
     POWER_SURGE = Buff(
         name='Power Surge',
         id=23674,  # Matches skill ID

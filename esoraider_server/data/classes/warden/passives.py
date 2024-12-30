@@ -1,7 +1,7 @@
 from esoraider_server.data.core import Buff, EsoEnum
 
 
-class WARDEN_PASSIVES(EsoEnum):
+class WardenPassives(EsoEnum):
     # Animal Companions
     BOND_WITH_NATURE = Buff(
         name='Bond With Nature',

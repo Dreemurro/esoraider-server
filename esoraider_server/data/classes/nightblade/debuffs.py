@@ -1,7 +1,7 @@
 from esoraider_server.data.core import Debuff, EsoEnum
 
 
-class NIGHTBLADE_DEBUFFS(EsoEnum):
+class NightbladeDebuffs(EsoEnum):
     DEBILITATE = Debuff(
         name='Debilitate',
         id=36947,

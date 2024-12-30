@@ -1,7 +1,7 @@
 from esoraider_server.data.core import Buff, EsoEnum
 
 
-class NIGHTBLADE_PASSIVES(EsoEnum):
+class NightbladePassives(EsoEnum):
     # Assassination
     MASTER_ASSASSIN = Buff(
         name='Master Assassin',

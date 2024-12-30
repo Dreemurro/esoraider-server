@@ -1,14 +1,14 @@
 from esoraider_server.data.classes.dragonknight.debuffs import (
-    DRAGONKNIGHT_DEBUFFS,
+    DragonknightDebuffs,
 )
-from esoraider_server.data.classes.templar.debuffs import TEMPLAR_DEBUFFS
-from esoraider_server.data.classes.warden.debuffs import WARDEN_DEBUFFS
+from esoraider_server.data.classes.templar.debuffs import TemplarDebuffs
+from esoraider_server.data.classes.warden.debuffs import WardenDebuffs
 from esoraider_server.data.core import Buff, Debuff, EsoEnum, Stack
-from esoraider_server.data.debuffs import DEBUFFS
+from esoraider_server.data.debuffs import Debuffs
 from esoraider_server.esologs.consts import DataType
 
 
-class STACKS(EsoEnum):
+class Stacks(EsoEnum):
     #
     # Sets
     #
@@ -28,49 +28,49 @@ class STACKS(EsoEnum):
         debuffs=[
             # This list is initially based on a work of Pandamime & Seaunicorn
             # Enchants
-            DEBUFFS.POISONED.value,
-            DEBUFFS.BURNING.value,
+            Debuffs.POISONED.value,
+            Debuffs.BURNING.value,
             # Poisons
-            DEBUFFS.CREEPING_RAVAGE_HEALTH.value,
-            DEBUFFS.RAVAGE_HEALTH.value,
+            Debuffs.CREEPING_RAVAGE_HEALTH.value,
+            Debuffs.RAVAGE_HEALTH.value,
             # Soul Magic
-            DEBUFFS.CONSUMING_TRAP.value,
+            Debuffs.CONSUMING_TRAP.value,
             # DEBUFFS Soul Splitting Trap
 
             # Fighters Guild
-            DEBUFFS.BARBED_TRAP.value,
-            DEBUFFS.LIGHTWEIGHT_BEAST_TRAP.value,
+            Debuffs.BARBED_TRAP.value,
+            Debuffs.LIGHTWEIGHT_BEAST_TRAP.value,
 
             # Mages Guild
-            DEBUFFS.SCALDING_RUNE.value,
-            DEBUFFS.DEGENERATION.value,
-            DEBUFFS.STRUCTURED_ENTROPY.value,
+            Debuffs.SCALDING_RUNE.value,
+            Debuffs.DEGENERATION.value,
+            Debuffs.STRUCTURED_ENTROPY.value,
 
             # Bow
-            DEBUFFS.POISON_INJECTION.value,
+            Debuffs.POISON_INJECTION.value,
 
             # DW
             # Twin Blade and Blunt Bleed
-            DEBUFFS.RENDING_SLASHES.value,
+            Debuffs.RENDING_SLASHES.value,
 
             # 2H
             # Heavy Weapons Bleed
             # Carve
-            DEBUFFS.CARVE.value,
+            Debuffs.CARVE.value,
 
             # Destruction Staff
-            DEBUFFS.FROST_REACH.value,
-            DEBUFFS.SHOCK_REACH.value,
-            DEBUFFS.FLAME_REACH.value,
+            Debuffs.FROST_REACH.value,
+            Debuffs.SHOCK_REACH.value,
+            Debuffs.FLAME_REACH.value,
 
-            DRAGONKNIGHT_DEBUFFS.ENGULFING_FLAMES_DAMAGE.value,
-            DRAGONKNIGHT_DEBUFFS.NOXIOUS_BREATH.value,
-            DRAGONKNIGHT_DEBUFFS.BURNING_EMBERS.value,
-            DRAGONKNIGHT_DEBUFFS.VENOMOUS_CLAW.value,
-            DRAGONKNIGHT_DEBUFFS.BURNING_TALONS.value,
-            WARDEN_DEBUFFS.FETCHER_INFECTION.value,
-            WARDEN_DEBUFFS.GROWING_SWARM.value,
-            TEMPLAR_DEBUFFS.VAMPIRES_BANE.value,
+            DragonknightDebuffs.ENGULFING_FLAMES_DAMAGE.value,
+            DragonknightDebuffs.NOXIOUS_BREATH.value,
+            DragonknightDebuffs.BURNING_EMBERS.value,
+            DragonknightDebuffs.VENOMOUS_CLAW.value,
+            DragonknightDebuffs.BURNING_TALONS.value,
+            WardenDebuffs.FETCHER_INFECTION.value,
+            WardenDebuffs.GROWING_SWARM.value,
+            TemplarDebuffs.VAMPIRES_BANE.value,
             # TEMPLAR_DEBUFFS Reflective Light
         ],
     )
@@ -169,7 +169,7 @@ class STACKS(EsoEnum):
     )
 
 
-class BUFFS_WITH_STACKS(EsoEnum):
+class BuffsWithStacks(EsoEnum):
     #
     # Sets
     #
@@ -177,43 +177,43 @@ class BUFFS_WITH_STACKS(EsoEnum):
         name="Hunter's Focus",
         id=155150,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_rogue_066.png',
-        stack=STACKS.HUNTERS_FOCUS.value,
+        stack=Stacks.HUNTERS_FOCUS.value,
     )
     SIRORIAS_BOON = Buff(
         name="Siroria's Boon",
         id=110118,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_mage_010.png',
-        stack=STACKS.SIRORIAS_BOON.value,
+        stack=Stacks.SIRORIAS_BOON.value,
     )
     BERSERKING_WARRIOR = Buff(
         name='Berserking Warrior',
         id=50978,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_warrior_005.png',
-        stack=STACKS.BERSERKING_WARRIOR.value,
+        stack=Stacks.BERSERKING_WARRIOR.value,
     )
     PRICE_OF_PRIDE = Buff(
         name='Price of Pride',
         id=163404,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_mage_065.png',
-        stack=STACKS.PRICE_OF_PRIDE.value,
+        stack=Stacks.PRICE_OF_PRIDE.value,
     )
     THUNDEROUS_VOLLEY = Buff(
         name='Thunderous Volley',
         id=99853,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_mage_065.png',
-        stack=STACKS.THUNDEROUS_VOLLEY.value,
+        stack=Stacks.THUNDEROUS_VOLLEY.value,
     )
     BAHSEIS_MANIA = Buff(
         name="Bahsei's Mania",
         id=100,  # Resource ID of magicka
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_mage_065.png',
-        stack=STACKS.BAHSEIS_MANIA.value,
+        stack=Stacks.BAHSEIS_MANIA.value,
     )
     TRUE_SWORN_FURY = Buff(
         name='True-Sworn Fury',
         id=1000,  # Resource ID of health
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_mage_065.png',
-        stack=STACKS.TRUE_SWORN_FURY.value,
+        stack=Stacks.TRUE_SWORN_FURY.value,
     )
 
     """
@@ -223,17 +223,17 @@ class BUFFS_WITH_STACKS(EsoEnum):
         name='Merciless Resolve',
         id=61919,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_nightblade_005_b.png',
-        stack=STACKS.MERCILESS_RESOLVE.value,
+        stack=Stacks.MERCILESS_RESOLVE.value,
     )
     RELENTLESS_FOCUS = Buff(
         name='Relentless Focus',
         id=61927,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_nightblade_005_a.png',
-        stack=STACKS.RELENTLESS_FOCUS.value,
+        stack=Stacks.RELENTLESS_FOCUS.value,
     )
 
 
-class DEBUFFS_WITH_STACKS(EsoEnum):
+class DebuffsWithStacks(EsoEnum):
     """
     Sets
     """
@@ -241,13 +241,13 @@ class DEBUFFS_WITH_STACKS(EsoEnum):
         name="Touch of Z'en",
         id=126597,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_healer_006.png',
-        stack=STACKS.TOUCH_OF_ZEN.value,
+        stack=Stacks.TOUCH_OF_ZEN.value,
     )
     ARMS_OF_RELEQUEN = Debuff(
         name='Arms of Relequen',
         id=107203,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_warden_003.png',
-        stack=STACKS.ARMS_OF_RELEQUEN.value,
+        stack=Stacks.ARMS_OF_RELEQUEN.value,
     )
 
     #
@@ -257,7 +257,7 @@ class DEBUFFS_WITH_STACKS(EsoEnum):
         name='Carve',
         id=38747,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_2handed_002_a.png',
-        stack=STACKS.CARVE.value,
+        stack=Stacks.CARVE.value,
     )
 
     """
@@ -267,5 +267,5 @@ class DEBUFFS_WITH_STACKS(EsoEnum):
         name='Stagger',
         id=134336,
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_dragonknight_013_a.png',
-        stack=STACKS.STAGGER.value,
+        stack=Stacks.STAGGER.value,
     )

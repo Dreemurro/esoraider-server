@@ -1,7 +1,7 @@
 from esoraider_server.data.core import Debuff, EsoEnum
 
 
-class TEMPLAR_DEBUFFS(EsoEnum):
+class TemplarDebuffs(EsoEnum):
     VAMPIRES_BANE = Debuff(
         name="Vampire's Bane",
         id=21731,

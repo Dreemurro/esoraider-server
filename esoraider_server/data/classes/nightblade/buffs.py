@@ -1,7 +1,7 @@
 from esoraider_server.data.core import Buff, EsoEnum
 
 
-class NIGHTBLADE_BUFFS(EsoEnum):
+class NightbladeBuffs(EsoEnum):
     SIPHONING_ATTACKS = Buff(
         name='Siphoning Attacks',
         id=36935,

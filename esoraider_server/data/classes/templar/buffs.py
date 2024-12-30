@@ -1,7 +1,7 @@
 from esoraider_server.data.core import Buff, EsoEnum
 
 
-class TEMPLAR_BUFFS(EsoEnum):
+class TemplarBuffs(EsoEnum):
     SOLAR_BARRAGE = Buff(
         name='Solar Barrage',
         id=22095,  # Matches skill ID

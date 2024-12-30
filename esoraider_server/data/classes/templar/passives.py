@@ -1,7 +1,7 @@
 from esoraider_server.data.core import Buff, EsoEnum
 
 
-class TEMPLAR_PASSIVES(EsoEnum):
+class TemplarPassives(EsoEnum):
     # Aedric Spear
     PIERCING_SPEAR = Buff(
         name='Piercing Spear',

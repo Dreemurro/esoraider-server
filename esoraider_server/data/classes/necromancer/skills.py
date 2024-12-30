@@ -1,10 +1,10 @@
-from esoraider_server.data.buffs import BUFFS
-from esoraider_server.data.classes.necromancer.buffs import NECROMANCER_BUFFS
+from esoraider_server.data.buffs import Buffs
+from esoraider_server.data.classes.necromancer.buffs import NecromancerBuffs
 from esoraider_server.data.core import EsoEnum, Skill
-from esoraider_server.data.debuffs import DEBUFFS
+from esoraider_server.data.debuffs import Debuffs
 
 
-class NECROMANCER_SKILLS(EsoEnum):
+class NecromancerSkills(EsoEnum):
     UNNERVING_BONEYARD_DAMAGE = Skill(
         name='Unnerving Boneyard',
         id=117809,
@@ -62,48 +62,48 @@ class NECROMANCER_SKILLS(EsoEnum):
         name='Skeletal Archer',
         id=118680,
         link='https://eso-hub.com/en/skills/necromancer/grave-lord/skeletal-archer',
-        buffs=[NECROMANCER_BUFFS.SKELETAL_ARCHER.value],
+        buffs=[NecromancerBuffs.SKELETAL_ARCHER.value],
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_necromancer_003_a.png',
     )
     SKELETAL_ARCANIST = Skill(
         name='Skeletal Arcanist',
         id=118726,
         link='https://eso-hub.com/en/skills/necromancer/grave-lord/skeletal-arcanist',
-        buffs=[NECROMANCER_BUFFS.SKELETAL_ARCANIST.value],
+        buffs=[NecromancerBuffs.SKELETAL_ARCANIST.value],
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_necromancer_003_b.png',
     )
     PESTILENT_COLOSSUS = Skill(
         name='Pestilent Colossus',
         id=122395,
         link='https://eso-hub.com/en/skills/necromancer/grave-lord/pestilent-colossus',
-        debuffs=[DEBUFFS.MAJOR_VULNERABILITY.value],
+        debuffs=[Debuffs.MAJOR_VULNERABILITY.value],
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_necromancer_006_b.png',
     )
     GLACIAL_COLOSSUS = Skill(
         name='Glacial Colossus',
         id=122388,
         link='https://eso-hub.com/en/skills/necromancer/grave-lord/glacial-colossus',
-        debuffs=[DEBUFFS.MAJOR_VULNERABILITY.value],
+        debuffs=[Debuffs.MAJOR_VULNERABILITY.value],
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_necromancer_006_a.png',
     )
     EMPOWERING_GRASP = Skill(
         name='Empowering Grasp',
         id=118352,
         link='https://eso-hub.com/en/skills/necromancer/bone-tyrant/empowering-grasp',
-        buffs=[BUFFS.EMPOWER_EMPOWERING_GRASP.value],
+        buffs=[Buffs.EMPOWER_EMPOWERING_GRASP.value],
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_necromancer_009_a.png',
     )
     BECKONING_ARMOR = Skill(
         name='Beckoning Armor',
         id=118237,
-        buffs=[BUFFS.MAJOR_RESOLVE_BECKONING_ARMOR.value],
+        buffs=[Buffs.MAJOR_RESOLVE_BECKONING_ARMOR.value],
         link='https://eso-hub.com/en/skills/necromancer/bone-tyrant/beckoning-armor',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_necromancer_008_a.png',
     )
     SUMMONERS_ARMOR = Skill(
         name="Summoner's Armor",
         id=118244,
-        buffs=[BUFFS.MAJOR_RESOLVE_SUMMONERS_ARMOR.value],
+        buffs=[Buffs.MAJOR_RESOLVE_SUMMONERS_ARMOR.value],
         link='https://eso-hub.com/en/skills/necromancer/bone-tyrant/summoners-armor',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_necromancer_008_b.png',
     )

@@ -1,10 +1,10 @@
-from esoraider_server.data.classes.nightblade.buffs import NIGHTBLADE_BUFFS
-from esoraider_server.data.classes.nightblade.debuffs import NIGHTBLADE_DEBUFFS
+from esoraider_server.data.classes.nightblade.buffs import NightbladeBuffs
+from esoraider_server.data.classes.nightblade.debuffs import NightbladeDebuffs
 from esoraider_server.data.core import EsoEnum, Skill
-from esoraider_server.data.stacks import BUFFS_WITH_STACKS
+from esoraider_server.data.stacks import BuffsWithStacks
 
 
-class NIGHTBLADE_SKILLS(EsoEnum):
+class NightbladeSkills(EsoEnum):
     TWISTING_PATH_DAMAGE = Skill(
         name='Twisting Path',
         id=36052,
@@ -20,42 +20,42 @@ class NIGHTBLADE_SKILLS(EsoEnum):
     MERCILESS_RESOLVE = Skill(
         name='Merciless Resolve',
         id=61919,
-        buffs=[BUFFS_WITH_STACKS.MERCILESS_RESOLVE.value],
+        buffs=[BuffsWithStacks.MERCILESS_RESOLVE.value],
         link='https://eso-hub.com/en/skills/nightblade/assassination/merciless-resolve',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_nightblade_005_b.png',
     )
     RELENTLESS_FOCUS = Skill(
         name='Relentless Focus',
         id=61927,
-        buffs=[BUFFS_WITH_STACKS.RELENTLESS_FOCUS.value],
+        buffs=[BuffsWithStacks.RELENTLESS_FOCUS.value],
         link='https://eso-hub.com/en/skills/nightblade/assassination/relentless-focus',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_nightblade_005_a.png',
     )
     SIPHONING_ATTACKS = Skill(
         name='Siphoning Attacks',
         id=36935,
-        buffs=[NIGHTBLADE_BUFFS.SIPHONING_ATTACKS.value],
+        buffs=[NightbladeBuffs.SIPHONING_ATTACKS.value],
         link='https://eso-hub.com/en/skills/nightblade/siphoning/siphoning-attacks',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_nightblade_003_b.png',
     )
     LEECHING_STRIKES = Skill(
         name='Leeching Strikes',
         id=36908,
-        buffs=[NIGHTBLADE_BUFFS.LEECHING_STRIKES.value],
+        buffs=[NightbladeBuffs.LEECHING_STRIKES.value],
         link='https://eso-hub.com/en/skills/nightblade/siphoning/leeching-strikes',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_nightblade_003_a.png',
     )
     DEBILITATE = Skill(
         name='Debilitate',
         id=36943,
-        debuffs=[NIGHTBLADE_DEBUFFS.DEBILITATE.value],
+        debuffs=[NightbladeDebuffs.DEBILITATE.value],
         link='https://eso-hub.com/en/skills/nightblade/siphoning/debilitate',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_nightblade_006_a.png',
     )
     CRIPPLING_GRASP = Skill(
         name='Crippling Grasp',
         id=36957,  # + upfront damage with ID = 369663
-        debuffs=[NIGHTBLADE_DEBUFFS.CRIPPLING_GRASP.value],
+        debuffs=[NightbladeDebuffs.CRIPPLING_GRASP.value],
         link='https://eso-hub.com/en/skills/nightblade/siphoning/crippling-grasp',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_nightblade_006_b.png',
     )

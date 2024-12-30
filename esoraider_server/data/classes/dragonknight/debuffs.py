@@ -1,7 +1,7 @@
 from esoraider_server.data.core import Debuff, EsoEnum
 
 
-class DRAGONKNIGHT_DEBUFFS(EsoEnum):
+class DragonknightDebuffs(EsoEnum):
     ENGULFING_FLAMES_DAMAGE = Debuff(
         name='Engulfing Flames',
         id=31104,

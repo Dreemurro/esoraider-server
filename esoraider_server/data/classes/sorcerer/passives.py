@@ -1,7 +1,7 @@
 from esoraider_server.data.core import Buff, EsoEnum
 
 
-class SORCERER_PASSIVES(EsoEnum):
+class SorcererPassives(EsoEnum):
     # Daedric Summoning
     REBATE = Buff(
         name='Rebate',

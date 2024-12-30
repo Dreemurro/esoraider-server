@@ -1,10 +1,10 @@
-from esoraider_server.data.buffs import BUFFS
+from esoraider_server.data.buffs import Buffs
 from esoraider_server.data.core import EsoEnum, Skill
-from esoraider_server.data.debuffs import DEBUFFS
-from esoraider_server.data.stacks import DEBUFFS_WITH_STACKS
+from esoraider_server.data.debuffs import Debuffs
+from esoraider_server.data.stacks import DebuffsWithStacks
 
 
-class GENERAL_SKILLS(EsoEnum):
+class GeneralSkills(EsoEnum):
     BLOCKADE_OF_STORMS_DAMAGE = Skill(
         name='Blockade of Storms',
         id=62990,
@@ -134,7 +134,7 @@ class GENERAL_SKILLS(EsoEnum):
     CAMOUFLAGED_HUNTER = Skill(
         name='Camouflaged Hunter',
         id=40195,
-        buffs=[BUFFS.MINOR_BERSERK_CAMOUFLAGED_HUNTER.value],
+        buffs=[Buffs.MINOR_BERSERK_CAMOUFLAGED_HUNTER.value],
         link='https://eso-hub.com/en/skills/guild/fighters-guild/camouflaged-hunter',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_fightersguild_002_b.png',
     )
@@ -153,14 +153,14 @@ class GENERAL_SKILLS(EsoEnum):
     BALANCE = Skill(
         name='Balance',
         id=40441,
-        buffs=[BUFFS.MAJOR_RESOLVE_BALANCE.value],
+        buffs=[Buffs.MAJOR_RESOLVE_BALANCE.value],
         link='https://eso-hub.com/en/skills/guild/mages-guild/balance',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_mageguild_003_b.png',
     )
     HEROIC_SLASH = Skill(
         name='Heroic Slash',
         id=38264,
-        buffs=[BUFFS.MINOR_HEROISM_HEROIC_SLASH.value],
+        buffs=[Buffs.MINOR_HEROISM_HEROIC_SLASH.value],
         # debuffs=[DEBUFFS.MINOR_MAIM_HEROIC_SLASH.value],
         link='https://eso-hub.com/en/skills/weapon/one-hand-and-shield/heroic-slash',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_1handed_001_a.png',
@@ -169,8 +169,8 @@ class GENERAL_SKILLS(EsoEnum):
         name='Aggressive Horn',
         id=40223,
         buffs=[
-            BUFFS.AGGRESSIVE_HORN.value,
-            BUFFS.MAJOR_FORCE_AGGRESSIVE_HORN.value,
+            Buffs.AGGRESSIVE_HORN.value,
+            Buffs.MAJOR_FORCE_AGGRESSIVE_HORN.value,
         ],
         link='https://eso-hub.com/en/skills/alliance-war/assault/aggressive-horn',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_ava_003_a.png',
@@ -178,78 +178,78 @@ class GENERAL_SKILLS(EsoEnum):
     QUICK_SIPHON = Skill(
         name='Quick Siphon',
         id=40116,
-        debuffs=[DEBUFFS.MINOR_LIFESTEAL_QUICK_SIPHON.value],
+        debuffs=[Debuffs.MINOR_LIFESTEAL_QUICK_SIPHON.value],
         link='https://eso-hub.com/en/skills/weapon/restoration-staff/quick-siphon',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_restorationstaff_005_b.png',
     )
     CHANNELED_ACCELERATION = Skill(
         name='Channeled Acceleration',
         id=103706,
-        buffs=[BUFFS.MINOR_FORCE_CHANNELED_ACCELERATION.value],
+        buffs=[Buffs.MINOR_FORCE_CHANNELED_ACCELERATION.value],
         link='https://eso-hub.com/en/skills/guild/psijic-order/channeled-acceleration',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_psijic_005_a.png',
     )
     RACE_AGAINST_TIME = Skill(
         name='Race Against Time',
         id=103710,
-        buffs=[BUFFS.MINOR_FORCE_RACE_AGAINST_TIME.value],
+        buffs=[Buffs.MINOR_FORCE_RACE_AGAINST_TIME.value],
         link='https://eso-hub.com/en/skills/guild/psijic-order/race-against-time',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_psijic_005_b.png',
     )
     BARBED_TRAP = Skill(
         name='Barbed Trap',
         id=40382,
-        buffs=[BUFFS.MINOR_FORCE_BARBED_TRAP.value],
-        debuffs=[DEBUFFS.BARBED_TRAP.value],
+        buffs=[Buffs.MINOR_FORCE_BARBED_TRAP.value],
+        debuffs=[Debuffs.BARBED_TRAP.value],
         link='https://eso-hub.com/en/skills/guild/fighters-guild/barbed-trap',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_fightersguild_004_a.png',
     )
     LIGHTWEIGHT_BEAST_TRAP = Skill(
         name='Lightweight Beast Trap',
         id=40372,
-        buffs=[BUFFS.MINOR_FORCE_LIGHTWEIGHT_BEAST_TRAP.value],
-        debuffs=[DEBUFFS.LIGHTWEIGHT_BEAST_TRAP.value],
+        buffs=[Buffs.MINOR_FORCE_LIGHTWEIGHT_BEAST_TRAP.value],
+        debuffs=[Debuffs.LIGHTWEIGHT_BEAST_TRAP.value],
         link='https://eso-hub.com/en/skills/guild/fighters-guild/lightweight-beast-trap',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_fightersguild_004_b.png',
     )
     SCALDING_RUNE = Skill(
         name='Scalding Rune',
         id=40465,
-        debuffs=[DEBUFFS.SCALDING_RUNE.value],
+        debuffs=[Debuffs.SCALDING_RUNE.value],
         link='https://eso-hub.com/en/skills/guild/mages-guild/scalding-rune',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_mageguild_001_b.png',
     )
     DEGENERATION = Skill(
         name='Degeneration',
         id=40457,
-        buffs=[BUFFS.MAJOR_SORCERY_DEGENERATION.value],
-        debuffs=[DEBUFFS.DEGENERATION.value],
+        buffs=[Buffs.MAJOR_SORCERY_DEGENERATION.value],
+        debuffs=[Debuffs.DEGENERATION.value],
         link='https://eso-hub.com/en/skills/guild/mages-guild/degeneration',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_mageguild_004_a.png',
     )
     STRUCTURED_ENTROPY = Skill(
         name='Structured Entropy',
         id=40452,
-        debuffs=[DEBUFFS.STRUCTURED_ENTROPY.value],
+        debuffs=[Debuffs.STRUCTURED_ENTROPY.value],
         link='https://eso-hub.com/en/skills/guild/mages-guild/structured-entropy',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_mageguild_004_b.png',
     )
     FLAME_REACH = Skill(
         name='Flame Reach',
         id=38944,
-        debuffs=[DEBUFFS.FLAME_REACH.value],
+        debuffs=[Debuffs.FLAME_REACH.value],
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_destructionstaff_007_b.png',
     )
     FROST_REACH = Skill(
         name='Frost Reach',
         id=38970,
-        debuffs=[DEBUFFS.FROST_REACH.value],
+        debuffs=[Debuffs.FROST_REACH.value],
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_destructionstaff_005_b.png',
     )
     SHOCK_REACH = Skill(
         name='Shock Reach',
         id=38978,
-        debuffs=[DEBUFFS.SHOCK_REACH.value],
+        debuffs=[Debuffs.SHOCK_REACH.value],
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_destructionstaff_006_b.png',
     )
     DESTRUCTIVE_REACH = Skill(
@@ -262,14 +262,14 @@ class GENERAL_SKILLS(EsoEnum):
     CONSUMING_TRAP = Skill(
         name='Consuming Trap',
         id=40317,
-        debuffs=[DEBUFFS.CONSUMING_TRAP.value],
+        debuffs=[Debuffs.CONSUMING_TRAP.value],
         link='https://eso-hub.com/en/skills/world/soul-magic/consuming-trap',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_otherclass_001_b.png',
     )
     BLESSING_OF_RESTORATION = Skill(
         name='Blessing Of Restoration',
         id=40103,
-        buffs=[BUFFS.MINOR_RESOLVE_BLESSING_OF_RESTORATION.value],
+        buffs=[Buffs.MINOR_RESOLVE_BLESSING_OF_RESTORATION.value],
         link='https://eso-hub.com/en/skills/weapon/restoration-staff/blessing-of-restoration',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_restorationstaff_003_a.png',
     )
@@ -277,8 +277,8 @@ class GENERAL_SKILLS(EsoEnum):
         name='Combat Prayer',
         id=40094,
         buffs=[
-            BUFFS.MINOR_BERSERK_COMBAT_PRAYER.value,
-            BUFFS.MINOR_RESOLVE_COMBAT_PRAYER.value,
+            Buffs.MINOR_BERSERK_COMBAT_PRAYER.value,
+            Buffs.MINOR_RESOLVE_COMBAT_PRAYER.value,
         ],
         link='https://eso-hub.com/en/skills/weapon/restoration-staff/combat-prayer',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_restorationstaff_003_b.png',
@@ -293,8 +293,8 @@ class GENERAL_SKILLS(EsoEnum):
         id=38906,
         children=[DEADLY_CLOAK_DAMAGE],
         buffs=[
-            BUFFS.DEADLY_CLOAK.value,
-            BUFFS.MAJOR_EVASION_DEADLY_CLOAK.value,
+            Buffs.DEADLY_CLOAK.value,
+            Buffs.MAJOR_EVASION_DEADLY_CLOAK.value,
         ],
         link='https://eso-hub.com/en/skills/weapon/dual-wield/deadly-cloak',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_dualwield_004_b.png',
@@ -326,21 +326,21 @@ class GENERAL_SKILLS(EsoEnum):
     RENDING_SLASHES = Skill(
         name='Rending Slashes',
         id=38839,
-        debuffs=[DEBUFFS.RENDING_SLASHES.value],
+        debuffs=[Debuffs.RENDING_SLASHES.value],
         link='https://eso-hub.com/en/skills/weapon/dual-wield/rending-slashes',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_dualwield_001_a.png',
     )
     VENOM_ARROW = Skill(
         name='Venom Arrow',
         id=38645,
-        debuffs=[DEBUFFS.VENOM_ARROW.value],
+        debuffs=[Debuffs.VENOM_ARROW.value],
         link='https://eso-hub.com/en/skills/weapon/bow/venom-arrow',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_bow_002_a.png',
     )
     POISON_INJECTION = Skill(
         name='Poison Injection',
         id=38660,
-        debuffs=[DEBUFFS.POISON_INJECTION.value],
+        debuffs=[Debuffs.POISON_INJECTION.value],
         link='https://eso-hub.com/en/skills/weapon/bow/poison-injection',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_bow_002_b.png',
     )
@@ -371,7 +371,7 @@ class GENERAL_SKILLS(EsoEnum):
     CARVE = Skill(
         name='Carve',
         id=38745,
-        debuffs=[DEBUFFS_WITH_STACKS.CARVE.value],
+        debuffs=[DebuffsWithStacks.CARVE.value],
         link='https://eso-hub.com/en/skills/weapon/two-handed/carve',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_2handed_002_a.png',
     )
@@ -395,14 +395,14 @@ class GENERAL_SKILLS(EsoEnum):
     UNSTOPPABLE_BRUTE = Skill(
         name='Unstoppable Brute',
         id=39205,
-        buffs=[BUFFS.MAJOR_RESOLVE_UNSTOPPABLE_BRUTE.value],
+        buffs=[Buffs.MAJOR_RESOLVE_UNSTOPPABLE_BRUTE.value],
         link='https://eso-hub.com/en/skills/armor/heavy-armor/unstoppable-brute',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_armor_001_a.png',
     )
     IMMOVABLE = Skill(
         name='Immovable',
         id=39197,
-        buffs=[BUFFS.MAJOR_RESOLVE_IMMOVABLE.value],
+        buffs=[Buffs.MAJOR_RESOLVE_IMMOVABLE.value],
         link='https://eso-hub.com/en/skills/armor/heavy-armor/immovable',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_armor_001_b.png',
     )
@@ -410,8 +410,8 @@ class GENERAL_SKILLS(EsoEnum):
         name='Stalwart Guard',
         id=61529,
         buffs=[
-            BUFFS.STALWART_GUARD.value,
-            BUFFS.MINOR_FORCE_STALWART_GUARD.value,
+            Buffs.STALWART_GUARD.value,
+            Buffs.MINOR_FORCE_STALWART_GUARD.value,
         ],
         link='https://eso-hub.com/en/skills/alliance-war/support/stalwart-guard',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_ava_stalwart_guard.png',
@@ -420,8 +420,8 @@ class GENERAL_SKILLS(EsoEnum):
         name='Mystic Guard',
         id=61536,
         buffs=[
-            BUFFS.MYSTIC_GUARD.value,
-            BUFFS.MINOR_VITALITY_MYSTIC_GUARD.value,
+            Buffs.MYSTIC_GUARD.value,
+            Buffs.MINOR_VITALITY_MYSTIC_GUARD.value,
         ],
         link='https://eso-hub.com/en/skills/alliance-war/support/mystic-guard',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_ava_mystic_guard.png',
@@ -429,14 +429,14 @@ class GENERAL_SKILLS(EsoEnum):
     ELUDE = Skill(
         name='Elude',
         id=39192,
-        buffs=[BUFFS.ELUDE.value, BUFFS.MAJOR_EVASION_ELUDE.value],
+        buffs=[Buffs.ELUDE.value, Buffs.MAJOR_EVASION_ELUDE.value],
         link='https://eso-hub.com/en/skills/armor/medium-armor/elude',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_armor_002_b.png',
     )
     OVERFLOWING_ALTAR = Skill(
         name='Overflowing Altar',
         id=41958,
-        debuffs=[DEBUFFS.MINOR_LIFESTEAL_OVERFLOWING_ALTAR.value],
+        debuffs=[Debuffs.MINOR_LIFESTEAL_OVERFLOWING_ALTAR.value],
         link='https://eso-hub.com/en/skills/guild/undaunted/overflowing-altar',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_undaunted_001_a.png',
     )
@@ -444,8 +444,8 @@ class GENERAL_SKILLS(EsoEnum):
         name='Elemental Drain',
         id=39095,
         debuffs=[
-            DEBUFFS.MAJOR_BREACH_ELEMENTAL_DRAIN.value,
-            DEBUFFS.MINOR_MAGICKASTEAL_ELEMENTAL_DRAIN.value,
+            Debuffs.MAJOR_BREACH_ELEMENTAL_DRAIN.value,
+            Debuffs.MINOR_MAGICKASTEAL_ELEMENTAL_DRAIN.value,
         ],
         link='https://eso-hub.com/en/skills/weapon/destruction-staff/elemental-drain',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_destructionstaff_011a.png',

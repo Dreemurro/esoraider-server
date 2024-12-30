@@ -1,7 +1,7 @@
 from esoraider_server.data.core import Debuff, EsoEnum
 
 
-class DEBUFFS(EsoEnum):
+class Debuffs(EsoEnum):
     #
     # Minor / Major
     #

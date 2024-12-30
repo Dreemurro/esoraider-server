@@ -1,7 +1,7 @@
 from esoraider_server.data.core import Buff, EsoEnum
 
 
-class DRAGONKNIGHT_BUFFS(EsoEnum):
+class DragonknightBuffs(EsoEnum):
     HARDENED_ARMOR = Buff(
         name='Hardened Armor',
         id=20328,  # Matches skill ID

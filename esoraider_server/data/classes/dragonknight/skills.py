@@ -1,18 +1,18 @@
-from esoraider_server.data.buffs import BUFFS
-from esoraider_server.data.classes.dragonknight.buffs import DRAGONKNIGHT_BUFFS
+from esoraider_server.data.buffs import Buffs
+from esoraider_server.data.classes.dragonknight.buffs import DragonknightBuffs
 from esoraider_server.data.classes.dragonknight.debuffs import (
-    DRAGONKNIGHT_DEBUFFS,
+    DragonknightDebuffs,
 )
 from esoraider_server.data.core import EsoEnum, Skill
-from esoraider_server.data.stacks import DEBUFFS_WITH_STACKS
+from esoraider_server.data.stacks import DebuffsWithStacks
 
 
-class DRAGONKNIGHT_SKILLS(EsoEnum):
+class DragonknightSkills(EsoEnum):
     # Has multiple IDs - 133027, 134355, 134340
     STONE_GIANT = Skill(
         name='Stone Giant',
         id=31816,
-        debuffs=[DEBUFFS_WITH_STACKS.STAGGER.value],
+        debuffs=[DebuffsWithStacks.STAGGER.value],
         link='https://eso-hub.com/en/skills/dragonknight/earthen-heart/stone-giant',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_dragonknight_013_a.png',
     )
@@ -20,14 +20,14 @@ class DRAGONKNIGHT_SKILLS(EsoEnum):
     ENGULFING_FLAMES = Skill(
         name='Engulfing Flames',
         id=20930,
-        debuffs=[DRAGONKNIGHT_DEBUFFS.ENGULFING_FLAMES_DAMAGE.value],
+        debuffs=[DragonknightDebuffs.ENGULFING_FLAMES_DAMAGE.value],
         link='https://eso-hub.com/en/skills/dragonknight/ardent-flame/engulfing-flames',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_dragonknight_004_b.png',
     )
     NOXIOUS_BREATH = Skill(
         name='Noxious Breath',
         id=20944,
-        debuffs=[DRAGONKNIGHT_DEBUFFS.NOXIOUS_BREATH.value],
+        debuffs=[DragonknightDebuffs.NOXIOUS_BREATH.value],
         link='https://eso-hub.com/en/skills/dragonknight/ardent-flame/noxious-breath',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_dragonknight_004_a.png',
     )
@@ -35,8 +35,8 @@ class DRAGONKNIGHT_SKILLS(EsoEnum):
         name='Igneous Weapons',
         id=31874,
         buffs=[
-            BUFFS.MAJOR_BRUTALITY_IGNEOUS_WEAPONS.value,
-            BUFFS.MAJOR_SORCERY_IGNEOUS_WEAPONS.value,
+            Buffs.MAJOR_BRUTALITY_IGNEOUS_WEAPONS.value,
+            Buffs.MAJOR_SORCERY_IGNEOUS_WEAPONS.value,
         ],
         link='https://eso-hub.com/en/skills/dragonknight/earthen-heart/igneous-weapons',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_dragonknight_015_a.png',
@@ -44,14 +44,14 @@ class DRAGONKNIGHT_SKILLS(EsoEnum):
     BURNING_EMBERS = Skill(
         name='Burning Embers',
         id=20660,
-        debuffs=[DRAGONKNIGHT_DEBUFFS.BURNING_EMBERS.value],
+        debuffs=[DragonknightDebuffs.BURNING_EMBERS.value],
         link='https://eso-hub.com/en/skills/dragonknight/ardent-flame/burning-embers',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_dragonknight_003_b.png',
     )
     VENOMOUS_CLAW = Skill(
         name='Venomous Claw',
         id=20668,
-        debuffs=[DRAGONKNIGHT_DEBUFFS.VENOMOUS_CLAW.value],
+        debuffs=[DragonknightDebuffs.VENOMOUS_CLAW.value],
         link='https://eso-hub.com/en/skills/dragonknight/ardent-flame/venomous-claw',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_dragonknight_003_a.png',
     )
@@ -82,8 +82,8 @@ class DRAGONKNIGHT_SKILLS(EsoEnum):
         id=32853,
         tick=5,
         buffs=[
-            BUFFS.MAJOR_PROPHECY_FLAMES_OF_OBLIVION.value,
-            BUFFS.MAJOR_SAVAGERY_FLAMES_OF_OBLIVION.value,
+            Buffs.MAJOR_PROPHECY_FLAMES_OF_OBLIVION.value,
+            Buffs.MAJOR_SAVAGERY_FLAMES_OF_OBLIVION.value,
         ],
         children=[FLAMES_OF_OBLIVION_DAMAGE],
         link='https://eso-hub.com/en/skills/dragonknight/ardent-flame/flames-of-oblivion',
@@ -93,8 +93,8 @@ class DRAGONKNIGHT_SKILLS(EsoEnum):
         name='Hardened Armor',
         id=20328,  # Additional ID - 31808, probably 6 sec shield
         buffs=[
-            DRAGONKNIGHT_BUFFS.HARDENED_ARMOR.value,
-            BUFFS.MAJOR_RESOLVE_HARDENED_ARMOR.value,
+            DragonknightBuffs.HARDENED_ARMOR.value,
+            Buffs.MAJOR_RESOLVE_HARDENED_ARMOR.value,
         ],
         link='https://eso-hub.com/en/skills/dragonknight/draconic-power/hardened-armor',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_dragonknight_007_b.png',
@@ -102,7 +102,7 @@ class DRAGONKNIGHT_SKILLS(EsoEnum):
     BURNING_TALONS = Skill(
         name='Burning Talons',
         id=20252,
-        debuffs=[DRAGONKNIGHT_DEBUFFS.BURNING_TALONS.value],
+        debuffs=[DragonknightDebuffs.BURNING_TALONS.value],
         link='https://eso-hub.com/en/skills/dragonknight/draconic-power/burning-talons',
         icon='https://assets.rpglogs.com/img/eso/abilities/ability_dragonknight_010_b.png',
     )

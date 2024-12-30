@@ -8,21 +8,19 @@ from esoraider_server.analysis.exceptions import (
     NothingToTrackError,
     SkillsNotFoundError,
 )
-from esoraider_server.data.buffs import BUFFS
-from esoraider_server.data.classes.arcanist.skills import ARCANIST_SKILLS
-from esoraider_server.data.classes.dragonknight.skills import (
-    DRAGONKNIGHT_SKILLS,
-)
-from esoraider_server.data.classes.general import GENERAL_SKILLS
-from esoraider_server.data.classes.necromancer.skills import NECROMANCER_SKILLS
-from esoraider_server.data.classes.nightblade.skills import NIGHTBLADE_SKILLS
-from esoraider_server.data.classes.sorcerer.skills import SORCERER_SKILLS
-from esoraider_server.data.classes.templar.skills import TEMPLAR_SKILLS
-from esoraider_server.data.classes.warden.skills import WARDEN_SKILLS
-from esoraider_server.data.debuffs import DEBUFFS
+from esoraider_server.data.buffs import Buffs
+from esoraider_server.data.classes.arcanist.skills import ArcanistSkills
+from esoraider_server.data.classes.dragonknight.skills import DragonknightSkills
+from esoraider_server.data.classes.general import GeneralSkills
+from esoraider_server.data.classes.necromancer.skills import NecromancerSkills
+from esoraider_server.data.classes.nightblade.skills import NightbladeSkills
+from esoraider_server.data.classes.sorcerer.skills import SorcererSkills
+from esoraider_server.data.classes.templar.skills import TemplarSkills
+from esoraider_server.data.classes.warden.skills import WardenSkills
+from esoraider_server.data.debuffs import Debuffs
 from esoraider_server.data.encounters import Encounters
-from esoraider_server.data.glyphs import GLYPHS
-from esoraider_server.data.sets import GEAR_SETS
+from esoraider_server.data.glyphs import Glyphs
+from esoraider_server.data.sets import GearSets
 
 if TYPE_CHECKING:
     from esoraider_server.data.core import (
@@ -45,46 +43,46 @@ if TYPE_CHECKING:
 logger = get_logger()
 
 FIGHT_BUFFS = (
-    BUFFS.MAJOR_COURAGE.value,  # Spell Power Cure, Olorime
-    BUFFS.MAJOR_FORCE.value,  # Saxhleel, Aggressive Horn
+    Buffs.MAJOR_COURAGE.value,  # Spell Power Cure, Olorime
+    Buffs.MAJOR_FORCE.value,  # Saxhleel, Aggressive Horn
     # BUFFS.MAJOR_PROPHECY.value,  # Potions
-    BUFFS.MAJOR_RESOLVE.value,  # Frost Cloak
+    Buffs.MAJOR_RESOLVE.value,  # Frost Cloak
     # BUFFS.MAJOR_SAVAGERY.value,  # Potions
-    BUFFS.MAJOR_SLAYER.value,  # Master Architect, War Machine, Roaring
-    BUFFS.MAJOR_SORCERY.value,  # Potions, Igneous Weapons
+    Buffs.MAJOR_SLAYER.value,  # Master Architect, War Machine, Roaring
+    Buffs.MAJOR_SORCERY.value,  # Potions, Igneous Weapons
 
-    BUFFS.MINOR_BERSERK.value,  # Combat Prayer
-    BUFFS.MINOR_PROPHECY.value,  # Sorc passive
-    BUFFS.MINOR_SAVAGERY.value,  # NB passive
-    BUFFS.MINOR_SORCERY.value,  # Templar passive
+    Buffs.MINOR_BERSERK.value,  # Combat Prayer
+    Buffs.MINOR_PROPHECY.value,  # Sorc passive
+    Buffs.MINOR_SAVAGERY.value,  # NB passive
+    Buffs.MINOR_SORCERY.value,  # Templar passive
 
-    BUFFS.AGGRESSIVE_HORN.value,
+    Buffs.AGGRESSIVE_HORN.value,
 )
 FIGHT_DEBUFFS = (
-    DEBUFFS.MAJOR_BREACH.value,
-    DEBUFFS.MAJOR_VULNERABILITY.value,
+    Debuffs.MAJOR_BREACH.value,
+    Debuffs.MAJOR_VULNERABILITY.value,
 
-    DEBUFFS.MINOR_BREACH.value,
-    DEBUFFS.MINOR_BRITTLE.value,
-    DEBUFFS.MINOR_LIFESTEAL.value,
-    DEBUFFS.MINOR_MAGICKASTEAL.value,
-    DEBUFFS.MINOR_MAIM.value,
-    DEBUFFS.MINOR_VULNERABILITY.value,
+    Debuffs.MINOR_BREACH.value,
+    Debuffs.MINOR_BRITTLE.value,
+    Debuffs.MINOR_LIFESTEAL.value,
+    Debuffs.MINOR_MAGICKASTEAL.value,
+    Debuffs.MINOR_MAIM.value,
+    Debuffs.MINOR_VULNERABILITY.value,
 
-    DEBUFFS.CRUSHER.value,
+    Debuffs.CRUSHER.value,
 )
 
 
 # Move to general skills?
 def _get_class_skills(char_class: str) -> type['EsoEnum']:
     classes = {
-        'Nightblade': NIGHTBLADE_SKILLS,
-        'DragonKnight': DRAGONKNIGHT_SKILLS,
-        'Warden': WARDEN_SKILLS,
-        'Templar': TEMPLAR_SKILLS,
-        'Necromancer': NECROMANCER_SKILLS,
-        'Sorcerer': SORCERER_SKILLS,
-        'Arcanist': ARCANIST_SKILLS,
+        'Nightblade': NightbladeSkills,
+        'DragonKnight': DragonknightSkills,
+        'Warden': WardenSkills,
+        'Templar': TemplarSkills,
+        'Necromancer': NecromancerSkills,
+        'Sorcerer': SorcererSkills,
+        'Arcanist': ArcanistSkills,
     }
 
     try:
@@ -183,7 +181,7 @@ class TrackedInfo:
     def _get_known_skills(self):
         logger.info('Checking extracted skills in enum of skills to track')
 
-        general_skills = GENERAL_SKILLS
+        general_skills = GeneralSkills
         class_skills = _get_class_skills(self._char_class.value)
 
         for skill in self._char_skills:
@@ -206,7 +204,7 @@ class TrackedInfo:
         }
         for gear_set in char_sets:
             try:
-                known_set = GEAR_SETS(gear_set).value
+                known_set = GearSets(gear_set).value
             except StopIteration:
                 continue
             self.sets.append(known_set)
@@ -223,7 +221,7 @@ class TrackedInfo:
         }
         for enchant in char_enchants:
             try:
-                known_glyph = GLYPHS(enchant).value
+                known_glyph = Glyphs(enchant).value
             except StopIteration:
                 continue
             self.glyphs.append(known_glyph)

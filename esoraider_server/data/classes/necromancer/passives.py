@@ -1,7 +1,7 @@
 from esoraider_server.data.core import Buff, EsoEnum
 
 
-class NECROMANCER_PASSIVES(EsoEnum):
+class NecromancerPassives(EsoEnum):
     # Bone Tyrant
     DEATH_GLEANING = Buff(
         name='Death Gleaning',

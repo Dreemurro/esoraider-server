@@ -1,7 +1,7 @@
 from esoraider_server.data.core import Debuff, EsoEnum
 
 
-class WARDEN_DEBUFFS(EsoEnum):
+class WardenDebuffs(EsoEnum):
     FETCHER_INFECTION = Debuff(
         name='Fetcher Infection',
         id=101904,

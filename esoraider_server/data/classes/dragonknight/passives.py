@@ -1,7 +1,7 @@
 from esoraider_server.data.core import Buff, EsoEnum
 
 
-class DRAGONKNIGHT_PASSIVES(EsoEnum):
+class DragonknightPassives(EsoEnum):
     # Ardent Flame
     COMBUSTION = Buff(
         name='Combustion',
