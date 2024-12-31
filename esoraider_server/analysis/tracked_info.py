@@ -1,5 +1,6 @@
 """Known data extraction."""
 
+from functools import partial
 from typing import TYPE_CHECKING
 
 from structlog.stdlib import get_logger
@@ -8,21 +9,12 @@ from esoraider_server.analysis.exceptions import (
     NothingToTrackError,
     SkillsNotFoundError,
 )
-from esoraider_server.data.classes.arcanist.skills import ArcanistSkills
-from esoraider_server.data.classes.dragonknight.skills import DragonknightSkills
-from esoraider_server.data.classes.general import GeneralSkills
-from esoraider_server.data.classes.necromancer.skills import NecromancerSkills
-from esoraider_server.data.classes.nightblade.skills import NightbladeSkills
-from esoraider_server.data.classes.sorcerer.skills import SorcererSkills
-from esoraider_server.data.classes.templar.skills import TemplarSkills
-from esoraider_server.data.classes.warden.skills import WardenSkills
 from esoraider_server.data.repository import EnumESODataRepository
 
 if TYPE_CHECKING:
     from esoraider_server.data.core import (
         Buff,
         Debuff,
-        EsoEnum,
         GearSet,
         Glyph,
         Skill,
@@ -37,26 +29,6 @@ if TYPE_CHECKING:
     )
 
 logger = get_logger()
-
-
-# Move to general skills?
-def _get_class_skills(char_class: str) -> type['EsoEnum']:
-    classes = {
-        'Nightblade': NightbladeSkills,
-        'DragonKnight': DragonknightSkills,
-        'Warden': WardenSkills,
-        'Templar': TemplarSkills,
-        'Necromancer': NecromancerSkills,
-        'Sorcerer': SorcererSkills,
-        'Arcanist': ArcanistSkills,
-    }
-
-    try:
-        return classes[char_class]
-    except KeyError as ex:
-        raise ValueError(
-            f'Class {char_class} is not known. Are you from the future?'
-        ) from ex
 
 
 class TrackedInfo:
@@ -149,14 +121,15 @@ class TrackedInfo:
     def _get_known_skills(self):
         logger.info('Checking extracted skills in enum of skills to track')
 
-        general_skills = GeneralSkills
-        class_skills = _get_class_skills(self._char_class.value)
+        general_skills = self._repository.get_general_skill
+        class_skills = partial(
+            self._repository.get_class_skill, class_=self._char_class
+        )
 
         for skill in self._char_skills:
             for skills_enum in (general_skills, class_skills):
-                try:
-                    known_skill: Skill = skills_enum(skill.guid).value
-                except StopIteration:
+                known_skill = skills_enum(id_=skill.guid)
+                if not known_skill:
                     continue
                 self.skills.add(known_skill)
                 break
